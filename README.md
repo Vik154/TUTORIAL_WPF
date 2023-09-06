@@ -9,3 +9,8 @@
 3. :page_with_curl: Документация:
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/fundamentals/languages
    +
+
+## Структура проекта:
+1. Основные элементы компоновки:
+   * *Canvas*
+   * StackPanel 
