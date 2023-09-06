@@ -11,11 +11,16 @@ public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
         Pages.Add(new _01_CanvasBase());
+        Pages.Add(new _02_CanvasFromCode());
+        
     }
 
-    private void _01_Canvas_Click(object sender, RoutedEventArgs e) {
+    /// <summary> Отображает страницу 01_CanvasBase </summary>
+    private void _01_Canvas_Click(object sender, RoutedEventArgs e) { 
         _frame.Content = Pages[0];
     }
 
-
+    private void _02_Canvas_Click(object sender, RoutedEventArgs e) {
+        _frame.Content = Pages[1];
+    }
 }

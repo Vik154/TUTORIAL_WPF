@@ -14,6 +14,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
+        <Frame x:Name="_frame"
+               Grid.Column="1"
+               Background="LightGreen">
+        </Frame>
+        
         <StackPanel Grid.Column="0">
             <Button x:Name="_01_Canvas"
                     Content="Пример 1 - Canvas__01"
@@ -23,11 +28,17 @@
                     FontStyle="Italic"
                     Click="_01_Canvas_Click">
             </Button>
+
+            <Button x:Name="_02_Canvas"
+                    Content="Пример 2 - Canvas__02"
+                    Background="#FF1F8CD4"
+                    HorizontalContentAlignment="Left"
+                    FontWeight="Bold"
+                    FontStyle="Italic"
+                    Click="_02_Canvas_Click">
+            </Button>
         </StackPanel>
 
-        <Frame x:Name="_frame"
-               Grid.Column="1"
-               Background="LightGreen">
-        </Frame>
+
     </Grid>
 </Window>
