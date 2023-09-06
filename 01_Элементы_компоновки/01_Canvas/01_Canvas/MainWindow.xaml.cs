@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace _01_Canvas;
 
 public partial class MainWindow : Window {
+
+    private List<Page> Pages { get; set; } = new List<Page>();
+
     public MainWindow() {
         InitializeComponent();
+        Pages.Add(new _01_CanvasBase());
     }
+
+    private void _01_Canvas_Click(object sender, RoutedEventArgs e) {
+        _frame.Content = Pages[0];
+    }
+
+
 }
