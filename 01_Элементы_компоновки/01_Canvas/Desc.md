@@ -18,21 +18,31 @@
         Width         ="640"
         >
     <Grid>
+        <!--Разделение окна на 4 части 2 столбца и 2 строки-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
-        <!-- Создание canvas -->
-        <Canvas Width="200"     comment:Width="Задает ширину" 
-                Height="200"    comment:w="eee"            
-                Background="Aqua"   Margin="10,10,110,254">
+        <!-- Пример работы с Canvas и его свойствами -->
+        <Canvas 
+            x:Name      ="MyFirstCanvas"    comment:Name        ="Задает имя и предоставляет ссылку на данный элемент"
+            Width       ="280"              comment:Width       ="Задает ширину контейнера"
+            MaxWidth    ="290"              comment:MaxWidth    ="Задает максимальную ширину контейнера"
+            MinWidth    ="100"              comment:MinWidth    ="Задает минимальную ширину контейнера"
+            Height      ="200"              comment:Height      ="Задает высоту контейнера"
+            MaxHeight   ="220"              comment:MaxHeight   ="Задает максимальную высоту контейнера"
+            Margin      ="10,10,110,254"    comment:Margin      ="Задает внешние отступы (некоторое пространство вокруг элемента)"
+            Background  ="Aqua"
+                >
         </Canvas>
 
     </Grid>
 </Window>
-
-
 ~~~
 
 
