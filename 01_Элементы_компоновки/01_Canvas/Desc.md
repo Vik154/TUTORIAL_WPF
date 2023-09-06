@@ -5,11 +5,29 @@
 
 ~~~ XAML
 <!--Пример создания-->
-<Canvas 
-        Width="300"
-        Height="300"
-        Background="Aqua">
-</Canvas>
+<Window x:Class="_01_Canvas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_01_Canvas"
+        xmlns:comment = "Тег для создания комментариев"
+        mc:Ignorable="d comment"
+        Title="MainWindow" Height="480" Width="640">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!-- Создание canvas -->
+        <Canvas Width="200"     comment:Width="Задает ширину" 
+                Height="200"    comment:w="eee"            
+                Background="Aqua"   Margin="10,10,110,254">
+        </Canvas>
+
+    </Grid>
+</Window>
+
 ~~~
 
 
