@@ -13,5 +13,5 @@
 
 ## Структура проекта:
 1. Основные элементы компоновки:
-   * *Canvas* [ссылка](https://github.com/Vik154/TUTORIAL_WPF/blob/main/01_Элементы_компоновки/01_Canvas/Description.md)
+   * *Canvas*        --->     [01_Canvas](https://github.com/Vik154/TUTORIAL_WPF/blob/main/01_Элементы_компоновки/01_Canvas/Description.md)
    * StackPanel 
