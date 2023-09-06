@@ -11,7 +11,7 @@
         xmlns:d       ="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc      ="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local   ="clr-namespace:_01_Canvas"
-        xmlns:comment = "Тег для создания комментариев"
+        xmlns:comment ="Тег для создания комментариев"
         mc:Ignorable  ="d comment"
         Title         ="MainWindow"
         Height        ="480"
@@ -29,20 +29,41 @@
         </Grid.RowDefinitions>
         
         <!-- Пример работы с Canvas и его свойствами -->
-        <Canvas 
+        <Canvas
             x:Name      ="MyFirstCanvas"    comment:Name        ="Задает имя и предоставляет ссылку на данный элемент"
             Width       ="280"              comment:Width       ="Задает ширину контейнера"
             MaxWidth    ="290"              comment:MaxWidth    ="Задает максимальную ширину контейнера"
             MinWidth    ="100"              comment:MinWidth    ="Задает минимальную ширину контейнера"
             Height      ="200"              comment:Height      ="Задает высоту контейнера"
             MaxHeight   ="220"              comment:MaxHeight   ="Задает максимальную высоту контейнера"
+            MinHeight   ="110"              comment:MinHeight   ="Задает минимальную высоту контейнера"
             Margin      ="10,10,110,254"    comment:Margin      ="Задает внешние отступы (некоторое пространство вокруг элемента)"
-            Background  ="Aqua"
-                >
+            Background  ="#FF227C7C"      comment:Background  ="Задает задний фон элемента"
+            AllowDrop   ="True"             comment:AllowDrop   ="Свойство разрешающее участвовать элементу в операциях перетаскивания."
+            
+            BindingGroup    ="{Binding}"    comment:BindingGroup    ="Создает связь между несколькими привязками, которые можно проверять и обновлять вместе"
+            CacheMode       ="{Binding}"    comment:CacheMode       ="Используется для повышения производительности отрисовки сложного элемента UIElement"
+            Clip            ="{Binding}"    comment:Clip            ="Задает геометрию, используемую для определения контура содержимого элемента"
+            ClipToBounds    ="True"         comment:ClipToBounds    ="true, если содержимое необходимо отсечь, по умолчанию — false"
+            ContextMenu     ="{Binding}"    comment:ContextMenu     ="Задает элемент контекстного меню"
+            Cursor          ="IBeam"        comment:Cursor          ="Установка курсора, который отображается при наведении указателя мыши на этот элемент."
+            DataContext     ="{Binding}"    comment:DataContext     ="Задает контекст данных для элемента, участвующего в привязке данных."
+            Effect          ="{Binding}"    comment:Effect          ="Задает эффект растрового изображения, который применяется к объекту UIElement."
+            FlowDirection   ="LeftToRight"  comment:FlowDirection   ="Задает направление потока текста и других элементов пользовательского интерфейса"
+            Focusable       ="False"        comment:Focusable       ="true, если данный элемент может иметь фокус, иначе — false (по умолчанию)"
+            FocusVisualStyle="{Binding}"    comment:FocusVisualStyle="Задает стиль элемента при получении фокуса"
+            ForceCursor     ="False"        comment:ForceCursor     ="Следует ли принудительно отображать курсор в пользовательском интерфейсе, объявленный свойством Cursor"
+            InputScope      ="Number"       comment:InputScope      ="Область ввода, которая изменяет интерпретацию ввода с помощью альтернативных методов"
+            IsEnabled       ="True"         comment:IsEnabled       ="Указывает, включен ли этот элемент в пользовательском интерфейсе, по умолчанию - true"
+            IsHitTestVisible="True"         comment:IsHitTestVisible="Проверка попадания по элементу; true, если этот элемент может возвращаться в результате проверки"
+            Language        ="ru-ru"        comment:Language        ="Задает сведения о языке локализации и глобализации"         
+            >
+            
         </Canvas>
 
     </Grid>
 </Window>
+
 ~~~
 
 
