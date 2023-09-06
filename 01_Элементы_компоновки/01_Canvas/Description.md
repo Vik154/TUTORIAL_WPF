@@ -18,16 +18,6 @@
         Width         ="640"
         >
     <Grid>
-        <!--Разделение окна на 4 части 2 столбца и 2 строки-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        
         <!-- Пример работы с Canvas и его свойствами -->
         <Canvas
             x:Name      ="MyFirstCanvas"    comment:Name        ="Задает имя и предоставляет ссылку на данный элемент"
