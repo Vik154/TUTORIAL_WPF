@@ -38,7 +38,7 @@
             MaxHeight   ="220"              comment:MaxHeight   ="Задает максимальную высоту контейнера"
             MinHeight   ="110"              comment:MinHeight   ="Задает минимальную высоту контейнера"
             Margin      ="10,10,110,254"    comment:Margin      ="Задает внешние отступы (некоторое пространство вокруг элемента)"
-            Background  ="#FF227C7C"      comment:Background  ="Задает задний фон элемента"
+            Background  ="#FF227C7C"        comment:Background  ="Задает задний фон элемента"
             AllowDrop   ="True"             comment:AllowDrop   ="Свойство разрешающее участвовать элементу в операциях перетаскивания."
             
             BindingGroup    ="{Binding}"    comment:BindingGroup    ="Создает связь между несколькими привязками, которые можно проверять и обновлять вместе"
@@ -57,15 +57,17 @@
             IsEnabled       ="True"         comment:IsEnabled       ="Указывает, включен ли этот элемент в пользовательском интерфейсе, по умолчанию - true"
             IsHitTestVisible="True"         comment:IsHitTestVisible="Проверка попадания по элементу; true, если этот элемент может возвращаться в результате проверки"
             Language        ="ru-ru"        comment:Language        ="Задает сведения о языке локализации и глобализации"         
-            >
-            
+            LayoutTransform ="Identity"     comment:LayoutTransform ="Задает графическое преобразование, которое применяется к элементу"
+            Opacity         ="1"            comment:Opacity         ="Задает коэффициент непрозрачности от 0,1 до 1,0, применяемый ко всем UIElement при отрисовке"
+            OpacityMask     ="Beige"        comment:OpacityMask     ="Задает маску непрозрачности"
+            Style           ="{Binding}"    comment:Style           ="Задает стиль, который должен использоваться этим элементом при его отрисовке"
+            Tag             ="MyCanvasTag"  comment:Tag             ="Установка произвольного значения объекта, которое может использоваться для хранения особых сведений об этом элементе."
+            ToolTip         ="Подсказка"    comment:ToolTip         ="Задает объект подсказки, отображаемый для этого элемента"
+            Uid             ="UNIQGUID"     comment:Uid             ="Задает уникальный строковый идентификатор (в целях локализации) для этого элемента"
+            Visibility      ="Visible"      comment:Visibility      ="Задает видимость этого элемента в пользовательском интерфейсе."
+        >            
         </Canvas>
 
     </Grid>
 </Window>
-
 ~~~
-
-
-
-
