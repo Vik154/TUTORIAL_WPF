@@ -296,13 +296,14 @@ public partial class MainWindow : Window {
                 SizeChanged="EvSizeChanged" 
                 KeyDown="EvKeyDown">
 
-        <Label x:Name="_label" Canvas.Top="50" Canvas.Left="100"
-               Width="100" Height="30" Content="Координаты" />
+          <Label x:Name="_label" Canvas.Top="50" Canvas.Left="100"
+                 Width="100" Height="30" Content="Координаты">
+          </Label>
 
-        <Button x:Name="_button" Canvas.Top="100" Canvas.Left="100"
-            Padding="5" Content="Изменить размер"
-            Click="EvClick">
-        </Button>
+          <Button x:Name="_button" Canvas.Top="100" Canvas.Left="100"
+                  Padding="5" Content="Изменить размер"
+                  Click="EvClick">
+          </Button>
         </Canvas>
     </Grid>
 </Window>
