@@ -285,28 +285,24 @@ public partial class MainWindow : Window {
 ~~~
 
 #### Примеры работы с событиями
-<img align="right" width="400" Height="325" src="02_Canvas/img/Canvas2.png" alt="Пример работы данного кода" />
+<img align="right" width="400" Height="400" src="02_Canvas/img/Canvas2.png" alt="Пример работы данного кода" />
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-
-        <!-- Пример обработки событий -->
-        <Canvas x:Name="_canvas"
-                Height="200"
+    <Grid>
+        <Canvas x:Name="_canvas" Height="200" Focusable="True"
                 Background="Azure" 
                 MouseMove="EvMouseMove" 
                 SizeChanged="EvSizeChanged" 
-                KeyDown="EvKeyDown"
-                Focusable="True">
-            
-            <Label x:Name="_label" Canvas.Top="50" Canvas.Left="100"
-                   Width="100" Height="30" Content="Координаты">
-            </Label>
+                KeyDown="EvKeyDown">
 
-            <Button x:Name="_button" Canvas.Top="100" Canvas.Left="100"
-                    Padding="5" Content="Изменить размер"
-                    Click="EvClick">
-            </Button>
+        <Label x:Name="_label" Canvas.Top="50" Canvas.Left="100"
+               Width="100" Height="30" Content="Координаты" />
+
+        <Button x:Name="_button" Canvas.Top="100" Canvas.Left="100"
+            Padding="5" Content="Изменить размер"
+            Click="EvClick">
+        </Button>
         </Canvas>
     </Grid>
 </Window>
