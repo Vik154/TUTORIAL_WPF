@@ -209,8 +209,9 @@ void TouchUp(object sender, TouchEventArgs e);                  // Возник�
 ~~~
 
 #### Примеры взаимодействия с Canvas
-| Header A       | Header B       |
-| -------------- | -------------- |
-| ~~~xaml        | row 1 col 2    |
-| <Page></Page>  |                |
-| ~~~            | row 2 column 2 |
+<img align="left" width="200" src="https://www.rd.com/wp-content/uploads/2018/02/25_Hilarious-Photos-that-Will-Get-You-Through-the-Week_280228817_Doty911.jpg" />
+
+# Headline 
+
+Some text
+
