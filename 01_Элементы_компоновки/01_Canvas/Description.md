@@ -146,38 +146,39 @@ void MouseRightButtonUp(object sender, MouseButtonEventArgs e);       // Про�
 void MouseUp(object sender, MouseButtonEventArgs e);                  // Происходит при отпускании любой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
 void MouseWheel(object sender, MouseWheelEventArgs e);                // Происходит при вращении колесика мыши в тот момент, когда указатель мыши находится над данным элементом.
 
+void PreviewDragEnter(object sender, DragEventArgs e);                         // Возникает, когда система ввода сообщает о соответствующем событии перетаскивания, имеющем в качестве источника перетаскивания этот элемент.
+void PreviewDragLeave(object sender, DragEventArgs e);                         // Возникает, когда система ввода сообщает о соответствующем событии перетаскивания, имеющем в качестве источника перетаскивания этот элемент
+void PreviewDragLOver(object sender, DragEventArgs e);                         // Происходит, когда подсистема ввода сообщает о соответствующем событии перетаскивания, имеющем в качестве потенциальной цели данный элемент.
+void PreviewDrop(object sender, DragEventArgs e);                              // Происходит, когда система ввода сообщает о базовом событии удаления с этим элементом в качестве цели удаления.
+void PreviewGiveFeedback(object sender, GiveFeedbackEventArgs e);              // Происходит при начале операции перетаскивания.
+void PreviewGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e);  // Происходит при получении данным элементом фокуса ввода с клавиатуры.
+void PreviewKeyDown(object sender, KeyEventArgs e);                            // Возникает при нажатии клавиши, если фокус установлен на данном элементе.
+void PreviewKeyUp(object sender, KeyEventArgs e);                              // Происходит при отпускании клавиши, если фокус находится на этом элементе.
+void PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e); // Происходит при потере данным элементом фокуса ввода с клавиатуры.
+void PreviewMouseDown(object sender, MouseButtonEventArgs e);                  // Происходит при нажатии любой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e);        // Происходит при нажатии левой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e);          // Происходит при отпускании левой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void PreviewMouseMove(object sender, MouseEventArgs e);                        // Происходит при перемещении указателя мыши, когда он находится над данным элементом.
+void PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e);       // Происходит при нажатии правой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void PreviewMouseRightButtonUp(object sender, MouseButtonEventArgs e);         // Происходит при отпускании правой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void PreviewMouseUp(object sender, MouseButtonEventArgs e);                    // Происходит при отпускании любой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void PreviewMouseWheel(object sender, MouseWheelEventArgs e);                  // Происходит при вращении колесика мыши в тот момент, когда указатель мыши находится над данным элементом.
+void PreviewQueryContinueDrag(object sender, QueryContinueDragEventArgs e);    // Происходит, когда состояние клавиши или кнопки мыши изменяется в ходе операции перетаскивания.
+void PreviewStylusButtonDown(object sender, StylusButtonEventArgs e);          // Происходит при нажатии кнопки пера в тот момент, когда указатель находится над данным элементом
+void PreviewStylusButtonUp(object sender, StylusButtonEventArgs e);            // Происходит при отпускании кнопки пера в тот момент, когда указатель находится над данным элементом.
+void PreviewStylusDown(object sender, StylusDownEventArgs e);                  // Происходит при касании дигитайзера пером в тот момент, когда оно находится над данным элементом.
+void PreviewStylusAirMore(object sender, StylusEventArgs e);                   // Происходит при движении пера над элементом без касания дигитайзера.
+void PreviewStylusInRange(object sender, StylusEventArgs e);                   // Происходит при нахождении пера над данным элементом достаточно близко для того, чтобы перо было обнаружено дигитайзером.
+void PreviewStylusMove(object sender, StylusEventArgs e);                      // Происходит при перемещении пера над элементом. Для вызова этого события перемещаемое перо должно быть обнаружено дигитайзером; в противном случае вызывается PreviewStylusInAirMove.
+void PreviewStylusOutOfRange(object sender, StylusEventArgs e);                // Происходит, когда перо находится слишком далеко от дигитайзера, чтобы быть обнаруженным.
+void PreviewStylusSystemGesture(object sender, StylusSystemGestureEventArgs e); // Происходит при использовании пользователем одного из жестов пером.
+void PreviewStylusUp(object sender, StylusEventArgs e);                         // Происходит, когда пользователь отрывает перо от поверхности дигитайзера в тот момент, когда оно находится над этим элементом.
+void PreviewTextInput(object sender, TextCompositionEventArgs e);               // Происходит при получении этим элементом текста аппаратно-независимым способом.
+void PreviewTouchDown(object sender, TouchEventArgs e);                         // Происходит при касании пальцем экрана, когда палец находится над данным элементом.
+void PreviewTouchMove(object sender, TouchEventArgs e);                         // Возникает при перемещении пальца по экрану при условии, если палец находится над данным элементом.
+void PreviewTouchUp(object sender, TouchEventArgs e);                           // Возникает, когда палец отрывается от экрана при условии, что палец находится над этим элементом.
 
-void EvPreviewDragEnter(object sender, DragEventArgs e) { }
-void EvPreviewDragLeave(object sender, DragEventArgs e) { }
-void EvPreviewDragLOver(object sender, DragEventArgs e) { }
-void EvPreviewDrop(object sender, DragEventArgs e) { }
-void EvPreviewGiveFeedback(object sender, GiveFeedbackEventArgs e) { }
-void EvPreviewGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
-void EvPreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e) { }
-void EvPreviewKeyUp(object sender, System.Windows.Input.KeyEventArgs e) { }
-void EvPreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
-void EvPreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvPreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvPreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvPreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e) { }
-void EvPreviewMouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvPreviewMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvPreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvPreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e) { }
-void EvPreviewQueryContinueDrag(object sender, QueryContinueDragEventArgs e) { }
-void EvPreviewStylusButtonDown(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
-void EvPreviewStylusButtonUp(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
-void EvPreviewStylusDown(object sender, System.Windows.Input.StylusDownEventArgs e) { }
-void EvPreviewStylusAirMore(object sender, System.Windows.Input.StylusEventArgs e) { }
-void EvPreviewStylusInRange(object sender, System.Windows.Input.StylusEventArgs e) { }
-void EvPreviewStylusMove(object sender, System.Windows.Input.StylusEventArgs e) { }
-void EvPreviewStylusOutOfRange(object sender, System.Windows.Input.StylusEventArgs e) { }
-void EvPreviewStylusSystemGesture(object sender, System.Windows.Input.StylusSystemGestureEventArgs e) { }
-void EvPreviewStylusUp(object sender, System.Windows.Input.StylusEventArgs e) { }
-void EvPreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e) { }
-void EvPreviewTouchDown(object sender, System.Windows.Input.TouchEventArgs e) { }
-void EvPreviewTouchMove(object sender, System.Windows.Input.TouchEventArgs e) { }
-void EvPreviewTouchUp(object sender, System.Windows.Input.TouchEventArgs e) { }
+
 void EvQueryContinueDrag(object sender, QueryContinueDragEventArgs e) { }
 void EvQueryCursor(object sender, System.Windows.Input.QueryCursorEventArgs e) { }
 void EvRequestBringIntoView(object sender, RequestBringIntoViewEventArgs e) { }
