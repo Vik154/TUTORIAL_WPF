@@ -68,18 +68,19 @@ public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
 
-        Canvas canvas = new Canvas();
-        canvas.Name = "MyCanvas";
-        canvas.Height = 200;
-        canvas.Width = 200;
-        canvas.MinHeight = 20;
-        canvas.MaxHeight = 220;
-        canvas.MinWidth = 20;
-        canvas.MaxWidth = 220;
-        canvas.Margin = new Thickness(10, 10, 5, 5);
+        Canvas canvas     = new Canvas();
+        canvas.Name       = "MyCanvas";
+        canvas.Height     = 200;
+        canvas.Width      = 200;
+        canvas.MinHeight  = 20;
+        canvas.MaxHeight  = 220;
+        canvas.MinWidth   = 20;
+        canvas.MaxWidth   = 220;
+        canvas.Margin     = new Thickness(10, 10, 5, 5);
         canvas.Background = Brushes.LightBlue;
-        canvas.Cursor = Cursors.Pen;
-        this.Content = canvas;
+        canvas.Cursor     = Cursors.Pen;
+
+        this.Content      = canvas;
     }
 }
 ~~~
