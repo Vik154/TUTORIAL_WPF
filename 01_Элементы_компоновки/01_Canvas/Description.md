@@ -210,7 +210,7 @@ void TouchUp(object sender, TouchEventArgs e);                  // Возник�
 
 #### Примеры взаимодействия с Canvas
 <img align="right" width="300" src="https://www.rd.com/wp-content/uploads/2018/02/25_Hilarious-Photos-that-Will-Get-You-Through-the-Week_280228817_Doty911.jpg" />
-<script C#>
+<script>
         private void foo();
 </script>
 ~~~XAML
