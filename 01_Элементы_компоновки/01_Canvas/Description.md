@@ -285,7 +285,7 @@ public partial class MainWindow : Window {
 ~~~
 
 #### Примеры работы с событиями
-<img align="right" width="400" Height="400" src="02_Canvas/img/Canvas2.png" alt="Пример работы данного кода" />
+<img align="right" width="400" Height="405" src="02_Canvas/img/Canvas2.png" alt="Пример работы данного кода" />
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
