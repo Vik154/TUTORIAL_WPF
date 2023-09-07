@@ -308,3 +308,42 @@ public partial class MainWindow : Window {
     </Grid>
 </Window>
 ~~~
+~~~C#
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
+
+namespace _02_Canvas;
+
+public partial class MainWindow : Window {
+
+    public MainWindow() {
+        InitializeComponent();
+    }
+
+    // Обработка события перемещения мыши
+    private void EvMouseMove(object sender, System.Windows.Input.MouseEventArgs e) {
+        Point position = e.GetPosition(this);
+        _label.Content = $"X: {position.X}; Y: {position.Y}";
+    }
+
+    // Возникает при изменении размера Канваса
+    private void EvSizeChanged(object sender, SizeChangedEventArgs e) {
+        MessageBox.Show($"Размер изменился, сработал обработчик SizeChanged");
+    }
+
+    // Нажатие клавиш (в данном случае надо TAB-ом пронажимать и получить фокус на Канвасе)
+    private void EvKeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
+        MessageBox.Show($"Нажата кнопка {e.Key}", "Инфо", MessageBoxButton.OKCancel);
+    }
+
+    // Кнопка для изменения размера Канваса
+    private void EvClick(object sender, RoutedEventArgs e) {
+        if (_canvas.Height == 200)
+            _canvas.Height = 150;
+        else
+            _canvas.Height = 200;
+    }
+}
+~~~
