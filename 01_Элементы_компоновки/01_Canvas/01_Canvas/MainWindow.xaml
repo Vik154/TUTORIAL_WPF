@@ -8,13 +8,22 @@
         Height        ="480"
         Width         ="640"
         >
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FF1F8CD4"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <Frame x:Name="_frame"
+        <Frame x:Name="_frame" 
                Grid.Column="1"
                Background="LightGreen">
         </Frame>
@@ -22,19 +31,11 @@
         <StackPanel Grid.Column="0">
             <Button x:Name="_01_Canvas"
                     Content="Пример 1 - Canvas__01"
-                    Background="#FF1F8CD4"
-                    HorizontalContentAlignment="Left"
-                    FontWeight="Bold"
-                    FontStyle="Italic"
                     Click="_01_Canvas_Click">
             </Button>
 
             <Button x:Name="_02_Canvas"
                     Content="Пример 2 - Canvas__02"
-                    Background="#FF1F8CD4"
-                    HorizontalContentAlignment="Left"
-                    FontWeight="Bold"
-                    FontStyle="Italic"
                     Click="_02_Canvas_Click">
             </Button>
         </StackPanel>
