@@ -38,8 +38,12 @@
                     Content="Пример 2 - Canvas__02"
                     Click="_02_Canvas_Click">
             </Button>
-        </StackPanel>
 
+            <Button x:Name="_03_Canvas"
+                    Content="Пример 3 - Canvas__03"
+                    Click="_03_Canvas_Click">
+            </Button>
+        </StackPanel>
 
     </Grid>
 </Window>
