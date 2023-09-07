@@ -209,7 +209,7 @@ void TouchUp(object sender, TouchEventArgs e);                  // Возник�
 ~~~
 
 #### Примеры взаимодействия с Canvas
-<img align="right" width="400" Height="400" src="02_Canvas/img/Canvas1.png" alt="Пример работы данного кода" />
+<img align="right" width="400" Height="300" src="02_Canvas/img/Canvas1.png" alt="Пример работы данного кода" />
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
