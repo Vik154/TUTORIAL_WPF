@@ -63,7 +63,7 @@
 ~~~
 
 #### Программное создание Canvas
-~~~C#
+~~~CS
 public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
