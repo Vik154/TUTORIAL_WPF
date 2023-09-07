@@ -91,6 +91,13 @@ void ContextMenuOpening(object sender, ContextMenuEventArgs e);                /
 void DataContextChanged(object sender, DependencyPropertyChangedEventArgs e);  // Срабатывает при изменении данных, при привязке данных (Binding)
 void Initialized(object sender, EventArgs e);                                  // Происходит во время инициализации данного FrameworkElement
 void Loaded(object sender, RoutedEventArgs e);                                 // Происходит, если элемент размещен, отрисован и готов к взаимодействию.
+void RequestBringIntoView(object sender, RequestBringIntoViewEventArgs e);     // Происходит при вызове метода BringIntoView(Rect) в данном элементе.
+void SizeChanged(object sender, SizeChangedEventArgs e);                       // Происходит при изменении значения любого из свойств ActualHeight или ActualWidth данного элемента.
+void SourceUpdated(object sender, DataTransferEventArgs e);                    // Происходит при изменении исходного значения любого существующего свойства, привязанного к данному элементу.
+void TargetUpdated(object sender, DataTransferEventArgs e);                    // Происходит при изменении целевого значения для любого свойства, привязанного к этому элементу.
+void ToolTipClosing(object sender, ToolTipEventArgs e);                        // Происходит непосредственно перед закрытием какой-либо подсказки в элементе.
+void ToolTipOpening(object sender, ToolTipEventArgs e);                        // Происходит при открытии любой всплывающей подсказки к элементу.
+void Unloaded(object sender, RoutedEventArgs e);                               // Происходит при удалении элемента из дерева с загруженными элементами.
 ~~~
 
 #### События унаследованные от класса UIElement
@@ -178,31 +185,25 @@ void PreviewTouchDown(object sender, TouchEventArgs e);                         
 void PreviewTouchMove(object sender, TouchEventArgs e);                         // Возникает при перемещении пальца по экрану при условии, если палец находится над данным элементом.
 void PreviewTouchUp(object sender, TouchEventArgs e);                           // Возникает, когда палец отрывается от экрана при условии, что палец находится над этим элементом.
 
+void QueryContinueDrag(object sender, QueryContinueDragEventArgs e);        // Происходит, когда состояние клавиши или кнопки мыши изменяется в ходе операции перетаскивания.
+void QueryCursor(object sender, QueryCursorEventArgs e);                    // Происходит при запросе отображения курсора. Это событие возникает для элемента каждый раз, когда указатель мыши перемещается в новое положение
 
-void EvQueryContinueDrag(object sender, QueryContinueDragEventArgs e) { }
-void EvQueryCursor(object sender, System.Windows.Input.QueryCursorEventArgs e) { }
-void EvRequestBringIntoView(object sender, RequestBringIntoViewEventArgs e) { }
-void EvSizeChanged(object sender, SizeChangedEventArgs e) { }
-void EvSourceUpdated(object sender, System.Windows.Data.DataTransferEventArgs e) { }
-void EvStylusButtonDown(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
-void EvStylusButtonUp(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
-void EvStylusDown(object sender, System.Windows.Input.StylusDownEventArgs e)
-void EvStylusEnter(object sender, System.Windows.Input.StylusEventArgs e) 
-void EvStylusInAirMore(object sender, System.Windows.Input.StylusEventArgs e)
-void EvStylusInRange(object sender, System.Windows.Input.StylusEventArgs e)
-void EvStylusLeave(object sender, System.Windows.Input.StylusEventArgs e)
-void EvStylusMove(object sender, System.Windows.Input.StylusEventArgs e) 
-void EvStylusOutOfRange(object sender, System.Windows.Input.StylusEventArgs e)
-void EvStylusSystemGesture(object sender, System.Windows.Input.StylusSystemGestureEventArgs e)
-void EvStylusUp(object sender, System.Windows.Input.StylusEventArgs e)
-void EvTargetUpdated(object sender, System.Windows.Data.DataTransferEventArgs e)
-void EvTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-void EvToolTipClosing(object sender, ToolTipEventArgs e)
-void EvToolTipOpening(object sender, ToolTipEventArgs e)
-void EvTouchDown(object sender, System.Windows.Input.TouchEventArgs e)
-void EvTouchEnter(object sender, System.Windows.Input.TouchEventArgs e)
-void EvTouchLeave(object sender, System.Windows.Input.TouchEventArgs e) 
-void EvTouchMore(object sender, System.Windows.Input.TouchEventArgs e)
-void EvTouchUp(object sender, System.Windows.Input.TouchEventArgs e) 
-void EvUnloaded(object sender, RoutedEventArgs e) 
+void StylusButtonDown(object sender, StylusButtonEventArgs e);              // Происходит при нажатии кнопки пера в тот момент, когда указатель находится над данным элементом.
+void StylusButtonUp(object sender, StylusButtonEventArgs e);                // Происходит при отпускании кнопки пера в тот момент, когда указатель находится над данным элементом.
+void StylusDown(object sender, StylusDownEventArgs e);                      // Происходит при касании дигитайзера пером в тот момент, когда оно находится над данным элементом.
+void StylusEnter(object sender, StylusEventArgs e);                         // Происходит, когда перо попадает внутрь границ данного элемента.
+void StylusInAirMore(object sender, StylusEventArgs e);                     // Происходит при движении пера над элементом без касания дигитайзера.
+void StylusInRange(object sender, StylusEventArgs e);                       // Происходит при нахождении пера над данным элементом достаточно близко для того, чтобы перо было обнаружено дигитайзером.
+void StylusLeave(object sender, StylusEventArgs e);                         // Происходит, когда перо покидает границы элемента.
+void StylusMove(object sender, StylusEventArgs e);                          // Происходит при движении пера над данным элементом. Для вызова этого события перо должно перемещаться по дигитайзеру. В противном случае вызывается событие StylusInAirMove.
+void StylusOutOfRange(object sender, StylusEventArgs e);                    // Возникает, когда расстояние между пером и дигитайзером слишком велико для обнаружения пера при условии, что перо находится над этим элементом.
+void StylusSystemGesture(object sender, StylusSystemGestureEventArgs e);    // Происходит при использовании пользователем одного из жестов пером.
+void StylusUp(object sender, StylusEventArgs e);                            // Происходит, когда пользователь отрывает перо от поверхности дигитайзера в тот момент, когда оно находится над этим элементом.
+
+void TextInput(object sender, TextCompositionEventArgs e);      // Происходит при получении этим элементом текста аппаратно-независимым способом.
+void TouchDown(object sender, TouchEventArgs e);                // Происходит при касании пальцем экрана, когда палец находится над данным элементом.
+void TouchEnter(object sender, TouchEventArgs e);               // Происходит при перемещении касания внутрь данного элемента.
+void TouchLeave(object sender, TouchEventArgs e);               // Происходит при перемещении касания за границы элемента.
+void TouchMore(object sender, TouchEventArgs e);                // Возникает при перемещении пальца по экрану при условии, если палец находится над данным элементом.
+void TouchUp(object sender, TouchEventArgs e);                  // Возникает, когда палец отрывается от экрана при условии, что палец находится над этим элементом.
 ~~~
