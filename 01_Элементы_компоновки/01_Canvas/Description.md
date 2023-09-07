@@ -87,7 +87,7 @@ public partial class MainWindow : Window {
 
 #### События унаследованные от класса UIElement
 ~~~C#
-ContextMenuClosing(object sender, ContextMenuEventArgs e);                // Срабатывает при закрытии контекстного меню 
+void ContextMenuClosing(object sender, ContextMenuEventArgs e);                // Срабатывает при закрытии контекстного меню 
 void ContextMenuOpening(object sender, ContextMenuEventArgs e);                // Срабатывает при открытии контекстного меню 
 void DataContextChanged(object sender, DependencyPropertyChangedEventArgs e);  // Срабатывает при изменении данных, при привязке данных (Binding)
 void DragEnter(object sender, DragEventArgs e);                                // При перетаскивании при вхождении указателя мыши в пределы элемента
@@ -108,18 +108,19 @@ void IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e
 void IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e);        // Происходит при изменении значения свойства IsKeyboardFocused данного элемента
 void IsKeyboardFocusWithinChanged(object sender, DependencyPropertyChangedEventArgs e);    // Происходит при изменении значения свойства IsKeyboardFocusWithin данного элемента.
 void IsMouseCapturedChanged(object sender, DependencyPropertyChangedEventArgs e);          // Происходит при изменении значения свойства IsMouseCaptured данного элемента.
-void IsMouseCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e);
-void IsMouseDirectyOverChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-void IsStylusCapturedChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-void IsStylusCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-void IsStylusDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-void IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {}
-void KeyDown(object sender, System.Windows.Input.KeyEventArgs e) { }
-void KeyUp(object sender, System.Windows.Input.KeyEventArgs e) { }
+void IsMouseCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e);     // Происходит при изменении значения поля IsMouseCaptureWithinProperty данного элемента.
+void IsMouseDirectyOverChanged(object sender, DependencyPropertyChangedEventArgs e);
+void IsStylusCapturedChanged(object sender, DependencyPropertyChangedEventArgs e);
+void IsStylusCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e);
+void IsStylusDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e);
+void IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e);
+
+void KeyDown(object sender, KeyEventArgs e) { }
+void KeyUp(object sender, KeyEventArgs e) { }
 void LayoutUpdated(object sender, EventArgs e) { }
 void Loaded(object sender, RoutedEventArgs e) { }
 void LostFocus(object sender, RoutedEventArgs e) { }
-void LostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
+void LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e) { }
 void LostMouseCapture(object sender, System.Windows.Input.MouseEventArgs e) { }
 void LostStylusCapture(object sender, System.Windows.Input.StylusEventArgs e) { }
 void LostTouchCapture(object sender, System.Windows.Input.TouchEventArgs e) { }
