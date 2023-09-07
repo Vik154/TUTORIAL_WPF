@@ -84,12 +84,17 @@ public partial class MainWindow : Window {
     }
 }
 ~~~
-
-#### События унаследованные от класса UIElement
+#### События унаследованные от класса FrameworkElement
 ~~~C#
 void ContextMenuClosing(object sender, ContextMenuEventArgs e);                // Срабатывает при закрытии контекстного меню 
 void ContextMenuOpening(object sender, ContextMenuEventArgs e);                // Срабатывает при открытии контекстного меню 
 void DataContextChanged(object sender, DependencyPropertyChangedEventArgs e);  // Срабатывает при изменении данных, при привязке данных (Binding)
+void Initialized(object sender, EventArgs e);                                  // Происходит во время инициализации данного FrameworkElement
+void Loaded(object sender, RoutedEventArgs e);                                 // Происходит, если элемент размещен, отрисован и готов к взаимодействию.
+~~~
+
+#### События унаследованные от класса UIElement
+~~~C#
 void DragEnter(object sender, DragEventArgs e);                                // При перетаскивании при вхождении указателя мыши в пределы элемента
 void DragLeave(object sender, DragEventArgs e);                                // Возникает при перемещении курсора мыши за пределы элемента
 void DragOver(object sender, DragEventArgs e);                                 // Возникает при перемещении курсора в пределах границ элемента управления
@@ -101,7 +106,6 @@ void GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e);         /
 void GotMouseCapture(object sender, MouseEventArgs e);                         // Возникает при получении фокуса с помощью мыши 
 void GotStylusCapture(object sender, StylusEventArgs e);                       // Происходит, когда элемент фиксирует события пера
 void GotTouchCapture(object sender, TouchEventArgs e);                         // Происходит при получении данным элементом операции сенсорного ввода
-void Initialized(object sender, EventArgs e);                                  // Происходит во время инициализации данного FrameworkElement
 
 void IsEnableChanged(object sender, DependencyPropertyChangedEventArgs e);               // Происходит при изменении значения свойства IsEnabled для этого элемента.
 void IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e);       // Происходит при изменении значения свойства зависимостей IsHitTestVisible для этого элемента. 
@@ -115,33 +119,34 @@ void IsStylusCaptureWithinChanged(object sender, DependencyPropertyChangedEventA
 void IsStylusDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e);   // Происходит при изменении значения свойства IsStylusDirectlyOver данного элемента.
 void IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e);              // Происходит при изменении значения свойства IsVisible данного элемента.
 
-void KeyDown(object sender, KeyEventArgs e);
-void KeyUp(object sender, KeyEventArgs e);
-void LayoutUpdated(object sender, EventArgs e);
-void Loaded(object sender, RoutedEventArgs e);
-void LostFocus(object sender, RoutedEventArgs e);
-void LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e);
-void LostMouseCapture(object sender, System.Windows.Input.MouseEventArgs e);
-void LostStylusCapture(object sender, System.Windows.Input.StylusEventArgs e);
-void LostTouchCapture(object sender, System.Windows.Input.TouchEventArgs e);
-void ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e);
-void ManipulationCompleted(object sender, ManipulationCompletedEventArgs e);
-void ManipulationDelta(object sender, ManipulationDeltaEventArgs e);
-void ManipulationIntertiaStarting(object sender, ManipulationInertiaStartingEventArgs e);
-void ManipulationStared(object sender, ManipulationStartedEventArgs e);
-void ManipulationStarting(object sender, ManipulationStartingEventArgs e);
-void MouseDown(object sender, MouseButtonEventArgs e);
-void MouseEnter(object sender, MouseEventArgs e);
-void MouseLeave(object sender, MouseEventArgs e);
-void MouseLeftButtonDown(object sender, MouseButtonEventArgs e);
-void MouseLeftButtonUp(object sender, MouseButtonEventArgs e);
-void MouseMove(object sender, MouseEventArgs e);
+void KeyDown(object sender, KeyEventArgs e);                                      // Возникает при нажатии клавиши, если фокус установлен на данном элементе.
+void KeyUp(object sender, KeyEventArgs e);                                        // Происходит при отпускании клавиши, если фокус находится на этом элементе.
+void LayoutUpdated(object sender, EventArgs e);                                   // Происходит при отпускании клавиши, если фокус находится на этом элементе.
+void LostFocus(object sender, RoutedEventArgs e);                                 // Происходит при потере данным элементом логического фокуса.
+void LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e);           // Происходит при потере данным элементом фокуса ввода с клавиатуры.
+void LostMouseCapture(object sender, System.Windows.Input.MouseEventArgs e);      // Происходит при потере элементом захвата мыши.
+void LostStylusCapture(object sender, System.Windows.Input.StylusEventArgs e);    // Происходит при потере элементом захвата пера.
+void LostTouchCapture(object sender, System.Windows.Input.TouchEventArgs e);      // Происходит, когда элемент теряет касание.
+
+void ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e);  // Происходит, когда манипуляция сталкивается с границей.
+void ManipulationCompleted(object sender, ManipulationCompletedEventArgs e);                // Происходит, когда манипуляция над объектом UIElement и инерция завершены.
+void ManipulationDelta(object sender, ManipulationDeltaEventArgs e);                        // Происходит, когда устройство ввода меняет положение в процессе манипуляции.
+void ManipulationIntertiaStarting(object sender, ManipulationInertiaStartingEventArgs e);   // Происходит, когда устройство ввода теряет контакт с объектом UIElement в процессе манипуляции и начинается инерция.
+void ManipulationStared(object sender, ManipulationStartedEventArgs e);                     // Происходит, когда устройство ввода начинает совершать манипуляцию над объектом UIElement.
+void ManipulationStarting(object sender, ManipulationStartingEventArgs e);                  // Происходит при первоначальном создании процессора манипулирования.
+
+void MouseDown(object sender, MouseButtonEventArgs e);                // Происходит при нажатии любой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void MouseEnter(object sender, MouseEventArgs e);                     // Происходит, когда указатель мыши попадает внутрь границ данного элемента.
+void MouseLeave(object sender, MouseEventArgs e);                     // Происходит, когда указатель мыши покидает границы данного элемента.
+void MouseLeftButtonDown(object sender, MouseButtonEventArgs e);      // Происходит при нажатии левой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void MouseLeftButtonUp(object sender, MouseButtonEventArgs e);        // Происходит при отпускании левой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void MouseMove(object sender, MouseEventArgs e);                      // Происходит при перемещении указателя мыши над данным элементом.
+void MouseRightButtonDown(object sender, MouseButtonEventArgs e);     // Происходит при нажатии правой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void MouseRightButtonUp(object sender, MouseButtonEventArgs e);       // Происходит при отпускании правой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void MouseUp(object sender, MouseButtonEventArgs e);                  // Происходит при отпускании любой кнопки мыши в тот момент, когда указатель мыши находится над данным элементом.
+void MouseWheel(object sender, MouseWheelEventArgs e);                // Происходит при вращении колесика мыши в тот момент, когда указатель мыши находится над данным элементом.
 
 
-void EvMouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void EvMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e) { }
 void EvPreviewDragEnter(object sender, DragEventArgs e) { }
 void EvPreviewDragLeave(object sender, DragEventArgs e) { }
 void EvPreviewDragLOver(object sender, DragEventArgs e) { }
