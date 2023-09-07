@@ -90,103 +90,20 @@ public partial class MainWindow : Window {
 void ContextMenuClosing(object sender, ContextMenuEventArgs e);                // Срабатывает при закрытии контекстного меню 
 void ContextMenuOpening(object sender, ContextMenuEventArgs e);                // Срабатывает при открытии контекстного меню 
 void DataContextChanged(object sender, DependencyPropertyChangedEventArgs e);  // Срабатывает при изменении данных, при привязке данных (Binding)
-void DragEnter(object sender, System.Windows.DragEventArgs e);                 // При перетаскивании при вхождении указателя мыши в пределы элемента
-
-    /// <summary> Возникает при перемещении курсора мыши за пределы элемента </summary>
-    private void EvDragLeave(object sender, System.Windows.DragEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие DragLeave курсор за пределами\n";
-    }
-
-    /// <summary> Возникает при перемещении курсора в пределах границ элемента управления </summary>
-    private void EvDragOver(object sender, System.Windows.DragEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие DragOver курсор в пределах границы\n";
-    }
-
-    // Возникает при завершении перетаскивания элемента
-    private void EvDrop(object sender, System.Windows.DragEventArgs e) {
-        Point dropPosition = e.GetPosition(_canvasRow0Col0);
-
-        Canvas.SetLeft(_greenRectangle, dropPosition.X);
-        Canvas.SetTop(_greenRectangle, dropPosition.Y);
-
-        _txtRow0Col0.Text = _txtRow0Col0.Text +
-            $"Квадрат перемещён в (x: {dropPosition.X}; y: {dropPosition.Y})\n";
-    }
-
-    // Происходит при изменении значения свойства Focusable.
-    private void EvFocusableChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие FocusableChanged изменении значения свойства Focusable\n";
-    }
-
-    // Обработчик нажатия кнопки "Сменить фон"
-    private void _btnRow0Col0_Click(object sender, System.Windows.RoutedEventArgs e) {
-        _canvasRow0Col0.Background = new SolidColorBrush(
-            Color.FromRgb(
-                (byte)new Random().Next(0, 255),
-                (byte)new Random().Next(0, 255),
-                (byte)new Random().Next(0, 255)
-            ));
-    }
-
-    // Обработчик события перемещения мыши (для зеленого квадратика в данном случае)
-    private void _greenRectangle_MouseMove(object sender, System.Windows.Input.MouseEventArgs e) {
-        if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed) {
-            DragDrop.DoDragDrop(_greenRectangle, _greenRectangle, DragDropEffects.Move);
-
-            _txtRow0Col0.Text = _txtRow0Col0.Text + "Перемещение квадрата с помощью мыши\n";
-        }
-    }
-
-    // Кнопка для смены значения свойства Focusable и вызова события.
-    private void _btnFocusable_Click(object sender, RoutedEventArgs e) {
-        if (_canvasRow0Col0.Focusable == true)
-            _canvasRow0Col0.Focusable = false;
-        else
-            _canvasRow0Col0.Focusable = true;
-    }
-
-    /// <summary> Возникает постоянно во время операции перетаскивания </summary>
-    private void EvGiveFeedback(object sender, GiveFeedbackEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие GiveFeedback Возникает постоянно во время перетаскивания\n";
-    }
-
-    /// <summary> Возникает при получении фокуса </summary>
-    private void EvGotFocus(object sender, RoutedEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие GotFocus получение фокуса Кнопкой TAB\n";
-    }
-
-    /// <summary> Возникает при получении фокуса с помощью клавиатуры </summary>
-    private void EvGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие GotKeyboardFocus получение фокуса с помощью клавиатуры\n";
-    }
-
-    /// <summary> Возникает при получении фокуса с помощью мыши </summary>
-    private void EvGotMouseCapture(object sender, System.Windows.Input.MouseEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие GotMouseCapture получение фокуса с помощью мыши\n";
-    }
-
-    /// <summary> Происходит, когда элемент фиксирует события пера. </summary>
-    private void EvGotStylusCapture(object sender, System.Windows.Input.StylusEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие GotStylusCapture изменение цвета пера\n";
-    }
-
-    /// <summary> Происходит при получении данным элементом операции сенсорного ввода. </summary>
-    private void EvGotTouchCapture(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    /// <summary> Происходит во время инициализации данного FrameworkElement </summary>
-    private void EvInitialized(object sender, EventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие Initialized инициализация элемента\n";
-        _canvasRow0Col0.IsEnabled = false;
-        _canvasRow0Col0.IsEnabled = true;
-    }
-
-    /// <summary> Происходит при изменении значения свойства IsEnabled для этого элемента. </summary>
-    private void EvIsEnableChanged(object sender, DependencyPropertyChangedEventArgs e) {
-        _txtRow0Col0.Text = _txtRow0Col0.Text + "Событие IsEnableChanged изменении значения свойства IsEnabled\n";
-    }
-
-    /// <summary> Происходит при изменении значения свойства зависимостей IsHitTestVisible для этого элемента. </summary>
-    private void EvIsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) { }
+void DragEnter(object sender, DragEventArgs e);                                // При перетаскивании при вхождении указателя мыши в пределы элемента
+void DragLeave(object sender, DragEventArgs e);                                // Возникает при перемещении курсора мыши за пределы элемента
+void DragOver(object sender, DragEventArgs e);                                 // Возникает при перемещении курсора в пределах границ элемента управления
+void Drop(object sender, DragEventArgs e);                                     // Возникает при завершении перетаскивания элемента
+void FocusableChanged(object sender, DependencyPropertyChangedEventArgs e);    // Происходит при изменении значения свойства Focusable
+void GiveFeedback(object sender, GiveFeedbackEventArgs e);                     // Возникает постоянно во время операции перетаскивания
+void GotFocus(object sender, RoutedEventArgs e);                               // Возникает при получении фокуса
+void GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e);         // Возникает при получении фокуса с помощью клавиатуры
+void GotMouseCapture(object sender, MouseEventArgs e);                         // Возникает при получении фокуса с помощью мыши 
+void GotStylusCapture(object sender, StylusEventArgs e);                       // Происходит, когда элемент фиксирует события пера
+void GotTouchCapture(object sender, TouchEventArgs e);                         // Происходит при получении данным элементом операции сенсорного ввода
+void Initialized(object sender, EventArgs e);                                  // Происходит во время инициализации данного FrameworkElement
+void IsEnableChanged(object sender, DependencyPropertyChangedEventArgs e)      // Происходит при изменении значения свойства IsEnabled для этого элемента.
+void IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) // Происходит при изменении значения свойства зависимостей IsHitTestVisible для этого элемента. 
 
     private void EvIsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e) { }
 
