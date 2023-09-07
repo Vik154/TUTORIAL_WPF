@@ -229,3 +229,57 @@ void TouchUp(object sender, TouchEventArgs e);                  // Возник�
 </Window>
 ~~~
 
+##### *Тоже самое, только из кода С#*
+~~~C#
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
+
+namespace _02_Canvas;
+
+public partial class MainWindow : Window {
+    
+    public MainWindow() {
+        InitializeComponent();
+
+        Canvas canvas = new Canvas {    // Программное создание Canvas
+            Width = 200,                // Задаёт Ширину
+            Height = 200,               // Задаёт Высоту
+            Background = Brushes.Aqua,  // Задаёт фон
+        };
+
+        Button button = new Button {    // Создание кнопки
+            Content = "Кнопка",         // Задает название кнопки
+            Background = Brushes.Azure  // Задает фон кнопки
+        };
+
+        Ellipse ellipse = new Ellipse { // Создание эллипса
+            Height = 50,                // Задает ширину
+            Width = 80,                 // Задает высоту
+            Fill = Brushes.Brown        // Задает фон
+        };
+
+        Rectangle rect = new Rectangle { 
+            Height = 50, 
+            Width = 100, 
+            Fill = Brushes.Blue };
+
+        // Добавление элементов в родительский контейнер Canvas
+        canvas.Children.Add(button);    
+        canvas.Children.Add(ellipse);
+        canvas.Children.Add(rect);
+
+        // Размещение добавленных элементов внутри Canvas
+        Canvas.SetBottom(button, 15); 
+        Canvas.SetRight(button, 15);
+        Canvas.SetLeft(ellipse, 20); 
+        Canvas.SetTop(ellipse, 10);
+        Canvas.SetLeft(rect, 50);     
+        Canvas.SetTop(rect, 80);
+
+        // Добавление Canvas в родительский контейнер (Window)
+        this.Content = canvas;
+    }
+}
+~~~
