@@ -102,40 +102,42 @@ void GotMouseCapture(object sender, MouseEventArgs e);                         /
 void GotStylusCapture(object sender, StylusEventArgs e);                       // Происходит, когда элемент фиксирует события пера
 void GotTouchCapture(object sender, TouchEventArgs e);                         // Происходит при получении данным элементом операции сенсорного ввода
 void Initialized(object sender, EventArgs e);                                  // Происходит во время инициализации данного FrameworkElement
-void IsEnableChanged(object sender, DependencyPropertyChangedEventArgs e);     // Происходит при изменении значения свойства IsEnabled для этого элемента.
 
-void IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e);         // Происходит при изменении значения свойства зависимостей IsHitTestVisible для этого элемента. 
-void IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e);        // Происходит при изменении значения свойства IsKeyboardFocused данного элемента
-void IsKeyboardFocusWithinChanged(object sender, DependencyPropertyChangedEventArgs e);    // Происходит при изменении значения свойства IsKeyboardFocusWithin данного элемента.
-void IsMouseCapturedChanged(object sender, DependencyPropertyChangedEventArgs e);          // Происходит при изменении значения свойства IsMouseCaptured данного элемента.
-void IsMouseCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e);     // Происходит при изменении значения поля IsMouseCaptureWithinProperty данного элемента.
-void IsMouseDirectyOverChanged(object sender, DependencyPropertyChangedEventArgs e);
-void IsStylusCapturedChanged(object sender, DependencyPropertyChangedEventArgs e);
-void IsStylusCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e);
-void IsStylusDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e);
-void IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e);
+void IsEnableChanged(object sender, DependencyPropertyChangedEventArgs e);               // Происходит при изменении значения свойства IsEnabled для этого элемента.
+void IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e);       // Происходит при изменении значения свойства зависимостей IsHitTestVisible для этого элемента. 
+void IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e);      // Происходит при изменении значения свойства IsKeyboardFocused данного элемента
+void IsKeyboardFocusWithinChanged(object sender, DependencyPropertyChangedEventArgs e);  // Происходит при изменении значения свойства IsKeyboardFocusWithin данного элемента.
+void IsMouseCapturedChanged(object sender, DependencyPropertyChangedEventArgs e);        // Происходит при изменении значения свойства IsMouseCaptured данного элемента.
+void IsMouseCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e);   // Происходит при изменении значения поля IsMouseCaptureWithinProperty данного элемента.
+void IsMouseDirectyOverChanged(object sender, DependencyPropertyChangedEventArgs e);     // Происходит при изменении значения свойства IsMouseDirectlyOver данного элемента.
+void IsStylusCapturedChanged(object sender, DependencyPropertyChangedEventArgs e);       // Происходит при изменении значения свойства IsStylusCaptured данного элемента.
+void IsStylusCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e);  // Происходит при изменении значения свойства IsStylusCaptureWithin данного элемента.
+void IsStylusDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e);   // Происходит при изменении значения свойства IsStylusDirectlyOver данного элемента.
+void IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e);              // Происходит при изменении значения свойства IsVisible данного элемента.
 
-void KeyDown(object sender, KeyEventArgs e) { }
-void KeyUp(object sender, KeyEventArgs e) { }
-void LayoutUpdated(object sender, EventArgs e) { }
-void Loaded(object sender, RoutedEventArgs e) { }
-void LostFocus(object sender, RoutedEventArgs e) { }
-void LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e) { }
-void LostMouseCapture(object sender, System.Windows.Input.MouseEventArgs e) { }
-void LostStylusCapture(object sender, System.Windows.Input.StylusEventArgs e) { }
-void LostTouchCapture(object sender, System.Windows.Input.TouchEventArgs e) { }
-void ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e) { }
-void ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e) { }
-void ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e) { }
-void ManipulationIntertiaStarting(object sender, ManipulationInertiaStartingEventArgs e) { }
-void ManipulationStared(object sender, System.Windows.Input.ManipulationStartedEventArgs e) { }
-void ManipulationStarting(object sender, System.Windows.Input.ManipulationStartingEventArgs e) { }
-void MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) { }
-void MouseLeave(object sender, System.Windows.Input.MouseEventArgs e) { }
-void MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-void MouseMove(object sender, System.Windows.Input.MouseEventArgs e) { }
+void KeyDown(object sender, KeyEventArgs e);
+void KeyUp(object sender, KeyEventArgs e);
+void LayoutUpdated(object sender, EventArgs e);
+void Loaded(object sender, RoutedEventArgs e);
+void LostFocus(object sender, RoutedEventArgs e);
+void LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e);
+void LostMouseCapture(object sender, System.Windows.Input.MouseEventArgs e);
+void LostStylusCapture(object sender, System.Windows.Input.StylusEventArgs e);
+void LostTouchCapture(object sender, System.Windows.Input.TouchEventArgs e);
+void ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e);
+void ManipulationCompleted(object sender, ManipulationCompletedEventArgs e);
+void ManipulationDelta(object sender, ManipulationDeltaEventArgs e);
+void ManipulationIntertiaStarting(object sender, ManipulationInertiaStartingEventArgs e);
+void ManipulationStared(object sender, ManipulationStartedEventArgs e);
+void ManipulationStarting(object sender, ManipulationStartingEventArgs e);
+void MouseDown(object sender, MouseButtonEventArgs e);
+void MouseEnter(object sender, MouseEventArgs e);
+void MouseLeave(object sender, MouseEventArgs e);
+void MouseLeftButtonDown(object sender, MouseButtonEventArgs e);
+void MouseLeftButtonUp(object sender, MouseButtonEventArgs e);
+void MouseMove(object sender, MouseEventArgs e);
+
+
 void EvMouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
 void EvMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
 void EvMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
