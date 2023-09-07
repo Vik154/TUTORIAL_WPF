@@ -212,8 +212,25 @@ void TouchUp(object sender, TouchEventArgs e);                  // Возник�
 <img align="right" width="300" src="https://www.rd.com/wp-content/uploads/2018/02/25_Hilarious-Photos-that-Will-Get-You-Through-the-Week_280228817_Doty911.jpg" />
 
 ~~~XAML
-<Page>
-        <Button />
-</Page>
+<Window ...Стандартный код, сгенерированный VS>
+    <Grid>
+        <Canvas Width="200" Height="200"
+                Background="LightGreen">
+
+            <Button Canvas.Bottom="15" Canvas.Right="15"
+                    Content="Кнопка" Background="Indigo">
+            </Button>
+
+            <Ellipse Canvas.Top="10" Canvas.Left="20"
+                     Height="50" Width="80" Fill="Brown">
+            </Ellipse>
+
+            <Rectangle Canvas.Top="80" Canvas.Left="50"
+                       Height="50" Width="100" Fill="Blue">
+            </Rectangle>
+            
+        </Canvas>
+    </Grid>
+</Window>
 ~~~
 
