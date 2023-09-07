@@ -214,8 +214,7 @@ void TouchUp(object sender, TouchEventArgs e);                  // Возник�
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
     <Grid>
-        <Canvas Width="200" Height="200"
-                Background="LightGreen">
+        <Canvas Width="200" Height="200" Background="LightGreen">
 
             <Button Canvas.Bottom="15" Canvas.Right="15"
                     Content="Кнопка" Background="Indigo" />
@@ -225,7 +224,6 @@ void TouchUp(object sender, TouchEventArgs e);                  // Возник�
 
             <Rectangle Canvas.Top="80" Canvas.Left="50"
                        Height="50" Width="100" Fill="Blue" />
-
         </Canvas>
     </Grid>
 </Window>
