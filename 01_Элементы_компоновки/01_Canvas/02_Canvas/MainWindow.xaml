@@ -36,5 +36,33 @@
             
         </Canvas>
         
+        <!-- Пример обработки событий -->
+        <Canvas x:Name="_canvas"
+                Height="200"
+                Grid.Column="1"
+                Background="Azure" 
+                MouseMove="EvMouseMove" 
+                SizeChanged="EvSizeChanged" 
+                KeyDown="EvKeyDown"
+                Focusable="True">
+            
+            <Label x:Name="_label"
+                   Canvas.Top="50"
+                   Canvas.Left="100"
+                   Width="100"
+                   Height="30"
+                   Content="Координаты">
+            </Label>
+
+            <Button x:Name="_button"
+                    Padding="5"
+                    Canvas.Top="100"
+                    Canvas.Left="100"
+                    Content="Изменить размер"
+                    Click="EvClick">
+            </Button>
+            
+        </Canvas>
+        
     </Grid>
 </Window>
