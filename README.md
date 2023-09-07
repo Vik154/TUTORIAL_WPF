@@ -9,7 +9,7 @@
 3. :page_with_curl: Документация:
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/fundamentals/languages
    + :sos: https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
-   + 
+   + :octocat: https://github.com/microsoft/WPF-Samples/tree/main
 
 ## Структура проекта:
 1. Основные элементы компоновки:
