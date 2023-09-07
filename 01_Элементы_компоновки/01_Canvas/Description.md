@@ -102,195 +102,98 @@ void GotMouseCapture(object sender, MouseEventArgs e);                         /
 void GotStylusCapture(object sender, StylusEventArgs e);                       // Происходит, когда элемент фиксирует события пера
 void GotTouchCapture(object sender, TouchEventArgs e);                         // Происходит при получении данным элементом операции сенсорного ввода
 void Initialized(object sender, EventArgs e);                                  // Происходит во время инициализации данного FrameworkElement
-void IsEnableChanged(object sender, DependencyPropertyChangedEventArgs e)      // Происходит при изменении значения свойства IsEnabled для этого элемента.
-void IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) // Происходит при изменении значения свойства зависимостей IsHitTestVisible для этого элемента. 
-
-    private void EvIsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-
-    private void EvIsKeyboardFocusWithinChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-
-    private void EvIsMouseCapturedChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-
-    private void EvIsMouseCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-
-    private void EvIsMouseDirectyOverChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-
-    private void EvIsStylusCapturedChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-
-    private void EvIsStylusCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-
-    private void EvIsStylusDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e) { }
-
-    private void EvIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {}
-
-    // Изменить цвет пера, чтобы вызвать событие GotStylusCapture
-    private void _btnChangePenColor_Click(object sender, RoutedEventArgs e) {
-        _txtRow0Col0.Background = Brushes.AliceBlue;
-    }
-
-    private void EvKeyDown(object sender, System.Windows.Input.KeyEventArgs e) { }
-
-    private void EvKeyUp(object sender, System.Windows.Input.KeyEventArgs e) { }
-
-    private void EvLayoutUpdated(object sender, EventArgs e) { }
-
-    private void EvLoaded(object sender, RoutedEventArgs e) { }
-
-    private void EvLostFocus(object sender, RoutedEventArgs e) { }
-
-    private void EvLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
-
-    private void EvLostMouseCapture(object sender, System.Windows.Input.MouseEventArgs e) { }
-
-    private void EvLostStylusCapture(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvLostTouchCapture(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvManipulationBoundaryFeedback(object sender, System.Windows.Input.ManipulationBoundaryFeedbackEventArgs e) { }
-
-    private void EvManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e) { }
-
-    private void EvManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e) { }
-
-    private void EvManipulationIntertiaStarting(object sender, System.Windows.Input.ManipulationInertiaStartingEventArgs e) { }
-
-    private void EvManipulationStared(object sender, System.Windows.Input.ManipulationStartedEventArgs e) { }
-
-    private void EvManipulationStarting(object sender, System.Windows.Input.ManipulationStartingEventArgs e) { }
-
-    private void EvMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvMouseEnter(object sender, System.Windows.Input.MouseEventArgs e) { }
-
-    private void EvMouseLeave(object sender, System.Windows.Input.MouseEventArgs e) { }
-
-    private void EvMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvMouseMove(object sender, System.Windows.Input.MouseEventArgs e) { }
-
-    private void EvMouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e) { }
-
-    private void EvPreviewDragEnter(object sender, DragEventArgs e) { }
-
-    private void EvPreviewDragLeave(object sender, DragEventArgs e) { }
-
-    private void EvPreviewDragLOver(object sender, DragEventArgs e) { }
-
-    private void EvPreviewDrop(object sender, DragEventArgs e) { }
-
-    private void EvPreviewGiveFeedback(object sender, GiveFeedbackEventArgs e) { }
-
-    private void EvPreviewGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
-
-    private void EvPreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e) { }
-
-    private void EvPreviewKeyUp(object sender, System.Windows.Input.KeyEventArgs e) { }
-
-    private void EvPreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
-
-    private void EvPreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvPreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvPreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvPreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e) { }
-
-    private void EvPreviewMouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvPreviewMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvPreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
-
-    private void EvPreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e) { }
-
-    private void EvPreviewQueryContinueDrag(object sender, QueryContinueDragEventArgs e) { }
-
-    private void EvPreviewStylusButtonDown(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
-
-    private void EvPreviewStylusButtonUp(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
-
-    private void EvPreviewStylusDown(object sender, System.Windows.Input.StylusDownEventArgs e) { }
-
-    private void EvPreviewStylusAirMore(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvPreviewStylusInRange(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvPreviewStylusMove(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvPreviewStylusOutOfRange(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvPreviewStylusSystemGesture(object sender, System.Windows.Input.StylusSystemGestureEventArgs e) { }
-
-    private void EvPreviewStylusUp(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvPreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e) { }
-
-    private void EvPreviewTouchDown(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvPreviewTouchMove(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvPreviewTouchUp(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvQueryContinueDrag(object sender, QueryContinueDragEventArgs e) { }
-
-    private void EvQueryCursor(object sender, System.Windows.Input.QueryCursorEventArgs e) { }
-
-    private void EvRequestBringIntoView(object sender, RequestBringIntoViewEventArgs e) { }
-
-    private void EvSizeChanged(object sender, SizeChangedEventArgs e) { }
-
-    private void EvSourceUpdated(object sender, System.Windows.Data.DataTransferEventArgs e) { }
-
-    private void EvStylusButtonDown(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
-
-    private void EvStylusButtonUp(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
-
-    private void EvStylusDown(object sender, System.Windows.Input.StylusDownEventArgs e) { }
-
-    private void EvStylusEnter(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvStylusInAirMore(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvStylusInRange(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvStylusLeave(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvStylusMove(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvStylusOutOfRange(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvStylusSystemGesture(object sender, System.Windows.Input.StylusSystemGestureEventArgs e) { }
-
-    private void EvStylusUp(object sender, System.Windows.Input.StylusEventArgs e) { }
-
-    private void EvTargetUpdated(object sender, System.Windows.Data.DataTransferEventArgs e) { }
-
-    private void EvTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e) { }
-
-    private void EvToolTipClosing(object sender, ToolTipEventArgs e) { }
-
-    private void EvToolTipOpening(object sender, ToolTipEventArgs e) { }
-
-    private void EvTouchDown(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvTouchEnter(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvTouchLeave(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvTouchMore(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvTouchUp(object sender, System.Windows.Input.TouchEventArgs e) { }
-
-    private void EvUnloaded(object sender, RoutedEventArgs e) { }
-}
-
+void IsEnableChanged(object sender, DependencyPropertyChangedEventArgs e);     // Происходит при изменении значения свойства IsEnabled для этого элемента.
+
+void IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e);         // Происходит при изменении значения свойства зависимостей IsHitTestVisible для этого элемента. 
+void IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e);        // Происходит при изменении значения свойства IsKeyboardFocused данного элемента
+void IsKeyboardFocusWithinChanged(object sender, DependencyPropertyChangedEventArgs e);    // Происходит при изменении значения свойства IsKeyboardFocusWithin данного элемента.
+void IsMouseCapturedChanged(object sender, DependencyPropertyChangedEventArgs e);          // Происходит при изменении значения свойства IsMouseCaptured данного элемента.
+void IsMouseCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e);
+void IsMouseDirectyOverChanged(object sender, DependencyPropertyChangedEventArgs e) { }
+void IsStylusCapturedChanged(object sender, DependencyPropertyChangedEventArgs e) { }
+void IsStylusCaptureWithinChanged(object sender, DependencyPropertyChangedEventArgs e) { }
+void IsStylusDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e) { }
+void IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {}
+void KeyDown(object sender, System.Windows.Input.KeyEventArgs e) { }
+void KeyUp(object sender, System.Windows.Input.KeyEventArgs e) { }
+void LayoutUpdated(object sender, EventArgs e) { }
+void Loaded(object sender, RoutedEventArgs e) { }
+void LostFocus(object sender, RoutedEventArgs e) { }
+void LostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
+void LostMouseCapture(object sender, System.Windows.Input.MouseEventArgs e) { }
+void LostStylusCapture(object sender, System.Windows.Input.StylusEventArgs e) { }
+void LostTouchCapture(object sender, System.Windows.Input.TouchEventArgs e) { }
+void ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e) { }
+void ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e) { }
+void ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e) { }
+void ManipulationIntertiaStarting(object sender, ManipulationInertiaStartingEventArgs e) { }
+void ManipulationStared(object sender, System.Windows.Input.ManipulationStartedEventArgs e) { }
+void ManipulationStarting(object sender, System.Windows.Input.ManipulationStartingEventArgs e) { }
+void MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) { }
+void MouseLeave(object sender, System.Windows.Input.MouseEventArgs e) { }
+void MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void MouseMove(object sender, System.Windows.Input.MouseEventArgs e) { }
+void EvMouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e) { }
+void EvPreviewDragEnter(object sender, DragEventArgs e) { }
+void EvPreviewDragLeave(object sender, DragEventArgs e) { }
+void EvPreviewDragLOver(object sender, DragEventArgs e) { }
+void EvPreviewDrop(object sender, DragEventArgs e) { }
+void EvPreviewGiveFeedback(object sender, GiveFeedbackEventArgs e) { }
+void EvPreviewGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
+void EvPreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e) { }
+void EvPreviewKeyUp(object sender, System.Windows.Input.KeyEventArgs e) { }
+void EvPreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) { }
+void EvPreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvPreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvPreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvPreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e) { }
+void EvPreviewMouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvPreviewMouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvPreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e) { }
+void EvPreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e) { }
+void EvPreviewQueryContinueDrag(object sender, QueryContinueDragEventArgs e) { }
+void EvPreviewStylusButtonDown(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
+void EvPreviewStylusButtonUp(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
+void EvPreviewStylusDown(object sender, System.Windows.Input.StylusDownEventArgs e) { }
+void EvPreviewStylusAirMore(object sender, System.Windows.Input.StylusEventArgs e) { }
+void EvPreviewStylusInRange(object sender, System.Windows.Input.StylusEventArgs e) { }
+void EvPreviewStylusMove(object sender, System.Windows.Input.StylusEventArgs e) { }
+void EvPreviewStylusOutOfRange(object sender, System.Windows.Input.StylusEventArgs e) { }
+void EvPreviewStylusSystemGesture(object sender, System.Windows.Input.StylusSystemGestureEventArgs e) { }
+void EvPreviewStylusUp(object sender, System.Windows.Input.StylusEventArgs e) { }
+void EvPreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e) { }
+void EvPreviewTouchDown(object sender, System.Windows.Input.TouchEventArgs e) { }
+void EvPreviewTouchMove(object sender, System.Windows.Input.TouchEventArgs e) { }
+void EvPreviewTouchUp(object sender, System.Windows.Input.TouchEventArgs e) { }
+void EvQueryContinueDrag(object sender, QueryContinueDragEventArgs e) { }
+void EvQueryCursor(object sender, System.Windows.Input.QueryCursorEventArgs e) { }
+void EvRequestBringIntoView(object sender, RequestBringIntoViewEventArgs e) { }
+void EvSizeChanged(object sender, SizeChangedEventArgs e) { }
+void EvSourceUpdated(object sender, System.Windows.Data.DataTransferEventArgs e) { }
+void EvStylusButtonDown(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
+void EvStylusButtonUp(object sender, System.Windows.Input.StylusButtonEventArgs e) { }
+void EvStylusDown(object sender, System.Windows.Input.StylusDownEventArgs e)
+void EvStylusEnter(object sender, System.Windows.Input.StylusEventArgs e) 
+void EvStylusInAirMore(object sender, System.Windows.Input.StylusEventArgs e)
+void EvStylusInRange(object sender, System.Windows.Input.StylusEventArgs e)
+void EvStylusLeave(object sender, System.Windows.Input.StylusEventArgs e)
+void EvStylusMove(object sender, System.Windows.Input.StylusEventArgs e) 
+void EvStylusOutOfRange(object sender, System.Windows.Input.StylusEventArgs e)
+void EvStylusSystemGesture(object sender, System.Windows.Input.StylusSystemGestureEventArgs e)
+void EvStylusUp(object sender, System.Windows.Input.StylusEventArgs e)
+void EvTargetUpdated(object sender, System.Windows.Data.DataTransferEventArgs e)
+void EvTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+void EvToolTipClosing(object sender, ToolTipEventArgs e)
+void EvToolTipOpening(object sender, ToolTipEventArgs e)
+void EvTouchDown(object sender, System.Windows.Input.TouchEventArgs e)
+void EvTouchEnter(object sender, System.Windows.Input.TouchEventArgs e)
+void EvTouchLeave(object sender, System.Windows.Input.TouchEventArgs e) 
+void EvTouchMore(object sender, System.Windows.Input.TouchEventArgs e)
+void EvTouchUp(object sender, System.Windows.Input.TouchEventArgs e) 
+void EvUnloaded(object sender, RoutedEventArgs e) 
 ~~~
