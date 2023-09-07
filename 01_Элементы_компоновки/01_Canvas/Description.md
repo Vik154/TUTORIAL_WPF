@@ -87,7 +87,7 @@ public partial class MainWindow : Window {
 
 #### События унаследованные от класса UIElement
 ~~~C#
-void ContextMenuClosing(object sender, ContextMenuEventArgs e);                // Срабатывает при закрытии контекстного меню 
+ContextMenuClosing(object sender, ContextMenuEventArgs e);                // Срабатывает при закрытии контекстного меню 
 void ContextMenuOpening(object sender, ContextMenuEventArgs e);                // Срабатывает при открытии контекстного меню 
 void DataContextChanged(object sender, DependencyPropertyChangedEventArgs e);  // Срабатывает при изменении данных, при привязке данных (Binding)
 void DragEnter(object sender, DragEventArgs e);                                // При перетаскивании при вхождении указателя мыши в пределы элемента
