@@ -10,7 +10,7 @@
 * ItemWidth - единая ширина для всех дочерних элементов. Каким образом каждый потомок распоряжается этой шириной, зависит от значений его свойств HorizontalAlignment, Width и пр. Элементы, высота которых превышает ItemWidth, отсекаются.
 
 #### Пример создания StackPanel - свойство Orientation = Vertical по умолчанию
-<img align="left" Width="300" Height="300" src="img/WrapPanel1.png" alt="Пример работы данного кода"/>
+<img align="left" Width="350" Height="300" src="img/WrapPanel1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
