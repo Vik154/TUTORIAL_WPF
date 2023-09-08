@@ -7,26 +7,33 @@
 Хотя GridSplitter, по умолчанию располагается в одной ячейке, его действие всегда распространяется на весь столбец (при буксировке по горизонтали) или на всю строку (при буксировке по вертикали). Поэтому лучше задавать для него свойство ColumSpan или RowSpan, так чтобы он пересекал всю сетку.
 
 #### Пример создания Grid
-<img align="left" width="500" height="385" src="img/Grid1.png" alt="Пример работы данного кода"/>
+<img align="left" width="500" height="385" src="img/GridSplitter1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-<!-- ShowGridLines="True" - Отображение разделителя-->
-    <Grid ShowGridLines="True">
-        <!-- Создание 3х строк-->
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        
-        <!-- Создание 3х столбцов -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-    </Grid>
+<Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition MinWidth="100"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition MinWidth="50"/>
+    </Grid.ColumnDefinitions>
+
+    <Button Grid.Row="0" Grid.Column="0" Margin="3" Content="Left"/>
+    <Button Grid.Row="0" Grid.Column="2" Margin="3" Content="Right"/>
+    <Button Grid.Row="1" Grid.Column="0" Margin="3" Content="Left"/>
+    <Button Grid.Row="1" Grid.Column="2" Margin="3" Content="Right"/>
+
+    <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                  Width="10" Background="Aqua"
+                  VerticalAlignment="Stretch"
+                  HorizontalAlignment="Center"
+                  ShowsPreview="False">
+    </GridSplitter>
+</Grid>
 </Window>
 ~~~
 
