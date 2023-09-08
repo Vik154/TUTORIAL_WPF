@@ -37,7 +37,7 @@
 </Window>
 ~~~
 
-#### Пример создания StackPanel - свойство Orientation = Horizontal
+#### Свойство Orientation = Vertical
 <img align="left" Width="350" src="img/WrapPanel2.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
