@@ -7,9 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="Button" x:Key="style1">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="150"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5,5,0,0"/>
+        </Style>
+        <Style TargetType="Button" x:Key="style2">
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Width" Value="25"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Margin" Value="5,5,0,0"/>
@@ -26,13 +33,27 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource style1}"/>
+            </StackPanel.Resources>
             <TextBlock Text="StackPanel" FontWeight="Bold" Margin="15,5"/>
             <Button Content="Кнопка 1" Background="AliceBlue"/>
             <Button Content="Кнопка 2" Background="AntiqueWhite"/>
             <Button Content="Кнопка 3" Background="Aqua"/>
             <Button Content="Кнопка 4" Background="Aquamarine"/>
             <Button Content="Кнопка 5" Background="Azure"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <StackPanel.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource style2}"/>
+            </StackPanel.Resources>
+            <Button Content="1" Background="AliceBlue"/>
+            <Button Content="2" Background="AntiqueWhite"/>
+            <Button Content="3" Background="Aqua"/>
+            <Button Content="4" Background="Aquamarine"/>
+            <Button Content="5" Background="Azure"/>
         </StackPanel>
         
     </Grid>
