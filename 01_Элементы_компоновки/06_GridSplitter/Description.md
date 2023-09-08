@@ -171,5 +171,6 @@ public partial class MainWindow : Window {
         this.Content = grid;
     }
 }
-
 ~~~
+
+<img src="img/GridSplitter3.png" alt="Пример работы данного кода"/>
