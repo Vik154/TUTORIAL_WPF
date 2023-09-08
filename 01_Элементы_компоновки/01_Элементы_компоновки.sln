@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_DockPanel", "04_DockPane
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_Grid", "05_Grid\05_Grid.csproj", "{983907D0-0E1D-4E6E-9352-E02E7D8AAA15}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_GridSplitter", "06_GridSplitter\06_GridSplitter.csproj", "{55A8DDBA-52FA-41F5-AE5A-A9E40F0021A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{983907D0-0E1D-4E6E-9352-E02E7D8AAA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{983907D0-0E1D-4E6E-9352-E02E7D8AAA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{983907D0-0E1D-4E6E-9352-E02E7D8AAA15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55A8DDBA-52FA-41F5-AE5A-A9E40F0021A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A8DDBA-52FA-41F5-AE5A-A9E40F0021A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A8DDBA-52FA-41F5-AE5A-A9E40F0021A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A8DDBA-52FA-41F5-AE5A-A9E40F0021A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
