@@ -17,4 +17,5 @@
    * *[01_Canvas](01_Элементы_компоновки/01_Canvas/Description.md)*
    * *[02_StackPanel](01_Элементы_компоновки/02_StackPanel/Description.md)*
    * *[03_WrapPanel](01_Элементы_компоновки/03_WrapPanel/Description.md)* 
+   * *[04_DockPanel](01_Элементы_компоновки/04_DockPanel/Description.md)* 
    *  
