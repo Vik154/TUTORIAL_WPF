@@ -3,3 +3,6 @@
 *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.stackpanel?view=windowsdesktop-7.0*
 
 StackPanel не требует задавать присоединенные свойства для получения приемлемого пользовательского интерфейса. На самом деле StackPanel - одна из немногих панелей, в которых вообще не определены собственные присоединенные свойства! В отсутствие присоединенных свойств единственный способ организовать дочерние элементы - воспользоваться свойством панели Orientation (типа System.Windows.Controls.Orientation), которое может принимать значение Horizontal или Vertical. По умолчанию подразумевается ориентация Vertical.
+
+#### Пример создания StackPanel
+<img align="right" width="300" height="200" src="02_StackPanel/img/StackPanel.png" alt="Пример работы данного кода"/>
