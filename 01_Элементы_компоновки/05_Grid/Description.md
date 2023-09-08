@@ -36,22 +36,24 @@ Grid и сам может быть другим контейнером комп�
 
 Для помещения индивидуальных элементов в ячейку используются присоединенные свойства Grid.Row и Grid.Column. Оба эти свойства принимают числовое значение индекса, начинающееся с 0. Существует одно исключение. Если не указать значение для свойства Grid.Row, то оно предполагается равным 0. То же самое касается и свойства Grid.Column. Таким образом, если опущены оба атрибута элемента, он помещается в первую ячейку Grid. 
 
-
-
-<img align="left" width="300" height="300" src="img/DockPanel2.png" alt="Пример работы данного кода"/>
+<img align="left" width="300" height="300" src="img/Grid2.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-    <Grid>
-        <DockPanel LastChildFill="True">
-            <Button DockPanel.Dock="Top" Background="Aqua" Content="Растянута по всей длине"/>
-            <Button DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Размер равен размеру контента"/>
-            <Button DockPanel.Dock="Top" HorizontalAlignment="Left" Content="Выравнивание по левому краю"/>
-            <Button DockPanel.Dock="Bottom" Background="AntiqueWhite" Content="Нижняя кнопка"/>
-            <Button DockPanel.Dock="Left" Background="Aquamarine" Content="Левая кнопка"/>
-            <Button DockPanel.Dock="Right" Background="Beige" Content="Правая кнопка"/>
-            <Button Background="Bisque" Content="Автоматическое заполнение"/>
-        </DockPanel>
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="Кнопка 1" Background="Aqua"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Кнопка 2" Background="Azure"/>
+        <Button Grid.Row="1" Grid.Column="0" Content="Кнопка 3" Background="Bisque"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="Кнопка 4" Background="Beige"/>
     </Grid>
 </Window>
 ~~~
