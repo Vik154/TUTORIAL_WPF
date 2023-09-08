@@ -88,6 +88,74 @@ Grid и сам может быть другим контейнером комп�
 </Window>
 ~~~
 
+~~~XAML
+<Window ...Стандартный код, сгенерированный VS>
+
+    <StackPanel Background="AntiqueWhite">
+        
+        <Grid Height="100" Margin="10" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Background="LightCyan"  Content="Width=150"/>
+            <Button Background="LightBlue" Grid.Column="1" Content="Width=*"/>
+        </Grid>
+        
+        <Grid Height="100" Margin="10" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Background="LightCyan" Content="Width=150"/>
+            <Button Background="Aqua" Grid.Column="1" Content="Width=*"/>
+            <Button Background="Aquamarine" Grid.Column="2" Content="Width=*"/>
+            <Button Background="Azure" Grid.Column="3" Content="Width=*"/>
+        </Grid>
+        
+        <Grid Height="100" Margin="10" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Background="LightCyan" Content="Width=150"/>
+            <Button Background="Bisque" Grid.Column="1" Content="Width=*"/>
+            <Button Background="Beige"  Grid.Column="2" Content="Width=2*"/>
+            <Button Background="AliceBlue"  Grid.Column="3" Content="Width=*"/>
+        </Grid>
+        
+        <Grid Height="100" Margin="10" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Button Background="LightCyan" Content="Width=150"/>
+            <Button Background="BurlyWood"  Grid.Column="1" Content="Width=2*"/>
+            <Button Background="Cornsilk"  Grid.Column="2" Content="Width=4*"/>
+            <Button Background="Azure"  Grid.Column="3" Content="Width=3*"/>
+        </Grid>
+    </StackPanel>
+</Window>
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Программное создание DockPanel из кода C#
 ~~~C#
