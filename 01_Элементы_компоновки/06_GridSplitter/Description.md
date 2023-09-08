@@ -37,26 +37,39 @@
 </Window>
 ~~~
 
-Для помещения индивидуальных элементов в ячейку используются присоединенные свойства Grid.Row и Grid.Column. Оба эти свойства принимают числовое значение индекса, начинающееся с 0. Существует одно исключение. Если не указать значение для свойства Grid.Row, то оно предполагается равным 0. То же самое касается и свойства Grid.Column. Таким образом, если опущены оба атрибута элемента, он помещается в первую ячейку Grid. 
+Лучше всего поместить GridSplitter в отдельную строку или столбец с автоматическим выбором размера. В таком случае он не будет перекрывать содержимое соседних ячеек. Если вы все же решите поместить GridSplitterв одну ячейку с другими элементами, то хотя бы добавляйте его последним (или задавайте свойство ZIndex).
+Обычно Grid содержит не более одного GridSplitter. Тме не менее, можно вкладывать один Grid в другой, и при этом каждый из них будет иметь собственный GridSplitter. Это позволяет создавать окна, которые разделены на две области (например, на левую и правую панель), одна из которых (скажем, правая), в свою очередь, также разделена на два раздела (на верхний и нижний с изменяемыми размерами). 
 
-<img align="left" width="480" height="385" src="img/Grid2.png" alt="Пример работы данного кода"/>
+<img align="left" width="480" height="385" src="img/GridSplitter2.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-    <Grid ShowGridLines="True">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <GridSplitter Grid.Column="1"  Grid.Row="0" 
+                      ShowsPreview="False" Width="15"
+                      HorizontalAlignment="Center" 
+                      VerticalAlignment="Stretch"
+                      Background="Gray"/>
+        
+        <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" Height="15"
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Center" 
+                      Background="Gray"/>
 
-        <Button Grid.Row="0" Grid.Column="0" Content="Кнопка 1" Background="Aqua"/>
-        <Button Grid.Row="0" Grid.Column="1" Content="Кнопка 2" Background="Azure"/>
-        <Button Grid.Row="1" Grid.Column="0" Content="Кнопка 3" Background="Bisque"/>
-        <Button Grid.Row="1" Grid.Column="1" Content="Кнопка 4" Background="Beige"/>
+        <Button Background="Aqua" Grid.Column="0" Grid.Row="0" Content="Левая панель"/>
+        <Button Background="LightGreen" Grid.Column="2" Grid.Row="0" Content="Правая панель" />
+        <Button Background="Aquamarine" Grid.ColumnSpan="3" Grid.Row="2" Content="Нижняя панель"/>
     </Grid>
 </Window>
 ~~~
