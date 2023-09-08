@@ -10,6 +10,35 @@
         Width="800">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <GridSplitter Grid.Column="1"  Grid.Row="0" 
+                      ShowsPreview="False" Width="15"
+                      HorizontalAlignment="Center" 
+                      VerticalAlignment="Stretch"
+                      Background="Gray"/>
+        
+        <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" Height="15"
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Center" 
+                      Background="Gray"/>
+
+        <Button Background="Aqua" Grid.Column="0" Grid.Row="0" Content="Левая панель"/>
+        <Button Background="LightGreen" Grid.Column="2" Grid.Row="0" Content="Правая панель" />
+        <Button Background="Aquamarine" Grid.ColumnSpan="3" Grid.Row="2" Content="Нижняя панель"/>
+    </Grid>
+
+    <!--
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -32,4 +61,5 @@
                       ShowsPreview="False">
         </GridSplitter>
     </Grid>
+-->
 </Window>
