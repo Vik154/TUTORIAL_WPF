@@ -38,31 +38,27 @@
 ~~~
 
 #### Пример создания StackPanel - свойство Orientation = Horizontal
-<img align="left"  src="img/StackPanel2.png" alt="Пример работы данного кода"/>
+<img align="left"  src="img/WrapPanel2.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-    <Window.Resources>
-        <Style TargetType="Button" x:Key="style2">
-            <Setter Property="Height" Value="200"/>
-            <Setter Property="Width" Value="25"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="Margin" Value="5,5,0,0"/>
-        </Style>
-    </Window.Resources>
-    
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel.Resources>
-                <Style TargetType="Button" BasedOn="{StaticResource style2}"/>
-            </StackPanel.Resources>
-            <Button Content="1" Background="AliceBlue"/>
-            <Button Content="2" Background="AntiqueWhite"/>
-            <Button Content="3" Background="Aqua"/>
-            <Button Content="4" Background="Aquamarine"/>
-            <Button Content="5" Background="Azure"/>
-        </StackPanel>  
+        <WrapPanel Orientation="Vertical" Background="AliceBlue">
+            <Button Height="40" Width="120" Margin="5">Кнопка 1</Button>
+            <Button Height="40" Width="120" Margin="5">Кнопка 2</Button>
+            <Button Height="40" Width="120" Margin="5">Кнопка 3</Button>
+            <Button Height="40" Width="120" Margin="5">Кнопка 4</Button>
+            <Button Height="40" Width="120" Margin="5">Кнопка 5</Button>
+            <Button Height="20" Width="80" Margin="5">Кнопка 6</Button>
+            <Button Height="15" Width="30" Margin="5">Кнопка 7</Button>
+            <Button Height="25" Width="50" Margin="5">Кнопка 8</Button>
+            <Button Height="35" Width="80" Margin="5">Кнопка 9</Button>
+            <Button Height="50" Width="90" Margin="5">Кнопка 10</Button>
+            <Button Height="25" Width="60" Margin="5">Кнопка 11</Button>
+            <Button Margin="5">Кнопка 12</Button>
+            <Button Margin="5">Кнопка 13</Button>
+            <Button Margin="5">Кнопка 14</Button>
+        </WrapPanel>
     </Grid>
 </Window>
 ~~~
