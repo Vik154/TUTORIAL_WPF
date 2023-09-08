@@ -53,27 +53,25 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace _02_StackPanel;
+namespace _04_DockPanel;
 
 public partial class MainWindow : Window {
-
     public MainWindow() {
         InitializeComponent();
+        MakeDockPanel();
+    }
 
-        StackPanel stackPanel = new StackPanel {            // Создание объекта стек-панель
+    /* Программное создание DockPanel*/
+    private void MakeDockPanel() {
+        DockPanel dockPanel = new DockPanel {               // Создание контейнера
             VerticalAlignment = VerticalAlignment.Top,      // Задает вертикальное выравнивание
             HorizontalAlignment = HorizontalAlignment.Left, // Задает горизонтальное выравнивание
-            Orientation = Orientation.Vertical,             // Размещение элементов внутри стек панели
-            Width = 200,                                    // Ширина
-            Height = 200,                                   // Высота
             Background = Brushes.AliceBlue                  // Цвет фона
         };
 
-        for (int i = 0; i < 5; ++i) {                       // Добавление 5 кнопок в стек панель
-            stackPanel.Children.Add(new Button {            // Создание кнопки
+        for (int i = 0; i < 20; ++i) {                      // Добавление нопок
+            Button btn = new Button {                       // Создание кнопки
                 Content = $"Кнопка {i + 1}",                // Надпись на кнопке
-                Height = 30,                                // Высота
-                Width = 150,                                // Ширина
                 FontWeight = FontWeights.Bold,              // Жирный шрифт
                 Margin = new Thickness(5, 5, 0, 0),         // Внешние отступы left,top,r,b
 
@@ -83,9 +81,17 @@ public partial class MainWindow : Window {
                     (byte)new Random().Next(0, 255),
                     (byte)new Random().Next(0, 255)
                     ))
-            });
-        };
-        this.Content = stackPanel;
-    }
-}
+            };
+
+            dockPanel.Children.Add(btn);            // Добавление в родительский контейнер
+            DockPanel.SetDock(btn, (Dock)(i % 4));  // Выбор положения (Doc.Top/Right/Left..)
+        
+        }; // for
+
+        this.Content = dockPanel;
+    
+    } // method MakeDockPanel()
+
+} // class MainWindow
 ~~~
+<img src="img/DockPanel3.png" alt="Пример работы данного кода"/>
