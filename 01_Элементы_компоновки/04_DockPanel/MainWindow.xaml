@@ -16,15 +16,24 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <DockPanel>
+        <DockPanel Grid.Row="1">
             <Button DockPanel.Dock="Left" Background="AliceBlue">Левая кнопка</Button>
             <Button DockPanel.Dock="Right" Background="AntiqueWhite">Правая кнопка</Button>
             <Button DockPanel.Dock="Bottom" Background="Aqua">Нижняя кнопка</Button>
             <Button DockPanel.Dock="Top" Background="Aquamarine">Верхняя кнопка</Button>
-            <Button Background="Bisque">Кнопка заполненная автоматически</Button>
+            <Button Background="Bisque">Пространство заполненно автоматически</Button>
         </DockPanel>
 
-        
-        
+        <DockPanel Grid.Row="0" LastChildFill="True">
+            <Button DockPanel.Dock="Top" Background="Aqua" Content="Растянута по всей длине"/>
+            <Button DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Размер равен размеру контента"/>
+            <Button DockPanel.Dock="Top" HorizontalAlignment="Left" Content="Выравнивание по левому краю"/>
+            <Button DockPanel.Dock="Bottom" Background="AntiqueWhite" Content="Нижняя кнопка"/>
+            <Button DockPanel.Dock="Left" Background="Aquamarine" Content="Левая кнопка"/>
+            <Button DockPanel.Dock="Right" Background="Beige" Content="Правая кнопка"/>
+            <Button Background="Bisque" Content="Автоматическое заполнение"/>
+        </DockPanel>
+
+
     </Grid>
 </Window>
