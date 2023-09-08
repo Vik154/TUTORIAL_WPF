@@ -6,28 +6,19 @@
 В классе DockPanel определено присоединенное свойство Dock(типа System.Windows.Controls.Dock), с помощью которого дочерние элементы могут управлять своим положением. Оно может принимать четыре значения: Left (подразумевается по умолчанию, если свойство Dock не задано явно), Top, Right и Bottom. Отметим, что у свойства Dock нет значения Fill, означающего, что нужно заполнить оставшееся место.
 Вместо этого действует соглашение о том, что все оставшееся место отдается последнему дочернему элементу, добавленному в DockPanel, если только свойство LastChildFill не равно false. Если LastChildFill равно true(по умолчанию), то значение свойства Dock, заданное для последнего добавленного элемента, игнорируется. Если же оно равно false, то последний элемент можно пристыковать к любой стороне (по умолчанию к левой, Left).
 
-#### Пример создания WrapkPanel - по умолчанию свойство Orientation = Horizontal
-<img align="left" Width="350" Height="300" src="img/WrapPanel1.png" alt="Пример работы данного кода"/>
+#### Пример создания DockPanel
+<img align="left" src="img/DockPanel1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
     <Grid>
-        <WrapPanel Background="AliceBlue">
-            <Button Height="40" Width="120" Margin="5">Кнопка 1</Button>
-            <Button Height="40" Width="120" Margin="5">Кнопка 2</Button>
-            <Button Height="40" Width="120" Margin="5">Кнопка 3</Button>
-            <Button Height="40" Width="120" Margin="5">Кнопка 4</Button>
-            <Button Height="40" Width="120" Margin="5">Кнопка 5</Button>
-            <Button Height="20" Width="80" Margin="5">Кнопка 6</Button>
-            <Button Height="15" Width="30" Margin="5">Кнопка 7</Button>
-            <Button Height="25" Width="50" Margin="5">Кнопка 8</Button>
-            <Button Height="35" Width="80" Margin="5">Кнопка 9</Button>
-            <Button Height="50" Width="90" Margin="5">Кнопка 10</Button>
-            <Button Height="25" Width="60" Margin="5">Кнопка 11</Button>
-            <Button Margin="5">Кнопка 12</Button>
-            <Button Margin="5">Кнопка 13</Button>
-            <Button Margin="5">Кнопка 14</Button>
-        </WrapPanel>
+        <DockPanel>
+            <Button DockPanel.Dock="Left" Background="AliceBlue">Левая кнопка</Button>
+            <Button DockPanel.Dock="Right" Background="AntiqueWhite">Правая кнопка</Button>
+            <Button DockPanel.Dock="Bottom" Background="Aqua">Нижняя кнопка</Button>
+            <Button DockPanel.Dock="Top" Background="Aquamarine">Верхняя кнопка</Button>
+            <Button Background="Bisque">Пространство заполненно автоматически</Button>
+        </DockPanel>
     </Grid>
 </Window>
 ~~~
