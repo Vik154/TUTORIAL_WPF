@@ -26,30 +26,21 @@
 Можно пристыковать несколько элементов к одной стороне. В этом случае элементы просто выстраиваются вдоль этой стороны в том порядке, в котором они объявлены в разметке. И, если вам не нравится поведение в отношении растяжения и промежуточных пробелов, можете подкорректировать свойства Margin, HorizontalAlignment и VerticalAlignment.
 
 
-
-
 #### Свойство Orientation = Vertical
-<img align="left" Width="350" src="img/WrapPanel2.png" alt="Пример работы данного кода"/>
+<img align="left" Width="350" src="img/DockPanel2.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
     <Grid>
-        <WrapPanel Orientation="Vertical" Background="AliceBlue">
-            <Button Height="40" Width="120" Margin="5">Кнопка 1</Button>
-            <Button Height="40" Width="120" Margin="5">Кнопка 2</Button>
-            <Button Height="40" Width="120" Margin="5">Кнопка 3</Button>
-            <Button Height="40" Width="120" Margin="5">Кнопка 4</Button>
-            <Button Height="40" Width="120" Margin="5">Кнопка 5</Button>
-            <Button Height="20" Width="80" Margin="5">Кнопка 6</Button>
-            <Button Height="15" Width="30" Margin="5">Кнопка 7</Button>
-            <Button Height="25" Width="50" Margin="5">Кнопка 8</Button>
-            <Button Height="35" Width="80" Margin="5">Кнопка 9</Button>
-            <Button Height="50" Width="90" Margin="5">Кнопка 10</Button>
-            <Button Height="25" Width="60" Margin="5">Кнопка 11</Button>
-            <Button Margin="5">Кнопка 12</Button>
-            <Button Margin="5">Кнопка 13</Button>
-            <Button Margin="5">Кнопка 14</Button>
-        </WrapPanel>
+        <DockPanel Grid.Row="0" LastChildFill="True">
+            <Button DockPanel.Dock="Top" Background="Aqua" Content="Растянута по всей длине"/>
+            <Button DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Размер равен размеру контента"/>
+            <Button DockPanel.Dock="Top" HorizontalAlignment="Left" Content="Выравнивание по левому краю"/>
+            <Button DockPanel.Dock="Bottom" Background="AntiqueWhite" Content="Нижняя кнопка"/>
+            <Button DockPanel.Dock="Left" Background="Aquamarine" Content="Левая кнопка"/>
+            <Button DockPanel.Dock="Right" Background="Beige" Content="Правая кнопка"/>
+            <Button Background="Bisque" Content="Автоматическое заполнение"/>
+        </DockPanel>
     </Grid>
 </Window>
 ~~~
