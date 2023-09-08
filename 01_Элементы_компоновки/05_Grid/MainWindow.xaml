@@ -8,16 +8,14 @@
         Title="MainWindow" Height="460" Width="680">
     <!-- ShowGridLines="True" - Отображение разделителя-->
     <Grid ShowGridLines="True">
-        <!-- Создание 3х строк-->
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="300"/>
         </Grid.RowDefinitions>
         
-        <!-- Создание 3х столбцов -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Button Grid.Row="0" Grid.Column="0" Content="Кнопка 1" Background="Aqua"/>
