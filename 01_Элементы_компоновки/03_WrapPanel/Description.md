@@ -63,7 +63,7 @@
 </Window>
 ~~~
 
-#### Программное создание StackPanel из кода C#
+#### Программное создание WrapPanel из кода C#
 <img src="img/WrapPanel3.png" alt="Пример работы данного кода"/>
 
 
