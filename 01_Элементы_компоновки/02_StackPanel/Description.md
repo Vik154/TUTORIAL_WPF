@@ -5,4 +5,29 @@
 StackPanel не требует задавать присоединенные свойства для получения приемлемого пользовательского интерфейса. На самом деле StackPanel - одна из немногих панелей, в которых вообще не определены собственные присоединенные свойства! В отсутствие присоединенных свойств единственный способ организовать дочерние элементы - воспользоваться свойством панели Orientation (типа System.Windows.Controls.Orientation), которое может принимать значение Horizontal или Vertical. По умолчанию подразумевается ориентация Vertical.
 
 #### Пример создания StackPanel
-<img align="right"  src="02_StackPanel/img/StackPanel.png" alt="Пример работы данного кода"/>
+<img align="left"  src="02_StackPanel/img/StackPanel.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ...Стандартный код, сгенерированный VS>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5,5,0,0"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="StackPanel" FontWeight="Bold" Margin="15,5"/>
+            <Button Content="Кнопка 1" Background="AliceBlue"/>
+            <Button Content="Кнопка 2" Background="AntiqueWhite"/>
+            <Button Content="Кнопка 3" Background="Aqua"/>
+            <Button Content="Кнопка 4" Background="Aquamarine"/>
+            <Button Content="Кнопка 5" Background="Azure"/>
+        </StackPanel>
+    </Grid>
+</Window>
+~~~
