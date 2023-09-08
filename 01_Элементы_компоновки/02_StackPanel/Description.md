@@ -31,3 +31,33 @@ StackPanel не требует задавать присоединенные с�
     </Grid>
 </Window>
 ~~~
+
+#### Пример создания StackPanel - свойство Orientation = Horizontal
+<img align="left"  src="02_StackPanel/img/StackPanel.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ...Стандартный код, сгенерированный VS>
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="style2">
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5,5,0,0"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource style2}"/>
+            </StackPanel.Resources>
+            <Button Content="1" Background="AliceBlue"/>
+            <Button Content="2" Background="AntiqueWhite"/>
+            <Button Content="3" Background="Aqua"/>
+            <Button Content="4" Background="Aquamarine"/>
+            <Button Content="5" Background="Azure"/>
+        </StackPanel>  
+    </Grid>
+</Window>
+~~~
