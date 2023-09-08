@@ -57,6 +57,57 @@
             <Button Content="5" Background="Azure"/>
         </StackPanel>
 
+        <StackPanel Grid.Column="1" 
+                    Background="Aqua"
+                    Orientation="Horizontal">
+            
+            <StackPanel Background="AliceBlue"
+                        Width="180">
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource style1}"/>
+                </StackPanel.Resources>
+                <Button Content="Кнопка" Background="Beige" />
+                <Button Content="Кнопка" Background="Brown"/>
+
+                <Button Content="Кнопка" Background="Aquamarine" Margin="30,20,0,0">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="35"/>
+                    </Button.RenderTransform>
+                </Button>
+            </StackPanel>
+            
+            <StackPanel>
+                <TextBox VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         Text="Пример текстового блока внутри StackPanel"
+                         HorizontalScrollBarVisibility="Visible"
+                         VerticalScrollBarVisibility="Visible"
+                         TextWrapping="Wrap"
+                         MaxWidth="220">
+                </TextBox>
+                <TextBlock MaxWidth="220"
+                           TextWrapping="Wrap">
+                    Текст внутри текст блока
+                    бла-бла-бла-бла-бла-бла
+                </TextBlock>
+                <Button Content="ТЫк" Background="Green"/>
+                <Label Content="Label"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Background="AntiqueWhite">
+            <Image Source="img/StackPanel.png"
+                   Width="180" Height="180">
+            </Image>
+            <Button Content="1" Background="Aqua"  Style="{StaticResource style2}"/>
+            <Button Content="2" Background="Aqua"  Style="{StaticResource style2}"/>
+            <Button Content="3" Background="Aqua"  Style="{StaticResource style2}"/>
+        </StackPanel>
+        
     </Grid>
 
 </Window>
