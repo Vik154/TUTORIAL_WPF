@@ -15,4 +15,6 @@
 ## Структура проекта:
 1. Основные элементы компоновки:
    * *[01_Canvas](01_Элементы_компоновки/01_Canvas/Description.md)*
-   * *[02_StackPanel](01_Элементы_компоновки/02_StackPanel/Description.md)* 
+   * *[02_StackPanel](01_Элементы_компоновки/02_StackPanel/Description.md)*
+   * *[03_WrapPanel](01_Элементы_компоновки/03_WrapPanel/Description.md)* 
+   *  
