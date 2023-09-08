@@ -64,33 +64,36 @@
 ~~~
 
 #### Программное создание StackPanel из кода C#
+<img align="left" src="img/WrapPanel3.png" alt="Пример работы данного кода"/>
+
 ~~~C#
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace _02_StackPanel;
+namespace _03_WrapPanel;
 
 public partial class MainWindow : Window {
-
     public MainWindow() {
         InitializeComponent();
+        MakeWrapPanel();
+    }
 
-        StackPanel stackPanel = new StackPanel {            // Создание объекта стек-панель
+    /* Программное создание WrapPanel*/
+    private void MakeWrapPanel() {
+        WrapPanel wrapPanel = new WrapPanel {               // Создание объекта WrapPanel
             VerticalAlignment = VerticalAlignment.Top,      // Задает вертикальное выравнивание
             HorizontalAlignment = HorizontalAlignment.Left, // Задает горизонтальное выравнивание
-            Orientation = Orientation.Vertical,             // Размещение элементов внутри стек панели
-            Width = 200,                                    // Ширина
-            Height = 200,                                   // Высота
+            Orientation = Orientation.Horizontal,           // Размещение элементов внутри контейнера
             Background = Brushes.AliceBlue                  // Цвет фона
         };
 
-        for (int i = 0; i < 5; ++i) {                       // Добавление 5 кнопок в стек панель
-            stackPanel.Children.Add(new Button {            // Создание кнопки
+        for (int i = 0; i < 20; ++i) {                      // Добавление нопок
+            wrapPanel.Children.Add(new Button {             // Создание кнопки
                 Content = $"Кнопка {i + 1}",                // Надпись на кнопке
-                Height = 30,                                // Высота
-                Width = 150,                                // Ширина
+                Height = new Random().Next(20, 100),        // Высота
+                Width = new Random().Next(50, 150),         // Ширина
                 FontWeight = FontWeights.Bold,              // Жирный шрифт
                 Margin = new Thickness(5, 5, 0, 0),         // Внешние отступы left,top,r,b
 
@@ -102,7 +105,8 @@ public partial class MainWindow : Window {
                     ))
             });
         };
-        this.Content = stackPanel;
+
+        this.Content = wrapPanel;
     }
 }
 ~~~
