@@ -6,7 +6,33 @@
         xmlns:local="clr-namespace:_03_WrapPanel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
+        <WrapPanel Background="AliceBlue">
+            <Button Height="40" Width="120" Margin="5">Кнопка 1</Button>
+            <Button Height="40" Width="120" Margin="5">Кнопка 1</Button>
+            <Button Height="40" Width="120" Margin="5">Кнопка 1</Button>
+            <Button Height="40" Width="120" Margin="5">Кнопка 1</Button>
+            <Button Height="40" Width="120" Margin="5">Кнопка 1</Button>
+            <Button Height="20" Margin="5">Кнопка 1</Button>
+            <Button Height="15" Margin="5">Кнопка 1</Button>
+            <Button Margin="5">Кнопка 1</Button>
+            <Button Margin="5">Кнопка 1</Button>
+            <Button Margin="5">Кнопка 1</Button>
+            <Button Margin="5">Кнопка 1</Button>
+            <Button Margin="5">Кнопка 1</Button>
+            <Button Margin="5">Кнопка 1</Button>
+            <Button Margin="5">Кнопка 1</Button>
+        </WrapPanel>
+        
     </Grid>
 </Window>
