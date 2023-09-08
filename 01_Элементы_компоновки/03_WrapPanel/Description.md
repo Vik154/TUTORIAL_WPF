@@ -64,7 +64,7 @@
 ~~~
 
 #### Программное создание StackPanel из кода C#
-<img align="left" src="img/WrapPanel3.png" alt="Пример работы данного кода"/>
+<img src="img/WrapPanel3.png" alt="Пример работы данного кода"/>
 
 
 ~~~C#
