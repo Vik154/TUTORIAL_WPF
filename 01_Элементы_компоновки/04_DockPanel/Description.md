@@ -11,15 +11,15 @@
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-    <Grid>
-        <DockPanel>
-            <Button DockPanel.Dock="Left" Background="AliceBlue">Левая кнопка</Button>
-            <Button DockPanel.Dock="Right" Background="AntiqueWhite">Правая кнопка</Button>
-            <Button DockPanel.Dock="Bottom" Background="Aqua">Нижняя кнопка</Button>
-            <Button DockPanel.Dock="Top" Background="Aquamarine">Верхняя кнопка</Button>
-            <Button Background="Bisque">Пространство заполненно автоматически</Button>
-        </DockPanel>
-    </Grid>
+  <Grid>
+    <DockPanel>
+        <Button DockPanel.Dock="Left" Background="AliceBlue">Левая кнопка</Button>
+        <Button DockPanel.Dock="Right" Background="AntiqueWhite">Правая кнопка</Button>
+        <Button DockPanel.Dock="Bottom" Background="Aqua">Нижняя кнопка</Button>
+        <Button DockPanel.Dock="Top" Background="Aquamarine">Верхняя кнопка</Button>
+        <Button Background="Bisque">Пространство заполненно автоматически</Button>
+    </DockPanel>
+  </Grid>
 </Window>
 ~~~
 
