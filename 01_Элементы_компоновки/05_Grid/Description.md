@@ -11,19 +11,26 @@ Grid и сам может быть другим контейнером комп�
 назначается соответствующая строка и колонка, тем самым помещая его в правильное место. Колонки и строки создаются путем заполнения объектами коллекции Grid.ColumnDefinitions и Grid.RowDefinitions. 
 
 #### Пример создания Grid
-<img align="left" width="250" height="250" src="img/DockPanel1.png" alt="Пример работы данного кода"/>
+<img align="left" width="250" height="250" src="img/Grid1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-  <Grid>
-    <DockPanel>
-        <Button DockPanel.Dock="Left" Background="AliceBlue">Левая кнопка</Button>
-        <Button DockPanel.Dock="Right" Background="AntiqueWhite">Правая кнопка</Button>
-        <Button DockPanel.Dock="Bottom" Background="Aqua">Нижняя кнопка</Button>
-        <Button DockPanel.Dock="Top" Background="Aquamarine">Верхняя кнопка</Button>
-        <Button Background="Bisque">Пространство заполненно автоматически</Button>
-    </DockPanel>
-  </Grid>
+    <!-- ShowGridLines="True" - Отображение разделителя-->
+    <Grid ShowGridLines="True">
+        <!-- Создание 3х строк-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!-- Создание 3х столбцов -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+    </Grid>
 </Window>
 ~~~
 
