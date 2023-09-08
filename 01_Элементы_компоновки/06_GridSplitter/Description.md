@@ -74,156 +74,102 @@
 </Window>
 ~~~
 
-#### Задание размеров строк и столбцов
-В отличие от элементов типа FrameworkElement, свойства Height и Width элементов RowDefinition и ColumnDefinition по умолчанию неравны Auto (или Double.NaN). и, в отличие от всех прочих свойств Height и Width в WPF, они имеют тип System.Windows.GridLength, а не double. Поэтому панель Grid поддерживает три способа задания размера в элементах RowDefinition и ColumnDefinition:
-* ___Абсолютный размер___ - числовое значение Height илиWidth означает, что размер задан в независимых от устройства пикселах (как и все прочие свойства Height
-и Width в WPF). В отличие от других способов задания размера, абсолютные значения не позволяют строкам и столбцам увеличиваться или сжиматься при изменении размера самой сетки Grid или находящихся внутри нее элементов.
-* ___Автоматический выбор размера___ – если Height или Width равно Auto, то дочерним элементам выделяется столько места, сколько необходимо, но не больше (для свойств Height и Width во всех остальных классах WPF это режим по умолчанию). Для строки эта величина равна высоте самого высокого элемента, а для столбца - ширине самого широкого элемента.
-* ___Пропорциональное изменение размера___ - (иногда называется размером «звездочка») предусмотрен специальный синтаксис задания свойств Height и Width,
-позволяющий распределить имеющееся пространство поровну или в соответствии с заданными пропорциями. Если задано пропорциональное изменение размера, строка и столбец увеличиваются или сжимаются при изменении размера сетки.
-
-<img align="left" width="480" height="385" src="img/Grid3.png" alt="Пример работы данного кода"/>
-
-~~~XAML
-<Window ...Стандартный код, сгенерированный VS>
-  <Grid ShowGridLines="True">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="300"/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="500"/>
-      <ColumnDefinition Width="*"/>
-    </Grid.ColumnDefinitions>
-
-    <Button Grid.Row="0" Grid.Column="0" Content="Кнопка 1" Background="Aqua"/>
-    <Button Grid.Row="0" Grid.Column="1" Content="Кнопка 2" Background="Azure"/>
-    <Button Grid.Row="1" Grid.Column="0" Content="Кнопка 3" Background="Bisque"/>
-    <Button Grid.Row="1" Grid.Column="1" Content="Кнопка 4" Background="Beige"/>
-  </Grid>
-</Window>
-~~~
-
-#### __Пропорциональные размеры__
-Звездочка работает следующим образом:
-* Если высота строки или ширина столбца равна \*, то соответствующему структурному элементу выделяется все оставшееся место.
-* Если размер задан равным \* для нескольких строк или столбцов, то все оставшееся место делится между ними поровну.
-* Перед символом \* можно указывать коэффициент (например, 2* или 5.5*), тогда соответствующей строке или столбцу будет выделено пропорционально больше
-места, чем остальным строкам или столбцам, в размере которых присутствует символ \*. Столбец шириной 2\* всегда в два раза шире столбца шириной \* (это
-означает в точности то же самое, что 1\*) в той же самой сетке. Столбец шириной 5.5\* в два раза шире столбца шириной 2.75* в той же самой сетке.
-
-___Пример задания пропорциональных размеров с помощью \*___
-
-~~~XAML
-<Window ...Стандартный код, сгенерированный VS>
-
-    <StackPanel Background="AntiqueWhite">
-        
-        <Grid Height="100" Margin="10" ShowGridLines="True">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Background="LightCyan"  Content="Width=150"/>
-            <Button Background="LightBlue" Grid.Column="1" Content="Width=*"/>
-        </Grid>
-        
-        <Grid Height="100" Margin="10" ShowGridLines="True">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Background="LightCyan" Content="Width=150"/>
-            <Button Background="Aqua" Grid.Column="1" Content="Width=*"/>
-            <Button Background="Aquamarine" Grid.Column="2" Content="Width=*"/>
-            <Button Background="Azure" Grid.Column="3" Content="Width=*"/>
-        </Grid>
-        
-        <Grid Height="100" Margin="10" ShowGridLines="True">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Background="LightCyan" Content="Width=150"/>
-            <Button Background="Bisque" Grid.Column="1" Content="Width=*"/>
-            <Button Background="Beige"  Grid.Column="2" Content="Width=2*"/>
-            <Button Background="AliceBlue"  Grid.Column="3" Content="Width=*"/>
-        </Grid>
-        
-        <Grid Height="100" Margin="10" ShowGridLines="True">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
-            <Button Background="LightCyan" Content="Width=150"/>
-            <Button Background="BurlyWood"  Grid.Column="1" Content="Width=2*"/>
-            <Button Background="Cornsilk"  Grid.Column="2" Content="Width=4*"/>
-            <Button Background="Azure"  Grid.Column="3" Content="Width=3*"/>
-        </Grid>
-    </StackPanel>
-</Window>
-~~~
-<img src="img/Grid4.png" alt="Пример работы данного кода"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### Программное создание DockPanel из кода C#
+#### Программное создание GridSplitter из кода C#
 ~~~C#
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace _02_StackPanel;
+namespace _06_GridSplitter; 
 
 public partial class MainWindow : Window {
-
     public MainWindow() {
         InitializeComponent();
+        MakeGridSplitter();
+    }
 
-        StackPanel stackPanel = new StackPanel {            // Создание объекта стек-панель
-            VerticalAlignment = VerticalAlignment.Top,      // Задает вертикальное выравнивание
-            HorizontalAlignment = HorizontalAlignment.Left, // Задает горизонтальное выравнивание
-            Orientation = Orientation.Vertical,             // Размещение элементов внутри стек панели
-            Width = 200,                                    // Ширина
-            Height = 200,                                   // Высота
-            Background = Brushes.AliceBlue                  // Цвет фона
+    // Программное создание GridSplitter
+    private void MakeGridSplitter() {
+
+        // Этот код эквивалентен записи Height = "Auto" в XAML
+        RowDefinition rowDefinitionAuto = new RowDefinition {
+            Height = new GridLength(0, GridUnitType.Auto)
         };
 
-        for (int i = 0; i < 5; ++i) {                       // Добавление 5 кнопок в стек панель
-            stackPanel.Children.Add(new Button {            // Создание кнопки
-                Content = $"Кнопка {i + 1}",                // Надпись на кнопке
-                Height = 30,                                // Высота
-                Width = 150,                                // Ширина
-                FontWeight = FontWeights.Bold,              // Жирный шрифт
-                Margin = new Thickness(5, 5, 0, 0),         // Внешние отступы left,top,r,b
-
-                // Рандомная генерация цвета кнопки
-                Background = new SolidColorBrush(Color.FromRgb(
-                    (byte)new Random().Next(0, 255),
-                    (byte)new Random().Next(0, 255),
-                    (byte)new Random().Next(0, 255)
-                    ))
-            });
+        // Этот код эквивалентен записи Height = "*" в XAML
+        RowDefinition rowDefinitionStar1 = new RowDefinition {
+            Height = new GridLength(1, GridUnitType.Star)
         };
-        this.Content = stackPanel;
+
+        // Потому что WPF запрещает владеть одним элементом нескольким контейнерам
+        RowDefinition rowDefinitionStar2 = new RowDefinition {
+            Height = new GridLength(1, GridUnitType.Star)
+        };
+
+        ColumnDefinition columnDefinitionAuto = new ColumnDefinition {
+            Width = new GridLength(0, GridUnitType.Auto)
+        };
+
+        ColumnDefinition columnDefinitionStar1 = new ColumnDefinition {
+            Width = new GridLength(1, GridUnitType.Star)
+        };
+
+        ColumnDefinition columnDefinitionStar2 = new ColumnDefinition {
+            Width = new GridLength(1, GridUnitType.Star)
+        };
+
+        Grid grid = new Grid();
+        grid.RowDefinitions.Add(rowDefinitionStar1);
+        grid.RowDefinitions.Add(rowDefinitionAuto);
+        grid.RowDefinitions.Add(rowDefinitionStar2);
+        grid.ColumnDefinitions.Add(columnDefinitionStar1);
+        grid.ColumnDefinitions.Add(columnDefinitionAuto);
+        grid.ColumnDefinitions.Add(columnDefinitionStar2);
+
+        Button btn1 = new Button { Background = Brushes.AliceBlue, Content = "Кнопка 1" };
+        Button btn2 = new Button { Background = Brushes.Aqua, Content = "Кнопка 2" };
+        Button btn3 = new Button { Background = Brushes.Azure, Content = "Кнопка 3" };
+
+        grid.Children.Add(btn1);
+        grid.Children.Add(btn2);
+        grid.Children.Add(btn3);
+
+        Grid.SetColumn(btn1, 0);
+        Grid.SetRow(btn1, 0);
+        Grid.SetColumn(btn2, 2);
+        Grid.SetRow(btn2, 0);
+
+        Grid.SetColumn(btn3, 0);
+        Grid.SetRow(btn3, 2);
+        Grid.SetColumnSpan(btn3, 3);
+
+        GridSplitter horzGridSplitter = new GridSplitter {
+            Background = Brushes.Gray,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Stretch,
+            ShowsPreview = false,
+            Width = 15
+        };
+
+        GridSplitter vertGridSplitter = new GridSplitter {
+            Height = 15,
+            HorizontalAlignment = HorizontalAlignment.Stretch,
+            VerticalAlignment = VerticalAlignment.Center,
+            Background = Brushes.Gray
+        };
+
+        grid.Children.Add(vertGridSplitter);
+        grid.Children.Add(horzGridSplitter);
+
+        Grid.SetColumn(horzGridSplitter, 1);
+        Grid.SetRow(horzGridSplitter, 0);
+
+        Grid.SetColumn(vertGridSplitter, 0);
+        Grid.SetRow(vertGridSplitter, 1);
+        Grid.SetColumnSpan(vertGridSplitter, 3);
+
+        this.Content = grid;
     }
 }
+
 ~~~
