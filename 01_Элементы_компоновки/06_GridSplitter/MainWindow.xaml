@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_06_GridSplitter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" 
+        Height="450" 
+        Width="800">
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="100"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition MinWidth="50"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Margin="3" Content="Left"/>
+        <Button Grid.Row="0" Grid.Column="2" Margin="3" Content="Right"/>
+        <Button Grid.Row="1" Grid.Column="0" Margin="3" Content="Left"/>
+        <Button Grid.Row="1" Grid.Column="2" Margin="3" Content="Right"/>
+
+        <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                      Width="10" Background="Aqua"
+                      VerticalAlignment="Stretch"
+                      HorizontalAlignment="Center"
+                      ShowsPreview="False">
+        </GridSplitter>
     </Grid>
 </Window>
