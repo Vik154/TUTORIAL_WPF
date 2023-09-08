@@ -75,7 +75,6 @@ Grid и сам может быть другим контейнером комп�
       <RowDefinition Height="*"/>
       <RowDefinition Height="300"/>
     </Grid.RowDefinitions>
-
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="500"/>
       <ColumnDefinition Width="*"/>
