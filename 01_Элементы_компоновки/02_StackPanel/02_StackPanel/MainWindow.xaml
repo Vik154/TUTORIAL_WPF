@@ -6,6 +6,16 @@
         xmlns:local="clr-namespace:_02_StackPanel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5,5,0,0"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -16,7 +26,14 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        
+        <StackPanel>
+            <TextBlock Text="StackPanel" FontWeight="Bold" Margin="15,5"/>
+            <Button Content="Кнопка 1" Background="AliceBlue"/>
+            <Button Content="Кнопка 2" Background="AntiqueWhite"/>
+            <Button Content="Кнопка 3" Background="Aqua"/>
+            <Button Content="Кнопка 4" Background="Aquamarine"/>
+            <Button Content="Кнопка 5" Background="Azure"/>
+        </StackPanel>
         
     </Grid>
 </Window>
