@@ -11,6 +11,10 @@
    + :sos: https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.uielement?view=windowsdesktop-7.0
    + :octocat: https://github.com/microsoft/WPF-Samples/tree/main
+   + s
+4. Исходники стандартных библиотек (быстрый поиск в браузере)
+   + https://source.dot.net/ онлайн браузер исходников .NET Core
+   + https://referencesource.microsoft.com/ онлайн браузер исходников .NET Framework
 
 ## Структура проекта:
 1. Основные элементы компоновки:
