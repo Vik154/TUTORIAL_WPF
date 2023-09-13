@@ -27,7 +27,7 @@
 
 #### Программное создание Button из кода C#
 
-<img align="left" height="300"  src="img/Button2.png" alt="Пример работы данного кода"/>
+<img align="left" height="400" width="400" src="img/Button2.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System;
