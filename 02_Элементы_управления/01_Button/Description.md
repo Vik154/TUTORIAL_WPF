@@ -169,3 +169,31 @@ public partial class MainWindow : Window {
   </Grid>
 </Window>
 ~~~
+
+~~~C#
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
+namespace _01_Button;
+
+public partial class MainWindow : Window {
+    
+    public MainWindow() {
+        InitializeComponent();
+    }
+
+    private void ToggleButton_Checked(object sender, RoutedEventArgs e) {
+        infoBlock.Text += $"IsChecked == {ToogleBtn.IsChecked} (Зажата)\n";
+    }
+
+    private void ToggleButton_Unchecked(object sender, RoutedEventArgs e) {
+        infoBlock.Text += $"IsChecked == {ToogleBtn.IsChecked} (Снятие отметки)\n";
+    }
+
+    private void ToggleButton_Indeterminate(object sender, RoutedEventArgs e) {
+        infoBlock.Text += "IsChecked == null (неопределенна)\n";
+    }
+}
+~~~
