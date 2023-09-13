@@ -39,4 +39,16 @@ public partial class MainWindow : Window {
     private void SampleIsCancel_Click(object sender, RoutedEventArgs e) {
         this.Close();
     }
+
+    private void ToggleButton_Checked(object sender, RoutedEventArgs e) {
+        infoBlock.Text += $"IsChecked == {ToogleBtn.IsChecked} (Зажата)\n";
+    }
+
+    private void ToggleButton_Unchecked(object sender, RoutedEventArgs e) {
+        infoBlock.Text += $"IsChecked == {ToogleBtn.IsChecked} (Снятие отметки)\n";
+    }
+
+    private void ToggleButton_Indeterminate(object sender, RoutedEventArgs e) {
+        infoBlock.Text += "IsChecked == null (неопределенна)\n";
+    }
 }

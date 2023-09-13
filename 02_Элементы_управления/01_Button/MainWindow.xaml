@@ -39,7 +39,7 @@
         </StackPanel>
 
         <StackPanel Background="AliceBlue"
-                    Margin="10,8,533,0"
+                    Margin="234,15,309,0"
                     VerticalAlignment="Top">
             <Button x:Name="SampleIsDefault"
                     IsDefault="True"
@@ -55,6 +55,27 @@
                     Background="AntiqueWhite"
                     Click="SampleIsCancel_Click">
             </Button>
+        </StackPanel>
+
+        <StackPanel Background="AliceBlue" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="230"
+                    Height="120">
+            <ToggleButton x:Name="ToogleBtn"
+                          Content="ToogleBtn"
+                          IsThreeState="True"
+                          Background="Aquamarine"
+                          Checked="ToggleButton_Checked"
+                          Unchecked="ToggleButton_Unchecked"
+                          Indeterminate="ToggleButton_Indeterminate"
+                          >
+            </ToggleButton>
+            <TextBox x:Name="infoBlock" 
+                     Background="AliceBlue"
+                     MaxHeight="100"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                       ></TextBox>
         </StackPanel>
     </Grid>
 </Window>
