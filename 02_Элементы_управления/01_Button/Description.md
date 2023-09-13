@@ -64,3 +64,6 @@ public partial class MainWindow : Window {
     }
 }
 ~~~
+
+#### ___В WPF кнопки представлены целым рядом классов, которые наследуются от базового класса ButtonBase:___
+<img align="left" src="img/Button3.png" alt="Пример работы данного кода"/>
