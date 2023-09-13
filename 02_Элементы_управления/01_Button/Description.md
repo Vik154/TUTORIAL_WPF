@@ -152,6 +152,7 @@ public partial class MainWindow : Window {
                 HorizontalAlignment="Left"
                 Width="230"
                 Height="120">
+
         <ToggleButton x:Name="ToogleBtn"
                       Content="ToogleBtn"
                       IsThreeState="True"
@@ -160,6 +161,7 @@ public partial class MainWindow : Window {
                       Unchecked="ToggleButton_Unchecked"
                       Indeterminate="ToggleButton_Indeterminate">
         </ToggleButton>
+
         <TextBox x:Name="infoBlock" 
                  Background="AliceBlue"
                  MaxHeight="100"
