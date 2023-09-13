@@ -12,22 +12,29 @@
 
 
 
-#### Пример создания Button
-<img align="left" width="200" height="200" src="img/Button1.png" alt="Пример работы данного кода"/>
+#### Пример создания CheckBox
+<img align="left" width="200" height="200" src="img/Check1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-<Grid>  
-    <StackPanel Width="120" Height="115" 
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
-                Background="AliceBlue">
-        <Button Content="Кнопка 1" Background="AntiqueWhite" />
-        <Button Content="Кнопка 2" Background="Aqua" />
-        <Button Content="Кнопка 3" Background="Aquamarine"/>
-        <Button Content="Кнопка 4" Background="BlanchedAlmond"/>
+    <StackPanel Background="AliceBlue">
+        <CheckBox IsThreeState="True" IsChecked="False"    Height="30" Content="Неотмечено" />
+        <CheckBox IsThreeState="True" IsChecked="True"     Height="30" Content="Отмечено" />
+        <CheckBox IsThreeState="True" IsChecked="{x:Null}" Height="30" Content="Неопределено"/>
+
+        <CheckBox x:Name="bigCheckBox" 
+                  Width="60" Height="50"
+                  Content="BigBox"
+                  Checked="bigCheckBox_Checked"
+                  Unchecked="bigCheckBox_Unchecked"
+                  Indeterminate="bigCheckBox_Indeterminate"
+                  IsThreeState="True"
+                  >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="4" ScaleY="4" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
     </StackPanel>
-</Grid>
 </Window>
 ~~~
 
