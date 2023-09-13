@@ -97,13 +97,37 @@ ___Свойства IsDefault и IsCancel:___
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-<StackPanel Background="AliceBlue" VerticalAlignment="Top">
-    <Button x:Name="SampleIsDefault" IsDefault="True"
-            Content="SampleIsDefault" Height="50" Width="100"
-            Background="Aqua" Click="SampleIsDefault_Click" />
-    <Button x:Name="SampleIsCancel" IsCancel="True"
-            Content="SampleIsCancel" Height="50" Width="100"
-            Background="AntiqueWhite" Click="SampleIsCancel_Click" />
-</StackPanel>
+  <StackPanel Background="AliceBlue" VerticalAlignment="Top">
+      <Button x:Name="SampleIsDefault" IsDefault="True"
+              Content="SampleIsDefault" Height="50" Width="100"
+              Background="Aqua" Click="SampleIsDefault_Click" />
+      <Button x:Name="SampleIsCancel" IsCancel="True"
+              Content="SampleIsCancel" Height="50" Width="100"
+              Background="AntiqueWhite" Click="SampleIsCancel_Click" />
+  </StackPanel>
 </Window>
+~~~
+
+~~~C#
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
+namespace _01_Button;
+
+public partial class MainWindow : Window {
+    
+    public MainWindow() {
+        InitializeComponent();
+    }
+
+    private void SampleIsDefault_Click(object sender, RoutedEventArgs e) {
+        MessageBox.Show("Вызвано с помощью Enter");
+    }
+
+    private void SampleIsCancel_Click(object sender, RoutedEventArgs e) {
+        this.Close();
+    }
+}
 ~~~
