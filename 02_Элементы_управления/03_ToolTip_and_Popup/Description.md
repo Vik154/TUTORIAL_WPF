@@ -28,28 +28,25 @@ ___Или так:___
 <img align="left" width="500" height="400" src="img/Tool.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
-<Window .........>
-    <StackPanel Background="AliceBlue">
-        <TextBlock Text="Переключатель" Margin="10"/>
-        <RadioButton Content="ВКЛ" Margin="10">
-            <RadioButton.ToolTip>
-                <StackPanel Width="250" Height="120">
-                    <TextBlock Text="Космонавт"/>
-                    <Image Source="img/Space.jpg"/>
-                </StackPanel>
-            </RadioButton.ToolTip>
-        </RadioButton>
+<StackPanel Background="AliceBlue">
+    <TextBlock Text="Переключатель" Margin="10"/>
+    <RadioButton Content="ВКЛ" Margin="10">
+        <RadioButton.ToolTip>
+            <StackPanel Width="250" Height="120">
+                <TextBlock Text="Космонавт"/>
+                <Image Source="img/Space.jpg"/>
+            </StackPanel>
+        </RadioButton.ToolTip>
+    </RadioButton>
 
-        <RadioButton Content="ВЫКЛ" Margin="10">
-            <RadioButton.ToolTip>
-                <StackPanel Width="250" Height="120">
-                    <Image Source="img/Space.jpg"/>
-                </StackPanel>
-            </RadioButton.ToolTip>
-        </RadioButton>
-    </StackPanel>
-</Window>
-
+    <RadioButton Content="ВЫКЛ" Margin="10">
+        <RadioButton.ToolTip>
+            <StackPanel Width="250" Height="120">
+                <Image Source="img/Space.jpg"/>
+            </StackPanel>
+        </RadioButton.ToolTip>
+    </RadioButton>
+</StackPanel>
 ~~~
 
 
