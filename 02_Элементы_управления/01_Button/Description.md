@@ -141,7 +141,7 @@ public partial class MainWindow : Window {
 
 <p float="left">
   <img src="img/Toogle1.png" alt="Пример работы данного кода" /> </br>
-  
+  <text>
   ~~~XAML
     <StackPanel Background="AliceBlue" 
                 VerticalAlignment="Top"
@@ -163,7 +163,8 @@ public partial class MainWindow : Window {
                  ScrollViewer.VerticalScrollBarVisibility="Visible">
         </TextBox>
     </StackPanel>
-~~~
+    ~~~
+  </text>
   <img src="img/Toogle1.png" alt="Пример работы данного кода" />
   <img src="img/Toogle1.png" alt="Пример работы данного кода" />
 </p>
