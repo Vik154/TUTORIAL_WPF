@@ -142,7 +142,11 @@ public partial class MainWindow : Window {
 
 <p float="left">
   <img src="img/Toogle1.png" alt="Пример работы данного кода" align="left"/>
-    <p> не щелкнете на ней снова. Иногда такое поведение называют залипающим щелчком (sticky click). Может находиться в трех состояниях - отмеченный (true), неотмеченный(false) и неопределённый(null), а ег</p>
+    <p><script>
+        ~~~C#
+        private void();
+        ~~~
+    </script> </p>
   <img src="img/Toogle2.png" alt="Пример работы данного кода" /> 
   <img src="img/Toogle3.png" alt="Пример работы данного кода" />
 </p>
