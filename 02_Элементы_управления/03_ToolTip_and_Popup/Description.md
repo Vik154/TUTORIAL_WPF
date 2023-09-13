@@ -16,8 +16,8 @@ _Можно задавать более сложное содержимое по
 <Button Content="Кнопка с подсказкой">
     <Button.ToolTip>
         <StackPanel>
-            <TextBlock Margin="5" Text="Описание"/>
-            <Image Source="Любая_картинка.png"></Image>
+            <TextBlock Margin="5" Text="Описание" />
+            <Image Source="Любая_картинка.png" />
         </StackPanel>
     </Button.ToolTip>
 </Button>
