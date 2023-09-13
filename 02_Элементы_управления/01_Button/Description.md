@@ -141,11 +141,8 @@ public partial class MainWindow : Window {
 
 <p float="left">
   <img src="img/Toogle1.png" alt="Пример работы данного кода" /> </br>
-  <img src="img/Toogle1.png" alt="Пример работы данного кода" />
-  <img src="img/Toogle1.png" alt="Пример работы данного кода" />
-</p>
-
-~~~XAML
+  
+  ~~~XAML
     <StackPanel Background="AliceBlue" 
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
@@ -167,6 +164,11 @@ public partial class MainWindow : Window {
         </TextBox>
     </StackPanel>
 ~~~
+  <img src="img/Toogle1.png" alt="Пример работы данного кода" />
+  <img src="img/Toogle1.png" alt="Пример работы данного кода" />
+</p>
+
+
 
 <img align="left" width="380" height="225" src="img/Toogle2.png" alt="Пример работы данного кода"/>
 <img align="left" width="380" height="225" src="img/Toogle3.png" alt="Пример работы данного кода"/>
