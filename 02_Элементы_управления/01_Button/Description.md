@@ -74,8 +74,10 @@ public partial class MainWindow : Window {
 
 Выглядит это следующим образом, связка кода на xaml и C#:
 ~~~xaml
-<Button x:Name="MyButton"/>
+<Button x:Name="MyButton" Content="ТЫК" Click="MyButton_Click" />
 ~~~
 ~~~C#
-private void foo();
+private void MyButton_Click(object sender, RoutedEventArgs e) {
+    MessageBox.Show("ТЫК удался, молодец!");
+}
 ~~~
