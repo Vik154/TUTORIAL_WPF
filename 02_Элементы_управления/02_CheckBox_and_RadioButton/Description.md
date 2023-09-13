@@ -1,7 +1,6 @@
 ### Классы Checkbox и RadioButton - *Классы представляющие флажок и переключатель.*
 
-*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.checkbox?view=windowsdesktop-7.0*
-
+*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.checkbox?view=windowsdesktop-7.0* <br>
 *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.radiobutton?view=windowsdesktop-7.0*
 
 Кнопки CheckBox и RadioButton — являются потомками класса ToggleButton, а это означает, что пользователь может включать и выключать их (отсюда и слово toggle в названии — "переключение"). В случае CheckBox включение элемента управления означает установку в нем флажка. 
