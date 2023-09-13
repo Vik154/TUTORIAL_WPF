@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_Button", "01_Button\01_Button.csproj", "{688F5CDA-845F-418E-A8F3-95E36F9DAB26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_Button", "01_Button\01_Button.csproj", "{688F5CDA-845F-418E-A8F3-95E36F9DAB26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_CheckBox_and_RadioButton", "02_CheckBox_and_RadioButton\02_CheckBox_and_RadioButton.csproj", "{AA83B058-4B22-4FA0-943B-D3E3953103A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{688F5CDA-845F-418E-A8F3-95E36F9DAB26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{688F5CDA-845F-418E-A8F3-95E36F9DAB26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{688F5CDA-845F-418E-A8F3-95E36F9DAB26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA83B058-4B22-4FA0-943B-D3E3953103A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA83B058-4B22-4FA0-943B-D3E3953103A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA83B058-4B22-4FA0-943B-D3E3953103A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA83B058-4B22-4FA0-943B-D3E3953103A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
