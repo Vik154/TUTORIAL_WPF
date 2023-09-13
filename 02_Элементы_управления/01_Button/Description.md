@@ -143,5 +143,28 @@ public partial class MainWindow : Window {
 <p float="left">
   <img src="img/Toogle.png" alt="Пример работы данного кода" align="left"/>
 </p>
-llllllllllllllllll
-
+~~~XAML
+<Window ........>
+  <Grid>
+    <StackPanel Background="AliceBlue" 
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Width="230"
+                Height="120">
+        <ToggleButton x:Name="ToogleBtn"
+                      Content="ToogleBtn"
+                      IsThreeState="True"
+                      Background="Aquamarine"
+                      Checked="ToggleButton_Checked"
+                      Unchecked="ToggleButton_Unchecked"
+                      Indeterminate="ToggleButton_Indeterminate">
+        </ToggleButton>
+        <TextBox x:Name="infoBlock" 
+                 Background="AliceBlue"
+                 MaxHeight="100"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible">
+        </TextBox>
+    </StackPanel>
+  </Grid>
+</Window>
+~~~
