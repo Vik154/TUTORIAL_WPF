@@ -83,3 +83,10 @@ private void MyButton_Click(object sender, RoutedEventArgs e) {
     MessageBox.Show("ТЫК удался, молодец!");
 }
 ~~~
+Обработчики событий можно задавать и стандартным образом, прописав в коде C#:
+~~~C#
+public MainWindow() {
+    InitializeComponent();
+    MyButton.Click += MyButton_Click;
+}
+~~~
