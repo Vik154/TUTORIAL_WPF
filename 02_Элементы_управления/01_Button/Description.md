@@ -139,10 +139,12 @@ public partial class MainWindow : Window {
 на кнопке. Интервал генерации события корректируется свойствами Delay и Interval.
 * _ToggleButton_ — кнопка с тремя состояниями (нажата, отпущена, неопределенна). Если щелкнуть на кнопке ToggleButton, она будет оставаться нажатой до тех пор, пока вы не щелкнете на ней снова. Иногда такое поведение называют залипающим щелчком (sticky click). Может находиться в трех состояниях - отмеченный (true), неотмеченный(false) и неопределённый(null), а его значение представляет значение типа bool? в языке C#, знак "?" означает "допускающий null-значение". Состояние можно установить или получить с помощью свойства IsChecked. Также добавляет три события - Checked (переход в отмеченное состояние), Unchecked (снятие отметки) и Indeterminate (если значение равно null). Чтобы отрабатывать все три события, надо установить свойство IsThreeState="True".
 
-<p float="left">
-  <img src="img/Toogle1.png" alt="Пример работы данного кода" /> </br>
-  <text>
-  ~~~XAML
+
+<table>
+  <tr>
+    <td><img src="img/Toogle1.png" alt="Пример работы данного кода" /></td>
+    <td><p> 
+        ~~~XAML
     <StackPanel Background="AliceBlue" 
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
@@ -164,7 +166,15 @@ public partial class MainWindow : Window {
         </TextBox>
     </StackPanel>
     ~~~
-  </text>
+    </p> 
+    </td>
+  </tr>
+
+ </table>
+
+
+<p float="left">
+  <img src="img/Toogle1.png" alt="Пример работы данного кода" /> </br>
   <img src="img/Toogle1.png" alt="Пример работы данного кода" />
   <img src="img/Toogle1.png" alt="Пример работы данного кода" />
 </p>
