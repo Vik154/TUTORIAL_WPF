@@ -22,8 +22,10 @@ _Можно задавать более сложное содержимое по
     </Button.ToolTip>
 </Button>
 ~~~
+
 ___Или так:___
-<img align="left" src="img/Tool.png" alt="Пример работы данного кода"/>
+
+<img align="left" width="400" height="400" src="img/Tool.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window .........>
