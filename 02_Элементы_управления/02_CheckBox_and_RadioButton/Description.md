@@ -62,14 +62,9 @@ public partial class MainWindow : Window {
 }
 ~~~
 
+#### Программное создание CheckBox из кода C#
 
-
-
-
-
-#### Программное создание Button из кода C#
-
-<img align="left" height="400" width="400" src="img/Button2.png" alt="Пример работы данного кода"/>
+<img align="left" height="400" width="400" src="img/Check2.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System;
@@ -77,32 +72,33 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace _01_Button;
+namespace _02_CheckBox_and_RadioButton;
 
 public partial class MainWindow : Window {
     
     public MainWindow() {
         InitializeComponent();
-        MakeButtons();
+        MakeCheckBox();
     }
 
-    private void MakeButtons() {
+    // Программное добавление флажков
+    private void MakeCheckBox() {
+        StackPanel wrapPanel = new StackPanel { Background = Brushes.AliceBlue };
 
-        WrapPanel dockPanel = new WrapPanel { Background = Brushes.AliceBlue };
-
-        for (int i = 0; i < 30; i++) {
-            dockPanel.Children.Add(new Button {
-                Width = new Random().Next(50, 150),
-                Height = new Random().Next(25, 75),
+        for (int i = 0; i < 10; i++) {
+            CheckBox checkBox = new CheckBox {
+                Content = $"Check {i + 1}",
+                Margin = new Thickness(5),
                 Background = new SolidColorBrush(Color.FromRgb(
                     (byte)new Random().Next(0, 255),
                     (byte)new Random().Next(0, 255),
                     (byte)new Random().Next(0, 255)
                     )),
-                Content = $"Кнопка {i + 1}"
-            });
+                IsChecked = i % 2 == 0? true : false,
+            };
+            wrapPanel.Children.Add(checkBox);
         }
-        this.Content = dockPanel;
+        this.Content = wrapPanel;
     }
 }
 ~~~
