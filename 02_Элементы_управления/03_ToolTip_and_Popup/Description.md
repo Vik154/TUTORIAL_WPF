@@ -25,11 +25,10 @@ _Можно задавать более сложное содержимое по
 
 ___Или так:___
 
-<img align="left" width="400" height="400" src="img/Tool.png" alt="Пример работы данного кода"/>
+<img align="left" width="500" height="400" src="img/Tool.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window .........>
-<Grid>
     <StackPanel Background="AliceBlue">
         <TextBlock Text="Переключатель" Margin="10"/>
         <RadioButton Content="ВКЛ" Margin="10">
@@ -49,7 +48,6 @@ ___Или так:___
             </RadioButton.ToolTip>
         </RadioButton>
     </StackPanel>
-</Grid>
 </Window>
 
 ~~~
