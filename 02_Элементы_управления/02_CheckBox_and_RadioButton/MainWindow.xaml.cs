@@ -9,7 +9,7 @@ public partial class MainWindow : Window {
     
     public MainWindow() {
         InitializeComponent();
-        MakeCheckBox();
+        // MakeCheckBox();
     }
 
     // Программное добавление флажков

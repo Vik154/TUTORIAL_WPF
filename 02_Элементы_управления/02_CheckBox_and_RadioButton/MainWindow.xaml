@@ -32,5 +32,20 @@
             </CheckBox>
         </StackPanel>
 
+        <StackPanel Grid.Column="1" Grid.Row="0" Background="AliceBlue">
+            <RadioButton GroupName="Lang" Content="CPP"/>
+            <RadioButton GroupName="Lang" Content="CS"/>
+            <RadioButton GroupName="Lang" Content="C"/>
+            <RadioButton GroupName="Lang" Content="XAML"/>
+            <RadioButton GroupName="Lang" Content="JavaScript"/>
+            <RadioButton GroupName="Lang" Content="TypeScript"/>
+            <RadioButton GroupName="Tech" Content="WPF"/>
+            <RadioButton GroupName="Tech" Content="UWP"/>
+            <RadioButton GroupName="Tech" Content="MAUI"/>
+            <RadioButton GroupName="Tech" Content="WinUI"/>
+            <RadioButton GroupName="Tech" Content="WinRT"/>
+            <RadioButton GroupName="Tech" Content="WinForms"/>
+            <RadioButton GroupName="Tech" Content="Win32 API"/>
+        </StackPanel>
     </Grid>
 </Window>
