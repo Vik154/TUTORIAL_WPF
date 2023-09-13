@@ -92,8 +92,10 @@ ___Свойства IsDefault и IsCancel:___
 * Если свойство ___IsCancel___ имеет значение true, то эта кнопка будет работать в окне как кнопка отмены. Если нажать клавишу <Esc>, когда фокус находится в текущем окне, то сработает эта кнопка. 
 
 Пример работы данных свойств:
+
 <img align="left" width="400" height="210" src="img/Button4.png" alt="Пример работы данного кода"/>
 ~~~xaml
+<Window ...Стандартный код, сгенерированный VS>
 <StackPanel Background="AliceBlue" VerticalAlignment="Top">
     <Button x:Name="SampleIsDefault" IsDefault="True"
             Content="SampleIsDefault" Height="50" Width="100"
@@ -102,4 +104,5 @@ ___Свойства IsDefault и IsCancel:___
             Content="SampleIsCancel" Height="50" Width="100"
             Background="AntiqueWhite" Click="SampleIsCancel_Click" />
 </StackPanel>
+</Window>
 ~~~
