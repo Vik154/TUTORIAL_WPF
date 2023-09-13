@@ -64,5 +64,3 @@ public partial class MainWindow : Window {
     }
 }
 ~~~
-
-<img src="img/GridSplitter3.png" alt="Пример работы данного кода"/>
