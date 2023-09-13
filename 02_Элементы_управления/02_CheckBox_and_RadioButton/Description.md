@@ -17,24 +17,23 @@
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-    <StackPanel Background="AliceBlue">
-        <CheckBox IsThreeState="True" IsChecked="False"    Content="Неотмечено" />
-        <CheckBox IsThreeState="True" IsChecked="True"     Content="Отмечено" />
-        <CheckBox IsThreeState="True" IsChecked="{x:Null}" Content="Неопределено"/>
+  <StackPanel Background="AliceBlue">
+    <CheckBox IsThreeState="True" IsChecked="False"    Content="Неотмечено" />
+    <CheckBox IsThreeState="True" IsChecked="True"     Content="Отмечено" />
+    <CheckBox IsThreeState="True" IsChecked="{x:Null}" Content="Неопределено"/>
 
-        <CheckBox x:Name="bigCheckBox" 
-                  Width="60" Height="50"
-                  Content="BigBox"
-                  Checked="bigCheckBox_Checked"
-                  Unchecked="bigCheckBox_Unchecked"
-                  Indeterminate="bigCheckBox_Indeterminate"
-                  IsThreeState="True"
-                  >
-            <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="4" ScaleY="4" />
-            </CheckBox.LayoutTransform>
-        </CheckBox>
-    </StackPanel>
+    <CheckBox x:Name="bigCheckBox" 
+              Width="60" Height="50"
+              Content="BigBox"
+              Checked="bigCheckBox_Checked"
+              Unchecked="bigCheckBox_Unchecked"
+              Indeterminate="bigCheckBox_Indeterminate"
+              IsThreeState="True">
+        <CheckBox.LayoutTransform>
+            <ScaleTransform ScaleX="4" ScaleY="4" />
+        </CheckBox.LayoutTransform>
+    </CheckBox>
+  </StackPanel>
 </Window>
 ~~~
 
