@@ -11,7 +11,7 @@
         <StackPanel Width="120" Height="115" 
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
-                    Background="AliceBlue">
+                    Background="AliceBlue" Margin="550,0,0,0">
             <Button Content="Кнопка 1" Background="AntiqueWhite" />
             <Button Content="Кнопка 2" Background="Aqua" />
             <Button Content="Кнопка 3" Background="Aquamarine"/>
@@ -23,7 +23,7 @@
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Background="AliceBlue"
-                    Margin="130,0,0,0">
+                    Margin="394,0,0,0">
             <Button Width="25" Margin="5,0,0,0" Background="Azure">
                 <TextBlock Width="8" TextWrapping="Wrap" Text="Кнопка 1"/>
             </Button>
@@ -39,8 +39,22 @@
         </StackPanel>
 
         <StackPanel Background="AliceBlue"
-                    Margin="0,130,420,0">
-            
+                    Margin="10,8,533,0"
+                    VerticalAlignment="Top">
+            <Button x:Name="SampleIsDefault"
+                    IsDefault="True"
+                    Content="SampleIsDefault"
+                    Height="50" Width="100"
+                    Background="Aqua"
+                    Click="SampleIsDefault_Click">
+            </Button>
+            <Button x:Name="SampleIsCancel"
+                    IsCancel="True"
+                    Content="SampleIsCancel"
+                    Height="50" Width="100"
+                    Background="AntiqueWhite"
+                    Click="SampleIsCancel_Click">
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

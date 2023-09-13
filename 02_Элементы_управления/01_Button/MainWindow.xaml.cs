@@ -9,9 +9,10 @@ public partial class MainWindow : Window {
     
     public MainWindow() {
         InitializeComponent();
-        MakeButtons();
+        // MakeButtons();
     }
 
+    // Создание кнопки из C#
     private void MakeButtons() {
 
         WrapPanel dockPanel = new WrapPanel { Background = Brushes.AliceBlue };
@@ -29,5 +30,13 @@ public partial class MainWindow : Window {
             });
         }
         this.Content = dockPanel;
+    }
+
+    private void SampleIsDefault_Click(object sender, RoutedEventArgs e) {
+        MessageBox.Show("Вызвано с помощью Enter");
+    }
+
+    private void SampleIsCancel_Click(object sender, RoutedEventArgs e) {
+        this.Close();
     }
 }
