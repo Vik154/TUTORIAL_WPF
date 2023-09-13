@@ -103,7 +103,8 @@ public partial class MainWindow : Window {
 }
 ~~~
 
-#### ___В WPF кнопки представлены целым рядом классов, которые наследуются от базового класса ButtonBase:___
+#### ___RadioButton___
+Элемент управления, также производный от ToggleButton, представляющий переключатель. Главная его особенность - поддержка групп. Несколько элементов RadioButton можно объединить в группы, и в один момент времени мы можем выбрать из этой группы только один переключатель.
 
 <img align="left" src="img/Check3.png" alt="Пример работы данного кода"/>
 
@@ -124,42 +125,3 @@ public partial class MainWindow : Window {
     <RadioButton GroupName="Tech" Content="Win32 API"/>
 </StackPanel>
 ~~~
-
-~~~C#
-using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-
-namespace _01_Button;
-
-public partial class MainWindow : Window {
-    
-    public MainWindow() {
-        InitializeComponent();
-    }
-
-    private void SampleIsDefault_Click(object sender, RoutedEventArgs e) {
-        MessageBox.Show("Вызвано с помощью Enter");
-    }
-
-    private void SampleIsCancel_Click(object sender, RoutedEventArgs e) {
-        this.Close();
-    }
-}
-~~~
-
-#### Классы ToggleButton и RepeatButton 
-Помимо Button, потомками класса ButtonBase являются еще ToggleButton и RepeatButton:
-* _RepeatButton_, который в прижатом состоянии непрерывно генерирует события Click. Обычные кнопки генерируют событие Click только при полном щелчке 
-на кнопке. Интервал генерации события корректируется свойствами Delay и Interval.
-* _ToggleButton_ — кнопка с тремя состояниями (нажата, отпущена, неопределенна). Если щелкнуть на кнопке ToggleButton, она будет оставаться нажатой до тех пор, пока вы не щелкнете на ней снова. Иногда такое поведение называют залипающим щелчком (sticky click). Может находиться в трех состояниях - отмеченный (true), неотмеченный(false) и неопределённый(null), а его значение представляет значение типа bool? в языке C#, знак "?" означает "допускающий null-значение". Состояние можно установить или получить с помощью свойства IsChecked. Также добавляет три события - Checked (переход в отмеченное состояние), Unchecked (снятие отметки) и Indeterminate (если значение равно null). Чтобы отрабатывать все три события, надо установить свойство IsThreeState="True".
-
-
-<p float="left">
-  <img src="img/Toogle1.png" alt="Пример работы данного кода" align="left"/>
-  <img src="img/Toogle2.png" alt="Пример работы данного кода" /> 
-  <img src="img/Toogle3.png" alt="Пример работы данного кода" />
-</p>
-
-
