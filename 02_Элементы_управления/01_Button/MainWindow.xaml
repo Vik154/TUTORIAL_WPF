@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_01_Button"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="460" Width="680">
     <Grid>
-
+        
+        <StackPanel Width="120" Height="115" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Background="AliceBlue">
+            <Button Content="Кнопка 1" Background="AntiqueWhite" />
+            <Button Content="Кнопка 2" Background="Aqua" />
+            <Button Content="Кнопка 3" Background="Aquamarine"/>
+            <Button Content="Кнопка 4" Background="BlanchedAlmond"/>
+        </StackPanel>
+        
+        <StackPanel Width="130" Height="115"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Background="AliceBlue"
+                    Margin="130,0,0,0">
+            <Button Width="25" Margin="5,0,0,0" Background="Azure">
+                <TextBlock Width="8" TextWrapping="Wrap" Text="Кнопка 1"/>
+            </Button>
+            <Button Width="25" Margin="10,0,0,0" Background="Aquamarine">
+                <TextBlock Width="8" TextWrapping="Wrap" Text="Кнопка 2"/>
+            </Button>
+            <Button Width="20" Margin="10,0,0,0" Background="AliceBlue">
+                <TextBlock Width="8" TextWrapping="Wrap" Text="Кнопка 3"/>
+            </Button>
+            <Button Width="25" Margin="5,0,0,0" Background="Aqua">
+                <TextBlock Width="8" TextWrapping="Wrap" Text="Кнопка 4"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
