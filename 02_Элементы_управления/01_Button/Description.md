@@ -7,32 +7,20 @@
 Хотя GridSplitter, по умолчанию располагается в одной ячейке, его действие всегда распространяется на весь столбец (при буксировке по горизонтали) или на всю строку (при буксировке по вертикали). Поэтому лучше задавать для него свойство ColumSpan или RowSpan, так чтобы он пересекал всю сетку.
 
 #### Пример создания Grid
-<img align="left" width="400" height="385" src="img/GridSplitter1.png" alt="Пример работы данного кода"/>
+<img align="left" width="200" height="200" src="img/Button1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
-<Grid>
-    <Grid.RowDefinitions>
-        <RowDefinition/>
-        <RowDefinition/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition MinWidth="100"/>
-        <ColumnDefinition Width="Auto"/>
-        <ColumnDefinition MinWidth="50"/>
-    </Grid.ColumnDefinitions>
-
-    <Button Grid.Row="0" Grid.Column="0" Margin="3" Content="Left"/>
-    <Button Grid.Row="0" Grid.Column="2" Margin="3" Content="Right"/>
-    <Button Grid.Row="1" Grid.Column="0" Margin="3" Content="Left"/>
-    <Button Grid.Row="1" Grid.Column="2" Margin="3" Content="Right"/>
-
-    <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
-                  Width="10" Background="Aqua"
-                  VerticalAlignment="Stretch"
-                  HorizontalAlignment="Center"
-                  ShowsPreview="False">
-    </GridSplitter>
+<Grid>  
+    <StackPanel Width="120" Height="115" 
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Background="AliceBlue">
+        <Button Content="Кнопка 1" Background="AntiqueWhite" />
+        <Button Content="Кнопка 2" Background="Aqua" />
+        <Button Content="Кнопка 3" Background="Aquamarine"/>
+        <Button Content="Кнопка 4" Background="BlanchedAlmond"/>
+    </StackPanel>
 </Grid>
 </Window>
 ~~~
