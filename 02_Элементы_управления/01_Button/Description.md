@@ -142,10 +142,9 @@ public partial class MainWindow : Window {
 
 <p float="left">
   <img src="img/Toogle1.png" alt="Пример работы данного кода" align="left"/>
-    <p><code>
-        ~~~C#
+    <p><code c#>
         private void();
-        ~~~</code> </p>
+        </code> </p>
   <img src="img/Toogle2.png" alt="Пример работы данного кода" /> 
   <img src="img/Toogle3.png" alt="Пример работы данного кода" />
 </p>
