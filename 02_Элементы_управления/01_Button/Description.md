@@ -141,14 +141,9 @@ public partial class MainWindow : Window {
 
 
 <p float="left">
-  <img src="img/Toogle1.png" alt="Пример работы данного кода" /> </br>
-  fdlmldsmdlsf,dsf,sdfdfkkkkkkkkkkkkkkkkkkkkkkkkk
-  fdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-  <img src="img/Toogle1.png" alt="Пример работы данного кода" /> 
-  <img src="img/Toogle1.png" alt="Пример работы данного кода" />
+  <img src="img/Toogle1.png" alt="Пример работы данного кода" /> </br> <title>adssssssssssssssssssssssssssssss</title>
+  <img src="img/Toogle2.png" alt="Пример работы данного кода" /> 
+  <img src="img/Toogle3.png" alt="Пример работы данного кода" />
 </p>
 
 
-
-<img align="left" width="380" height="225" src="img/Toogle2.png" alt="Пример работы данного кода"/>
-<img align="left" width="380" height="225" src="img/Toogle3.png" alt="Пример работы данного кода"/>
