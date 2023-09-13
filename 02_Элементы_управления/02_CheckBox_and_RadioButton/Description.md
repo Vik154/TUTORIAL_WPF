@@ -64,7 +64,7 @@ public partial class MainWindow : Window {
 
 #### Программное создание CheckBox из кода C#
 
-<img align="left" height="400" width="400" src="img/Check2.png" alt="Пример работы данного кода"/>
+<img align="left" src="img/Check2.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System;
