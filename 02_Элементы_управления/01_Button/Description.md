@@ -74,9 +74,11 @@ public partial class MainWindow : Window {
 
 Выглядит это следующим образом, связка кода на xaml и C#:
 ~~~xaml
+<!-- Click - событие, генерируемое в ответ на нажатие кнопки -->
 <Button x:Name="MyButton" Content="ТЫК" Click="MyButton_Click" />
 ~~~
 ~~~C#
+// Логика обработки события Click
 private void MyButton_Click(object sender, RoutedEventArgs e) {
     MessageBox.Show("ТЫК удался, молодец!");
 }
