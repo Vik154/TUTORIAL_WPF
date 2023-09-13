@@ -94,7 +94,7 @@ ___Свойства IsDefault и IsCancel:___
 Пример работы данных свойств:
 
 <img align="left" width="400" height="210" src="img/Button4.png" alt="Пример работы данного кода"/>
-~~~xaml
+~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
 <StackPanel Background="AliceBlue" VerticalAlignment="Top">
     <Button x:Name="SampleIsDefault" IsDefault="True"
