@@ -18,9 +18,9 @@
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
     <StackPanel Background="AliceBlue">
-        <CheckBox IsThreeState="True" IsChecked="False"    Height="30" Content="Неотмечено" />
-        <CheckBox IsThreeState="True" IsChecked="True"     Height="30" Content="Отмечено" />
-        <CheckBox IsThreeState="True" IsChecked="{x:Null}" Height="30" Content="Неопределено"/>
+        <CheckBox IsThreeState="True" IsChecked="False"    Content="Неотмечено" />
+        <CheckBox IsThreeState="True" IsChecked="True"     Content="Отмечено" />
+        <CheckBox IsThreeState="True" IsChecked="{x:Null}" Content="Неопределено"/>
 
         <CheckBox x:Name="bigCheckBox" 
                   Width="60" Height="50"
