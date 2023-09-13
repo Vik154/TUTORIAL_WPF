@@ -104,12 +104,12 @@ public partial class MainWindow : Window {
 ~~~
 
 #### ___RadioButton___
-Элемент управления, также производный от ToggleButton, представляющий переключатель. Главная его особенность - поддержка групп. Несколько элементов RadioButton можно объединить в группы, и в один момент времени мы можем выбрать из этой группы только один переключатель.
+Элемент управления, также производный от ToggleButton, представляющий переключатель. Главная его особенность - поддержка групп. Несколько элементов RadioButton можно объединить в группы, из этой группы можно выбрать только один переключатель.
 
 <img align="left" src="img/Check3.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
-<StackPanel Grid.Column="1" Grid.Row="0" Background="AliceBlue">
+<StackPanel Background="AliceBlue">
     <RadioButton GroupName="Lang" Content="CPP"/>
     <RadioButton GroupName="Lang" Content="CS"/>
     <RadioButton GroupName="Lang" Content="C"/>
