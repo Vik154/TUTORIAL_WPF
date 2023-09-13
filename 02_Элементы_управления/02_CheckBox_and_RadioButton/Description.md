@@ -13,7 +13,7 @@
 
 
 #### Пример создания CheckBox
-<img align="left" width="300" height="400" src="img/Check1.png" alt="Пример работы данного кода"/>
+<img align="left" width="300" height="405" src="img/Check1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...Стандартный код, сгенерированный VS>
