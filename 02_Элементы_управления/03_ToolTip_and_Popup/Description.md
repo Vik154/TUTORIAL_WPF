@@ -22,6 +22,37 @@ _Можно задавать более сложное содержимое по
     </Button.ToolTip>
 </Button>
 ~~~
+___Или так:___
+<img align="left" src="img/Tool.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window .........>
+<Grid>
+    <StackPanel Background="AliceBlue">
+        <TextBlock Text="Переключатель" Margin="10"/>
+        <RadioButton Content="ВКЛ" Margin="10">
+            <RadioButton.ToolTip>
+                <StackPanel Width="250" Height="120">
+                    <TextBlock Text="Космонавт"/>
+                    <Image Source="img/Space.jpg"/>
+                </StackPanel>
+            </RadioButton.ToolTip>
+        </RadioButton>
+
+        <RadioButton Content="ВЫКЛ" Margin="10">
+            <RadioButton.ToolTip>
+                <StackPanel Width="250" Height="120">
+                    <Image Source="img/Space.jpg"/>
+                </StackPanel>
+            </RadioButton.ToolTip>
+        </RadioButton>
+    </StackPanel>
+</Grid>
+</Window>
+
+~~~
+
+
 ), придется выделить свойство ToolTip в отдельный  
 элемент. Ниже показан пример, в котором для кнопки 
 
