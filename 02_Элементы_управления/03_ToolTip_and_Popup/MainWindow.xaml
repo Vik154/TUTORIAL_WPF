@@ -8,6 +8,22 @@
         Title="MainWindow" 
         Height="360" Width="480">
     <Grid>
+
+        <Button Content="КНОПКА">
+            <Button.ToolTip>
+                <ToolTip Background="AntiqueWhite"
+                         Foreground="DarkGreen"
+                         HasDropShadow="False">
+                    <StackPanel Width="250" Height="150">
+                        <TextBlock Margin="5" Text="Текст и картинка"/>
+                        <TextBlock Text="Текст" Foreground="DarkBlue"/>
+                        <Image Source="img/Space.jpg" Stretch="Fill"/>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        
+        <!--
         <StackPanel Background="AliceBlue">
             <TextBlock Text="Переключатель" Margin="10"/>
             <RadioButton Content="ВКЛ" Margin="10">
@@ -27,6 +43,7 @@
                 </RadioButton.ToolTip>
             </RadioButton>
         </StackPanel>
+        -->
         
         <!--
         <StackPanel>
