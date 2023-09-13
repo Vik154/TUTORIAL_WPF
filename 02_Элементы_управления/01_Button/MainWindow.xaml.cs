@@ -1,25 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace _01_Button {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            InitializeComponent();
+namespace _01_Button;
+
+public partial class MainWindow : Window {
+    
+    public MainWindow() {
+        InitializeComponent();
+        MakeButtons();
+    }
+
+    private void MakeButtons() {
+
+        WrapPanel dockPanel = new WrapPanel { Background = Brushes.AliceBlue };
+
+        for (int i = 0; i < 30; i++) {
+            dockPanel.Children.Add(new Button {
+                Width = new Random().Next(50, 150),
+                Height = new Random().Next(25, 75),
+                Background = new SolidColorBrush(Color.FromRgb(
+                    (byte)new Random().Next(0, 255),
+                    (byte)new Random().Next(0, 255),
+                    (byte)new Random().Next(0, 255)
+                    )),
+                Content = $"Кнопка {i + 1}"
+            });
         }
+        this.Content = dockPanel;
     }
 }

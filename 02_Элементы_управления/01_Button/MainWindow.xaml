@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="460" Width="680">
     <Grid>
-        
+
         <StackPanel Width="120" Height="115" 
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
@@ -17,7 +17,7 @@
             <Button Content="Кнопка 3" Background="Aquamarine"/>
             <Button Content="Кнопка 4" Background="BlanchedAlmond"/>
         </StackPanel>
-        
+
         <StackPanel Width="130" Height="115"
                     Orientation="Horizontal"
                     VerticalAlignment="Top"
@@ -36,6 +36,11 @@
             <Button Width="25" Margin="5,0,0,0" Background="Aqua">
                 <TextBlock Width="8" TextWrapping="Wrap" Text="Кнопка 4"/>
             </Button>
+        </StackPanel>
+
+        <StackPanel Background="AliceBlue"
+                    Margin="0,130,420,0">
+            
         </StackPanel>
     </Grid>
 </Window>
