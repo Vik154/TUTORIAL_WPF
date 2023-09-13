@@ -143,6 +143,7 @@ public partial class MainWindow : Window {
 <p float="left">
   <img src="img/Toogle.png" alt="Пример работы данного кода" align="left"/>
 </p>
+
 ~~~XAML
 <Window ........>
   <Grid>
