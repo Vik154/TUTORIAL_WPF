@@ -25,7 +25,7 @@ _Можно задавать более сложное содержимое по
 
 ___Или так:___
 
-<img align="left" width="500" height="405" src="img/Tool.png" alt="Пример работы данного кода"/>
+<img align="left" width="450" height="405" src="img/Tool.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <StackPanel Background="AliceBlue">
