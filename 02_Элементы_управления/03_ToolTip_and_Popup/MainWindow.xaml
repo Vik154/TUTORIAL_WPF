@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_03_ToolTip_and_Popup"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="360" Width="480">
     <Grid>
+        <StackPanel Background="AliceBlue">
+            <TextBlock Text="Переключатель" Margin="10"/>
+            <RadioButton Content="ВКЛ" Margin="10">
+                <RadioButton.ToolTip>
+                    <StackPanel Width="250" Height="120">
+                        <TextBlock Text="Космонавт"/>
+                        <Image Source="img/Space.jpg"/>
+                    </StackPanel>
+                </RadioButton.ToolTip>
+            </RadioButton>
 
+            <RadioButton Content="ВЫКЛ" Margin="10">
+                <RadioButton.ToolTip>
+                    <StackPanel Width="250" Height="120">
+                        <Image Source="img/Space.jpg"/>
+                    </StackPanel>
+                </RadioButton.ToolTip>
+            </RadioButton>
+        </StackPanel>
+        
+        <!--
+        <StackPanel>
+            <Button ToolTip="Чё, подсказать, надо тебе да?" Content="Кнопка с подсказкой"/>
+
+            <Button Content="Кнопка с подсказкой">
+                <Button.ToolTip>
+                    <StackPanel>
+                        <TextBlock Margin="5" Text="Описание"/>
+                        <TextBlock Margin="5" Text="Описание"/>
+                        <TextBlock Margin="5" Text="Описание"/>
+                    </StackPanel>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+        -->
     </Grid>
 </Window>

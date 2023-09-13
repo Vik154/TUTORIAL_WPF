@@ -9,7 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="img\" />
+    <None Remove="img\Space.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\Space.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
