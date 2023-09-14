@@ -119,4 +119,36 @@ public partial class MainWindow : Window {
 
 > В этом классе определены также два маршрутизируемых события: ToolTipOpening и HToolTipClosing. Реагируя на эти события, можно заполнить окно подсказки  актуальным содержимым или переопределить его поведение. Например, если в каждом из этих событий установить флаг handled, подсказки не будут отображаться или скрываться автоматически. Тогда вы сможете выводить и скрывать их вручную с помощью свойства IsOpen. 
 
- 
+#### ___Пример работы с ToolTipServlce:___
+
+<img align="left" width="480" height="405" src="img/Too3.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<StackPanel Margin="5" Background="AliceBlue">
+   <Ellipse Height="152" Width="180" Margin="20" 
+            Fill="Aqua" 
+            HorizontalAlignment="Left"
+            ToolTipService.InitialShowDelay="1000"
+            ToolTipService.ShowDuration="7000"
+            ToolTipService.BetweenShowDelay="2000"
+            ToolTipService.Placement="Right" 
+            ToolTipService.PlacementRectangle="50,0,0,0"
+            ToolTipService.HorizontalOffset="10" 
+            ToolTipService.VerticalOffset="20"
+            ToolTipService.HasDropShadow="false"
+            ToolTipService.ShowOnDisabled="true" 
+            ToolTipService.IsEnabled="true"
+            ToolTipOpening="whenToolTipOpens"
+            ToolTipClosing="whenToolTipCloses"
+            >
+       <Ellipse.ToolTip>
+           <BulletDecorator>
+               <BulletDecorator.Bullet>
+                   <Ellipse Height="10" Width="20" Fill="Blue"/>
+               </BulletDecorator.Bullet>
+               <TextBlock>Uses the ToolTipService class</TextBlock>
+           </BulletDecorator>
+       </Ellipse.ToolTip>
+   </Ellipse>
+</StackPanel>
+~~~
