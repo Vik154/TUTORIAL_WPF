@@ -248,6 +248,20 @@ MyTextBox.Select(MyTextBox.Text.Length, 0);
 ~~~
 <hr>
 
+___Извлечение выделенного текста из TextBox:___
+~~~XAML
+<TextBox Name="MyText">
+    Текст, который нужно выделить, а потом извлечь.
+</TextBox>
+
+<Button Content="Извлечь" Click="OnClick" />
+~~~
+~~~C#
+void OnClick(object sender, RoutedEventArgs e) {
+    string selectedText = MyText.SelectedText;
+}
+~~~
+<hr>
 
 #### Элемент RichTextBox:
 Элемент RichTextBox предоставляет больше возможностей, чем ТехtВох, поскольку может содержать форматированный текст (и допускает наличие в тексте произвольных объектов). У RichTextBox и TextBox общий базовый класс (TextBoxBase), поэтому многие возможности, описанные выше для TextBox, применимы и к RichTextBox. Но некоторые средства TextBox реализованы в RichTextBox более полно. Кроме того, содержимое RichTextBox хранится в свойстве Document типа FlowDocument, а не в простом строковом свойстве Text. Содержимое может даже включать объекты типа UIElement, с которыми можно взаимодействовать и которые генерируют события, если свойство IsDocumentEnabled элемента RichTextBox имеет значение true.
