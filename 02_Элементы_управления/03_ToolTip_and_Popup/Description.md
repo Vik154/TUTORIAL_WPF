@@ -121,7 +121,7 @@ public partial class MainWindow : Window {
 
 #### ___Пример работы с ToolTipServlce:___
 
-<img align="left" width="480" height="405" src="img/Too3.png" alt="Пример работы данного кода"/>
+<img align="left" width="400" height="405" src="img/Tool3.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <StackPanel Margin="5" Background="AliceBlue">
