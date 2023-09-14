@@ -276,6 +276,33 @@ ___Включение проверки орфографии в TextBox:___
 #### Элемент RichTextBox:
 Элемент RichTextBox предоставляет больше возможностей, чем ТехtВох, поскольку может содержать форматированный текст (и допускает наличие в тексте произвольных объектов). У RichTextBox и TextBox общий базовый класс (TextBoxBase), поэтому многие возможности, описанные выше для TextBox, применимы и к RichTextBox. Но некоторые средства TextBox реализованы в RichTextBox более полно. Кроме того, содержимое RichTextBox хранится в свойстве Document типа FlowDocument, а не в простом строковом свойстве Text. Содержимое может даже включать объекты типа UIElement, с которыми можно взаимодействовать и которые генерируют события, если свойство IsDocumentEnabled элемента RichTextBox имеет значение true.
 
+___Извлечение текстового содержимого из RichTextBox в виде обычного текста:___
+~~~XAML
+<RichTextBox Name="MyRichBox">
+  <FlowDocument>
+    <Paragraph>
+      <Run>Какой-то текс</Run>
+    </Paragraph>
+    <Paragraph>
+      <Run>И снова текст</Run>
+    </Paragraph>
+  </FlowDocument>
+</RichTextBox>
+~~~
+~~~C#
+public partial class MainWindow : Window {
+
+    public MainWindow() {
+        InitializeComponent();
+
+        TextRange textRange = new TextRange(MyRichBox.Document.ContentStart, MyRichBox.Document.ContentEnd);
+
+        string textFromMyRichBox = textRange.Text;
+    }
+}
+~~~
+<hr>
+
 #### Элемент PasswordBox:
 Элемент PasswordBox - это упрощенный вариант TextBox, предназначенный для ввода пароля. Вместо вводимых символов в нем отображаются кружочки. Если вам не нравятся кружочки, можете выбрать другой символ с помощью свойства PasswordChar. (По умолчанию предполагается звездочка, которая отображается специальным шрифтом и выглядит, как кружочек.) Текст элемента PasswordBox хранится в строковом свойстве Password. В действительности для более надежной защиты применяется специальный класс System.Security.SecureString. Содержимое объекта типа SecureString шифруется и намеренно стирается, тогда как объекты System.String не шифруются и могут оставаться в куче неопределенно долгое время, пока не будут убраны сборщиком мусора. <br>
 Класс PasswordBox не наследует TextBoxBase, как два предыдущих элемента управления, поэтому не поддерживает ни команды Cut, Copy, Undo и Redo (хотя поддерживает команду Paste), ни проверку правописания. <br>
