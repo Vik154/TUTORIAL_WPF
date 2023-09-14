@@ -10,12 +10,32 @@ __TextBlock__ - Элемент предназначен для вывода те
 __TextBox__ - Элемент предназначен для ввода текстовой информации. <br>
 __PasswordBox__ - Элемент предназначен для ввода парольной информации. <br>
 __RichTextBox__ - Элемент предназначен для вывода текстового содержимого, насыщенного форматированием, графикой. <br>
-__Label__ - Классический элемент управления, который может содержать текст. (в свойстве Content может находиться произвольное содержимое - Button, Menu и пр.)
+__Label__ - Классический элемент управления, который может содержать текст.
+
+<img align="left" width="200" height="190" src="img/TextBlock1.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<TabControl>
+    <TabItem Header="TextBlock" FontWeight="Bold">
+        <StackPanel Background="AliceBlue">
+            <TextBlock FontSize="20">TextBlock1</TextBlock>
+            <TextBlock FontSize="20" Text="TextBlock3" Foreground="DarkBlue"/>
+            <TextBlock FontSize="20" Text="TextBlock2"/>
+            <TextBlock FontSize="20" Text="TextBloc4" FontWeight="Normal"/>
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Blue" Offset="0.1" />
+                    <GradientStop Color="Green" Offset="0.75" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </StackPanel>    
+    </TabItem>
+</TabControl>
+~~~
 
 
 Прокрутка необходима, если нужно поместить большой объем содержимого в ограниченную область. Для обеспечения прокрутки необходимо упаковать соответствующее содержимое в элемент ScrollViewer. Объект ScrollViewer может содержать все, что угодно, но обычно это контейнер компоновки, который может вмещать в себя только один элемент, поэтому все элементы, помещаемые внутрь ScrollViewer необходимо обернуть в еще один контейнер <br>
 
-<img align="left" width="200" height="190" src="img/Scroll.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <ScrollViewer HorizontalScrollBarVisibility="Auto">
