@@ -113,3 +113,14 @@ __Label__ - Классический элемент управления, кот
     <Run>С</Run>
     <Run>Т</Run>
 </TextBlock>
+~~~
+В классе Run имеется несколько свойств форматирования, позволяющих переопределить соответствующие свойства, установленные в родительском элементе TextBlock, а именно: FontFamily, FontSize, FontStretch, FontStyle, FontWeight, Foreground и TextDecorations. Например:
+~~~XAML
+<TextBlock>
+    <Run FontFamily="Georgia"       FontStyle="Italic"  Foreground="Red"> курсив </Run>
+    <Run FontFamily="Comic Sans MS" FontSize="30"       Foreground="Blue"> синий </Run>
+    <Run FontFamily="Arial Black"   FontSize="100"      Foreground="Orange"> как </Run>
+    <Run FontFamily="Courier New"   FontWeight="Bold"   Foreground="Green"> мой </Run>
+    <Run FontFamily="Verdana"       TextDecorations="Underline"> сосед </Run>
+</TextBlock>
+~~~
