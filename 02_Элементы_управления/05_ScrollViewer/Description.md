@@ -23,7 +23,7 @@
 * PageUp(), PageDown(), PageLeft() и PageRight() - прокручивают содержимое на один экран вверх или вниз и эквивалентны щелчкам на поверхности полосы прокрутки выше или ниже ползунка.
 * ScrollToEnd(), ScrollToHome(), ScrollToRightEnd(), ScrollToLeftEnd() - прокрутка в нижний конец окна, в начало, в правый и левый конец окна.
 
-<img align="left" width="200" height="500" src="img/Scroll1.png" alt="Пример работы данного кода"/>
+<img align="left" width="300" height="525" src="img/Scroll1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <StackPanel VerticalAlignment="Top"
