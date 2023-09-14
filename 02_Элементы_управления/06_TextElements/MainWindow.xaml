@@ -25,7 +25,13 @@
                 </StackPanel>    
             </TabItem>
             
-            <TabItem Header="TextBox" FontWeight="Bold"></TabItem>
+            <TabItem Header="TextBox" FontWeight="Bold">
+                <StackPanel Background="AliceBlue">
+                    <TextBox Text="Пример поля ввода TextBox"/>
+                    <TextBox Text="Поле ввода TextBox" Height="50" TextWrapping="Wrap"/>
+                    <TextBox Text="TextBox" Background="Aqua"/>
+                </StackPanel>
+            </TabItem>
             
             <TabItem Header="Password" FontWeight="Bold"></TabItem>
             
