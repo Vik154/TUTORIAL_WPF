@@ -1,7 +1,13 @@
-### Классы GroupBox и Expander - *Классы представляющие элементы управления содержимым с заголовками.*
+### Класс ScrollViewer - *Представляет прокручиваемую область, которая может содержать другие видимые элементы.*
 
-*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.groupbox?view=windowsdesktop-7.0* <br>
-*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.expander?view=windowsdesktop-7.0*
+*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.scrollviewer?view=windowsdesktop-7.0*
+
+Прокрутка необходима, если нужно поместить большой объем содержимого в ограниченную область. Для обеспечения прокрутки в WPF необходимо упаковать соответствующее содержимое в элемент ScrollViewer. Объект ScrollViewer может содержать все, что угодно, но обычно это контейнер компоновки. <br>
+Чтобы элемент поддерживал прокрутку, его нужно просто упаковать в элемент ScrollViewer.
+
+
+
+
 
 Одним из классов, порожденных от ContentControl, является HeaderedContentControl. Это просто контейнер с содержимым (один элемент, хранится в свойстве Content) и заголовком (также один элемент, хранится в свойстве Header). Наличие заголовка отличает HeaderedContentControl от описанных ранее элементов управления содержимым. От класса HeaderedContentControl порождены три класса: GroupBox, Tabltem и Expander.
 
