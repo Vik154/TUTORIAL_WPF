@@ -33,7 +33,13 @@
                 </StackPanel>
             </TabItem>
             
-            <TabItem Header="Password" FontWeight="Bold"></TabItem>
+            <TabItem Header="Password" FontWeight="Bold">
+                <StackPanel Background="AliceBlue">
+                    <PasswordBox PasswordChar="*" Height="30" FontSize="20"/>
+                    <PasswordBox PasswordChar="+" Height="30" FontSize="20"/>
+                    <PasswordBox PasswordChar="P" Height="30" FontSize="20"/>
+                </StackPanel>
+            </TabItem>
             
             <TabItem Header="RichTextBox" FontWeight="Bold"></TabItem>
             
