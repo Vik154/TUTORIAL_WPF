@@ -74,13 +74,15 @@ __Label__ - Классический элемент управления, кот
 <img align="left" width="320" height="200" src="img/TextBlock5.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
-<TabItem Header="Label" FontWeight="Bold">
+<TabControl>
+  <TabItem Header="Label" FontWeight="Bold">
     <StackPanel Background="AliceBlue">
         <Label Content="LABEL 1"/>
         <Label Content="LABEL 2" Background="Aqua"/>
         <Label Content="LABEL 3" Foreground="DarkGreen"/>
     </StackPanel>
-</TabItem>
+  </TabItem>
+<TabControl>
 ~~~
 
 
