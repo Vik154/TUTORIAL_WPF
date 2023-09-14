@@ -257,9 +257,19 @@ ___Извлечение выделенного текста из TextBox:___
 <Button Content="Извлечь" Click="OnClick" />
 ~~~
 ~~~C#
-void OnClick(object sender, RoutedEventArgs e) {
+private void OnClick(object sender, RoutedEventArgs e) {
     string selectedText = MyText.SelectedText;
 }
+~~~
+<hr>
+
+___Включение проверки орфографии в TextBox:___
+> Чтобы включить проверку орфографии в реальном времени, нужно свойству IsEnabled класса SpellCheck присвоить значение True.
+
+~~~XAML
+<TextBox SpellCheck.IsEnabled="True">
+    Проверка вводимых данных на корректность включена.
+</TextBox>
 ~~~
 <hr>
 
