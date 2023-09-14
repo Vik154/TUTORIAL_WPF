@@ -12,7 +12,7 @@ __PasswordBox__ - Элемент предназначен для ввода па
 __RichTextBox__ - Элемент предназначен для вывода текстового содержимого, насыщенного форматированием, графикой. <br>
 __Label__ - Классический элемент управления, который может содержать текст.
 
-<img align="left" width="300" height="265" src="img/TextBlock1.png" alt="Пример работы данного кода"/>
+<img align="left" width="320" height="270" src="img/TextBlock1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <StackPanel Background="AliceBlue">
