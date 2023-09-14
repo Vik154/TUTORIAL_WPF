@@ -15,22 +15,18 @@ __Label__ - Классический элемент управления, кот
 <img align="left" width="300" height="250" src="img/TextBlock1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
-<TabControl>
-    <TabItem Header="TextBlock" FontWeight="Bold">
-        <StackPanel Background="AliceBlue">
-            <TextBlock FontSize="20">TextBlock1</TextBlock>
-            <TextBlock FontSize="20" Text="TextBlock3" Foreground="DarkBlue"/>
-            <TextBlock FontSize="20" Text="TextBlock2"/>
-            <TextBlock FontSize="20" Text="TextBloc4" FontWeight="Normal"/>
-            <TextBlock.Foreground>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="Blue" Offset="0.1" />
-                    <GradientStop Color="Green" Offset="0.75" />
-                </LinearGradientBrush>
-            </TextBlock.Foreground>
-        </StackPanel>    
-    </TabItem>
-</TabControl>
+<StackPanel Background="AliceBlue">
+    <TextBlock FontSize="20">TextBlock1</TextBlock>
+    <TextBlock FontSize="20" Text="TextBlock3" Foreground="DarkBlue"/>
+    <TextBlock FontSize="20" Text="TextBlock2"/>
+    <TextBlock FontSize="20" Text="TextBloc4" FontWeight="Normal"/>
+    <TextBlock.Foreground>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Blue" Offset="0.1" />
+            <GradientStop Color="Green" Offset="0.75" />
+        </LinearGradientBrush>
+    </TextBlock.Foreground>
+</StackPanel>    
 ~~~
 
 
