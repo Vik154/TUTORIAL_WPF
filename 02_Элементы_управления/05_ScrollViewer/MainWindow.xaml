@@ -7,14 +7,41 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+
+        <StackPanel VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="5" Width="200" Height="50" 
+                    Background="AliceBlue"
+                    Orientation="Horizontal">
+            <Button Margin="5" Content="Вверх"  Click="UpClick"></Button>
+            <Button Margin="5" Content="Вниз"   Click="DownClick"></Button>
+            <Button Margin="5" Content="Влево"  Click="LeftClick"></Button>
+            <Button Margin="5" Content="Вправо" Click="RightClick"></Button>
+        </StackPanel>
+        
+        <ScrollViewer x:Name="_scroll" Background="AliceBlue"
+                      Margin="5,60,0,0"
+                      HorizontalScrollBarVisibility="Visible"
+                      VerticalScrollBarVisibility="Visible">
+            <StackPanel Width="1000" Height="500">
+                <CheckBox Margin="5">C++</CheckBox>
+                <CheckBox Margin="5">C</CheckBox>
+                <CheckBox Margin="5">C#</CheckBox>
+                <CheckBox Margin="5">Java</CheckBox>
+                <CheckBox Margin="5">Python</CheckBox>
+                <CheckBox Margin="5">TS</CheckBox>
+                <CheckBox Margin="5">JS</CheckBox>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <!--<ScrollViewer HorizontalScrollBarVisibility="Auto">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap" Margin="10">
                     Пример прокрутки
                 </TextBlock>
                 <Rectangle Fill="LightBlue"  Width="500" Height="500"></Rectangle>
             </StackPanel>
-        </ScrollViewer>
+        </ScrollViewer>-->
 
     </Grid>
 </Window>
