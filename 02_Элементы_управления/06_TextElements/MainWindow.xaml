@@ -53,7 +53,13 @@
                 </StackPanel>
             </TabItem>
             
-            <TabItem Header="Label" FontWeight="Bold"></TabItem>
+            <TabItem Header="Label" FontWeight="Bold">
+                <StackPanel Background="AliceBlue">
+                    <Label Content="LABEL 1"/>
+                    <Label Content="LABEL 2" Background="Aqua"/>
+                    <Label Content="LABEL 3" Foreground="DarkGreen"/>
+                </StackPanel>
+            </TabItem>
         </TabControl>
         
     </Grid>
