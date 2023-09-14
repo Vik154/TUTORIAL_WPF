@@ -162,11 +162,11 @@ public partial class MainWindow : Window {
 
 Чтобы увидеть всплывающую подсказку, помимо создания объекта класса Popup, нужно задать свойству IsOpen значение true, сделать это можно обработав событие наведения указателя мыши на нужный элемент:
 ~~~C#
-private void btnPopup_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) {
+private void btnPopup_MouseEnter(object sender, MouseEventArgs e) {
     samplePopup.IsOpen = true;
 }
 ~~~
-
+<br>
 
 ___Пример разметки:___
 ~~~XAML
