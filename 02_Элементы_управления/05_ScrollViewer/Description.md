@@ -2,9 +2,20 @@
 
 *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.scrollviewer?view=windowsdesktop-7.0*
 
-Прокрутка необходима, если нужно поместить большой объем содержимого в ограниченную область. Для обеспечения прокрутки в WPF необходимо упаковать соответствующее содержимое в элемент ScrollViewer. Объект ScrollViewer может содержать все, что угодно, но обычно это контейнер компоновки. <br>
-Чтобы элемент поддерживал прокрутку, его нужно просто упаковать в элемент ScrollViewer.
+Прокрутка необходима, если нужно поместить большой объем содержимого в ограниченную область. Для обеспечения прокрутки необходимо упаковать соответствующее содержимое в элемент ScrollViewer. Объект ScrollViewer может содержать все, что угодно, но обычно это контейнер компоновки. <br>
 
+<img align="left" width="210" height="210" src="img/Scroll.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<ScrollViewer HorizontalScrollBarVisibility="Auto">
+    <StackPanel>
+        <TextBlock TextWrapping="Wrap" Margin="10">
+            Пример прокрутки
+        </TextBlock>
+        <Rectangle Fill="LightBlue"  Width="500" Height="500"></Rectangle>
+    </StackPanel>
+</ScrollViewer>
+~~~
 
 
 
