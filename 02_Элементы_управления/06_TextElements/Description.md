@@ -32,11 +32,13 @@ __Label__ - Классический элемент управления, кот
 <img align="left" width="320" height="200" src="img/TextBlock2.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
-<StackPanel Background="AliceBlue">
-    <TextBox Text="Пример поля ввода TextBox"/>
-    <TextBox Text="Поле ввода TextBox" Height="50" TextWrapping="Wrap"/>
-    <TextBox Text="TextBox" Background="Aqua"/>
-</StackPanel>
+<TabItem Header="TextBox" FontWeight="Bold">
+    <StackPanel Background="AliceBlue">
+        <TextBox Text="Пример поля ввода TextBox"/>
+        <TextBox Text="Поле ввода TextBox" Height="50" TextWrapping="Wrap"/>
+        <TextBox Text="TextBox" Background="Aqua"/>
+    </StackPanel>
+</TabItem>
 ~~~
 
 
