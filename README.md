@@ -27,4 +27,5 @@
 2. ___Основные элементы управления:___
    * *[01_Button](02_Элементы_управления/01_Button/Description.md)*
    * *[02_CheckBox/RadioButton](02_Элементы_управления/02_CheckBox_and_RadioButton/Description.md)*
+   * *[03_ToolTip/Popup](02_Элементы_управления/03_ToolTip_and_Popup/Description.md)*
    * 
