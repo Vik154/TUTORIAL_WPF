@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_ToolTip_and_Popup", "03_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_GroupBox_and_Expander", "04_GroupBox_and_Expander\04_GroupBox_and_Expander.csproj", "{D0E102CC-0AEE-44DD-B528-99D9DE56CFF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_ScrollViewer", "05_ScrollViewer\05_ScrollViewer.csproj", "{28438433-BFEC-4E01-8E1E-96CB69D35EAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D0E102CC-0AEE-44DD-B528-99D9DE56CFF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0E102CC-0AEE-44DD-B528-99D9DE56CFF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0E102CC-0AEE-44DD-B528-99D9DE56CFF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28438433-BFEC-4E01-8E1E-96CB69D35EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28438433-BFEC-4E01-8E1E-96CB69D35EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28438433-BFEC-4E01-8E1E-96CB69D35EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28438433-BFEC-4E01-8E1E-96CB69D35EAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
