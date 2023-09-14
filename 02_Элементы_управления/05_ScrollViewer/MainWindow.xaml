@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
     <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" Margin="10">
+                    Пример прокрутки
+                </TextBlock>
+                <Rectangle Fill="LightBlue"  Width="500" Height="500"></Rectangle>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Window>
