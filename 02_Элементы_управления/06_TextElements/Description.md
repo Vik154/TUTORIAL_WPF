@@ -29,7 +29,7 @@ __Label__ - Классический элемент управления, кот
 </StackPanel>    
 ~~~
 
-<img align="left" width="320" height="200" src="img/TextBlock2.png" alt="Пример работы данного кода"/>
+<img align="left" width="320" height="205" src="img/TextBlock2.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <TabControl>
