@@ -41,7 +41,17 @@
                 </StackPanel>
             </TabItem>
             
-            <TabItem Header="RichTextBox" FontWeight="Bold"></TabItem>
+            <TabItem Header="RichTextBox" FontWeight="Bold">
+                <StackPanel Background="AliceBlue">
+                    <RichTextBox>
+                        <FlowDocument>
+                            <Paragraph>
+                                Контент             
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </StackPanel>
+            </TabItem>
             
             <TabItem Header="Label" FontWeight="Bold"></TabItem>
         </TabControl>
