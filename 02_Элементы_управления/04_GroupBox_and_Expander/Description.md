@@ -1,7 +1,25 @@
-### Классы ToolTip и Popup - *Классы представляющие всплывающие подсказки.*
+### Классы GroupBox и Expander - *Классы представляющие элементы управления содержимым с заголовками.*
 
-*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.tooltip?view=windowsdesktop-7.0* <br>
-*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.primitives.popup?view=windowsdesktop-7.0*
+*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.groupbox?view=windowsdesktop-7.0* <br>
+*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.expander?view=windowsdesktop-7.0*
+
+Одним из классов, порожденных от ContentControl, является HeaderedContentControl. Это просто контейнер с содержимым (один элемент, хранится в свойстве Content) и заголовком (также один элемент, хранится в свойстве Header). Наличие заголовка отличает HeaderedContentControl от описанных ранее элементов управления содержимым. От класса HeaderedContentControl порождены три класса: GroupBox, Tabltem и Expander.
+
+Класс GroupBox — наиболее простой из трех элементов управления, порожденных от HeaderedContentControl. Он имеет вид прямоугольника с закругленными углами и заголовком.
+
+<img align="left" src="img/Group.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<GroupBox Margin="10" Padding="5" Background="AliceBlue" Header="Список языков">
+    <StackPanel>
+        <RadioButton Margin="5">C++</RadioButton>
+        <RadioButton Margin="5">C#</RadioButton>
+        <RadioButton Margin="5">C</RadioButton>
+        <RadioButton Margin="5">Python</RadioButton>
+        <Button Margin="5" Width="100" HorizontalAlignment="Left" Content="Отправить"/>
+    </StackPanel>
+</GroupBox>
+~~~
 
 Tooltip — всплывающие окошки, которые появляются при наведении указателя мыши на какой-то объект. Поскольку всплывающие подсказки относятся к элементам управления содержимым, в них можно поместить практически что угодно. Можно также настроить различные временные параметры, чтобы задать время, после которого подсказка появляется и исчезает. <br>
 Самый простой способ вывода всплывающих подсказок — это просто определить свойство ToolTip нужного элемента. <br>
