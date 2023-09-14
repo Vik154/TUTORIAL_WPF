@@ -8,8 +8,41 @@
         Title="MainWindow" 
         Height="360" Width="480">
     <Grid>
+        <StackPanel Margin="5" Background="AliceBlue">
+            <Ellipse Height="152" Width="180" Margin="20" 
+                     Fill="Aqua" 
+                     HorizontalAlignment="Left"
+                     ToolTipService.InitialShowDelay="1000"
+                     ToolTipService.ShowDuration="7000"
+                     ToolTipService.BetweenShowDelay="2000"
+                     ToolTipService.Placement="Right" 
+                     ToolTipService.PlacementRectangle="50,0,0,0"
+                     ToolTipService.HorizontalOffset="10" 
+                     ToolTipService.VerticalOffset="20"
+                     ToolTipService.HasDropShadow="false"
+                     ToolTipService.ShowOnDisabled="true" 
+                     ToolTipService.IsEnabled="true"
+                     ToolTipOpening="whenToolTipOpens"
+                     ToolTipClosing="whenToolTipCloses"
+                     >
+                <Ellipse.ToolTip>
+                    <BulletDecorator>
+                        <BulletDecorator.Bullet>
+                            <Ellipse Height="10" Width="20" Fill="Blue"/>
+                        </BulletDecorator.Bullet>
+                        <TextBlock>Uses the ToolTipService class</TextBlock>
+                    </BulletDecorator>
+                </Ellipse.ToolTip>
+            </Ellipse>
+        </StackPanel>
 
-        <Button Content="КНОПКА">
+        <!--
+        <Button Width="100" Height="50"
+                Margin="5"
+                Content="КНОПКА"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Background="AliceBlue">
             <Button.ToolTip>
                 <ToolTip Background="AntiqueWhite"
                          Foreground="DarkGreen"
@@ -22,7 +55,8 @@
                 </ToolTip>
             </Button.ToolTip>
         </Button>
-        
+        -->
+
         <!--
         <StackPanel Background="AliceBlue">
             <TextBlock Text="Переключатель" Margin="10"/>
@@ -44,7 +78,7 @@
             </RadioButton>
         </StackPanel>
         -->
-        
+
         <!--
         <StackPanel>
             <Button ToolTip="Чё, подсказать, надо тебе да?" Content="Кнопка с подсказкой"/>
