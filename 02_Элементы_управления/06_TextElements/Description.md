@@ -1,6 +1,11 @@
-### Класс ScrollViewer - *Представляет прокручиваемую область, которая может содержать другие видимые элементы.*
+### Классы TextBlock, TextBox, PasswordBox, RichTextBox, Label - *Представляют текстовые элементы управления.*
 
-*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.scrollviewer?view=windowsdesktop-7.0*
+__TextBlock__ - *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.textblock?view=windowsdesktop-7.0* <br>
+__TextBox__ - *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.textbox?view=windowsdesktop-7.0* <br>
+__PasswordBox__ - *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.passwordbox?view=windowsdesktop-7.0* <br>
+__RichTextBox__ - *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.richtextbox?view=windowsdesktop-7.0* <br>
+__Label__ -  *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.label?view=windowsdesktop-7.0*
+
 
 Прокрутка необходима, если нужно поместить большой объем содержимого в ограниченную область. Для обеспечения прокрутки необходимо упаковать соответствующее содержимое в элемент ScrollViewer. Объект ScrollViewer может содержать все, что угодно, но обычно это контейнер компоновки, который может вмещать в себя только один элемент, поэтому все элементы, помещаемые внутрь ScrollViewer необходимо обернуть в еще один контейнер <br>
 
