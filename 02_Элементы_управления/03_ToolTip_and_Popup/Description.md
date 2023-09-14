@@ -158,7 +158,40 @@ public partial class MainWindow : Window {
 Элементы Popup могут принимать фокус и содержать элементы интерактивной связи с пользователем (например, Button). Эта возможность является одной из ключевых причин использования элемента Popup вместо ToolTip. <br>
 Элемент управления Popup определен в пространстве имен System.Windows.Controls.Primitives, так как он чаще всего используется в составе более сложных элементов управления. Элементы Popup не так элегантны, как другие элементы управления. Например, чтобы видеть содержимое, необходимо определить свойство Background, т.к. оно не наследуется от окна. Рамку тоже придется добавлять самостоятельно (для этого очень удобен элемент Border). 
 
+<img align="left" src="img/Tool4.png" alt="Пример работы данного кода"/>
 
+Чтобы увидеть всплывающую подсказку, помимо создания объекта класса Popup, нужно задать свойству IsOpen значение true, сделать это можно обработав событие наведения указателя мыши на нужный элемент:
+~~~C#
+private void btnPopup_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) {
+    samplePopup.IsOpen = true;
+}
+~~~
+
+
+___Пример разметки:___
+~~~XAML
+<StackPanel Margin="5" Background="AliceBlue">
+    <Button x:Name="btnPopup"
+            Width="100" Height="25"
+            Content="Пример Popup"
+            Background="AntiqueWhite"
+            HorizontalAlignment="Left"
+            MouseEnter="btnPopup_MouseEnter"/>
+    
+    <Popup x:Name="samplePopup"
+           StaysOpen="False"
+           MaxWidth="150"
+           MaxHeight="150"
+           Placement="Mouse"
+           AllowsTransparency="True"
+           >
+        <Border BorderBrush="Aquamarine"
+                Background="Bisque">
+            <TextBlock Margin="10">TextTextText</TextBlock>
+        </Border>
+    </Popup>
+</StackPanel>
+~~~
 
 
 
