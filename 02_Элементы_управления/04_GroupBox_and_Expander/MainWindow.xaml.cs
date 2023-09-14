@@ -1,25 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace _04_GroupBox_and_Expander {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            InitializeComponent();
-        }
+namespace _04_GroupBox_and_Expander;
+
+public partial class MainWindow : Window {
+
+    public MainWindow() {
+        InitializeComponent();
+        MakeGroupBox();
+    }
+
+    // Программное создание GroupBox
+    private void MakeGroupBox() {
+        GroupBox groupBox = new GroupBox {
+            Header = "Список языков",
+            Margin = new Thickness(10),
+            Padding = new Thickness(5),
+            Background = Brushes.AliceBlue
+        };
+
+        StackPanel stackPanel = new StackPanel();
+        CheckBox checkBox1 = new CheckBox { Content = "C++",  Margin = new Thickness(5) };
+        CheckBox checkBox2 = new CheckBox { Content = "C",    Margin = new Thickness(5) };
+        CheckBox checkBox3 = new CheckBox { Content = "C#",   Margin = new Thickness(5) };
+        CheckBox checkBox4 = new CheckBox { Content = "Java", Margin = new Thickness(5) };
+
+        stackPanel.Children.Add(checkBox1);
+        stackPanel.Children.Add(checkBox2);
+        stackPanel.Children.Add(checkBox3);
+        stackPanel.Children.Add(checkBox4);
+
+        groupBox.Content = stackPanel;
+        this.Content = groupBox;
     }
 }
