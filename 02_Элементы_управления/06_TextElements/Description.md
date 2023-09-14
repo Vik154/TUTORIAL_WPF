@@ -43,7 +43,7 @@ __Label__ - Классический элемент управления, кот
 </TabControl>
 ~~~
 
-<img align="left" width="320" height="180" src="img/TextBlock3.png" alt="Пример работы данного кода"/>
+<img align="left" width="320" height="170" src="img/TextBlock3.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <TabItem Header="Password" FontWeight="Bold">
