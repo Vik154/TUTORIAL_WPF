@@ -166,7 +166,8 @@ private void btnPopup_MouseEnter(object sender, MouseEventArgs e) {
     samplePopup.IsOpen = true;
 }
 ~~~
-<br>
+
+
 
 ___Пример разметки:___
 ~~~XAML
