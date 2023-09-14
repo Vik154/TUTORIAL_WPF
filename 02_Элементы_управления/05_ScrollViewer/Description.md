@@ -23,16 +23,35 @@
 * PageUp(), PageDown(), PageLeft() и PageRight() - прокручивают содержимое на один экран вверх или вниз и эквивалентны щелчкам на поверхности полосы прокрутки выше или ниже ползунка.
 * ScrollToEnd(), ScrollToHome(), ScrollToRightEnd(), ScrollToLeftEnd() - прокрутка в нижний конец окна, в начало, в правый и левый конец окна.
 
-Встроенные в ScrollViewer способы прокрутки весьма полезны. Они позволяют выполнять плавную прокрутку любого содержимого — от сложных векторных изображений до сетки с элементами. Однако одной из наиболее интересных возможностей класса ScrollViewer является то, что он позволяет содержимому принимать участие в процессе прокрутки. Вот как это работает. 
-• Помещаете прокручиваемый элемент внутри элемента ScrollViewer. Это может 
-быть любой элемент, реализующий интерфейс IScrollInfo. 
-• Указываете объекту ScrollViewer, что содержимое знает, как выполнять  
-прокрутку — для этого нужно установить свойство ScrollViewer.CanContentScroll 
-равным true. 
-• При задействовании элемента ScrollViewer (с помощью полосы прокрутки,  
-колесика мыши, методов прокрутки и т.д.) он вызывает соответствующие методы 
-вложенного элемента с помощью интерфейса IScrollInfo. Затем этот элемент 
-выполняет собственную специализированную прокрутку. 
+<img align="left"  src="img/Scroll2.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<StackPanel VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="5" Width="200" Height="50" 
+            Background="AliceBlue"
+            Orientation="Horizontal">
+    <Button Margin="5" Content="Вверх"  Click="UpClick"></Button>
+    <Button Margin="5" Content="Вниз"   Click="DownClick"></Button>
+    <Button Margin="5" Content="Влево"  Click="LeftClick"></Button>
+    <Button Margin="5" Content="Вправо" Click="RightClick"></Button>
+</StackPanel>
+
+<ScrollViewer x:Name="_scroll" Background="AliceBlue"
+              Margin="5,60,0,0"
+              HorizontalScrollBarVisibility="Visible"
+              VerticalScrollBarVisibility="Visible">
+    <StackPanel Width="1000" Height="500">
+        <CheckBox Margin="5">C++</CheckBox>
+        <CheckBox Margin="5">C</CheckBox>
+        <CheckBox Margin="5">C#</CheckBox>
+        <CheckBox Margin="5">Java</CheckBox>
+        <CheckBox Margin="5">Python</CheckBox>
+        <CheckBox Margin="5">TS</CheckBox>
+        <CheckBox Margin="5">JS</CheckBox>
+    </StackPanel>
+</ScrollViewer>
+~~~
 
 
 
