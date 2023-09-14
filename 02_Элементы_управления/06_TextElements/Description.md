@@ -55,7 +55,7 @@ __Label__ - Классический элемент управления, кот
 </TabItem>
 ~~~
 
-<img align="left" width="320" height="200" src="img/TextBlock4.png" alt="Пример работы данного кода"/>
+<img align="left" width="320" height="250" src="img/TextBlock4.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <TabItem Header="RichTextBox" FontWeight="Bold">
