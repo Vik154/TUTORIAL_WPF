@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
     <Grid>
+        <GroupBox Margin="10" Padding="5" 
+                  Background="AliceBlue"
+                  Header="Список языков"
+                  >
+            <StackPanel>
+                <RadioButton Margin="5">C++</RadioButton>
+                <RadioButton Margin="5">C#</RadioButton>
+                <RadioButton Margin="5">C</RadioButton>
+                <RadioButton Margin="5">Python</RadioButton>
+                <Button Margin="5" Width="100" 
+                        HorizontalAlignment="Left" Content="Отправить"/>
+            </StackPanel>
+        </GroupBox>
 
     </Grid>
 </Window>
