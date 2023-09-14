@@ -4,7 +4,7 @@
 
 Прокрутка необходима, если нужно поместить большой объем содержимого в ограниченную область. Для обеспечения прокрутки необходимо упаковать соответствующее содержимое в элемент ScrollViewer. Объект ScrollViewer может содержать все, что угодно, но обычно это контейнер компоновки. <br>
 
-<img align="left" width="210" height="210" src="img/Scroll.png" alt="Пример работы данного кода"/>
+<img align="left" width="210" height="190" src="img/Scroll.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <ScrollViewer HorizontalScrollBarVisibility="Auto">
