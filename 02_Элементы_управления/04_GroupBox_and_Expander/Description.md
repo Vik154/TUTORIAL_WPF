@@ -7,7 +7,7 @@
 
 Класс GroupBox — наиболее простой из трех элементов управления, порожденных от HeaderedContentControl. Он имеет вид прямоугольника с закругленными углами и заголовком.
 
-<img align="left" width="250" height="210" src="img/Group.png" alt="Пример работы данного кода"/>
+<img align="left" width="210" height="210" src="img/Group.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <GroupBox Margin="10" Padding="5" Background="AliceBlue" Header="Список языков">
