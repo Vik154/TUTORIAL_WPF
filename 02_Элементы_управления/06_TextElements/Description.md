@@ -29,6 +29,16 @@ __Label__ - Классический элемент управления, кот
 </StackPanel>    
 ~~~
 
+<img align="left" width="320" height="200" src="img/TextBlock2.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<StackPanel Background="AliceBlue">
+    <TextBox Text="Пример поля ввода TextBox"/>
+    <TextBox Text="Поле ввода TextBox" Height="50" TextWrapping="Wrap"/>
+    <TextBox Text="TextBox" Background="Aqua"/>
+</StackPanel>
+~~~
+
 
 Прокрутка необходима, если нужно поместить большой объем содержимого в ограниченную область. Для обеспечения прокрутки необходимо упаковать соответствующее содержимое в элемент ScrollViewer. Объект ScrollViewer может содержать все, что угодно, но обычно это контейнер компоновки, который может вмещать в себя только один элемент, поэтому все элементы, помещаемые внутрь ScrollViewer необходимо обернуть в еще один контейнер <br>
 
