@@ -14,7 +14,7 @@ public partial class MainWindow : Window {
         // MakeToolTipService();
     }
 
-    // Работа с 
+    // Работа с ToolTipService
     private void MakeToolTipService() {
         //Create and Ellipse with the BulletDecorator as the tooltip
         Ellipse ellipse2 = new Ellipse();
@@ -85,5 +85,10 @@ public partial class MainWindow : Window {
 
     private void whenToolTipCloses(object sender, ToolTipEventArgs e) {
         MessageBox.Show("Сработало событие Closing", "Info");
+    }
+
+    // Пример Popup
+    private void btnPopup_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) {
+        samplePopup.IsOpen = true;
     }
 }

@@ -8,7 +8,30 @@
         Title="MainWindow" 
         Height="360" Width="480">
     <Grid>
+
         <StackPanel Margin="5" Background="AliceBlue">
+            <Button x:Name="btnPopup"
+                    Width="100" Height="25"
+                    Content="Пример Popup"
+                    Background="AntiqueWhite"
+                    HorizontalAlignment="Left"
+                    MouseEnter="btnPopup_MouseEnter"/>
+            
+            <Popup x:Name="samplePopup"
+                   StaysOpen="False"
+                   MaxWidth="150"
+                   MaxHeight="150"
+                   Placement="Mouse"
+                   AllowsTransparency="True"
+                   >
+                <Border BorderBrush="Aquamarine"
+                        Background="Bisque">
+                    <TextBlock Margin="10">TextTextText</TextBlock>
+                </Border>
+            </Popup>
+        </StackPanel>
+        
+        <!--<StackPanel Margin="5" Background="AliceBlue">
             <Ellipse Height="152" Width="180" Margin="20" 
                      Fill="Aqua" 
                      HorizontalAlignment="Left"
@@ -34,7 +57,7 @@
                     </BulletDecorator>
                 </Ellipse.ToolTip>
             </Ellipse>
-        </StackPanel>
+        </StackPanel>-->
 
         <!--
         <Button Width="100" Height="50"
