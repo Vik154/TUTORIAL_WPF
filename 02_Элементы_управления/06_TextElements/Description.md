@@ -55,6 +55,24 @@ __Label__ - Классический элемент управления, кот
 </TabItem>
 ~~~
 
+<img align="left" width="320" height="200" src="img/TextBlock4.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<TabItem Header="RichTextBox" FontWeight="Bold">
+    <StackPanel Background="AliceBlue">
+        <RichTextBox>
+            <FlowDocument>
+                <Paragraph>
+                    Контент             
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </StackPanel>
+</TabItem>
+~~~
+
+
+
 
 Прокрутка необходима, если нужно поместить большой объем содержимого в ограниченную область. Для обеспечения прокрутки необходимо упаковать соответствующее содержимое в элемент ScrollViewer. Объект ScrollViewer может содержать все, что угодно, но обычно это контейнер компоновки, который может вмещать в себя только один элемент, поэтому все элементы, помещаемые внутрь ScrollViewer необходимо обернуть в еще один контейнер <br>
 
