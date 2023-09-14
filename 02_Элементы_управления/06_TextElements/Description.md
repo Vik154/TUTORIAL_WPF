@@ -124,3 +124,30 @@ __Label__ - Классический элемент управления, кот
     <Run FontFamily="Verdana"       TextDecorations="Underline"> сосед </Run>
 </TextBlock>
 ~~~
+
+___Явно и неявно заданные фрагменты Run Следующий элемент TextBlock:___
+~~~XAML
+<TextBlock>ТЕКСТ</TextBlock>
+<!-- эквивалентен такому: -->
+<TextBlock>
+    <Run>ТЕКСТ</Run>
+</TextBlock>
+
+<!-- Например, такое использование элемента LineBreak (еще одной разновидности Inline) допустимое! -->
+<TextBlock>
+    ТЕКСТ И
+    <LineBreak/>
+    СНОВА ТЕКСТ
+</TextBlock>
+
+<!-- а такое - нет: -->
+<TextBlock>
+    <Run>ТЕКСТ И
+    <LineBreak/>
+    СНОВА ТЕКСТ
+    </Run>
+</TextBlock>
+
+ Последний вариант недопустим, потому что свойством содержимого класса М (Text) является простая строка, а включить элемент LineBreak внутрь строки нельзя. Однако конвертер типа преобразует свойство содержимого класса TextBlock (Inlines) в один или несколько объектов Run, корректно обрабатывая объекты LineBreak. В результате следующая XAML-разметка:
+<TextBlock>Text in<LineBreak/>a TextBlock</TextBlock> оказывается эквивалентной блоку TextBlock, содержащему два объекта Run, по одному с каждой стороны LineBreak:
+<TextBlock><Run>Text in</Run><LineBreak/><Run>a TextBlock</Run></TextBlock>
