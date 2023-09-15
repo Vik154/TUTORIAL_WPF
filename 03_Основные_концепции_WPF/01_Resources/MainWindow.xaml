@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_01_Resources"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="360" Width="480">
 
+    <Window.Resources>
+        <!-- Создание ресурсов, для обращения к ним по заданным ключам -->
+        <SolidColorBrush x:Key="PanelBackground" Color="AliceBlue"/>
+        <SolidColorBrush x:Key="ButtonBackground" Color="Aqua"/>
+
+        <!-- Создание стиля для эллипсов в виде ресурса -->
+        <Style x:Key="EllipseStyle" TargetType="Ellipse">
+            <Setter Property="Width"  Value="100"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Fill"   Value="DarkBlue"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel Background="{StaticResource PanelBackground}">
+            <Ellipse Style="{StaticResource EllipseStyle}"/>
+            <Ellipse Style="{StaticResource EllipseStyle}"/>
+
+            <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 1"/>
+            <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 2"/>
+            <Button Background="Bisque"  Content="Кнопка 3"/>
+            <Button Background="{x:Null}" Content="Кнопка 4"/>
+            <Button Content="Кнопка 5"/>
+        </StackPanel>
     </Grid>
 </Window>
