@@ -35,5 +35,6 @@
    * *[08_ComboBox](02_Элементы_управления/08_ComboBox/Description.md)*
    * *[09_ListView](02_Элементы_управления/09_ListView/Description.md)*
    * *[10_DataGrid](02_Элементы_управления/10_DataGrid/Description.md)*
-3. ___След:___
+3. ___Основные концепции в WPF:___
+   * *[Ресурсы]*
 
