@@ -4,7 +4,25 @@
 
 Элемент управления ListView представляет собой ItemsControl, производный от ListBox. Как правило, его элементы являются элементами коллекции данных и представлены в виде объектов ListViewItem. Элемент управления ListViewItem представляет собой ContentControl и может содержать только один дочерний элемент. Но дочерним может быть любой визуальный элемент.
 
-<img src="img/List.png" alt="Пример работы данного кода"/>
+<img align="left" src="img/List.png" alt="Пример работы данного кода"/>
+
+~~~C#
+using System.Windows;
+
+namespace _09_ListView;
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+    }
+}
+
+public class EmployeeInfoDataSource {
+    public string? FirstName { get; set; }
+    public string? LastName  { get; set; }
+    public int Number {  get; set; }
+}
+~~~
 
 ~~~XAML
 <Window x:Class="_09_ListView.MainWindow"
@@ -38,37 +56,3 @@
 </Window>
 ~~~
 <hr>
-
-___Программное создание ComboBox:___
-~~~C#
-using System.Windows;
-using System.Windows.Controls;
-
-namespace _08_ComboBox;
-
-public record class Person(string Name, string Company, int ID);
-
-public partial class MainWindow : Window {
-
-    public MainWindow() {
-        InitializeComponent();
-        MakeComboBox();
-    }
-
-    private void MakeComboBox() {
-        ComboBox comboBox = new ComboBox();
-        StackPanel stackPanel = new StackPanel();
-
-        comboBox.Items.Add(new Person("Tom", "Microsoft", 1));
-        comboBox.Items.Add(new Person("Tim", "Yandex", 2));
-        comboBox.Items.Add(new Person("Tor", "Google", 3));
-
-        comboBox.IsEditable = true;
-        comboBox.Text = "Сотрудники";
-
-        stackPanel.Children.Add(comboBox);
-
-        this.Content = stackPanel;
-    }
-}
-~~~
