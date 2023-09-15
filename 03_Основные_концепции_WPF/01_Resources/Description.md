@@ -8,7 +8,7 @@ ___Коллекция ресурсов:___ <br>
 
 ___Определение ресурсов:___
 
-<img align="left" width="300" height="290" src="img/Res1.png" alt="Пример работы данного кода"/>
+<img align="left" width="250" height="500" src="img/Res1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ... Стандартный код VS>
