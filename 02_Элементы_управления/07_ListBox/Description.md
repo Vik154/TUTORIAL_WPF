@@ -1,18 +1,34 @@
-### TextBlock, TextBox, PasswordBox, RichTextBox, Label - *Представляют текстовые элементы управления.*
+### Класс ListBox - *Содержит список элементов для выбора.*
 
-__TextBlock__ - *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.textblock?view=windowsdesktop-7.0* <br>
-__TextBox__ - *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.textbox?view=windowsdesktop-7.0* <br>
-__PasswordBox__ - *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.passwordbox?view=windowsdesktop-7.0* <br>
-__RichTextBox__ - *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.richtextbox?view=windowsdesktop-7.0* <br>
-__Label__ -  *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.label?view=windowsdesktop-7.0*
+*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.listbox?view=windowsdesktop-7.0*
 
-__TextBlock__ - Элемент предназначен для вывода текстовой информации, для создания простых надписей. <br>
-__TextBox__ - Элемент предназначен для ввода текстовой информации. <br>
-__PasswordBox__ - Элемент предназначен для ввода парольной информации. <br>
-__RichTextBox__ - Элемент предназначен для вывода текстового содержимого, насыщенного форматированием, графикой. <br>
-__Label__ - Классический элемент управления, который может содержать текст (или другой элемент).
+Данный элемент управления является потомком класса ItemsControl (а он порожден от класса Control). <br>
+Класс ItemsControl содержит базовые механизмы, которые используются всеми элементами управления списками. Он предоставляет два способа заполнения списка  элементов. Наиболее простым способом является добавление элементов прямо в коллекцию Items с помощью кода или XAML. Однако в WPF чаще применяется привязка данных. В этом случае свойству ItemsSource присваивается объект, содержащий коллекцию элементов данных, которые нужно отобразить. Чтобы использовать большинство возможностей любого наследника ItemsControl, необходимо использовать привязку данных. Это нужно делать даже тогда, когда не  нужна выборка данных из базы или из внешнего источника данных. <br>
+Одной большой ветвью в иерархии классов, которые начинаются с ItemsControls, являются селекторы (selector) к которым относится ListBox. Он является потомком класса Selector и имеет свойства, позволяющие определить выделенный в данный момент элемент (Selectedltem) или его позицию (Selectedlndex). <br>
+Класс ___ListBox___ - представляет списки переменной длины, которые позволяют выбрать один из элементов. <br>
+Чтобы добавить элементы в элемент ListBox, можно вложить в него элементы ListBoxItem. Например: <br>
 
-<img align="left" width="320" height="270" src="img/TextBlock1.png" alt="Пример работы данного кода"/>
+<img align="left" width="300" height="200" src="img/List1.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Grid>
+    <ListBox FontSize="18" FontWeight="Bold">
+        <ListBoxItem>Один - 1</ListBoxItem>
+        <ListBoxItem>Два - 2</ListBoxItem>
+        <ListBoxItem>Три - 3</ListBoxItem>
+        <ListBoxItem>Четыре - 4</ListBoxItem>
+        <ListBoxItem>Пять - 5</ListBoxItem>
+    </ListBox>
+</Grid>
+~~~
+
+
+
+
+
+
+
+
 
 ~~~XAML
 <StackPanel Background="AliceBlue">
