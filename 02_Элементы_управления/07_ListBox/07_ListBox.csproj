@@ -9,7 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="img\" />
+    <None Remove="img\Sm1.png" />
+    <None Remove="img\Sm2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\Sm1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sm2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
