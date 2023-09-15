@@ -4,14 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_09_ListView"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
     <Grid>
-        <ListView>
-            <ListViewItem>C++</ListViewItem>
-            <ListViewItem>C#</ListViewItem>
-            <ListViewItem>C</ListViewItem>
-            <ListViewItem>XAML</ListViewItem>
+        <ListView ItemsSource="{DynamicResource ResourceKey=EmployeeInfoDataSource}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=FirstName}" Header="First Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=LastName}"  Header="Last Name"  Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Number}"    Header="Number." Width="100"/>
+                </GridView>
+            </ListView.View>
+            <ListView.Resources>
+                <col:ArrayList x:Key="EmployeeInfoDataSource">
+                    <local:EmployeeInfoDataSource FirstName="Tom" LastName="Anderson" Number="1"/>
+                    <local:EmployeeInfoDataSource FirstName="Tim" LastName="Anderson" Number="2"/>
+                    <local:EmployeeInfoDataSource FirstName="Ted" LastName="Anderson" Number="3"/>
+                    <local:EmployeeInfoDataSource FirstName="Tor" LastName="Anderson" Number="4"/>
+                </col:ArrayList>
+            </ListView.Resources>
         </ListView>
     </Grid>
 </Window>
