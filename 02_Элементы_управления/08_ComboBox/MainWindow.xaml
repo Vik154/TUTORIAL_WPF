@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
     <Grid>
+        <StackPanel Background="AliceBlue">
+            <ComboBox Text="Студенты" IsEditable="True">
+                <ComboBoxItem>Student 1</ComboBoxItem>
+                <ComboBoxItem>Student 2</ComboBoxItem>
+                <ComboBoxItem>Student 3</ComboBoxItem>
+            </ComboBox>
 
+            <ComboBox Text="Язык" IsEditable="True">
+                <TextBlock>C++</TextBlock>
+                <TextBlock>C#</TextBlock>
+                <TextBlock>C</TextBlock>
+            </ComboBox>
+        </StackPanel>
     </Grid>
 </Window>
