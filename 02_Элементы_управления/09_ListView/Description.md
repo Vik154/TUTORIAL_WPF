@@ -1,26 +1,42 @@
-### Класс ComboBox - *Представляет элемент управления для выбора с раскрывающимся списком, который можно отображать и скрывать, щелкая стрелку в элементе управления.*
+### Класс ListView - *Представляет элемент управления, отображающий список элементов данных.*
 
-*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.combobox?view=windowsdesktop-7.0*
+*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.listview?view=windowsdesktop-7.0*
 
 Элемент ComboBox похож на элемент ListBox. Он хранит коллекцию объектов ComboBoxItem, которые создаются явным или неявным образом. Как и ListBoxItem, ComboBoxItem является элементом управления содержимым, который может хранить любой вложенный элемент. <br>
 Основным различием классов ComboBox и ListBox является способ их отображения в окне. Элемент ComboBox использует раскрывающийся список, а это значит, что за один раз можно выбрать только один элемент.
 
-<img align="left" width="300" height="290" src="img/Combo.png" alt="Пример работы данного кода"/>
+<img align="left" width="300" height="290" src="img/List.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
-<StackPanel Background="AliceBlue">
-    <ComboBox Text="Студенты" IsEditable="True">
-        <ComboBoxItem>Student 1</ComboBoxItem>
-        <ComboBoxItem>Student 2</ComboBoxItem>
-        <ComboBoxItem>Student 3</ComboBoxItem>
-    </ComboBox>
-
-    <ComboBox Text="Язык" IsEditable="True">
-        <TextBlock>C++</TextBlock>
-        <TextBlock>C#</TextBlock>
-        <TextBlock>C</TextBlock>
-    </ComboBox>
-</StackPanel>
+<Window x:Class="_09_ListView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_09_ListView"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="360" Width="480">
+    <Grid>
+        <ListView ItemsSource="{DynamicResource ResourceKey=EmployeeInfoDataSource}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=FirstName}" Header="First Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=LastName}"  Header="Last Name"  Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Number}"    Header="Number." Width="100"/>
+                </GridView>
+            </ListView.View>
+            <ListView.Resources>
+                <col:ArrayList x:Key="EmployeeInfoDataSource">
+                    <local:EmployeeInfoDataSource FirstName="Tom" LastName="Anderson" Number="1"/>
+                    <local:EmployeeInfoDataSource FirstName="Tim" LastName="Anderson" Number="2"/>
+                    <local:EmployeeInfoDataSource FirstName="Ted" LastName="Anderson" Number="3"/>
+                    <local:EmployeeInfoDataSource FirstName="Tor" LastName="Anderson" Number="4"/>
+                </col:ArrayList>
+            </ListView.Resources>
+        </ListView>
+    </Grid>
+</Window>
 ~~~
 <hr>
 
