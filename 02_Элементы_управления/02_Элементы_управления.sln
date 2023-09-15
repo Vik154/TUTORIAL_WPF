@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_ComboBox", "08_ComboBox\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_ListView", "09_ListView\09_ListView.csproj", "{9E04C1BE-6266-41AC-BA40-2A08E85E3197}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_DataGrid", "10_DataGrid\10_DataGrid.csproj", "{5A615239-6ABB-42C7-A9A2-C078CFEF62C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{9E04C1BE-6266-41AC-BA40-2A08E85E3197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E04C1BE-6266-41AC-BA40-2A08E85E3197}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E04C1BE-6266-41AC-BA40-2A08E85E3197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A615239-6ABB-42C7-A9A2-C078CFEF62C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A615239-6ABB-42C7-A9A2-C078CFEF62C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A615239-6ABB-42C7-A9A2-C078CFEF62C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A615239-6ABB-42C7-A9A2-C078CFEF62C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
