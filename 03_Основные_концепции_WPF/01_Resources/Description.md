@@ -8,13 +8,35 @@ ___Коллекция ресурсов:___ <br>
 
 ___Определение ресурсов:___
 
+<img align="left" width="300" height="290" src="img/Res1.png" alt="Пример работы данного кода"/>
 
+~~~XAML
+<Window ... Стандартный код VS>
+    <Window.Resources>
+        <!-- Создание ресурсов, для обращения к ним по заданным ключам -->
+        <SolidColorBrush x:Key="PanelBackground" Color="AliceBlue"/>
+        <SolidColorBrush x:Key="ButtonBackground" Color="Aqua"/>
 
+        <!-- Создание стиля для эллипсов в виде ресурса -->
+        <Style x:Key="EllipseStyle" TargetType="Ellipse">
+            <Setter Property="Width"  Value="100"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Fill"   Value="DarkBlue"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel Background="{StaticResource PanelBackground}">
+            <Ellipse Style="{StaticResource EllipseStyle}"/>
+            <Ellipse Style="{StaticResource EllipseStyle}"/>
 
-<img align="left" width="300" height="290" src="img/Combo.png" alt="Пример работы данного кода"/>
-
-
-___Программное создание ComboBox:___
-~~~C#
-
+            <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 1"/>
+            <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 2"/>
+            <Button Background="Bisque"  Content="Кнопка 3"/>
+            <Button Background="{x:Null}" Content="Кнопка 4"/>
+            <Button Content="Кнопка 5"/>
+        </StackPanel>
+    </Grid>
+</Window>
 ~~~
