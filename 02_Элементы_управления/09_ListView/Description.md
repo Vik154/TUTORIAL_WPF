@@ -4,7 +4,7 @@
 
 Элемент управления ListView представляет собой ItemsControl, производный от ListBox. Как правило, его элементы являются элементами коллекции данных и представлены в виде объектов ListViewItem. Элемент управления ListViewItem представляет собой ContentControl и может содержать только один дочерний элемент. Но дочерним может быть любой визуальный элемент.
 
-<img align="left" width="400" height="300" src="img/List.png" alt="Пример работы данного кода"/>
+<img align="left" width="400" height="330" src="img/List.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System.Windows;
