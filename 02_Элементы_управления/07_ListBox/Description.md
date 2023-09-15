@@ -33,7 +33,7 @@
     <ListBoxItem> 
         <Image Source="Картинка2.jpg" />
     </ListBoxItem> 
-</ListBox> 
+</ListBox>
 ~~~
 
 
