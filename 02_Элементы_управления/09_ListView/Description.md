@@ -2,10 +2,9 @@
 
 *Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.listview?view=windowsdesktop-7.0*
 
-Элемент ComboBox похож на элемент ListBox. Он хранит коллекцию объектов ComboBoxItem, которые создаются явным или неявным образом. Как и ListBoxItem, ComboBoxItem является элементом управления содержимым, который может хранить любой вложенный элемент. <br>
-Основным различием классов ComboBox и ListBox является способ их отображения в окне. Элемент ComboBox использует раскрывающийся список, а это значит, что за один раз можно выбрать только один элемент.
+Элемент управления ListView представляет собой ItemsControl, производный от ListBox. Как правило, его элементы являются элементами коллекции данных и представлены в виде объектов ListViewItem. Элемент управления ListViewItem представляет собой ContentControl и может содержать только один дочерний элемент. Но дочерним может быть любой визуальный элемент.
 
-<img align="left" width="300" height="290" src="img/List.png" alt="Пример работы данного кода"/>
+<img src="img/List.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window x:Class="_09_ListView.MainWindow"
