@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
     <Grid>
-
+        <ListBox FontSize="18" FontWeight="Bold">
+            <ListBoxItem>Один - 1</ListBoxItem>
+            <ListBoxItem>Два - 2</ListBoxItem>
+            <ListBoxItem>Три - 3</ListBoxItem>
+            <ListBoxItem>Четыре - 4</ListBoxItem>
+            <ListBoxItem>Пять - 5</ListBoxItem>
+        </ListBox>
     </Grid>
 </Window>
