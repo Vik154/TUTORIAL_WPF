@@ -1,8 +1,8 @@
-### Класс ListView - *Представляет элемент управления, отображающий список элементов данных.*
+### Класс DataGrid - *Представляет элемент управления, отображающий данные в настраиваемой сетке.*
 
-*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.listview?view=windowsdesktop-7.0*
+*Описание класса: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.controls.datagrid?view=windowsdesktop-7.0*
 
-Элемент управления ListView представляет собой ItemsControl, производный от ListBox. Как правило, его элементы являются элементами коллекции данных и представлены в виде объектов ListViewItem. Элемент управления ListViewItem представляет собой ContentControl и может содержать только один дочерний элемент. Но дочерним может быть любой визуальный элемент.
+Элемент управления DataGrid позволяет отображать и изменять данные из различных источников, таких как база данных SQL, запрос LINQ или любой другой привязываемый источник данных. 
 
 <img align="left" width="400" height="330" src="img/List.png" alt="Пример работы данного кода"/>
 
