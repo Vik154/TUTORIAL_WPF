@@ -32,5 +32,6 @@
    * *[05_ScrollViewer](02_Элементы_управления/05_ScrollViewer/Description.md)*
    * *[06_TextElements](02_Элементы_управления/06_TextElements/Description.md)*
    * *[07_ListBox](02_Элементы_управления/07_ListBox/Description.md)*
+   * *[08_ComboBox](02_Элементы_управления/08_ComboBox/Description.md)*
    * 
-07_ListBox
+08_ComboBox
