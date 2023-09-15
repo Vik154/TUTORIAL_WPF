@@ -22,72 +22,38 @@
     </ComboBox>
 </StackPanel>
 ~~~
+<hr>
 
-Объект ListBox хранит все вложенные объекты в своей коллекции Items. ListBox является довольно гибким элементом управления. Он может хранить не только объекты ListBoxItem, но и любые произвольные элементы. Ведь класс ListBoxItem является наследником класса ContentControl, который позволяет хранить фрагменты вложенного содержимого. Если такой фрагмент является классом, порожденным от UIElement, то он будет отображен в элементе ListBox. Если же это другой тип объекта, ListBox вызовет метод ToString() и выведет полученный текст. Например, создать список с изображениями можно с помощью следующей 
-разметки:
-
-~~~XAML
-<ListBox> 
-    <ListBoxItem> 
-        <Image Source="Картинка1.jpg"/>
-    </ListBoxItem> 
-    <ListBoxItem> 
-        <Image Source="Картинка2.jpg"/>
-    </ListBoxItem> 
-</ListBox>
-~~~
-
-Объекты ListBox способны неявно создавать необходимые им объекты ListBoxItem. Это означает, что объекты можете помещать прямо внутрь элемента ListBox.
-
-<img align="left" width="270" height="230" src="img/List2.png" alt="Пример работы данного кода"/>
-
-~~~XAML
-<ListBox Background="AliceBlue">
-    <StackPanel Orientation="Horizontal">
-        <Image Source="img/Sm1.png" Width="100"/>
-        <Label Content="Текст" FontSize="18"/>
-    </StackPanel>
-    <StackPanel Orientation="Horizontal">
-        <Image Source="img/Sm2.png" Width="100"/>
-        <Label Content="Текст" FontSize="18"/>
-    </StackPanel>
-</ListBox>
-~~~
-
-___Программное создание ListBox:___
-
-<img src="img/List3.png" alt="Пример работы данного кода"/>
-
+___Программное создание ComboBox:___
 ~~~C#
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
-namespace _07_ListBox;
+namespace _08_ComboBox;
 
-public record class Student(string Name, int Age, int ID, string Group);
+public record class Person(string Name, string Company, int ID);
 
 public partial class MainWindow : Window {
 
     public MainWindow() {
         InitializeComponent();
-        MakeListBox();
+        MakeComboBox();
     }
 
-    private void MakeListBox() {
-        ListBox listBox = new ListBox();
+    private void MakeComboBox() {
+        ComboBox comboBox = new ComboBox();
+        StackPanel stackPanel = new StackPanel();
 
-        listBox.Items.Add(new Student("Tom", 22, 1, "21-A"));
-        listBox.Items.Add(new Student("Tim", 23, 2, "21-A"));
-        listBox.Items.Add(new Student("Ben", 21, 3, "13-A"));
-        listBox.Items.Add(new Student("Bob", 25, 4, "13-A"));
-        listBox.Items.Add(new Student("Sam", 24, 5, "13-A"));
+        comboBox.Items.Add(new Person("Tom", "Microsoft", 1));
+        comboBox.Items.Add(new Person("Tim", "Yandex", 2));
+        comboBox.Items.Add(new Person("Tor", "Google", 3));
 
-        listBox.Background = Brushes.AliceBlue;
-        listBox.FontWeight = FontWeights.Bold;
-        listBox.FontSize = 16;
+        comboBox.IsEditable = true;
+        comboBox.Text = "Сотрудники";
 
-        this.Content = listBox;
+        stackPanel.Children.Add(comboBox);
+
+        this.Content = stackPanel;
     }
 }
 ~~~
