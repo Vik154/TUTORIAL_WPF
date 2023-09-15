@@ -28,10 +28,10 @@
 ~~~XAML
 <ListBox> 
     <ListBoxItem> 
-        <Image Source=Картинка1.jpg"> </Image>
+        <Image Source="Картинка1.jpg"/>
     </ListBoxItem> 
     <ListBoxItem> 
-        <Image Source="Картинка2.jpg"> </Image>
+        <Image Source="Картинка2.jpg"/>
     </ListBoxItem> 
 </ListBox>
 ~~~
