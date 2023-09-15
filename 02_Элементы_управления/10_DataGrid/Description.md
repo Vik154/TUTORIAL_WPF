@@ -4,7 +4,7 @@
 
 Элемент управления DataGrid позволяет отображать и изменять данные из различных источников, таких как база данных SQL, запрос LINQ или любой другой привязываемый источник данных. 
 
-<img align="left" width="380" height="340" src="img/Data.png" alt="Пример работы данного кода"/>
+<img align="left" width="380" height="345" src="img/Data.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System.Windows;
