@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_CheckBox_and_RadioButton
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_ToolTip_and_Popup", "03_ToolTip_and_Popup\03_ToolTip_and_Popup.csproj", "{4E1D2305-A8A1-4307-9A17-02D4BB0B4757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_GroupBox_and_Expander", "04_GroupBox_and_Expander\04_GroupBox_and_Expander.csproj", "{D0E102CC-0AEE-44DD-B528-99D9DE56CFF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04_GroupBox_and_Expander", "04_GroupBox_and_Expander\04_GroupBox_and_Expander.csproj", "{D0E102CC-0AEE-44DD-B528-99D9DE56CFF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_ScrollViewer", "05_ScrollViewer\05_ScrollViewer.csproj", "{28438433-BFEC-4E01-8E1E-96CB69D35EAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_ScrollViewer", "05_ScrollViewer\05_ScrollViewer.csproj", "{28438433-BFEC-4E01-8E1E-96CB69D35EAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_TextElements", "06_TextElements\06_TextElements.csproj", "{16413781-9727-448D-B099-665976652123}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_TextElements", "06_TextElements\06_TextElements.csproj", "{16413781-9727-448D-B099-665976652123}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_ListBox", "07_ListBox\07_ListBox.csproj", "{1988E49A-642E-4CBF-B7BB-1897D7C306FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{16413781-9727-448D-B099-665976652123}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16413781-9727-448D-B099-665976652123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16413781-9727-448D-B099-665976652123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1988E49A-642E-4CBF-B7BB-1897D7C306FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1988E49A-642E-4CBF-B7BB-1897D7C306FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1988E49A-642E-4CBF-B7BB-1897D7C306FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1988E49A-642E-4CBF-B7BB-1897D7C306FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
