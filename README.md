@@ -33,5 +33,6 @@
    * *[06_TextElements](02_Элементы_управления/06_TextElements/Description.md)*
    * *[07_ListBox](02_Элементы_управления/07_ListBox/Description.md)*
    * *[08_ComboBox](02_Элементы_управления/08_ComboBox/Description.md)*
+   * *[09_ListView](02_Элементы_управления/09_ListView/Description.md)*
    * 
-08_ComboBox
+09_ListView
