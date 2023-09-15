@@ -34,5 +34,6 @@
    * *[07_ListBox](02_Элементы_управления/07_ListBox/Description.md)*
    * *[08_ComboBox](02_Элементы_управления/08_ComboBox/Description.md)*
    * *[09_ListView](02_Элементы_управления/09_ListView/Description.md)*
-   * 
-09_ListView
+   * *[10_DataGrid](02_Элементы_управления/10_DataGrid/Description.md)*
+3. ___След:___
+
