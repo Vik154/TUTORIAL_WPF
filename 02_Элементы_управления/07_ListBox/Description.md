@@ -36,9 +36,22 @@
 </ListBox>
 ~~~
 
+Объекты ListBox способны неявно создавать необходимые им объекты ListBoxItem. Это означает, что объекты можете помещать прямо внутрь элемента ListBox.
 
+<img align="left" width="250" height="250" src="img/List2.png" alt="Пример работы данного кода"/>
 
-
+~~~XAML
+<ListBox Background="AliceBlue">
+    <StackPanel Orientation="Horizontal">
+        <Image Source="img/Sm1.png" Width="100"/>
+        <Label Content="Текст" FontSize="18"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+        <Image Source="img/Sm2.png" Width="100"/>
+        <Label Content="Текст" FontSize="18"/>
+    </StackPanel>
+</ListBox>
+~~~
 
 
 
