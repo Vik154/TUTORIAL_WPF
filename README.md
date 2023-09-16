@@ -10,6 +10,7 @@
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/fundamentals/languages
    + :sos: https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.uielement?view=windowsdesktop-7.0
+   + :sos: https://learn.microsoft.com/ru-ru/windows/apps/desktop/
    + :octocat: https://github.com/microsoft/WPF-Samples/tree/main
    + s
 4. Исходники стандартных библиотек (быстрый поиск в браузере)
