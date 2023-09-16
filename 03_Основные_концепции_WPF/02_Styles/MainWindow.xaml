@@ -6,7 +6,25 @@
         xmlns:local="clr-namespace:_02_Styles"
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
+    <Window.Resources>
+        <Style x:Key="MyStyleForAllButtons" TargetType="Button">
+            <Setter Property="Width"      Value="100"/>
+            <Setter Property="Height"     Value="40"/>
+            <Setter Property="Margin"     Value="10"/>
+            <Setter Property="FontSize"   Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
+        <StackPanel>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 1</Button>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 2</Button>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 3</Button>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 4</Button>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 5</Button>
+        </StackPanel>
 
     </Grid>
 </Window>
