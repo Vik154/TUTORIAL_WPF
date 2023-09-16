@@ -1,7 +1,8 @@
 ### Концепция стилей - *представляет инструменты для организации и повторного использования вариантов форматирования.*
 
 *Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.style?view=windowsdesktop-7.0* <br>
-*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/controls/styles-templates-overview?view=netdesktop-7.0*
+*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/controls/styles-templates-overview?view=netdesktop-7.0* <br>
+*Информация MSDN: https://learn.microsoft.com/ru-ru/windows/apps/design/style/xaml-styles*
 
 *Элемент Style можно рассматривать как удобный способ применения набора значений свойств к нескольким элементам. Стиль можно использовать для любого элемента, производного от FrameworkElement или FrameworkContentElement, например Window или Button. <br>
 Чаще всего стиль объявляется как ресурс в разделе Resources файла XAML. Так как стили являются ресурсами, для них действуют те же правила определения области, что и для всех других ресурсов. Проще говоря, то, где вы объявляете стиль, влияет на то, где этот стиль может быть применен. Например, если объявить стиль в корневом элементе файла XAML определения приложения, стиль может использоваться в любом месте приложения0. <br>
