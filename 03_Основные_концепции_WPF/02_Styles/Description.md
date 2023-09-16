@@ -1,6 +1,6 @@
 ### Концепция стилей - *представляет инструменты для организации и повторного использования вариантов форматирования.*
 
-*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.style?view=windowsdesktop-7.0*
+*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.style?view=windowsdesktop-7.0* <br>
 *Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/controls/styles-templates-overview?view=netdesktop-7.0*
 
 *Элемент Style можно рассматривать как удобный способ применения набора значений свойств к нескольким элементам. Стиль можно использовать для любого элемента, производного от FrameworkElement или FrameworkContentElement, например Window или Button. <br>
