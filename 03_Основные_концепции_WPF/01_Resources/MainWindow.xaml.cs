@@ -13,13 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _01_Resources {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            InitializeComponent();
-        }
+namespace _01_Resources; 
+
+public partial class MainWindow : Window {
+    
+    public MainWindow() {
+        InitializeComponent();
+
+        // Пример 2 Разница между статическими и динамическими ресурсами
+        this.Resources["ButtonBackground"] = Brushes.Green;
+    }
+
+    // 1.0 - Программное добаление ресурсов
+    private void MakeResources() {
+
     }
 }

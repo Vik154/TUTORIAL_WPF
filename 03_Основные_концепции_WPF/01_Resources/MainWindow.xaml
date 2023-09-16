@@ -22,15 +22,32 @@
     </Window.Resources>
     
     <Grid>
-        <StackPanel Background="{StaticResource PanelBackground}">
-            <Ellipse Style="{StaticResource EllipseStyle}"/>
-            <Ellipse Style="{StaticResource EllipseStyle}"/>
+        <TabControl>
+            <TabItem Header="Статические ресуры">
+                <StackPanel Background="{StaticResource PanelBackground}">
+                    <Ellipse Style="{StaticResource EllipseStyle}"/>
+                    <Ellipse Style="{StaticResource EllipseStyle}"/>
 
-            <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 1"/>
-            <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 2"/>
-            <Button Background="Bisque"  Content="Кнопка 3"/>
-            <Button Background="{x:Null}" Content="Кнопка 4"/>
-            <Button Content="Кнопка 5"/>
-        </StackPanel>
+                    <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 1"/>
+                    <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 2"/>
+                    <Button Background="Bisque"  Content="Кнопка 3"/>
+                    <Button Background="{x:Null}" Content="Кнопка 4"/>
+                    <Button Content="Кнопка 5"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Статичесике и динамические">
+                <StackPanel Background="{StaticResource PanelBackground}">
+                    <Button Background="{StaticResource ButtonBackground}" 
+                            Content="Статический"
+                            FontSize="18" FontWeight="Bold"
+                            Margin="10" Width="200" />
+                    <Button Background="{DynamicResource ButtonBackground}" 
+                            Content="Динамический"
+                            FontSize="18" FontWeight="Bold"
+                            Margin="10,0" Width="200" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
