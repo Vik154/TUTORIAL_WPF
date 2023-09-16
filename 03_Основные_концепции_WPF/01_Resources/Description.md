@@ -207,9 +207,9 @@ button.Background = (Brush)button.TryFindResource("MyButtonBackground"); // TryF
 
 ___Пример программной работы с ресурсами:___ <br>
 
-<img align="left" width="200" height="180" src="img/Res4.png" alt="Пример работы данного кода"/>
+<img align="left" width="180" height="150" src="img/Res4.png" alt="Пример работы данного кода"/>
 
-<div style=”paddint-top:20px;”>
+<div style=”paddint-left:20px;”>
     <ul> Класс ResourceDictionary содержит ряд полезных методов и свойств:
         <li> Add(string key, object resource) добавляет объект по ключу в словарь </li>
         <li> Remove(string key) удаляет из словаря ресурс с ключом key </li>
