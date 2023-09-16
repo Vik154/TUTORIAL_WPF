@@ -146,43 +146,13 @@ public partial class MainWindow : Window {
 ~~~
 
 ~~~XAML
-<Window x:Class="_01_Resources.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_01_Resources"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="360" Width="480">
-    
+<Window ....VS>  
     <Window.Resources>
-        <!-- Создание ресурсов, для обращения к ним по заданным ключам -->
-        <SolidColorBrush x:Shared="False" x:Key="PanelBackground" Color="AliceBlue"/>
         <SolidColorBrush x:Key="ButtonBackground" Color="Aqua"/>
-        <!-- Создание стиля для эллипсов в виде ресурса -->
-        <Style x:Key="EllipseStyle" TargetType="Ellipse">
-            <Setter Property="Width"  Value="100"/>
-            <Setter Property="Height" Value="80"/>
-            <Setter Property="Fill"   Value="DarkBlue"/>
-            <Setter Property="Margin" Value="10"/>
-        </Style>
     </Window.Resources>
     
     <Grid>
         <TabControl>
-            <TabItem Header="Статические ресуры">
-                <StackPanel Background="{StaticResource PanelBackground}">
-                    <Ellipse Style="{StaticResource EllipseStyle}"/>
-                    <Ellipse Style="{StaticResource EllipseStyle}"/>
-
-                    <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 1"/>
-                    <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 2"/>
-                    <Button Background="Bisque"  Content="Кнопка 3"/>
-                    <Button Background="{x:Null}" Content="Кнопка 4"/>
-                    <Button Content="Кнопка 5"/>
-                </StackPanel>
-            </TabItem>
-
             <TabItem Header="Статичесике и динамические">
                 <StackPanel Background="{StaticResource PanelBackground}">
                     <Button Background="{StaticResource GlobalButtonBackground}" 
@@ -195,14 +165,9 @@ public partial class MainWindow : Window {
                             Margin="10,0" Width="200" />
                 </StackPanel>
             </TabItem>
-
-            <TabItem Header="Ресурсы ....">
-
-            </TabItem>
         </TabControl>
     </Grid>
 </Window>
-
 ~~~
 
 
