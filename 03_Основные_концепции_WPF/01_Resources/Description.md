@@ -44,5 +44,35 @@ ___Определение ресурсов:___
 </Window>
 ~~~
 
+___Статические и динамические ресурсы:___
+Отличие сстатических ресурсов от динамических заключается в том, что в случае статического ресурса объект извлекается из коллекции ресурсов только один раз. В зависимости от типа объекта (и способа, которым он используется) любые вносимые в этот объект изменения могут быть замечены сразу же. В случае динамического ресурса, объект отыскивается в коллекции ресурсов при каждом возникновении в нем необходимости. Это означает, что под тем же самым ключом может размещаться и совершенно новый объект, и динамический ресурс будет подхватывать это изменение.
 
-ывывывывы
+<img align="left" width="250" height="585" src="img/Res2.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ....>
+    <Window.Resources>
+        <!-- Создание ресурсов, для обращения к ним по заданным ключам -->
+        <SolidColorBrush x:Key="PanelBackground" Color="AliceBlue"/>
+        <SolidColorBrush x:Key="ButtonBackground" Color="Aqua"/>
+    </Window.Resources>
+    
+    <Grid>
+        <TabControl>
+            <TabItem Header="Статичесике и динамические">
+                <StackPanel Background="{StaticResource PanelBackground}">
+                    <Button Background="{StaticResource ButtonBackground}" 
+                            Content="Статический"
+                            FontSize="18" FontWeight="Bold"
+                            Margin="10" Width="200" />
+                    <Button Background="{DynamicResource ButtonBackground}" 
+                            Content="Динамический"
+                            FontSize="18" FontWeight="Bold"
+                            Margin="10,0" Width="200" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
+~~~
+
