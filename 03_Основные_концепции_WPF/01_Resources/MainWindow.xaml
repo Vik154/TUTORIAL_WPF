@@ -6,12 +6,11 @@
         xmlns:local="clr-namespace:_01_Resources"
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
-
+    
     <Window.Resources>
         <!-- Создание ресурсов, для обращения к ним по заданным ключам -->
-        <SolidColorBrush x:Key="PanelBackground" Color="AliceBlue"/>
+        <SolidColorBrush x:Shared="False" x:Key="PanelBackground" Color="AliceBlue"/>
         <SolidColorBrush x:Key="ButtonBackground" Color="Aqua"/>
-
         <!-- Создание стиля для эллипсов в виде ресурса -->
         <Style x:Key="EllipseStyle" TargetType="Ellipse">
             <Setter Property="Width"  Value="100"/>
@@ -38,7 +37,7 @@
 
             <TabItem Header="Статичесике и динамические">
                 <StackPanel Background="{StaticResource PanelBackground}">
-                    <Button Background="{StaticResource ButtonBackground}" 
+                    <Button Background="{StaticResource GlobalButtonBackground}" 
                             Content="Статический"
                             FontSize="18" FontWeight="Bold"
                             Margin="10" Width="200" />
@@ -47,6 +46,10 @@
                             FontSize="18" FontWeight="Bold"
                             Margin="10,0" Width="200" />
                 </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Ресурсы ....">
+
             </TabItem>
         </TabControl>
     </Grid>

@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:_01_Resources"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="GlobalButtonBackground" Color="Aquamarine" />
     </Application.Resources>
 </Application>

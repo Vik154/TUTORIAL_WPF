@@ -21,7 +21,23 @@ public partial class MainWindow : Window {
         InitializeComponent();
 
         // Пример 2 Разница между статическими и динамическими ресурсами
-        this.Resources["ButtonBackground"] = Brushes.Green;
+        // this.Resources["ButtonBackground"] = Brushes.Green;
+        
+        // Пример 3 Поиск ресурсов в коде
+        Button button = new Button();
+
+        try {
+            // var res1 = FindResource("12345");
+            var res2 = button.FindResource("12345");
+        }
+        catch (Exception ex) {
+            Console.WriteLine($"{ex.Message}");
+            // Ресурс "12345" не найден.
+        }
+
+        var res3 = button.TryFindResource("123");
+        var res4 = Resources["123"];
+        Console.WriteLine("Всё ок");
     }
 
     // 1.0 - Программное добаление ресурсов
