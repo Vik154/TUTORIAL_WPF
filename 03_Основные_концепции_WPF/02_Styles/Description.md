@@ -7,40 +7,31 @@
 Чаще всего стиль объявляется как ресурс в разделе Resources файла XAML. Так как стили являются ресурсами, для них действуют те же правила определения области, что и для всех других ресурсов. Проще говоря, то, где вы объявляете стиль, влияет на то, где этот стиль может быть применен. Например, если объявить стиль в корневом элементе файла XAML определения приложения, стиль может использоваться в любом месте приложения0. <br>
 Т.е. вместо того чтобы заполнять XAML-файл повторяющимся кодом разметки для установки деталей вроде полей, отступов, цветов и шрифтов, можно просто создавать набор охватывающих все эти детали стилей, а затем применять эти стили по мере необходимости, устанавливая единственное свойство.*
 
-___Коллекция ресурсов:___ <br>
-Каждый элемент включает свойство Resources, в котором хранится словарная коллекция ресурсов (представляющая собой экземпляр класса ResourceDictionary). Эта коллекция ресурсов может хранить объект любого типа с индексацией по строке. Хотя каждый элемент имеет свойство Resources (которое определено в классе FrameworkElement), чаще всего ресурсы определяются на уровне окна. Причина в том, что каждый элемент имеет доступ к ресурсам из собственной коллекции ресурсов, а также к ресурсам из коллекции ресурсов всех своих родительских элементов. 
-
-___Определение ресурсов:___
-> *Важную роль, в определении ресурсов, играет первый атрибут x:Key. В нем указано имя, под которым должен индексироваться ресурс в словаре ресурсов Window.Resources. Использовать допускается любое имя. Чтобы применить эти ресурсы в свойствайх какого-либо элемента, можно использовать следующий синтаксис: Свойство_Элемента="{StaticResource Имя_Ключа}" - здесь после выражения StaticResource идет ключ применяемого ресурса, а ключевое слово "StaticResource" - означает статический ресурс, а статические ресурсы устанавливаются один раз, при первом создании окна.*
+___Пример создания стилей:___ <br>
+> Здесь определяется единственный стиль, который упаковывает все свойства элемента, подлежащие установке:
 
 <img align="left" width="250" height="585" src="img/Res1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ... Стандартный код VS>
     <Window.Resources>
-        <!-- Создание ресурсов, для обращения к ним по заданным ключам -->
-        <SolidColorBrush x:Key="PanelBackground" Color="AliceBlue"/>
-        <SolidColorBrush x:Key="ButtonBackground" Color="Aqua"/>
-
-        <!-- Создание стиля для эллипсов в виде ресурса -->
-        <Style x:Key="EllipseStyle" TargetType="Ellipse">
-            <Setter Property="Width"  Value="100"/>
-            <Setter Property="Height" Value="80"/>
-            <Setter Property="Fill"   Value="DarkBlue"/>
-            <Setter Property="Margin" Value="10"/>
+        <Style x:Key="MyStyleForAllButtons" TargetType="Button">
+            <Setter Property="Width"      Value="100"/>
+            <Setter Property="Height"     Value="40"/>
+            <Setter Property="Margin"     Value="10"/>
+            <Setter Property="FontSize"   Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="AliceBlue"/>
         </Style>
     </Window.Resources>
-    
-    <Grid>
-        <StackPanel Background="{StaticResource PanelBackground}">
-            <Ellipse Style="{StaticResource EllipseStyle}"/>
-            <Ellipse Style="{StaticResource EllipseStyle}"/>
 
-            <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 1"/>
-            <Button Background="{StaticResource ButtonBackground}" Content="Кнопка 2"/>
-            <Button Background="Bisque"  Content="Кнопка 3"/>
-            <Button Background="{x:Null}" Content="Кнопка 4"/>
-            <Button Content="Кнопка 5"/>
+    <Grid>
+        <StackPanel>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 1</Button>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 2</Button>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 3</Button>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 4</Button>
+            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 5</Button>
         </StackPanel>
     </Grid>
 </Window>
