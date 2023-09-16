@@ -208,6 +208,13 @@ button.Background = (Brush)button.TryFindResource("MyButtonBackground"); // TryF
 ___Пример программной работы с ресурсами:___
 <img align="left" width="210" height="210" src="img/Res4.png" alt="Пример работы данного кода"/>
 
+Класс ResourceDictionary содержит ряд полезных методов и свойств:
+* Add(string key, object resource) добавляет объект по ключу в словарь
+* Remove(string key) удаляет из словаря ресурс с ключом key
+* Uri устанавливает источник словаря
+* Keys возвращает все имеющиеся в словаре ключи
+* Values возвращает все имеющиеся в словаре объекты
+
 ~~~C#
 using System.Windows;
 using System.Windows.Controls;
@@ -220,7 +227,6 @@ public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
         MakeResources();
-        AddHandler(Button.ClickEvent, new RoutedEventHandler(TestResources));
  }
 
     // 1.0 - Программное добаление ресурсов
@@ -264,16 +270,6 @@ public partial class MainWindow : Window {
         button3.Margin = (Thickness)this.Resources["MyThickness"];
 
         this.Content = stackPanel;
-    }
-
-    // 
-    private void TestResources(object sender, RoutedEventArgs e) {
-
-        StackPanel tmp = this.Content as StackPanel;
-
-        foreach (Button bt in tmp.Children) {
-            bt.Background = Brushes.Green;
-        }
     }
 }
 ~~~
