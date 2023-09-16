@@ -192,6 +192,88 @@ public partial class MainWindow : Window {
 ~~~
 
 ___Работа с ресурсами из кода C#:___ <br>
-Всего у ResourceDictionary можно выделить следующие методы и свойства:
+StaticResource и DynamicResource - являются расширениями разметки, из-за этого эквивалентный код поиска и применения ресурса на C# не вполне очевиден. Чтобы получить поведение, эквивалентное StaticResource, необходимо записать в свойство элемента результат вызова метода FindResource (унаследованного от класса FrameworkElement или FrimeworkContentElement). Таким образом, следующее объявление элемента Button:
+~~~XAML
+<Button Background="{StaticResource MyButtonBackground}"/>
+~~~
+эквивалентно такому коду на C#
+~~~C#
+Button button = new Button();
+button.Background = (Brush)button.FindResource("MyButtonBackground");    // FindResource возбуждает исключение, если не удается найти ресурс
+button.Background = (Brush)button.TryFindResource("MyButtonBackground"); // TryFindResource если не удается найти ресурс вернет null
+~~~
+Для установки DynamicResource применяется метод SetResourceReference(), который есть у большинства элементов WPF. Первым параметром в него передается свойство зависимости объекта, для которого предназначен ресурс, а вторым - ключ ресурса. Общая форма установки:
+> объект.SetResourceReference(Класс_объекта.Свойство_КлассаProperty, ключ_ресурса);
 
+___Пример программной работы с ресурсами:___
+<img align="left" width="210" height="210" src="img/Res4.png" alt="Пример работы данного кода"/>
 
+~~~C#
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
+namespace _01_Resources;
+
+public partial class MainWindow : Window {
+    
+    public MainWindow() {
+        InitializeComponent();
+        MakeResources();
+        AddHandler(Button.ClickEvent, new RoutedEventHandler(TestResources));
+ }
+
+    // 1.0 - Программное добаление ресурсов
+    private void MakeResources() {
+
+        StackPanel stackPanel = new StackPanel();
+        Button button1 = new Button { Content = "Кнопка 1" };
+        Button button2 = new Button { Content = "Кнопка 2" };
+        Button button3 = new Button { Content = "Кнопка 3" };
+
+        stackPanel.Children.Add(button1);
+        stackPanel.Children.Add(button2);
+        stackPanel.Children.Add(button3);
+
+        // добавление ресурса в словарь ресурсов окна
+        this.Resources.Add("MyButtonBackground", Brushes.Aquamarine);
+        this.Resources.Add("MyFontSize", 18d);
+        this.Resources.Add("MyFontWeight", FontWeights.Bold);
+        this.Resources.Add("MyWidth", 120d);
+        this.Resources.Add("MyThickness", new Thickness(10));
+
+        // Установка статических ресурсов StaticResource
+        button1.Background = (Brush)TryFindResource("MyButtonBackground");
+        button1.FontSize = (double)TryFindResource("MyFontSize");
+        button1.FontWeight = (FontWeight)TryFindResource("MyFontWeight");
+        button1.Width = (double)TryFindResource("MyWidth");
+        button1.Margin = (Thickness)TryFindResource("MyThickness");
+
+        // Установка динамических ресурсов DynamicResource
+        button2.SetResourceReference(Button.BackgroundProperty, "MyButtonBackground");
+        button2.SetResourceReference(Button.FontSizeProperty, "MyFontSize");
+        button2.SetResourceReference(Button.FontWeightProperty, "MyFontWeight");
+        button2.SetResourceReference(Button.WidthProperty, "MyWidth");
+        button2.SetResourceReference(Button.MarginProperty, "MyThickness");
+
+        // Установка статических ресурсов StaticResource
+        button3.Background = (Brush)this.Resources["MyButtonBackground"];
+        button3.FontSize = (double)this.Resources["MyFontSize"];
+        button3.FontWeight = (FontWeight)this.Resources["MyFontWeight"];
+        button3.Width = (double)this.Resources["MyWidth"];
+        button3.Margin = (Thickness)this.Resources["MyThickness"];
+
+        this.Content = stackPanel;
+    }
+
+    // 
+    private void TestResources(object sender, RoutedEventArgs e) {
+
+        StackPanel tmp = this.Content as StackPanel;
+
+        foreach (Button bt in tmp.Children) {
+            bt.Background = Brushes.Green;
+        }
+    }
+}
+~~~
