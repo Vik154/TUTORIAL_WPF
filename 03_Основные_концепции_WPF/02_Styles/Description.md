@@ -75,7 +75,27 @@ ___Применение явного или неявного стиля:___ <br>
 </Window>
 ~~~
 
+__Если значение свойства представляет сложный объект, тогда его можно вынести в отдельный элемент:__ <br>
+~~~XAML
+<Style TargetType="Button">
+    <Setter Property="Background">
+        <Setter.Value>
+            <LinearGradientBrush>
+                <LinearGradientBrush.GradientStops>
+                     <GradientStop Color="Aquamarine"  Offset="0" />
+                     <GradientStop Color="AliceBlue"   Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Setter.Value>
+    </Setter>
 
+    <Setter Property="RenderTransform">
+        <Setter.Value>
+            <RotateTransform Angle="25"/>
+        </Setter.Value>
+    </Setter>
+</Style>
+~~~
 
 
 
