@@ -209,8 +209,8 @@ ___Пример программной работы с ресурсами:___ <b
 
 <img align="left" width="180" height="160" src="img/Res4.png" alt="Пример работы данного кода"/>
 
-<div>
-    <ul style="margin-left:50px;"> Класс ResourceDictionary содержит ряд полезных методов и свойств:
+<div align="right">
+    <ul> Класс ResourceDictionary содержит ряд полезных методов и свойств:
         <li> Add(string key, object resource) добавляет объект по ключу в словарь </li>
         <li> Remove(string key) удаляет из словаря ресурс с ключом key </li>
         <li> Uri устанавливает источник словаря </li>
