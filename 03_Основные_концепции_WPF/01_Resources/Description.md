@@ -299,6 +299,24 @@ ___Использование словаря ресурсов:___ <br>
     </Application.Resources>
 </Application>
 ~~~
+Элемент ResourceDictionary.MergedDictionaries здесь представляет колекцию объектов ResourceDictionary, то есть словарей ресурсов, которые добавляются к ресурсам приложения. Затем в любом месте приложения мы сможем сослаться на этот ресурс:
+~~~XAML
+<Button Background="{StaticResource MyBackgroundButton}" />
+~~~
 
+Чтобы добавить собственные ресурсы и включить их в словари ресурсов, необходимо просто разместить их перед или после раздела MergedProperties: 
+~~~XAML
+<Application.Resources> 
+    <ResourceDictionary> 
+        <ResourceDictionary.MergedDictionaries> 
+            <ResourceDictionary Source="AppBrushes.xaml"/> 
+        </ResourceDictionary.MergedDictionaries>
+
+        <SolidColorBrush x:Key="MyBrush1" Color="Black"/>
+        <SolidColorBrush x:Key="MyBrush2" Color="Green"/>
+
+    </ResourceDictionary> 
+</Application.Resources> 
+~~~
 
 
