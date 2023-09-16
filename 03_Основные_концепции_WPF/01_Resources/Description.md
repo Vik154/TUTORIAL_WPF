@@ -131,6 +131,20 @@ public partial class MainWindow : Window {
  
 Элемент Window не является последним местом поиска ресурса. Если указан ресурс, который не удается найти ни в элементе управления, ни в одном из его контейнеров (вплоть до окна или страницы, содержащей этот элемент), WPF продолжает проверку в наборе ресурсов, которые были определены для приложения. В Visual Studio таковыми являются ресурсы, которые были определены в разметке внутри файла App.xaml:
 
+~~~C#
+public partial class MainWindow : Window {    
+    public MainWindow() {
+        InitializeComponent();
+
+        if (TryFindResource("GlobalButtonBackground") != null)
+            Console.WriteLine("Ресурс найден");                    
+        else 
+            Console.WriteLine("Такого ресурса нет");
+    }
+}
+// Вывод: Ресуср найден
+~~~
+
 <img align="left" width="210" height="210" src="img/Res3.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
