@@ -47,6 +47,44 @@ ___Применение явного или неявного стиля:___ <br>
 
 > *Если стиль содержит атрибут x:Key, то его можно применить к элементу управления только путем задания стиля с ключом в свойстве Style элемента управления. Стиль, не имеющий атрибута x:Key, автоматически применяется к каждому элементу управления целевого типа, если отсутствует явно заданный стиль.*
 
+<img align="left" width="280" height="465" src="img/Style1.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ...VS>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Control.Width"      Value="100"/>
+            <Setter Property="Control.Height"     Value="40"/>
+            <Setter Property="Control.Margin"     Value="10"/>
+            <Setter Property="Control.FontSize"   Value="18"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+            <Setter Property="Control.Background" Value="AliceBlue"/>
+        </Style>       
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel>
+            <Button>Кнопка 1</Button>
+            <Button>Кнопка 2</Button>
+            <Button>Кнопка 3</Button>
+            <Button>Кнопка 4</Button>
+            <Button>Кнопка 5</Button>
+        </StackPanel>
+    </Grid>
+</Window>
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ___Статические и динамические ресурсы:___ <br>
