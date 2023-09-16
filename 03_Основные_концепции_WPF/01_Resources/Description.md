@@ -319,4 +319,24 @@ ___Использование словаря ресурсов:___ <br>
 </Application.Resources> 
 ~~~
 
+Словари ресурсов можно загружать локально, по месту:
+~~~XAML
+<Window ....VS>
+    <Window.Resources>
+        <ResourceDictionary Source="Dictionary1.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Button Background="{StaticResource MyBackgroundButton}" />
+    </Grid>
+</Window>
+~~~
 
+А для динамической загрузки в коде, используется такой синтаксис:
+~~~C#
+this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Dictionary1.xaml") };
+~~~
+
+При динамической загрузке, если мы определяем ресурсы через xaml, то они должны быть динамическими:
+~~~XAML
+<Button Background="{DynamicResource MyBackgroundButton}" />
+~~~
