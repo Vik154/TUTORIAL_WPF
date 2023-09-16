@@ -136,13 +136,19 @@ public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
 
+        /* ----- Вывод: Ресуср найден ----- */
         if (TryFindResource("GlobalButtonBackground") != null)
             Console.WriteLine("Ресурс найден");                    
         else 
             Console.WriteLine("Такого ресурса нет");
+
+        /* ----- Вывод: Такого ресурса нет ----- */
+        if (TryFindResource("Bla-Bla-Bla") != null)
+            Console.WriteLine("Ресурс найден");
+        else 
+            Console.WriteLine("Такого ресурса нет");
     }
 }
-// Вывод: Ресуср найден
 ~~~
 
 <img align="left" width="210" height="210" src="img/Res3.png" alt="Пример работы данного кода"/>
