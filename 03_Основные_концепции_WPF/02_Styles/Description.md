@@ -15,7 +15,7 @@ ___Пример создания стилей:___ <br>
 ~~~XAML
 <Window ... Стандартный код VS>
     <Window.Resources>
-        <Style x:Key="MyStyleForAllButtons" TargetType="Button">
+        <Style x:Key="MyButtonStyle" TargetType="Button">
             <Setter Property="Width"      Value="100"/>
             <Setter Property="Height"     Value="40"/>
             <Setter Property="Margin"     Value="10"/>
@@ -27,15 +27,26 @@ ___Пример создания стилей:___ <br>
 
     <Grid>
         <StackPanel>
-            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 1</Button>
-            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 2</Button>
-            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 3</Button>
-            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 4</Button>
-            <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 5</Button>
+            <Button Style="{StaticResource MyButtonStyle}">Кнопка 1</Button>
+            <Button Style="{StaticResource MyButtonStyle}">Кнопка 2</Button>
+            <Button Style="{StaticResource MyButtonStyle}">Кнопка 3</Button>
+            <Button Style="{StaticResource MyButtonStyle}">Кнопка 4</Button>
+            <Button Style="{StaticResource MyButtonStyle}">Кнопка 5</Button>
         </StackPanel>
     </Grid>
 </Window>
 ~~~
+
+В данном примере создается один ресурс — объект класса System.Windows.Style. В этом объекте размещается коллекция Setters с объектами Setter, по одному для каждого свойства, которое подлежит установке. В каждом объекте Setter указывается имя свойства (Property), на которое он влияет, и значение (Value), которое он должен применять к этому свойству. Как и все ресурсы, объект стиля имеет ключевое имя (x:Key="Имя"), по которому его можно при необходимости извлекать из коллекции. В данном случае это ключевое имя выглядит как MyButtonStyle. (По общепринятому соглашению ключевые имена стилей обычно заканчиваются словом "Style".) 
+
+___Применение явного или неявного стиля:___ <br>
+Стиль, определенный как ресурс, можно применять к элементам управления двумя способами: <br>
+* Неявно, когда указывается только атрибут TargetType для элемента Style;
+* Явно, когда указываются атрибуты TargetType и x:Key для элемента Style, а затем в свойстве Style нужного элемента управления задается ссылка на расширение разметки {StaticResource}, которая использует явный ключ.
+
+> Если стиль содержит атрибут x:Key, то его можно применить к элементу управления только путем задания стиля с ключом в свойстве Style элемента управления. Стиль, не имеющий атрибута x:Key, автоматически применяется к каждому элементу управления целевого типа, если отсутствует явно заданный стиль.
+
+
 
 ___Статические и динамические ресурсы:___ <br>
 Отличие сстатических ресурсов от динамических заключается в том, что в случае статического ресурса объект извлекается из коллекции ресурсов только один раз. В зависимости от типа объекта (и способа, которым он используется) любые вносимые в этот объект изменения могут быть замечены сразу же. В случае динамического ресурса, объект отыскивается в коллекции ресурсов при каждом возникновении в нем необходимости. Это означает, что под тем же самым ключом может размещаться и совершенно новый объект, и динамический ресурс будет подхватывать это изменение. <br>
