@@ -110,12 +110,14 @@ ___Использование производных стилей, наслед�
         <Setter Property="Height" Value="40" />
         <Setter Property="Margin" Value="5" />
     </Style>
+
     <Style x:Key="ButtonStyle" TargetType="Button" BasedOn="{StaticResource BasicStyle}">
         <Setter Property="Background"  Value="AliceBlue"/>
         <Setter Property="BorderBrush" Value="LightGreen" />
         <Setter Property="Foreground"  Value="DarkBlue" />
         <Setter Property="FontSize"    Value="18" />
     </Style>
+
     <Style x:Key="CheckBoxStyle" TargetType="CheckBox" BasedOn="{StaticResource BasicStyle}">
         <Setter Property="FontWeight"  Value="Bold" />
         <Setter Property="BorderBrush" Value="Blue" />
