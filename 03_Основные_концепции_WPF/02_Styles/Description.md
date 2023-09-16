@@ -110,28 +110,23 @@ ___Использование производных стилей, наслед�
             <Setter Property="Height" Value="40" />
             <Setter Property="Margin" Value="5" />
         </Style>
-
-        <Style x:Key="ButtonStyle" TargetType="Button"
-               BasedOn="{StaticResource BasicStyle}">
+        <Style x:Key="ButtonStyle" TargetType="Button" BasedOn="{StaticResource BasicStyle}">
             <Setter Property="Background"  Value="AliceBlue"/>
             <Setter Property="BorderBrush" Value="LightGreen" />
             <Setter Property="Foreground"  Value="DarkBlue" />
             <Setter Property="FontSize"    Value="18" />
         </Style>
-
-        <Style x:Key="CheckBoxStyle" TargetType="CheckBox"
-               BasedOn="{StaticResource BasicStyle}">
+        <Style x:Key="CheckBoxStyle" TargetType="CheckBox" BasedOn="{StaticResource BasicStyle}">
             <Setter Property="FontWeight"  Value="Bold" />
             <Setter Property="BorderBrush" Value="Blue" />
             <Setter Property="Foreground"  Value="Green" />
         </Style>
     </Window.Resources>
-
     <Grid>
         <StackPanel>
-            <Button Style="{StaticResource BasicStyle}">Кнопка 1</Button>
-            <Button Style="{StaticResource ButtonStyle}">Кнопка 2</Button>
-            <Button Style="{StaticResource ButtonStyle}">Кнопка 3</Button>
+            <Button   Style="{StaticResource BasicStyle}">Кнопка 1</Button>
+            <Button   Style="{StaticResource ButtonStyle}">Кнопка 2</Button>
+            <Button   Style="{StaticResource ButtonStyle}">Кнопка 3</Button>
             <CheckBox Style="{StaticResource BasicStyle}">Кнопка 4</CheckBox>
             <CheckBox Style="{StaticResource CheckBoxStyle}">Кнопка 5</CheckBox>
         </StackPanel>
