@@ -36,5 +36,5 @@
    * *[09_ListView](02_Элементы_управления/09_ListView/Description.md)*
    * *[10_DataGrid](02_Элементы_управления/10_DataGrid/Description.md)*
 3. ___Основные концепции в WPF:___
-   * *[Ресурсы](03_)*
+   * *[Ресурсы](03_Основные_концепции_WPF/01_Resources/Description.md)*
 
