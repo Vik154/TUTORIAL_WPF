@@ -97,7 +97,47 @@ __Если значение свойства представляет сложн
 </Style>
 ~~~
 
+___Использование производных стилей, наследование и BasedOn:___ <br>
+Для упрощения работы со стилями и оптимизации их многократного использования можно создавать стили, производные от других стилей. Для создания производных стилей служит свойство BasedOn. Производные стили должны применяться к элементу управления того же типа, к которому применяется базовый стиль, или к производному элементу управления. Например, если базовый стиль применяется к элементу ContentControl, то основанные на нем стили могут применяться к элементу ContentControl или к типам, производным от ContentControl, например Button и ScrollViewer. Если в производном стиле не задано значение, оно наследуется от базового стиля. Чтобы изменить значение базового стиля, его следует переопределить в производном стиле.
 
+<img align="left" width="280" height="465" src="img/Style2.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ...VS>
+    <Window.Resources>
+        <Style x:Key="BasicStyle" TargetType="ContentControl">
+            <Setter Property="Width"  Value="120" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button"
+               BasedOn="{StaticResource BasicStyle}">
+            <Setter Property="Background"  Value="AliceBlue"/>
+            <Setter Property="BorderBrush" Value="LightGreen" />
+            <Setter Property="Foreground"  Value="DarkBlue" />
+            <Setter Property="FontSize"    Value="18" />
+        </Style>
+
+        <Style x:Key="CheckBoxStyle" TargetType="CheckBox"
+               BasedOn="{StaticResource BasicStyle}">
+            <Setter Property="FontWeight"  Value="Bold" />
+            <Setter Property="BorderBrush" Value="Blue" />
+            <Setter Property="Foreground"  Value="Green" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel>
+            <Button Style="{StaticResource BasicStyle}">Кнопка 1</Button>
+            <Button Style="{StaticResource ButtonStyle}">Кнопка 2</Button>
+            <Button Style="{StaticResource ButtonStyle}">Кнопка 3</Button>
+            <CheckBox Style="{StaticResource BasicStyle}">Кнопка 4</CheckBox>
+            <CheckBox Style="{StaticResource CheckBoxStyle}">Кнопка 5</CheckBox>
+        </StackPanel>
+    </Grid>
+</Window>
+~~~
 
 
 
