@@ -122,6 +122,10 @@ public partial class MainWindow : Window {
         catch (Exception ex) {
             Console.WriteLine($"{ex.Message}");    // Ресурс "12345" не найден.
         }
+
+        // Искать ресурсы можно и следующими способами
+        var res3 = button.TryFindResource("123");    // Или так (не генерирует исключение в отличие от FindResource()
+        var res4 = Resources["123"];                 // Или так (использует алгоритм обхода по дереву и индексатор)
     }
 ~~~
  
