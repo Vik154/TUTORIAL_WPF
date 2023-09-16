@@ -131,7 +131,7 @@ public partial class MainWindow : Window {
  
 Элемент Window не является последним местом поиска ресурса. Если указан ресурс, который не удается найти ни в элементе управления, ни в одном из его контейнеров (вплоть до окна или страницы, содержащей этот элемент), WPF продолжает проверку в наборе ресурсов, которые были определены для приложения. В Visual Studio таковыми являются ресурсы, которые были определены в разметке внутри файла App.xaml:
 
-<img align="left" width="250" height="485" src="img/Res3.png" alt="Пример работы данного кода"/>
+<img align="left" width="250" height="200" src="img/Res3.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Application x:Class="_01_Resources.App"
@@ -155,6 +155,7 @@ public partial class MainWindow : Window {
         <TabControl>
             <TabItem Header="Статичесике и динамические">
                 <StackPanel Background="{StaticResource PanelBackground}">
+                    <!-- Ресурс определенный в App.xaml -->
                     <Button Background="{StaticResource GlobalButtonBackground}" 
                             Content="Статический"
                             FontSize="18" FontWeight="Bold"
