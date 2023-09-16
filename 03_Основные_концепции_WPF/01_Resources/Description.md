@@ -267,3 +267,38 @@ public partial class MainWindow : Window {
     }
 }
 ~~~
+
+#### Словари ресурсов:
+Чтобы разделить ресурсы между множеством проектов можно создать словарь ресурсов. Словарь ресурсов представляет собой просто XAML-документ, который всего лишь хранит необходимые ресурсы. Создание словаря ресурсов выглядит следующим образом:
+~~~XAML
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <SolidColorBrush x:Key="MyBackgroundButton"     Color="Aqua"/>
+    <SolidColorBrush x:Key="MyBackgroundStackPanel" Color="AliceBlue"/>
+    <SolidColorBrush x:Key="MyBackgroundLabel"      Color="Black"/>
+    <SolidColorBrush x:Key="GlobalButtonBackground" Color="Aquamarine" />
+</ResourceDictionary>
+~~~
+При добавлении словаря ресурсов в приложение удостоверьтесь, что свойство "Действия при сборке" установлено в Page (страница), это принимается для всех XAML-файлов. В результате словарь ресурсов скомпилируется в формат BAML и обеспечит более высокую производительность. Однако вполне допустимо установить свойство "Действия при сборке" (Build Action) словаря ресурсов в Resource (ресурс), в этом случае он будет встраиваться в сборку, но не компилироваться. Синтаксический анализ во время выполнения тогда будет проходить медленнее.
+
+___Использование словаря ресурсов:___ <br> 
+Чтобы использовать словарь ресурсов, где-нибудь в приложении его необходимо объединить с коллекцией ресурсов. Это можно делать в каком-то конкретном окне, однако чаще объединение осуществляется на уровне коллекции ресурсов приложения, как показано ниже:
+~~~XAML
+<Application x:Class="_01_Resources.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:_01_Resources"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+~~~
+
+
+
