@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:_01_Resources"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="GlobalButtonBackground" Color="Aquamarine" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="qwerty" Color="AliceBlue"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

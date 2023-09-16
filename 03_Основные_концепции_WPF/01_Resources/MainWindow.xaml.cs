@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Xml.Linq;
 
 namespace _01_Resources;
 
@@ -11,9 +8,9 @@ public partial class MainWindow : Window {
     
     public MainWindow() {
         InitializeComponent();
-        MakeResources();
+        // MakeResources();
 
-        AddHandler(Button.ClickEvent, new RoutedEventHandler(TestResources));
+        // AddHandler(Button.ClickEvent, new RoutedEventHandler(TestResources));
 
 
         // Пример 2 Разница между статическими и динамическими ресурсами
