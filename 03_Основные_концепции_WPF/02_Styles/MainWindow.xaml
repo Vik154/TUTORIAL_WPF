@@ -8,10 +8,6 @@
         Title="MainWindow" Height="360" Width="480">
     <Window.Resources>
 
-        <Style x:Key="123">
-            
-        </Style>
-
         <!--<Style x:Key="BasicStyle" TargetType="ContentControl">
             <Setter Property="Width"  Value="120" />
             <Setter Property="Height" Value="40" />
