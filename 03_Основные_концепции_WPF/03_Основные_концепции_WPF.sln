@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_Resources", "01_Resource
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_Styles", "02_Styles\02_Styles.csproj", "{7551A252-8B11-4F23-BE30-0EC4C97FAD32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_Trigger", "03_Trigger\03_Trigger.csproj", "{5B3FE53C-C953-45C3-AAF2-EEEEB021D276}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7551A252-8B11-4F23-BE30-0EC4C97FAD32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7551A252-8B11-4F23-BE30-0EC4C97FAD32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7551A252-8B11-4F23-BE30-0EC4C97FAD32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B3FE53C-C953-45C3-AAF2-EEEEB021D276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B3FE53C-C953-45C3-AAF2-EEEEB021D276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B3FE53C-C953-45C3-AAF2-EEEEB021D276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B3FE53C-C953-45C3-AAF2-EEEEB021D276}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
