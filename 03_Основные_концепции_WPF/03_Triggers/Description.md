@@ -89,4 +89,46 @@ __Простой триггер (Trigger):__
 </Window>
 ~~~
 
+#### MultiTrigger:
+*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.multitrigger?view=windowsdesktop-7.0* <br>
 
+<img align="left" width="250" height="250" src="img/Trig3.png" alt="Пример работы данного кода"/>
+
+Представляет триггер, который применяет значения свойств или выполняет действия, если выполняется набор условий. Используется когда необходимо отслеживать изменения сразу нескольких свойств одновременно. MultiTrigger содержит коллекцию элементов Condition, которая позволяет определять цепочки комбинаций свойств и значений. 
+
+~~~XAML
+<Window ... VS>
+    <Window.Resources>
+        <Style x:Key="BaseButtonStyle" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Width"      Value="100"/>
+                <Setter Property="Height"     Value="30"/>
+                <Setter Property="Background" Value="Aqua"/>
+                <Setter Property="Margin"     Value="10"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsFocused" Value="True"/>
+                        <Condition Property="IsPressed" Value="True"/>
+                    </MultiTrigger.Conditions>
+
+                    <MultiTrigger.Setters>
+                        <Setter Property="Foreground" Value="Red"/>
+                        <Setter Property="FontSize" Value="18"/>
+                    </MultiTrigger.Setters>
+                </MultiTrigger>   
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel HorizontalAlignment="Left">
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 1</Button>
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 2</Button>
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 3</Button>
+        </StackPanel>
+    </Grid>
+</Window>
+~~~
