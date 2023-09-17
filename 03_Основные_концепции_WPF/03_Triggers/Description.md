@@ -1,6 +1,6 @@
-### Концепция стилей - *представляет инструменты для организации и повторного использования вариантов форматирования.*
+### Концепция триггеров - *представляет способ автоматизировать процесс внесения изменений в свойства стилей.*
 
-*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.style?view=windowsdesktop-7.0* <br>
+*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.trigger?view=windowsdesktop-7.0* <br>
 *Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/controls/styles-templates-overview?view=netdesktop-7.0* <br>
 *Информация MSDN: https://learn.microsoft.com/ru-ru/windows/apps/design/style/xaml-styles*
 
