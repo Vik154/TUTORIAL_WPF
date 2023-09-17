@@ -8,7 +8,29 @@
         Title="MainWindow" Height="180" Width="180">
 
     <Window.Resources>
-        <Style x:Key="BaseButtonStyle" TargetType="Button">
+
+        <Style TargetType="Button" x:Key="BaseButtonStyle">
+            <Style.Setters>
+                <Setter Property="Button.Background" Value="Black" />
+                <Setter Property="Button.Foreground" Value="White" />
+                <Setter Property="Button.FontFamily" Value="Verdana" />
+                <Setter Property="Button.Margin" Value="10" />
+            </Style.Setters>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:1" To="220" AutoReverse="True" />
+                                <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:1" To="80" AutoReverse="True" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--<Style x:Key="BaseButtonStyle" TargetType="Button">
             <Style.Setters>
                 <Setter Property="Width"      Value="100"/>
                 <Setter Property="Height"     Value="30"/>
@@ -31,7 +53,7 @@
             
             </Style.Triggers>
         
-        </Style>
+        </Style>-->
 
         <!--<Style x:Key="BaseButtonStyle" TargetType="Button">
             <Setter Property="Width"  Value="100"/>
@@ -71,12 +93,76 @@
             </Style.Triggers>
         </Style>-->
     </Window.Resources>
-    
+
     <Grid>
-        <StackPanel HorizontalAlignment="Left">
+        <!--<StackPanel HorizontalAlignment="Left">
             <Button Style="{StaticResource BaseButtonStyle}">Кнопка 1</Button>
             <Button Style="{StaticResource BaseButtonStyle}">Кнопка 2</Button>
             <Button Style="{StaticResource BaseButtonStyle}">Кнопка 3</Button>
+        </StackPanel>-->
+
+        <!--<TextBlock Name="lblStyled" 
+                   Text="Hello world!"
+                   FontSize="18" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center">
+            
+            <TextBlock.Style>
+                
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.300" 
+                                                         Storyboard.TargetProperty="FontSize" 
+                                                         To="28" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.800" 
+                                                         Storyboard.TargetProperty="FontSize"
+                                                         To="18" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    
+                    </Style.Triggers>
+                </Style>
+            
+            </TextBlock.Style>
+        </TextBlock>-->
+
+        <StackPanel HorizontalAlignment="Left">
+            <CheckBox Margin="10" Name="cbSample" Content="Используете WPF?" />
+            <TextBlock Margin="10" FontSize="48">
+                
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Text" Value="Нет" />
+                        <Setter Property="Foreground" Value="Red" />
+                        
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}" Value="True">
+                                <Setter Property="Text" Value="Да!" />
+                                <Setter Property="Foreground" Value="Green" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    
+                    </Style>
+                </TextBlock.Style>
+            
+            </TextBlock>
         </StackPanel>
+        
     </Grid>
 </Window>
