@@ -1,4 +1,4 @@
-### Концепция триггеров - *представляет способ автоматизировать процесс внесения изменений в свойства стилей.*
+### Концепция триггеров - *представляет возможность внесения изменений в свойства стилей автоматически, т.е. изменять значение заданного свойства, как только меняется определенное условие.*
 
 *Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.trigger?view=windowsdesktop-7.0* <br>
 *Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/controls/styles-templates-overview?view=netdesktop-7.0* <br>
