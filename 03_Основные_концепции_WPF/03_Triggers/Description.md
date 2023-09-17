@@ -223,10 +223,40 @@ DataTrigger отслеживает изменение свойств, котор
 </Window>
 ~~~
 
+#### Триггеры множественных данных (MultiDataTrigger):
+*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.multidatatrigger?view=windowsdesktop-7.0* <br>
 
+Как и обычный DataTrigger, MultiDataTrigger использует привязку данных для мониторинга свойства. Различие в том, что данный триггер может использоваться для отслеживания изменений сразу во множестве свойств.
 
+<img align="left" width="205" height="520" src="img/Trig5.png" alt="Пример работы данного кода"/>
 
-
+~~~XAML
+ <StackPanel HorizontalAlignment="Left">
+     <CheckBox Margin="5" Name="checkYes"  Content="Используете WPF?" />
+     <CheckBox Margin="5" Name="checkSure" Content="А сейчас?" />
+     <TextBlock Margin="10" FontSize="48">
+         
+         <TextBlock.Style>
+             <Style TargetType="TextBlock">
+                 <Setter Property="Text" Value="Нет" />
+                 <Setter Property="Foreground" Value="Red" />
+                 
+                 <Style.Triggers>
+                     <MultiDataTrigger>
+                         <MultiDataTrigger.Conditions>
+                             <Condition Binding="{Binding ElementName=checkYes, Path=IsChecked}" Value="True" />
+                             <Condition Binding="{Binding ElementName=checkSure, Path=IsChecked}" Value="True" />
+                         </MultiDataTrigger.Conditions>
+                         <Setter Property="Text" Value="Да" />
+                         <Setter Property="Foreground" Value="Green" />
+                     </MultiDataTrigger>
+                 </Style.Triggers>
+             
+             </Style>
+         </TextBlock.Style>
+     </TextBlock>
+ </StackPanel>
+~~~
 
 
 
