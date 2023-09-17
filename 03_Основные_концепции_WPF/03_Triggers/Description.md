@@ -11,6 +11,42 @@
 * __MultiDataTrigger__ - Этот триггер объединяет множество триггеров данных.
 * __EventTrigger__ - Это наиболее сложный триггер. Он применяет анимацию, когда возникает соответствующее событие.
 
+__Простой триггер (Trigger):__
+Простой триггер может быть присоединен к любому свойству зависимости и задается с помощью объекта Trigger. Он отслеживает значения свойств и в случае их изменения с помощью объекта Setter устанавливают значение других свойств. Например, реагируя на изменения в свойствах IsFocused, IsMouseOver и IsPressed класса Control, можно создать эффекты наведения курсора мыши и получения фокуса.
+
+<img align="left" width="280" height="465" src="img/Trig1.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ... VS>
+    <Window.Resources>
+        <Style x:Key="BaseButtonStyle" TargetType="Button">
+            <Setter Property="Width"  Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Margin" Value="10"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Background" Value="Aquamarine"/>
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel HorizontalAlignment="Left">
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 1</Button>
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 2</Button>
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 3</Button>
+        </StackPanel>
+    </Grid>
+</Window>
+~~~
+
 
 
 ___Пример создания стилей:___ <br>
