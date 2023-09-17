@@ -39,5 +39,6 @@
 3. ___Основные концепции в WPF:___
    * *[Ресурсы](03_Основные_концепции_WPF/01_Resources/Description.md)*
    * *[Стили](03_Основные_концепции_WPF/02_Styles/Description.md)*
+   * *[Триггеры](03_Основные_концепции_WPF/03_Triggers/Description.md)*
    * 
 
