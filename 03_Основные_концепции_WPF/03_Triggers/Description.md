@@ -134,3 +134,70 @@ __Простой триггер (Trigger):__
     </Grid>
 </Window>
 ~~~
+
+#### Триггер события (EventTrigger):
+*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.eventtrigger?view=windowsdesktop-7.0* <br>
+
+Представляет триггер, который применяет набор действий в ответ на событие. Если обычный триггер ожидает изменения свойства, то триггер события (EventTrigger) ожидает возникновения конкретного события и в основном его используются для запуска анимации в ответ на вызываемое событие.<br>
+Ниже показан пример, в котором триггер событий реагирует на два события "MouseEnter" и "MouseLeave". Т.е. при наведении курсора на элемент TextBlock, выполняет анимацию свойства FontSize, увеличивая размер шрифта до 28 единиц за 0.3 секунды, а при убирании курсора с элемента TextBlock, плавно уменьшается шрифт до размера 18 единиц за 0.8 секунды.
+
+~~~XAML
+<Window ...VS>
+    <Grid>
+        <TextBlock Name="lblStyled" 
+                   Text="Hello world!"
+                   FontSize="18" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center">
+            
+            <TextBlock.Style>
+                
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.300" 
+                                                         Storyboard.TargetProperty="FontSize" 
+                                                         To="28" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.800" 
+                                                         Storyboard.TargetProperty="FontSize"
+                                                         To="18" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    
+                    </Style.Triggers>
+                </Style>
+            
+            </TextBlock.Style>
+        </TextBlock>
+    
+    </Grid>
+</Window>
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
