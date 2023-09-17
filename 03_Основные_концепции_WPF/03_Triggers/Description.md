@@ -231,31 +231,34 @@ DataTrigger отслеживает изменение свойств, котор
 <img align="left" width="205" height="520" src="img/Trig5.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
- <StackPanel HorizontalAlignment="Left">
-     <CheckBox Margin="5" Name="checkYes"  Content="Используете WPF?" />
-     <CheckBox Margin="5" Name="checkSure" Content="А сейчас?" />
-     <TextBlock Margin="10" FontSize="48">
-         
-         <TextBlock.Style>
-             <Style TargetType="TextBlock">
-                 <Setter Property="Text" Value="Нет" />
-                 <Setter Property="Foreground" Value="Red" />
-                 
-                 <Style.Triggers>
-                     <MultiDataTrigger>
-                         <MultiDataTrigger.Conditions>
-                             <Condition Binding="{Binding ElementName=checkYes, Path=IsChecked}" Value="True" />
-                             <Condition Binding="{Binding ElementName=checkSure, Path=IsChecked}" Value="True" />
-                         </MultiDataTrigger.Conditions>
-                         <Setter Property="Text" Value="Да" />
-                         <Setter Property="Foreground" Value="Green" />
-                     </MultiDataTrigger>
-                 </Style.Triggers>
+<Window ...VS>
+<StackPanel HorizontalAlignment="Left">
+  <CheckBox Margin="5" Name="checkYes"  Content="Используете WPF?" />
+  <CheckBox Margin="5" Name="checkSure" Content="А сейчас?" />
+  <TextBlock Margin="10" FontSize="48">
+
+    <TextBlock.Style>
+      <Style TargetType="TextBlock">
+        <Setter Property="Text" Value="Нет" />
+        <Setter Property="Foreground" Value="Red" />
              
-             </Style>
-         </TextBlock.Style>
-     </TextBlock>
- </StackPanel>
+        <Style.Triggers>
+          <MultiDataTrigger>
+            <MultiDataTrigger.Conditions>
+              <Condition Binding="{Binding ElementName=checkYes, Path=IsChecked}" Value="True" />
+              <Condition Binding="{Binding ElementName=checkSure, Path=IsChecked}" Value="True" />
+            </MultiDataTrigger.Conditions>
+
+            <Setter Property="Text" Value="Да" />
+            <Setter Property="Foreground" Value="Green" />
+          </MultiDataTrigger>
+        </Style.Triggers>
+      </Style>
+    </TextBlock.Style>
+
+  </TextBlock>
+</StackPanel>
+</Window>
 ~~~
 
 
