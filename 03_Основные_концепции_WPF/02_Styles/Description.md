@@ -174,7 +174,7 @@ public class EventSetter : System.Windows.SetterBase
 ~~~
 Средства установки свойств являются наиболее общим ингредиентом в любом стиле, но можно также создать коллекцию объектов EventSetter, связывающих события с определенными обработчиками. <br>
 
-<img align="left" width="300" height="400" src="img/Style3.png" alt="Пример работы данного кода"/>
+<img align="left" width="350" height="450" src="img/Style3.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ....VS>
