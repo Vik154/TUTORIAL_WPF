@@ -166,7 +166,7 @@ ___Установка свойств:___ <br>
 В данном примере смысл состоит в способе обработки средой WPF других классов, которые могут включать те же самые свойства FontFamily, FontSize и FontWeight, но не наследоваться от Button. Например, если применить эту версию стиля MyButtonStyle к элементу управления Label, то связанные со шрифтом свойства окажут влияние на элемент управления Label, потому что класс Label унаследован от Control. 
 
 #### Присоединение обработчиков событий (EventSetter): 
-*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.eventsetter?view=windowsdesktop-7.0*
+*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.eventsetter?view=windowsdesktop-7.0* <br>
 Класс EventSetter - представляет метод задания события в стиле. Методы задания событий вызывают заданные обработчики событий в ответ на события.
 ~~~C#
 // Наследование: Object -> SetterBase -> EventSetter
@@ -174,7 +174,59 @@ public class EventSetter : System.Windows.SetterBase
 ~~~
 Средства установки свойств являются наиболее общим ингредиентом в любом стиле, но можно также создать коллекцию объектов EventSetter, связывающих события с определенными обработчиками. <br>
 
+<img align="left" width="300" height="400" src="img/Style3.png" alt="Пример работы данного кода"/>
 
+~~~XAML
+<Window ....VS>
+    <StackPanel Background="AliceBlue">
+        <StackPanel.Resources>
+            <Style TargetType="{x:Type Button}">
+                <EventSetter Event="Click" Handler="buttonSetColor"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Background" Value="Aqua"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+            <Style TargetType="Label">
+                <EventSetter Event="MouseMove" Handler="mousePosition"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+        </StackPanel.Resources>
+
+        <Button x:Name="bt1">Кнопка 1</Button>
+        <Button x:Name="bt2">Кнопка 2</Button>
+        <Button x:Name="bt3">Кнопка 3</Button>
+        <Label x:Name="txt">Курсор</Label>
+    </StackPanel>
+</Window>
+~~~
+
+~~~C#
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+
+namespace _02_Styles;
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+    }
+
+    private void buttonSetColor(object sender, RoutedEventArgs e) {
+        if (((Button)sender).Name == "bt1")      bt2.Background = Brushes.Green;
+        else if (((Button)sender).Name == "bt2") bt3.Background = Brushes.Red;
+        else if (((Button)sender).Name == "bt3") bt1.Background = Brushes.Bisque;
+    }
+
+    private void mousePosition(object sender, MouseEventArgs e) {
+        txt.Content = $"Позиция X: {e.GetPosition(this).X}; Y: {e.GetPosition(this).Y};";
+    }
+}
+~~~
 
 
 
