@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_03_Triggers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="360" Width="480">
+        Title="MainWindow" Height="180" Width="180">
+
+    <Window.Resources>
+        <Style x:Key="BaseButtonStyle" TargetType="Button">
+            <Setter Property="Width"  Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Margin" Value="10"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Background" Value="Aquamarine"/>
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        <Button Content="HelloWorld"/>
+        <StackPanel HorizontalAlignment="Left">
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 1</Button>
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 2</Button>
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 3</Button>
+        </StackPanel>
     </Grid>
 </Window>
