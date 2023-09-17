@@ -47,6 +47,43 @@ __Простой триггер (Trigger):__
 </Window>
 ~~~
 В данном примере показан простой триггер свойств, который ожидает получения фокуса на кнопке и устанавливает для нее фон заданного в сеттере триггера цвета. Здесь объект Trigger использует свойство Property, равное "IsFocused" и Value, равное "True". Свойство Property указывает на отслеживаемое свойство, а свойство Value указывает на значение, по достижении которого триггер начнет действовать. Например, в данном случае триггер отслеживает свойство IsFocused (т.е. получение фокуса элементом) - если оно будет равно true, тогда сработает триггер. Триггеры полезны тем, что для отмены их действия не требуется писать никакой логики. Как только триггер перестает быть действительным, элементу сразу же возвращается его обычный внешний вид. В приведенном примере это означает, что как только пользователь уберет с кнопки фокус, нажав клавишу <ТаЬ>, ее фон приобретет обычный цвет. 
+<hr>
 
+<img align="left" width="250" height="600" src="img/Trig2.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ...VS>
+    <Window.Resources>
+        <Style x:Key="BaseButtonStyle" TargetType="Button">
+            <Setter Property="Width"  Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Margin" Value="10"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Background" Value="Bisque"/>
+                </Trigger>
+
+                <Trigger Property="IsMouseOver"  Value="True">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="20"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel HorizontalAlignment="Left">
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 1</Button>
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 2</Button>
+            <Button Style="{StaticResource BaseButtonStyle}">Кнопка 3</Button>
+        </StackPanel>
+    </Grid>
+</Window>
+~~~
 
 
