@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
     <Grid>
-
+        <StackPanel HorizontalAlignment="Left">
+            <TextBox x:Name="_source" Margin="10" Height="50" />
+            <TextBox x:Name="_receiver" Margin="10" Height="50"
+                     Text="{Binding ElementName=_source, Path=Text}">
+            </TextBox>
+        </StackPanel>
     </Grid>
 </Window>
