@@ -228,7 +228,7 @@ DataTrigger отслеживает изменение свойств, котор
 
 Как и обычный DataTrigger, MultiDataTrigger использует привязку данных для мониторинга свойства. Различие в том, что данный триггер может использоваться для отслеживания изменений сразу во множестве свойств.
 
-<img align="left" width="205" height="520" src="img/Trig5.png" alt="Пример работы данного кода"/>
+<img align="left" width="200" height="520" src="img/Trig5.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...VS>
@@ -245,8 +245,8 @@ DataTrigger отслеживает изменение свойств, котор
         <Style.Triggers>
           <MultiDataTrigger>
             <MultiDataTrigger.Conditions>
-              <Condition Binding="{Binding ElementName=checkYes, Path=IsChecked}" Value="True" />
-              <Condition Binding="{Binding ElementName=checkSure, Path=IsChecked}" Value="True" />
+              <Condition Binding="{Binding ElementName=checkYes, Path=IsChecked}" Value="True"/>
+              <Condition Binding="{Binding ElementName=checkSure, Path=IsChecked}" Value="True"/>
             </MultiDataTrigger.Conditions>
 
             <Setter Property="Text" Value="Да" />
