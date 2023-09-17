@@ -160,13 +160,24 @@ ___Установка свойств:___ <br>
 <CheckBox Style="{StaticResource MyButtonStyle}" .../>
 <RadioButton Style="{StaticResource MyButtonStyle}" .../>
 <Label Style="{StaticResource MyButtonStyle}" .../>
+<TextBlock Style="{StaticResource MyButtonStyle}" .../>
 ~~~
 
 В данном примере смысл состоит в способе обработки средой WPF других классов, которые могут включать те же самые свойства FontFamily, FontSize и FontWeight, но не наследоваться от Button. Например, если применить эту версию стиля MyButtonStyle к элементу управления Label, то связанные со шрифтом свойства окажут влияние на элемент управления Label, потому что класс Label унаследован от Control. 
 
+#### Присоединение обработчиков событий (EventSetter): 
+*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.eventsetter?view=windowsdesktop-7.0*
+Класс EventSetter - представляет метод задания события в стиле. Методы задания событий вызывают заданные обработчики событий в ответ на события.
+~~~C#
+// Наследование: Object -> SetterBase -> EventSetter
+public class EventSetter : System.Windows.SetterBase
+~~~
+Средства установки свойств являются наиболее общим ингредиентом в любом стиле, но можно также создать коллекцию объектов EventSetter, связывающих события с определенными обработчиками. <br>
 
- 
- 
- 
+
+
+
+
+
 
 
