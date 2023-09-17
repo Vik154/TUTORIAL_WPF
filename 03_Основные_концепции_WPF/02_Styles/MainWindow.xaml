@@ -8,7 +8,11 @@
         Title="MainWindow" Height="360" Width="480">
     <Window.Resources>
 
-        <Style x:Key="BasicStyle" TargetType="ContentControl">
+        <Style x:Key="123">
+            
+        </Style>
+
+        <!--<Style x:Key="BasicStyle" TargetType="ContentControl">
             <Setter Property="Width"  Value="120" />
             <Setter Property="Height" Value="40" />
             <Setter Property="Margin" Value="15" />
@@ -27,7 +31,7 @@
             <Setter Property="FontWeight"  Value="Bold" />
             <Setter Property="BorderBrush" Value="Blue" />
             <Setter Property="Foreground"  Value="Green" />
-        </Style>
+        </Style>-->
 
         <!--<Style x:Key="MyStyleForAllButtons">
             <Setter Property="Control.Width"      Value="100"/>
@@ -64,7 +68,13 @@
                 </Setter.Value>
             </Setter>
         </Style>-->
-
+        
+        <!--<Style x:Key="MyButtonStyle">
+            <Setter Property="Button.FontFamily" Value="Times New Roman" />
+            <Setter Property="Button.FontSize"   Value="18" />
+            <Setter Property="Button.FontWeight" Value="Bold" />
+        </Style>-->
+        
     </Window.Resources>
 
     <Grid>
@@ -76,12 +86,36 @@
             <Button Style="{StaticResource MyStyleForAllButtons}">Кнопка 5</Button>
         </StackPanel>-->
 
-        <StackPanel>
+        <!--<StackPanel>
             <Button Style="{StaticResource BasicStyle}">Кнопка 1</Button>
             <Button Style="{StaticResource ButtonStyle}">Кнопка 2</Button>
             <Button Style="{StaticResource ButtonStyle}">Кнопка 3</Button>
             <CheckBox Style="{StaticResource BasicStyle}">Кнопка 4</CheckBox>
             <CheckBox Style="{StaticResource CheckBoxStyle}">Кнопка 5</CheckBox>
+        </StackPanel>-->
+
+        <StackPanel Background="AliceBlue">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <EventSetter Event="Click" Handler="buttonSetColor"/>
+                    <Setter Property="Width" Value="100"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="Background" Value="Aqua"/>
+                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                </Style>
+                <Style TargetType="Label">
+                    <EventSetter Event="MouseMove" Handler="mousePosition"/>
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <Button x:Name="bt1">Кнопка 1</Button>
+            <Button x:Name="bt2">Кнопка 2</Button>
+            <Button x:Name="bt3">Кнопка 3</Button>
+            <Label x:Name="txt">Курсор</Label>
         </StackPanel>
+        
     </Grid>
 </Window>

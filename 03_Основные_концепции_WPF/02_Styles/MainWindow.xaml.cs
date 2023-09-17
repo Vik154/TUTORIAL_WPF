@@ -21,5 +21,16 @@ namespace _02_Styles {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void buttonSetColor(object sender, RoutedEventArgs e) {
+
+            if (((Button)sender).Name == "bt1")      bt2.Background = Brushes.Green;
+            else if (((Button)sender).Name == "bt2") bt3.Background = Brushes.Red;
+            else if (((Button)sender).Name == "bt3") bt1.Background = Brushes.Bisque;
+        }
+
+        private void mousePosition(object sender, MouseEventArgs e) {
+            txt.Content = $"Позиция X: {e.GetPosition(this).X}; Y: {e.GetPosition(this).Y};";
+        }
     }
 }
