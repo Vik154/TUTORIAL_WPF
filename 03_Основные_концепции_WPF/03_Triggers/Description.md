@@ -193,33 +193,32 @@ __Простой триггер (Trigger):__
 
 DataTrigger отслеживает изменение свойств, которые необязательно должны представлять свойства зависимостей. Для соединения с отслеживаемыми свойствами триггеры данных используют выражения привязки. В этом примере есть CheckBox и TextBlock, используя DataTrigger и механизм привязки данных, происходит привязка к свойству IsChecked объекта CheckBox и когда изменяются данные в CheckBox (ставится флажок), изменяются данные и в свойствах элемента TextBlock, а при снятие флажка, свойства TextBlock возвращаются в заданные по умолчанию значения.
 
-<img align="left" width="200" height="550" src="img/Trig4.png" alt="Пример работы данного кода"/>
+<img align="left" width="220" height="550" src="img/Trig4.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...VS>
   <Grid>
     <StackPanel HorizontalAlignment="Left">
-        <CheckBox Margin="10" Name="cbSample" Content="Используете WPF?" />
-        <TextBlock Margin="10" FontSize="48">
+      <CheckBox Margin="10" Name="cbSample" Content="Используете WPF?" />
+      <TextBlock Margin="10" FontSize="48">
             
-            <TextBlock.Style>
-                <Style TargetType="TextBlock">
-                    <Setter Property="Text" Value="Нет" />
-                    <Setter Property="Foreground" Value="Red" />
+        <TextBlock.Style>
+          <Style TargetType="TextBlock">
+            <Setter Property="Text" Value="Нет" />
+            <Setter Property="Foreground" Value="Red" />
                     
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}" Value="True">
-                            <Setter Property="Text" Value="Да!" />
-                            <Setter Property="Foreground" Value="Green" />
-                        </DataTrigger>
-                    </Style.Triggers>
+            <Style.Triggers>
+              <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}" Value="True">
+                <Setter Property="Text" Value="Да!" />
+                <Setter Property="Foreground" Value="Green" />
+              </DataTrigger>
+            </Style.Triggers>
                 
-                </Style>
-            </TextBlock.Style>
+          </Style>
+        </TextBlock.Style>
         
-        </TextBlock>
+      </TextBlock>
     </StackPanel>
-    
   </Grid>
 </Window>
 ~~~
