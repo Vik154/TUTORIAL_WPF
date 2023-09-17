@@ -92,7 +92,7 @@ __Простой триггер (Trigger):__
 #### MultiTrigger:
 *Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.multitrigger?view=windowsdesktop-7.0* <br>
 
-<img align="left" width="250" height="250" src="img/Trig3.png" alt="Пример работы данного кода"/>
+<img align="left" width="120" height="120" src="img/Trig3.png" alt="Пример работы данного кода"/>
 
 Представляет триггер, который применяет значения свойств или выполняет действия, если выполняется набор условий. Используется когда необходимо отслеживать изменения сразу нескольких свойств одновременно. MultiTrigger содержит коллекцию элементов Condition, которая позволяет определять цепочки комбинаций свойств и значений. 
 
