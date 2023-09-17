@@ -144,8 +144,7 @@ __Простой триггер (Trigger):__
 ~~~XAML
 <Window ...VS>
     <Grid>
-        <TextBlock Name="lblStyled" 
-                   Text="Hello world!"
+        <TextBlock Text="Hello world!"
                    FontSize="18" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center">
