@@ -184,7 +184,24 @@ ___Обновление привязки. UpdateSourceTrigger:___ <br>
 * _Explicit:_ Источник не обновляется до тех пор, пока не будет вызван метод BindingExpression.UpdateSource().
 * _Default:_ Значение по умолчанию. Для большинства свойств это значение PropertyChanged. А для свойства Text элемента TextBox это значение LostFocus.
 
-В данном случае речь идет об обновлении источника привязки после изменения приемника в режимах OneWayToSource или TwoWay. То есть чтобы у нас оба текстовых поля, которые связаны режимом TwoWay, моментально обновлялись после изменения одного из них, надо использовать значение UpdateSourceTrigger.PropertyChanged:
+Чтобы оба текстовых поля, которые связаны режимом TwoWay, моментально обновлялись после изменения одного из них, надо использовать значение UpdateSourceTrigger.PropertyChanged:
+
+<img align="left" width="250" height="185" src="img/Bind6.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ...VS>
+  <StackPanel HorizontalAlignment="Left">
+    <Label Content="PropertyChanged" FontSize="20" FontWeight="Bold"/>
+    <TextBox x:Name="_source" Margin="10" Height="50"
+             TextWrapping="Wrap" MaxWidth="150" />
+    <TextBox x:Name="_receiver" Margin="10" Height="50" MaxWidth="150"
+             TextWrapping="Wrap"
+             Text="{Binding ElementName=_source, Path=Text, 
+                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+    </TextBox>
+  </StackPanel>
+</Window>
+~~~
 
 
 
