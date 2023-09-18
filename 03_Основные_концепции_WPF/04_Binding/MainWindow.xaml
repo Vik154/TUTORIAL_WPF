@@ -8,10 +8,21 @@
         Title="MainWindow" Height="360" Width="480">
     <Grid>
         <StackPanel HorizontalAlignment="Left">
-            <TextBox x:Name="_source" Margin="10" Height="50" />
-            <TextBox x:Name="_receiver" Margin="10" Height="50"
-                     Text="{Binding ElementName=_source, Path=Text}">
+            <Label Content="TwoWay" FontSize="20" FontWeight="Bold"/>
+            <TextBox x:Name="_source" Margin="10" Height="50"
+                     TextWrapping="Wrap" MaxWidth="150" />
+            <!--<TextBox x:Name="_receiver" Margin="10" Height="50" 
+                     TextWrapping="Wrap" MaxWidth="150"
+                     Text="{Binding ElementName=_source, Path=Text, Mode=OneTime}">
+            </TextBox>-->
+            <TextBox x:Name="_receiver" Margin="10" Height="50" 
+                     TextWrapping="Wrap" MaxWidth="150"
+                     Text="{Binding ElementName=_source, Path=Text, Mode=TwoWay}">
             </TextBox>
+            <!--<TextBox x:Name="_receiver" Margin="10" Height="50" 
+                     TextWrapping="Wrap" MaxWidth="150"
+                     Text="{Binding ElementName=_source, Path=Text, Mode=OneWay}">
+            </TextBox>-->
         </StackPanel>
     </Grid>
 </Window>
