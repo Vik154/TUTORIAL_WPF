@@ -210,30 +210,31 @@ _Описание класса Binding:_ <br>
                 <td valign="top">NotifyOnSourceUpdated</td>
                 <td valign="top">Boolean - структура</td>
                 <td valign="top">
-                    Получает или устанавливает флаг, который указывает, возбуждается ли событие *"SourceUpdated"* при передаче данных
+                    Получает или устанавливает флаг, который указывает, возбуждается ли событие <bold>"SourceUpdated"</bold> при передаче данных
                     от целевого элемента к источнику
                 </td>
             </tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">Path</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">PropertyPath</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Задает или извлекает путь к свойству источника</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">RelativeSource</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">RelativeSource</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Задает или извлекает источник путем указания его местоположения относительно целевого элемента в визуальном дереве</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">Source</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">Оbject</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Используется для указания на объект-источник, если он не является элементом WPF и поэтому нельзя применить <span class="texample">ElementName</span>
-</td>
-</tr>
-</tbody></table>
+            <tr>
+                <td valign="top">Path</td>
+                <td valign="top">PropertyPath - класс</td>
+                <td valign="top">Задает или извлекает путь к свойству источника</td>
+            </tr>
+            <tr>
+                <td valign="top">RelativeSource</td>
+                <td valign="top">RelativeSource - класс</td>
+                <td valign="top">
+                    Задает или извлекает источник путем указания его местоположения относительно целевого элемента в визуальном дереве
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Source</td>
+                <td valign="top">Оbject - класс</td>
+                <td valign="top">
+                    Используется для указания на объект-источник, если он не является элементом WPF и поэтому нельзя применить ElementName
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 ___Обновление привязки. UpdateSourceTrigger:___ <br>
