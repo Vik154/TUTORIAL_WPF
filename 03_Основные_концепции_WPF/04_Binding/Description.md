@@ -186,7 +186,7 @@ ___Обновление привязки. UpdateSourceTrigger:___ <br>
 
 Чтобы оба текстовых поля, которые связаны режимом TwoWay, моментально обновлялись после изменения одного из них, надо использовать значение UpdateSourceTrigger.PropertyChanged:
 
-<img align="left" width="250" height="220" src="img/Bind6.png" alt="Пример работы данного кода"/>
+<img align="left" width="280" height="280" src="img/Bind6.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...VS>
