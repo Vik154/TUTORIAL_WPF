@@ -81,7 +81,7 @@ ___Направления привязки:___ <br>
 </Window>
 ~~~
 
-<img align="left" width="280" height="245" src="img/Bind3.png" alt="Пример работы данного кода"/>
+<img align="left" width="280" height="250" src="img/Bind3.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...VS>
