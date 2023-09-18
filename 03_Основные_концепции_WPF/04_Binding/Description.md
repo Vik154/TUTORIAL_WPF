@@ -181,37 +181,39 @@ _Описание класса Binding:_ <br>
         <caption>Основные свойства класса</caption>
         <tbody>
             <tr>
-                <th bgcolor="#d8d8d8">Свойство</th>
-                <th bgcolor="#d8d8d8">Тип</th>
-                <th bgcolor="#d8d8d8">Описание</th>
+                <th>Свойство</th>
+                <th>Тип</th>
+                <th>Описание</th>
             </tr>
             <tr>
-                <td bgcolor="#eaeaea" valign="top"><span>ElementName</span></td>
-                <td bgcolor="#eaeaea" valign="top"><span>String</span> - класс</td>
-                <td bgcolor="#eaeaea" valign="top">
+                <td valign="top">ElementName</td>
+                <td valign="top">String - класс</td>
+                <td valign="top">
                     Задает или извлекает имя элемента, который будет использоваться как источник информации. При связывании с элементом <b>WPF</b>
                     применяется вместо свойства <span>Source</span>
                 </td>
             </tr>
             <tr>
-                <td bgcolor="#eaeaea" valign="top"><span>FallbackValue</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">Object</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Задает или извлекает значение для использования, если привязка не может вернуть значение. Значение по умолчанию <span class="texample">UnsetValue</span>
-</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">Mode</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">BindingMode</span> -перечисление</td>
-<td bgcolor="#eaeaea" valign="top">Получает или устанавливает значение, которое указывает направление потока данных в привязке</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">NotifyOnSourceUpdated</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">Boolean</span> -структура</td>
-<td bgcolor="#eaeaea" valign="top">Получает или устанавливает флаг, который указывает, возбуждается ли событие <span class="texample">SourceUpdated</span>  при передаче данных от целевого элемента к источнику</td>
-</tr>
+                <td valign="top">FallbackValue</td>
+                <td valign="top">Object - класс</td>
+                <td valign="top">
+                    Задает или извлекает значение для использования, если привязка не может вернуть значение. Значение по умолчанию UnsetValue.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Mode</td>
+                <td valign="top">BindingMode - перечисление</td>
+                <td valign="top">
+                    Получает или устанавливает значение, которое указывает направление потока данных в привязке</td>
+            </tr>
+            <tr>
+                <td valign="top">NotifyOnSourceUpdated</td>
+                <td valign="top">Boolean - структура</td>
+                <td valign="top">
+                    Получает или устанавливает флаг, который указывает, возбуждается ли событие *"SourceUpdated"* при передаче данных
+                    от целевого элемента к источнику
+                </td>
+            </tr>
 <tr>
 <td bgcolor="#eaeaea" valign="top"><span class="texample">Path</span></td>
 <td bgcolor="#eaeaea" valign="top">
