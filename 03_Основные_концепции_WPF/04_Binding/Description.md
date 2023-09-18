@@ -216,7 +216,7 @@ ___Свойство Source:___ <br>
 Свойство Source достаточно прямолинейно. Единственный момент, который следует учитывать — объект данных должен быть сделан удобным для привязки. Для получения объекта данных существует несколько подходов: извлечь его из ресурса, генерировать программно или получить от поставщика данных. <br> 
 Простейший вариант — установить Source в некоторый готовый и доступный статический объект. Например, можно создать статический объект в коде и использовать его. Или же можно применить ингредиент из библиотеки классов .NET, как показано ниже: 
 
-<img align="left" width="250" height="220" src="img/Bind7.png" alt="Пример работы данного кода"/>
+<img align="left" width="260" height="225" src="img/Bind7.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 public class Person {
@@ -239,7 +239,7 @@ public partial class MainWindow : Window {
    
    <StackPanel HorizontalAlignment="Left">
        <TextBlock Text="{Binding Source={StaticResource _person}, Path=Name}" FontSize="20"/>
-       <TextBlock Text="{Binding Source={StaticResource _person}, Path=Age}" FontSize="20"/>
+       <TextBlock Text="{Binding Source={StaticResource _person}, Path=Age}"  FontSize="20"/>
        <TextBlock Text="{Binding Source={x:Static SystemFonts.IconFontFamily}, Path=Source}" FontSize="20"/>
   </StackPanel>
 </Window>
