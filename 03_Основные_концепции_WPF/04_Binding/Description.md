@@ -166,6 +166,12 @@ public partial class MainWindow : Window {
 }
 ~~~
 
+Для удаления привязки в коде предусмотрены два статических метода класса BindingOperations. Метод ClearBinding() принимает ссылку на свойство зависимости, которое имеет привязку, подлежащую удалению, а метод ClearAllBindings() удаляет все привязки данных элемента: 
+~~~C#
+BindingOperations.ClearBinding(reciverTextBox, TextBlock.TextProperty);
+BindingOperations.ClearAllBindings(reciverTextBox);
+~~~
+И ClearBinding(), и ClearAllBindings() используют метод ClearValue(), который каждый элемент наследует от базового класса DependencuObject. Метод ClearValue() просто удаляет локальное значение свойства (которым в данном случае является выражение привязки). 
 
 
 
