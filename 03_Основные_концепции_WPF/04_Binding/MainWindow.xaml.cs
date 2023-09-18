@@ -4,6 +4,11 @@ using System.Windows.Data;
 
 namespace _04_Binding;
 
+public class Person {
+    public string Name { get; set; }
+    public int Age {  get; set; } 
+}
+
 public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();

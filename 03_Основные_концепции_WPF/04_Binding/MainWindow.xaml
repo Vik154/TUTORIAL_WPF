@@ -6,16 +6,26 @@
         xmlns:local="clr-namespace:_04_Binding"
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
+
+    <Window.Resources>
+        <local:Person Name="Tom" Age="25" x:Key="_person"/>
+    </Window.Resources>
+    
     <Grid>
         <StackPanel HorizontalAlignment="Left">
-            <Label Content="PropertyChanged" FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Source={StaticResource _person}, Path=Name}" FontSize="20"/>
+            <TextBlock Text="{Binding Source={StaticResource _person}, Path=Age}" FontSize="20"/>
+            <TextBlock Text="{Binding Source={x:Static SystemFonts.IconFontFamily}, Path=Source}" FontSize="20"/>
+
+
+            <!--<Label Content="PropertyChanged" FontSize="20" FontWeight="Bold"/>
             <TextBox x:Name="_source" Margin="10" Height="50"
                      TextWrapping="Wrap" MaxWidth="150" />
             <TextBox x:Name="_receiver" Margin="10" Height="50" MaxWidth="150"
                      TextWrapping="Wrap"
                      Text="{Binding ElementName=_source, Path=Text, 
                             Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            </TextBox>
+            </TextBox>-->
             <!--<TextBox x:Name="_receiver" Margin="10" Height="50" MaxWidth="150"
                      TextWrapping="Wrap"
                      Text="{Binding ElementName=_source, Path=Text, Mode=OneWayToSource}">
