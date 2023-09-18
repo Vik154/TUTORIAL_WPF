@@ -121,3 +121,49 @@ WPF использует разные значения Mode по умолчан�
 
 > В качестве общего эмпирического правила: всегда неплохо явно устанавливать режим привязки включив свойство Mode. <br>
 
+#### *Создание привязки в коде:* 
+При построении окна обычно наиболее эффективно объявлять выражение привязки в разметке XAML с помощью расширения разметки Binding. Тем не менее, допускается также создавать привязку и в коде. <br>
+Ключевым объектом при создании привязки является объект System.Windows.Data.Binding
+
+<img align="left" width="280" height="250" src="img/Bind5.png" alt="Пример работы данного кода"/>
+
+~~~C#
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+
+namespace _04_Binding;
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+        MakeBinding();
+    }
+
+    private void MakeBinding() {
+        StackPanel stackPanel     = new StackPanel();
+        Label      label          = new Label { FontSize = 20d, Content = "Binding" };
+        TextBox    sourceTextBox  = new TextBox { Margin = new Thickness(10) };
+        TextBox    reciverTextBox = new TextBox { Margin = new Thickness(10) };
+        
+        stackPanel.Children.Add(label);
+        stackPanel.Children.Add(sourceTextBox);
+        stackPanel.Children.Add(reciverTextBox);
+
+        Binding binding = new Binding();
+
+        // binding.ElementName = sourceTextBox.Name;
+        binding.Source = sourceTextBox;
+        binding.Path = new PropertyPath("Text");
+
+        reciverTextBox.SetBinding(TextBox.TextProperty, binding);
+
+        this.Content = stackPanel;
+    }
+}
+~~~
+
+
+
+
+
