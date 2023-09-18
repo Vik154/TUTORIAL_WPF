@@ -49,7 +49,7 @@ ___Направления привязки:___ <br>
 * ___OneWayToSource___ - организует однонаправленную привязку, как и OneWay, но действует в обратном направлении. Свойство объекта-источника обновляется, когда изменяется свойство объекта-приёмника, т.е. приёмник меняет источник.
 * ___Default___ - установлен по умолчанию и зависит от типа привязываемого свойства на стороне приемника (целевого свойства). Действует как режим двухсторонней привязки TwoWay для свойств, доступных для редактирования в пользовательском интерфейсе, таких как TextBox.Text или CheckBox.Checked, либо - как односторонняя привязка OneWay для остальных свойств. Все привязки используют данный подход, если только не указано иное. 
 
-<img align="left" width="270" height="240" src="img/Bind1.png" alt="Пример работы данного кода"/>
+<img align="left" width="280" height="245" src="img/Bind1.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...VS>
@@ -65,13 +65,35 @@ ___Направления привязки:___ <br>
 </Window>
 ~~~
 
+<img align="left" width="280" height="245" src="img/Bind2.png" alt="Пример работы данного кода"/>
 
-
- <!--<TextBox x:Name="_receiver" Margin="10" Height="50" 
-                 TextWrapping="Wrap" MaxWidth="150"
-                 Text="{Binding ElementName=_source, Path=Text, Mode=OneTime}">
-        </TextBox>-->
+~~~XAML
+<Window ...VS>
+    <StackPanel HorizontalAlignment="Left">
+        <Label Content="TwoWay" FontSize="20" FontWeight="Bold"/>
+        <TextBox x:Name="_source" Margin="10" Height="50"
+                 TextWrapping="Wrap" MaxWidth="150" />
         <TextBox x:Name="_receiver" Margin="10" Height="50" 
                  TextWrapping="Wrap" MaxWidth="150"
                  Text="{Binding ElementName=_source, Path=Text, Mode=TwoWay}">
         </TextBox>
+    </StackPanel>
+</Window>
+~~~
+
+<img align="left" width="280" height="245" src="img/Bind3.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ...VS>
+    <StackPanel HorizontalAlignment="Left">
+        <Label Content="OneTime" FontSize="20" FontWeight="Bold"/>
+        <TextBox x:Name="_source" Margin="10" Height="50"
+                 TextWrapping="Wrap" MaxWidth="150" Text="Исходный текст"/>
+        <TextBox x:Name="_receiver" Margin="10" Height="50" 
+                 TextWrapping="Wrap" MaxWidth="150"
+                 Text="{Binding ElementName=_source, Path=Text, Mode=OneTime}">
+        </TextBox>
+    </StackPanel>
+</Window>
+~~~
+
