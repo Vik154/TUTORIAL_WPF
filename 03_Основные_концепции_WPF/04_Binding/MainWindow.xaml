@@ -10,15 +10,77 @@
     <Window.Resources>
         <local:Person Name="Tom" Age="25" x:Key="_person"/>
     </Window.Resources>
-    
+
     <Grid>
-        <StackPanel HorizontalAlignment="Left">
-            <TextBlock Text="{Binding Source={StaticResource _person}, Path=Name}" FontSize="20"/>
-            <TextBlock Text="{Binding Source={StaticResource _person}, Path=Age}" FontSize="20"/>
+        <WrapPanel HorizontalAlignment="Left">
+            
+            <Grid Tag="Кнопка внутри Grid" Background="AliceBlue" Margin="10">
+                <Button Margin="10" FontSize="16" Height="30" Width="150">
+                    
+                    <Button.Content>
+                        <Binding Path="Tag" Mode="OneWay">
+                            <Binding.RelativeSource>
+                                <RelativeSource Mode="FindAncestor" 
+                                                AncestorType="Grid"
+                                                AncestorLevel="1">
+                                </RelativeSource>
+                            </Binding.RelativeSource>
+                        </Binding>
+                    </Button.Content>
+                    
+                </Button>
+            </Grid>
+
+            <Grid Tag="Кнопка внутри Grid" Background="AliceBlue" Margin="10">
+                <Button Margin="10" FontSize="16" Height="30" Width="150"
+                        Content="{ Binding RelativeSource = {RelativeSource 
+                                                Mode=FindAncestor,
+                                                AncestorType=Grid,
+                                                AncestorLevel=1 }
+                                          ,Path=Tag
+                                          ,Mode=OneWay }">
+                </Button>
+            </Grid>
+
+            <StackPanel Background="AntiqueWhite" Margin="10">
+                <Button Margin="10">
+                    <Button.Content>
+                        <Binding Path="Background" Mode="OneWay">
+                            <Binding.RelativeSource>
+                                <RelativeSource Mode="FindAncestor" 
+                                                AncestorType="{x:Type StackPanel}"
+                                                AncestorLevel="1">
+                                </RelativeSource>
+                            </Binding.RelativeSource>
+                        </Binding>                    
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Background="AliceBlue" Margin="10">
+                <Button Content="{Binding RelativeSource = 
+                                        { RelativeSource Mode=FindAncestor,
+                                                         AncestorType={x:Type StackPanel},
+                                                         AncestorLevel=1}
+                                    ,Path=Background 
+                                    ,Mode=OneWay }"
+                        Margin="10"
+                        FontSize="18"
+                        Background="Azure">
+                </Button>
+            </StackPanel>
+            
+        </WrapPanel>
+        
+        
+        
+        <!--<StackPanel DataContext="{Binding Source={StaticResource _person}}" HorizontalAlignment="Left">
+            <TextBlock Text="{Binding Path=Name}" FontSize="20"/>
+            <TextBlock Text="{Binding Path=Age}" FontSize="20"/>
             <TextBlock Text="{Binding Source={x:Static SystemFonts.IconFontFamily}, Path=Source}" FontSize="20"/>
 
 
-            <!--<Label Content="PropertyChanged" FontSize="20" FontWeight="Bold"/>
+            --><!--<Label Content="PropertyChanged" FontSize="20" FontWeight="Bold"/>
             <TextBox x:Name="_source" Margin="10" Height="50"
                      TextWrapping="Wrap" MaxWidth="150" />
             <TextBox x:Name="_receiver" Margin="10" Height="50" MaxWidth="150"
@@ -41,7 +103,7 @@
             <!--<TextBox x:Name="_receiver" Margin="10" Height="50" 
                      TextWrapping="Wrap" MaxWidth="150"
                      Text="{Binding ElementName=_source, Path=Text, Mode=OneWay}">
-            </TextBox>-->
-        </StackPanel>
+            </TextBox>--><!--
+        </StackPanel>-->
     </Grid>
 </Window>
