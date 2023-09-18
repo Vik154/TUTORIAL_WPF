@@ -219,9 +219,19 @@ ___Свойство Source:___ <br>
 <img align="left" width="250" height="200" src="img/Bind7.png" alt="Пример работы данного кода"/>
 
 ~~~C#
+using System.Windows;
+
+namespace _04_Binding;
+
 public class Person {
     public string Name { get; set; }
     public int Age {  get; set; } 
+}
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+    }
 }
 ~~~
 
