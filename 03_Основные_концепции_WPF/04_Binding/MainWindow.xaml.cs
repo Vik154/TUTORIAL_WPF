@@ -7,7 +7,7 @@ namespace _04_Binding;
 public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
-        MakeBinding();
+        // MakeBinding();
     }
 
     private void MakeBinding() {
