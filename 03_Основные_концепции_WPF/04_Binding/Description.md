@@ -186,14 +186,15 @@ _Описание класса Binding:_ <br>
                 <th bgcolor="#d8d8d8">Описание</th>
             </tr>
             <tr>
-                <td bgcolor="#eaeaea" valign="top"><span class="texample">ElementName</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">String</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Задает или извлекает имя элемента, который будет использоваться как источник информации. При связывании с элементом <b>WPF</b>  применяется вместо свойства <span class="texample">Source</span>
-</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">FallbackValue</span></td>
+                <td bgcolor="#eaeaea" valign="top"><span>ElementName</span></td>
+                <td bgcolor="#eaeaea" valign="top"><span>String</span> - класс</td>
+                <td bgcolor="#eaeaea" valign="top">
+                    Задает или извлекает имя элемента, который будет использоваться как источник информации. При связывании с элементом <b>WPF</b>
+                    применяется вместо свойства <span>Source</span>
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#eaeaea" valign="top"><span>FallbackValue</span></td>
 <td bgcolor="#eaeaea" valign="top">
 <span class="texample">Object</span> -класс</td>
 <td bgcolor="#eaeaea" valign="top">Задает или извлекает значение для использования, если привязка не может вернуть значение. Значение по умолчанию <span class="texample">UnsetValue</span>
