@@ -155,7 +155,7 @@ public partial class MainWindow : Window {
 
         Binding binding = new Binding();
 
-        // binding.ElementName = sourceTextBox.Name;
+        // binding.ElementName = sourceTextBox.Name; Если элемент создан в XAML
         binding.Source = sourceTextBox;
         binding.Path = new PropertyPath("Text");
 
