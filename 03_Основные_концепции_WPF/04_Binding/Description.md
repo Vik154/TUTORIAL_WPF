@@ -409,4 +409,81 @@ ___Свойство RelativeSource:___ <br>
     </table>
 </div>
 
+___Пример работы:___ <br>
+
+<img align="center" width="600" height="150" src="img/Bind8.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window x:Class="_04_Binding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_04_Binding"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="360" Width="480">
+
+    <Grid>
+        <WrapPanel HorizontalAlignment="Left">
+            
+            <Grid Tag="Кнопка внутри Grid" Background="AliceBlue" Margin="10">
+                <Button Margin="10" FontSize="16" Height="30" Width="150">
+                    
+                    <Button.Content>
+                        <Binding Path="Tag" Mode="OneWay">
+                            <Binding.RelativeSource>
+                                <RelativeSource Mode="FindAncestor" 
+                                                AncestorType="Grid"
+                                                AncestorLevel="1">
+                                </RelativeSource>
+                            </Binding.RelativeSource>
+                        </Binding>
+                    </Button.Content>
+                    
+                </Button>
+            </Grid>
+
+            <Grid Tag="Кнопка внутри Grid" Background="AliceBlue" Margin="10">
+                <Button Margin="10" FontSize="16" Height="30" Width="150"
+                        Content="{ Binding RelativeSource = {RelativeSource 
+                                                Mode=FindAncestor,
+                                                AncestorType=Grid,
+                                                AncestorLevel=1 }
+                                          ,Path=Tag
+                                          ,Mode=OneWay }">
+                </Button>
+            </Grid>
+
+            <StackPanel Background="AntiqueWhite" Margin="10">
+                <Button Margin="10">
+                    <Button.Content>
+                        <Binding Path="Background" Mode="OneWay">
+                            <Binding.RelativeSource>
+                                <RelativeSource Mode="FindAncestor" 
+                                                AncestorType="{x:Type StackPanel}"
+                                                AncestorLevel="1">
+                                </RelativeSource>
+                            </Binding.RelativeSource>
+                        </Binding>                    
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Background="AliceBlue" Margin="10">
+                <Button Content="{Binding RelativeSource = 
+                                        { RelativeSource Mode=FindAncestor,
+                                                         AncestorType={x:Type StackPanel},
+                                                         AncestorLevel=1}
+                                    ,Path=Background 
+                                    ,Mode=OneWay }"
+                        Margin="10"
+                        FontSize="18"
+                        Background="Azure">
+                </Button>
+            </StackPanel>
+            
+        </WrapPanel>
+    </Grid>
+</Window>
+~~~
 
