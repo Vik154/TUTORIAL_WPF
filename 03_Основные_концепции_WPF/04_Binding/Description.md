@@ -178,7 +178,7 @@ _Описание класса Binding:_ <br>
 
 <div>
     <table border="0" cellpadding="2" cellspacing="1">
-        <caption>Основные свойства класса</caption>
+        <caption>Основные свойства класса Binding:</caption>
         <tbody>
             <tr>
                 <th>Свойство</th>
@@ -306,62 +306,28 @@ public partial class MainWindow : Window {
 </Window>
 ~~~
 
-<div xmlns:edi="http://www.intuit.ru/2010/edi" class="xml_table_env" id="id_354">
-<a name="table."></a><table border="0" class="xml_table" cellpadding="2" cellspacing="1">
-<caption>Основные свойства класса <span class="texample">Binding</span>
-</caption>
-<tbody><tr>
-<th bgcolor="#d8d8d8">Свойство</th>
-<th bgcolor="#d8d8d8">Тип</th>
-<th bgcolor="#d8d8d8">Описание</th>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">ElementName</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">String</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Задает или извлекает имя элемента, который будет использоваться как источник информации. При связывании с элементом <b>WPF</b>  применяется вместо свойства <span class="texample">Source</span>
-</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">FallbackValue</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">Object</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Задает или извлекает значение для использования, если привязка не может вернуть значение. Значение по умолчанию <span class="texample">UnsetValue</span>
-</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">Mode</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">BindingMode</span> -перечисление</td>
-<td bgcolor="#eaeaea" valign="top">Получает или устанавливает значение, которое указывает направление потока данных в привязке</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">NotifyOnSourceUpdated</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">Boolean</span> -структура</td>
-<td bgcolor="#eaeaea" valign="top">Получает или устанавливает флаг, который указывает, возбуждается ли событие <span class="texample">SourceUpdated</span>  при передаче данных от целевого элемента к источнику</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">Path</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">PropertyPath</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Задает или извлекает путь к свойству источника</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">RelativeSource</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">RelativeSource</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Задает или извлекает источник путем указания его местоположения относительно целевого элемента в визуальном дереве</td>
-</tr>
-<tr>
-<td bgcolor="#eaeaea" valign="top"><span class="texample">Source</span></td>
-<td bgcolor="#eaeaea" valign="top">
-<span class="texample">Оbject</span> -класс</td>
-<td bgcolor="#eaeaea" valign="top">Используется для указания на объект-источник, если он не является элементом WPF и поэтому нельзя применить <span class="texample">ElementName</span>
-</td>
-</tr>
-</tbody></table>
-</div>
+___Свойство DataContext:___ <br> 
 
+Иногда несколько приемников нужно привязать к одному и тому же источнику. Чтобы не дублировать в каждом выражении привязки имя источника и как-то автоматизировать эту задачу, в WPF очень часто используют свойство DataContext. Это свойство введено классом FrameworkElement и наследуется каждым элементом, производным от этого класса. Его использование является альтернативным способом обозначения объекта-источника, задействованного в привязке.
 
+Если в выражении привязки целевого элемента источник не указан с помощью значения атрибута Source, то WPF автоматически будет искать его вначале в элементе с выражением привязки, а затем - в родительских элементах вверх по направлению к корню логического дерева до тех пор, пока источник не будет найден. Если источник не будет обнаружен, то WPF просто будет молчать, поскольку механизм привязки не генерирует исключений. Обычно стараются сузить диапазон поиска, помещая определение свойства DataContext в ближайший родительский контейнер, охватывающий привязываемые приемники.
 
+Выполняя поиск по дереву, WPF пытается найти первый контекст данных DataContext, не равный null. Если контекст данных найден, он используется для привязки, если нет, то выражение привязки не применяет никакого значения к целевому элементу и он ничего отображать не будет.
+
+Наглядный пример, использования DataContext:
+
+~~~XAML
+<StackPanel>
+    <TextBlock Text="{Binding Source={StaticResource MyClassPerson}, Path=FullName}" />
+    <TextBlock Text="{Binding Source={StaticResource MyClassPerson}, Path=Title}" />
+    <TextBlock Text="{Binding Source={StaticResource MyClassPerson}, Path=City}" />
+</StackPanel>
+
+<!-- То же самое, только с использованием контекста данных DataContext -->
+
+<StackPanel DataContext="{Binding Source={StaticResource MyClassPerson}}">
+    <TextBlock Text="{Binding Path=FullName}" />
+    <TextBlock Text="{Binding Path=Title}" />
+    <TextBlock Text="{Binding Path=City}" />
+</StackPanel>
+~~~
