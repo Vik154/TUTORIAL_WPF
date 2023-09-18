@@ -331,3 +331,34 @@ ___Свойство DataContext:___ <br>
     <TextBlock Text="{Binding Path=City}" />
 </StackPanel>
 ~~~
+
+_Модификация примера выше, с использованием DataContext и статического ресурса в коде:_
+
+<img align="left" width="260" height="225" src="img/Bind7.png" alt="Пример работы данного кода"/>
+
+~~~C#
+public class Person {
+    public string Name { get; set; }
+    public int Age {  get; set; } 
+}
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+    }
+}
+~~~
+
+~~~XAML
+<Window ...VS>
+    <Window.Resources>
+        <local:Person Name="Tom" Age="25" x:Key="_person"/>
+    </Window.Resources>
+    
+    <StackPanel DataContext="{Binding Source={StaticResource _person}}" HorizontalAlignment="Left">
+        <TextBlock Text="{Binding Path=Name}" FontSize="20"/>
+        <TextBlock Text="{Binding Path=Age}" FontSize="20"/>
+        <TextBlock Text="{Binding Source={x:Static SystemFonts.IconFontFamily}, Path=Source}" FontSize="20"/>
+  </StackPanel>
+</Window>
+~~~
