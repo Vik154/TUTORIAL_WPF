@@ -411,7 +411,7 @@ ___Свойство RelativeSource:___ <br>
 
 ___Пример работы:___ <br>
 
-<img align="center" width="600" height="150" src="img/Bind8.png" alt="Пример работы данного кода"/>
+<img align="center" width="900" height="150" src="img/Bind8.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window x:Class="_04_Binding.MainWindow"
