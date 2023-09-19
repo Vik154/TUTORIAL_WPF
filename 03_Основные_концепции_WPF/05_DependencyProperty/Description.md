@@ -85,9 +85,9 @@ ___Класс FrameworkPropertyMetadata:___ <br>
 ~~~C#
 // устанавливает дополнительные настройки свойства
 new FrameworkPropertyMetadata(
-    Double.NaN,
-    FrameworkPropertyMetadataOptions.AffectsMeasure,
-    new PropertyChangedCallback(OnTransformDirty))
+    Double.NaN,                                        // Значение свойства по умолчанию.
+    FrameworkPropertyMetadataOptions.AffectsMeasure,   // Опции метаданных.
+    new PropertyChangedCallback(OnTransformDirty))     // Делегат, указывающий на свойство, вызываемое при изменении свойства.
 ~~~
 
 
