@@ -28,18 +28,19 @@ _Когда идет обращение к свойству зависимост
 
 #### Пример стандартной реализации свойства зависимостей Height класса FrameworkElement:
 ~~~C#
-public class FrameworkElement : UIElement, IFrameworkInputElement, IInputElement, ISupportInitialize, IHaveResources, IQueryAmbient {
+public class FrameworkElement : UIElement, IFrameworkInputElement, IInputElement,
+                                ISupportInitialize, IHaveResources, IQueryAmbient {
 
         // Статическое свойство зависимостей DependencyProperty. По соглашениям по именованию все свойства зависимостей
         // представляют статические публичные поля (public static) с суффиксом Property.
         /// <summary> Height Dependency Property </summary>
         [CommonDependencyProperty]
         public static readonly DependencyProperty HeightProperty =
-                    DependencyProperty.Register(                                         // происходит регистрация свойства
-                                "Height",                                                // имя свойства (в данном случае "Height")
-                                typeof(double),                                          // тип свойства (в данном случае double)
-                                _typeofThis,                                             // тип, который владеет свойством
-                                new FrameworkPropertyMetadata(                           // устанавливает дополнительные настройки свойства
+                    DependencyProperty.Register(                   // происходит регистрация свойства
+                                "Height",                          // имя свойства (в данном случае "Height")
+                                typeof(double),                    // тип свойства (в данном случае double)
+                                _typeofThis,                       // тип, который владеет свойством
+                                new FrameworkPropertyMetadata(     // устанавливает дополнительные настройки свойства
                                     Double.NaN,
                                     FrameworkPropertyMetadataOptions.AffectsMeasure,
                                     new PropertyChangedCallback(OnTransformDirty)),
