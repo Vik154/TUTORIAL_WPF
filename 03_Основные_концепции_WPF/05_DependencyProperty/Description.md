@@ -73,6 +73,23 @@ public class FrameworkElement : UIElement, IFrameworkInputElement, IInputElement
 }
 ~~~
 
+Свойства зависимостей требуют порядочного дополнительного кода по сравнению с нормальным свойством CLR. Если класс желает определить свойство зависимости, он должен иметь DependencyObject в своей цепочке наследования, поскольку в этом классе определены методы GetValue() и SetValue(), используемые оболочкой CLR. Поскольку FrameworkElement "является" DependencyObject, это требование удовлетворено. <br>
+
+Учитывая, что свойства зависимостей объявлены как статические поля, они обычно создаются (и регистрируются) внутри статического конструктора класса. Объект DependencyProperty создается вызовом статического метода DependencyProperty.Register(). Этот метод многократно переопределен. <br>
+
+___Класс FrameworkPropertyMetadata:___ <br>
+> *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.frameworkpropertymetadata?view=windowsdesktop-7.0* <br>
+
+Объект FrameworkPropertyMetadata, передаваемый в DependencyProperty.Register(), описывает различные детали о том, как среда WPF должна обрабатывать это свойство в отношении уведомлений обратного вызова (если свойство должно извещать других об изменениях своего значения) и различные опции (представленные перечислением FrameworkPropertyMetadataOptions). Значения FrameworkPropertyMetadataOptions управляют тем, что именно затрагивается данным свойством (работает ли оно с привязкой данных, может ли наследоваться, и т.п.). В данном случае аргументы конструктора FrameworkPropertyMetadata описываются следующим образом:
+
+~~~C#
+// устанавливает дополнительные настройки свойства
+new FrameworkPropertyMetadata(
+    Double.NaN,
+    FrameworkPropertyMetadataOptions.AffectsMeasure,
+    new PropertyChangedCallback(OnTransformDirty))
+~~~
+
 
 
 <img align="left" width="270" height="225" src="img/Bind.png" alt="Пример работы данного кода"/>
