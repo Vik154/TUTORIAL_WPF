@@ -41,7 +41,8 @@
    * *[Ресурсы](03_Основные_концепции_WPF/01_Resources/Description.md)*
    * *[Стили](03_Основные_концепции_WPF/02_Styles/Description.md)*
    * *[Триггеры](03_Основные_концепции_WPF/03_Triggers/Description.md)*
-   * *[Привязка](03_Основные_концепции_WPF/04_Binding/Description.md)*
+   * *[Привязка данных](03_Основные_концепции_WPF/04_Binding/Description.md)*
+   * *[Свойства зависимостей](03_Основные_концепции_WPF/5_DependencyProperty/Description.md)*
    * 
 
 
