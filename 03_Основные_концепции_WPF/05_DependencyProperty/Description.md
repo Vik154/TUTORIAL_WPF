@@ -30,31 +30,43 @@ _Когда идет обращение к свойству зависимост
 ~~~C#
 public class FrameworkElement : UIElement, IFrameworkInputElement, IInputElement, ISupportInitialize, IHaveResources, IQueryAmbient {
 
-    // Статическое свойство зависимостей только для чтения DependencyProperty.
-    public static readonly DependencyProperty HeightProperty;
-   
-   // Регистрация свойства в статическом конструкторе.
-   static FrameworkElement() {
-      HeightProperty = DependencyProperty.Register (
-      "Height",
-      typeof(double),
-      typeof(FrameworkElement),
-      new FrameworkPropertyMetadata((double) 1.0 / (double) 0.0,
-         FrameworkPropertyMetadataOptions.AffectsMeasure,
-         new PropertyChangedCallback(FrameworkElement.OnTransformDirty)),
-      new ValidateValueCallback(FrameworkElement.IsWidthHeightValid));
-   }
+        // Статическое свойство зависимостей только для чтения DependencyProperty.
+        /// <summary> Height Dependency Property </summary>
+        [CommonDependencyProperty]
+        public static readonly DependencyProperty HeightProperty =
+                    DependencyProperty.Register(
+                                "Height",
+                                typeof(double),
+                                _typeofThis,
+                                new FrameworkPropertyMetadata(
+                                    Double.NaN,
+                                    FrameworkPropertyMetadataOptions.AffectsMeasure,
+                                    new PropertyChangedCallback(OnTransformDirty)),
+                                new ValidateValueCallback(IsWidthHeightValid));
 
-   // Обычное свойство .NET - обертка над свойством зависимостей
-   public double Height {
-      get { return (double)base.GetValue(HeightProperty); }
-      set { base.SetValue(HeightProperty, value); }
-   }
-    
-    // Вызывается при изменении значения свойства
-    private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) { 
-        //...............................
-    }
+        // Обычное свойство .NET - в виде обёртки над свойством зависимостей
+        /// <summary> Height Property </summary>
+        [TypeConverter(typeof(LengthConverter))]
+        [Localizability(LocalizationCategory.None, Readability = Readability.Unreadable)]
+        public double Height {
+            get { return (double) GetValue(HeightProperty); }
+            set { SetValue(HeightProperty, value); }
+        }
+
+        // Пример, как реализовано уведомление об изменениях размера
+        /// <summary> SizeChanged event </summary>
+        public static readonly RoutedEvent SizeChangedEvent = EventManager.RegisterRoutedEvent(
+                                                                        "SizeChanged",
+                                                                        RoutingStrategy.Direct,
+                                                                        typeof(SizeChangedEventHandler),
+                                                                         _typeofThis);
+ 
+        /// <summary> SizeChanged event. It is fired when ActualWidth or ActualHeight (or both) changed. </summary>
+        public event SizeChangedEventHandler SizeChanged {
+            add {AddHandler(SizeChangedEvent, value, false);}
+            remove {RemoveHandler(SizeChangedEvent, value);}
+        }
+ 
     // Остальной код
 }
 ~~~
