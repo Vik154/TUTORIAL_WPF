@@ -90,6 +90,15 @@ new FrameworkPropertyMetadata(
     new PropertyChangedCallback(OnTransformDirty))    // Делегат, указывающий на свойство, вызываемое при изменении свойства
 ~~~
 
+Как только объект DependencyProperty зарегистрирован, остается поместить поле в оболочку обычного свойства CLR. Блоки get и set не просто возвращают или устанавливают значение переменной-члена класса, но делают это непрямо, используя методы GetValue() и SetValue() из базового класса System.Windows.DependencyObject:
+
+~~~C#
+public double Height {
+    get { return (double)base.GetValue(HeightProperty); }
+    set { base.SetValue(HeightProperty, value); }
+}
+~~~
+
 
 
 <img align="left" width="270" height="225" src="img/Bind.png" alt="Пример работы данного кода"/>
