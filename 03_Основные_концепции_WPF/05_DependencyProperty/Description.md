@@ -114,21 +114,22 @@ public double Height {
    // Свойства зависимости можно добавлять только к объектам зависимости — классам, порожденных от DependencyObject.
    ~~~
 2. После чего, свойство регистрируется в статическом конструкторе класса используя статический метод - DependencyProperty.Register(), потому что любое свойство зависимостей должно быть зарегистрировано перед использованием. Экземпляр DependencyProperty возвращается статическим методом DependencyProperty.Register() и происходит инициализация свойства.
-~~~C#
-public MyClass: DependencyObject {
-    public static readonly DependencyProperty NameProperty;
-
-    static MyClass() {
-        NameProperty = DependencyProperty.Register(
-                           name: "Name"                                // Имя свойста
-                          ,propertyType: typeof(string)                // Тип свойства
-                          ,ownerType: typeof(MyClass)                  // Владелец свойства
-                          ,typeMetadata: newPropertyMetadata("Empty")  // метаданные содержат --> значение свойства """по умолчанию"""
-                          ,validateValueCallback: IsNameValid);        // функция обратного вызова ValidateValueCallback
+    ~~~C#
+    public MyClass: DependencyObject {
+      public static readonly DependencyProperty NameProperty;
+    
+      static MyClass() {
+          NameProperty =
+              DependencyProperty.Register(
+                  name: "Name"                                // Имя свойста
+                  ,propertyType: typeof(string)                // Тип свойства
+                  ,ownerType: typeof(MyClass)                  // Владелец свойства
+                  ,typeMetadata: newPropertyMetadata("Empty")  // метаданные содержат --> значение свойства """по умолчанию"""
+                  ,validateValueCallback: IsNameValid);        // функция обратного вызова ValidateValueCallback
+      }
     }
-}
-~~~
-3. 
+    ~~~
+3. ывывыв
 4. 
 
 
