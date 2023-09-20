@@ -35,10 +35,21 @@ public abstract class ButtonBase : ContentControl, ICommandSource {
 * *Bubble – генерируется в элементе источнике, затем в каждом родительском элементе, вплоть до корня дерева элементов.*
 * *Direct – генерируется только в элементе-источнике.* <br>
 
-Обработчики маршрутизируемых событий принимают аргумент RoutedEventArgs. Этот класс содержит следующие свойства: <br>
-*Source* – источник события в логическом дереве элементов; <br>
-*Handled* – при установке в true маршрутизация события в дереве прекращается; <br>
-*RoutedEvent* – объект, описывающий маршрутизируемое событие. <br>
+Подключить обработчики событий можно, как декларативно в разметке xaml, так и программно в коде C#: <br>
+~~~XAML
+<Button x:Name="MyButton" Click="MyButton_Click" />
+~~~
+~~~C#
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+        MyButton.Click += MyButton_Click_from_cs;
+    }
+
+    // Обработчик, подключаемый в конструкторе
+    private void MyButton_Click_from_cs(object sender, RoutedEventArgs e) { /* Логика работы */ }
+}
+~~~
 
 
 
