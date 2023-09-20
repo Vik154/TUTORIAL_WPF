@@ -87,7 +87,13 @@ ___Класс FrameworkPropertyMetadata:___ <br>
 new FrameworkPropertyMetadata(
     Double.NaN,                                       // Значение свойства по умолчанию.
     FrameworkPropertyMetadataOptions.AffectsMeasure,  // Опции метаданных.
-    new PropertyChangedCallback(OnTransformDirty))    // Делегат, указывающий на свойство, вызываемое при изменении свойства
+    new PropertyChangedCallback(OnTransformDirty))    // Делегат, указывающий на метод, вызываемый при изменении свойства
+
+private static void OnTransformDirty(DependencyObject d, DependencyPropertyChangedEventArgs e) {
+      // Callback for MinWidth, MaxWidth, Width, MinHeight, MaxHeight, Height, and RenderTransformOffset
+      FrameworkElement fe = (FrameworkElement)d;
+      fe.AreTransformsClean = false;
+}
 ~~~
 
 Как только объект DependencyProperty зарегистрирован, остается поместить поле в оболочку обычного свойства CLR. Блоки get и set не просто возвращают или устанавливают значение переменной-члена класса, но делают это непрямо, используя методы GetValue() и SetValue() из базового класса System.Windows.DependencyObject:
