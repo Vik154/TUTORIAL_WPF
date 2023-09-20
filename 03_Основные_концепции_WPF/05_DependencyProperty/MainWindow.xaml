@@ -4,9 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_05_DependencyProperty"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
+
     <Grid>
+        <DataGrid x:Name="dataGridPersons" 
+                  ItemsSource="{DynamicResource DependencyPersons}">
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGrid">
+                    <Setter Property="RowBackground" Value="AliceBlue"/>
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Items>
+                <local:DependencyPerson1 Id="1" Name="Tom" Age="28"/>
+                <local:DependencyPerson1 Id="2" Name="Tim" Age="30"/>
+                <local:DependencyPerson1 Id="3" Name="Ted" Age="29"/>
+            </DataGrid.Items>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Age" Binding="{Binding Path=Age}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
 
     </Grid>
 </Window>
