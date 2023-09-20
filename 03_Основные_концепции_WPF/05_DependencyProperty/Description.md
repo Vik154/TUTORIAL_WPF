@@ -143,14 +143,12 @@ public double Height {
         }
     } 
     ~~~
-5. 
 
+<hr>
 
+___Пример создания свойств:___ <br>
 
-
-Например, класс FrameworkElement определяет свойство Margin, доступное всем элементам. Конечно, Margin — это свойство зависимости. Это означает, что оно определяется в классе FrameworkElement следующим образом:
-
-<img align="left" width="270" height="225" src="img/Prop1.png" alt="Пример работы данного кода"/>
+<img src="img/Prop1.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System.Windows;
