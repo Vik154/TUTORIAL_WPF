@@ -82,7 +82,7 @@ __класс RoutedEventArgs:__ <br>
 
 ___Пример пузырькового распространение события:___ <br>
 
-<img align="left" width="330" height="330" src="img/Event1.png" alt="Пример работы данного кода"/>
+<img src="img/Event1.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System.Windows;
