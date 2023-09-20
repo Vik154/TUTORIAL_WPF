@@ -37,6 +37,7 @@ public abstract class ButtonBase : ContentControl, ICommandSource {
 
 Подключить обработчики событий можно, как декларативно в разметке xaml, так и программно в коде C#: <br>
 ~~~XAML
+<!-- Обычно имя метода обработчика события имеет вид ИмяЭлемента_ИмяСобытия. -->
 <Button x:Name="MyButton" Click="MyButton_Click" />
 ~~~
 ~~~C#
@@ -44,6 +45,14 @@ public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
         MyButton.Click += MyButton_Click_from_cs;
+        // Или так
+        MyButton.AddHandler(Button.ClickEvent, new RoutedEventHandler(MyButton_Click_from_cs));
+        // Или так
+        MyButton.AddHandler(Button.KeyDownEvent, 
+                    new RoutedEventHandler(
+                        (object s, RoutedEventArgs e) => {
+                            MessageBox.Show($"Source: {(s as Button)?.Name}");
+                    }));
     }
 
     // Обработчик, подключаемый в конструкторе
