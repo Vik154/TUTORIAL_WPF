@@ -126,11 +126,24 @@ public double Height {
                   ,ownerType: typeof(MyClass)                  // Владелец свойства
                   ,typeMetadata: newPropertyMetadata("Empty")  // метаданные содержат -> значение свойства *по умолчанию*
                   ,validateValueCallback: IsNameValid);        // функция обратного вызова ValidateValueCallback
-      }
-    }
+       }
+
+      // Проверка на null
+      private static boolIsNameValid(object name) {
+          return!string.IsNullOrEmpty(name as string);
+       }
+    }  
     ~~~
-3. ывывыв
-4. 
+3. После чего, создаётся экземплярная оболочка свойства. Аксессор и мутатор оболочки должны использовать методы класса DependencyObject.GetValue() и SetValue() для чтения и установки значения свойства зависимостей. Дополнительную работу в аксессоре и мутаторе выполнять не рекомендуется, так как некоторые классы WPF могут обращаться к свойству зависимостей, минуя экземплярную оболочку.
+    ~~~C#
+    public class MyClass: DependencyObject {
+        public string Name {
+            get { return (string)GetValue(NameProperty); }
+            set { SetValue(NameProperty, value); }
+        }
+    } 
+    ~~~
+5. 
 
 
 
