@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_Resources", "01_Resources\01_Resources.csproj", "{EF40C0B4-6421-40B4-B7D9-1C193AE7D076}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_Resources", "01_Resources\01_Resources.csproj", "{EF40C0B4-6421-40B4-B7D9-1C193AE7D076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_Styles", "02_Styles\02_Styles.csproj", "{7551A252-8B11-4F23-BE30-0EC4C97FAD32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_Styles", "02_Styles\02_Styles.csproj", "{7551A252-8B11-4F23-BE30-0EC4C97FAD32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_Triggers", "03_Triggers\03_Triggers.csproj", "{68F77F93-09DE-4168-A188-000C1F77F1E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_Triggers", "03_Triggers\03_Triggers.csproj", "{68F77F93-09DE-4168-A188-000C1F77F1E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_Binding", "04_Binding\04_Binding.csproj", "{619EE95B-D54D-4D58-B3A2-9121B0F77465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04_Binding", "04_Binding\04_Binding.csproj", "{619EE95B-D54D-4D58-B3A2-9121B0F77465}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_DependencyProperty", "05_DependencyProperty\05_DependencyProperty.csproj", "{DC2C419A-5E02-4134-AC59-8F67AC236609}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_DependencyProperty", "05_DependencyProperty\05_DependencyProperty.csproj", "{DC2C419A-5E02-4134-AC59-8F67AC236609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_Events", "06_Events\06_Events.csproj", "{38471BB7-6EBD-4640-9B46-684C4CB1BDC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{DC2C419A-5E02-4134-AC59-8F67AC236609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC2C419A-5E02-4134-AC59-8F67AC236609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC2C419A-5E02-4134-AC59-8F67AC236609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38471BB7-6EBD-4640-9B46-684C4CB1BDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38471BB7-6EBD-4640-9B46-684C4CB1BDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38471BB7-6EBD-4640-9B46-684C4CB1BDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38471BB7-6EBD-4640-9B46-684C4CB1BDC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
