@@ -73,7 +73,7 @@ MyButton.RemoveHandler(Button.ClickEvent, new RoutedEventHandler(MyButton_Click_
 __класс RoutedEventArgs:__ <br>
 *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.routedeventargs?view=windowsdesktop-7.0* <br>
 
-Все маршрутизируемые события используют класс RoutedEventArgs (или его наследников), который представляет доступ к следующим свойствам:
+Все маршрутизируемые события используют класс RoutedEventArgs, который содержит следующие свойства:
 
 **Source** - Получает или задает ссылку на объект, создавший событие (источник события). <br>
 **OriginalSource** - Указывает, какой объект первоначально сгенерировал событие (обычно то же самое, что и Source). <br>
