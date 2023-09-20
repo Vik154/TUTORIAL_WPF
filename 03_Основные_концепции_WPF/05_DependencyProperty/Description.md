@@ -121,7 +121,7 @@ public double Height {
       static MyClass() {
           NameProperty =
               DependencyProperty.Register(
-                  name: "Name"                                // Имя свойста
+                  name: "Name"                                 // Имя свойста
                   ,propertyType: typeof(string)                // Тип свойства
                   ,ownerType: typeof(MyClass)                  // Владелец свойства
                   ,typeMetadata: newPropertyMetadata("Empty")  // метаданные содержат -> значение свойства *по умолчанию*
@@ -130,7 +130,7 @@ public double Height {
 
       // Проверка на null
       private static boolIsNameValid(object name) {
-          return!string.IsNullOrEmpty(name as string);
+          return !string.IsNullOrEmpty(name as string);
        }
     }  
     ~~~
@@ -147,8 +147,6 @@ public double Height {
 <hr>
 
 ___Пример создания свойств:___ <br>
-
-<img src="img/Prop1.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System.Windows;
@@ -250,6 +248,7 @@ class DependencyPerson1 : DependencyObject {
 </Window>
 ~~~
 
+<img src="img/Prop1.png" alt="Пример работы данного кода"/>
 
 
 
