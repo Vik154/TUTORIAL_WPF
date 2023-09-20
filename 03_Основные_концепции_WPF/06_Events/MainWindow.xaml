@@ -6,7 +6,33 @@
         xmlns:local="clr-namespace:_06_Events"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
+            <TextBlock x:Name="textBlockInfo" TextWrapping="Wrap"
+                       Padding="5" Background="AliceBlue"
+                       FontSize="14">
+            </TextBlock>
+        </ScrollViewer>
+
+        <StackPanel Background="AliceBlue" MouseUp="Bubble_MouseUp">
+            <Label Margin="30" HorizontalAlignment="Center"
+                   BorderBrush="DarkGreen" BorderThickness="10"
+                   MouseUp="Bubble_MouseUp">
+                <TextBlock Margin="30" Text="Текст блок" FontSize="18"
+                           Background="Aqua" HorizontalAlignment="Center"
+                           MouseUp="Bubble_MouseUp">
+                    <Rectangle Height="100" Width="100" Margin="20"
+                               HorizontalAlignment="Center"
+                               Fill="Bisque" MouseUp="Bubble_MouseUp">
+                    </Rectangle>
+                </TextBlock>
+            </Label>
+        </StackPanel>
+    
     </Grid>
 </Window>

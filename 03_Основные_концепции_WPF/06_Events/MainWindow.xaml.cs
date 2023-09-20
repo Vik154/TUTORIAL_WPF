@@ -13,13 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _06_Events {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            InitializeComponent();
-        }
+namespace _06_Events; 
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+
+    }
+
+
+    private void Bubble_MouseUp(object sender, MouseButtonEventArgs e) {
+        textBlockInfo.Text += new string('*', 50) + $"\nОбъект: {sender} \n" +
+            $"Источник: {e.Source} \nНачальный источник: {e.OriginalSource}\n";
     }
 }
