@@ -60,7 +60,11 @@ public partial class MainWindow : Window {
 }
 ~~~
 
-
+Если понадобится открепить обработчик события, то это можно сделать только в коде с помощью операции **-=** или UIElement.RemoveHandler(): <br>
+~~~C#
+MyButton.Click -= MyButton_Click_from_cs;    // Или так
+MyButton.RemoveHandler(Button.ClickEvent, new RoutedEventHandler(MyButton_Click_from_cs));
+~~~
 
 
 
