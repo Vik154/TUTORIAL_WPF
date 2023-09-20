@@ -124,7 +124,7 @@ public double Height {
                   name: "Name"                                // Имя свойста
                   ,propertyType: typeof(string)                // Тип свойства
                   ,ownerType: typeof(MyClass)                  // Владелец свойства
-                  ,typeMetadata: newPropertyMetadata("Empty")  // метаданные содержат --> значение свойства """по умолчанию"""
+                  ,typeMetadata: newPropertyMetadata("Empty")  // метаданные содержат -> значение свойства *по умолчанию*
                   ,validateValueCallback: IsNameValid);        // функция обратного вызова ValidateValueCallback
       }
     }
