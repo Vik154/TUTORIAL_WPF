@@ -7,7 +7,49 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="480" Width="720">
 
+    <!--События мыши-->
     <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Visible">
+            <TextBlock x:Name="txtBlockInfo" Grid.Column="1"
+                       Background="AliceBlue" Margin="5" Padding="5">
+            </TextBlock>
+        </ScrollViewer>
+
+
+        <StackPanel Background="AliceBlue" Margin="5">
+            <Button Margin="5" Content="Очистить" Background="Bisque"
+                    Width="100" HorizontalAlignment="Right" FontSize="16"
+                    Click="ButtonClear_Click"/>
+
+            <Ellipse x:Name="testEvent" Margin="25" Width="250"
+                     Height="200" Fill="Bisque"
+                     MouseDown="testEvent_MouseDown"
+                     MouseUp="testEvent_MouseUp"
+                     MouseEnter="testEvent_MouseEnter"
+                     MouseLeave="testEvent_MouseLeave"
+                     MouseLeftButtonDown="testEvent_MouseLeftButtonDown"
+                     MouseLeftButtonUp="testEvent_MouseLeftButtonUp"
+                     MouseMove="testEvent_MouseMove"
+                     PreviewMouseDown="testEvent_PreviewMouseDown"
+                     PreviewMouseUp="testEvent_PreviewMouseUp"
+                     />
+            <Label x:Name="labelCoord" Margin="10" Background="Beige"
+                   FontSize="16" FontWeight="Bold"></Label>
+        </StackPanel>
+
+        
+    </Grid>
+
+
+
+    <!--События клавиатуры-->
+    <!--<Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -73,7 +115,7 @@
                       Click="Check_Click"
                       />
         </StackPanel>
-    </Grid>
+    </Grid>-->
     
     
     
