@@ -392,3 +392,87 @@ ___События клавиатурного ввода:___ <br>
         </tbody>
     </table>
 </div>
+
+___Пример работы событий клавиатуры:___ <br>
+
+<img align="center" src="img/Event4.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window x:Class="_06_Events.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_06_Events"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="480" Width="720">
+
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Введите символ:" FontSize="16"
+                   Margin="5,5,10,5" FontWeight="Bold">
+            </Label>
+            <TextBox x:Name="txtBox" Margin="10,5,5,5" Padding="3" 
+                     MinWidth="400" MaxWidth="400" FontSize="16"
+                     BorderBrush="DarkBlue" HorizontalAlignment="Stretch"
+                     PreviewKeyDown="textBox_KeyEvent"
+                     KeyDown="textBox_KeyEvent"
+                     PreviewKeyUp="textBox_KeyEvent"
+                     KeyUp="textBox_KeyEvent"
+                     PreviewTextInput="textBox_PreviewTextInput">
+            </TextBox>
+            <Button Background="Beige" Content="Очистить"
+                    FontSize="14" FontWeight="Bold" FontStyle="Italic"
+                    Margin="5" Padding="5"
+                    Click="ClearButton_Click"
+                />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible">
+            <TextBlock x:Name="txtBlockInfo" Grid.Row="1" FontSize="14"
+                   Margin="5" Padding="3" Background="AliceBlue">
+            </TextBlock>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Background="AliceBlue">
+            <StackPanel.Resources>
+                <Style TargetType="CheckBox">
+                    <Setter Property="Margin"    Value="5"/>
+                    <Setter Property="FontSize"  Value="14"/>
+                    <Setter Property="IsTabStop" Value="False"/>
+                    <Setter Property="IsThreeState" Value="False"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <CheckBox Name="checkIgnoreRepeat"
+                      Content="Игнорировать автогенерацию клавиш" 
+                      IsChecked="True" 
+                      Click="Check_Click"
+                      />
+            <CheckBox Name="checkIgnorePreviewTextInput"
+                      Content="Игнорировать событие PreviewTextInput" 
+                      IsChecked="True" 
+                      Click="Check_Click"
+                      />
+            <CheckBox Name="checkIgnoreSymbol"
+                      Content="Запретить в TextBox нечисловые клавиши" 
+                      Click="Check_Click"
+                      />
+            <CheckBox Name="checkIgnoreOther"
+                      Content="Запретить в TextBox некоторые клавиши" 
+                      Click="Check_Click"
+                      />
+            <CheckBox Name="checkConvertNumber"
+                      Content="Конвертировать вывод цифровых клавиш" 
+                      Click="Check_Click"
+                      />
+        </StackPanel>
+    </Grid>
+</Window>
+~~~
