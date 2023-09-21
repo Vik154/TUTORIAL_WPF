@@ -5,19 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_06_Events"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid ShowGridLines="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow" Height="480" Width="720">
 
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Введите символ:" FontSize="16"
+                   Margin="5,5,10,5" FontWeight="Bold">
+            </Label>
+            <TextBox x:Name="txtBox" Margin="10,5,5,5" Padding="3" 
+                     MinWidth="400" MaxWidth="400" FontSize="16"
+                     BorderBrush="DarkBlue" HorizontalAlignment="Stretch"
+                     PreviewKeyDown="textBox_KeyEvent"
+                     KeyDown="textBox_KeyEvent"
+                     PreviewKeyUp="textBox_KeyEvent"
+                     KeyUp="textBox_KeyEvent"
+                     PreviewTextInput="textBox_PreviewTextInput">
+            </TextBox>
+            <Button Background="Beige" Content="Очистить"
+                    FontSize="14" FontWeight="Bold" FontStyle="Italic"
+                    Margin="5" Padding="5"
+                    Click="ClearButton_Click"
+                />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible">
+            <TextBlock x:Name="txtBlockInfo" Grid.Row="1" FontSize="14"
+                   Margin="5" Padding="3" Background="AliceBlue">
+            </TextBlock>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Background="AliceBlue">
+            <StackPanel.Resources>
+                <Style TargetType="CheckBox">
+                    <Setter Property="Margin"    Value="5"/>
+                    <Setter Property="FontSize"  Value="14"/>
+                    <Setter Property="IsTabStop" Value="False"/>
+                    <Setter Property="IsThreeState" Value="False"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <CheckBox Name="checkIgnoreRepeat"
+                      Content="Игнорировать автогенерацию клавиш" 
+                      IsChecked="True" 
+                      Click="Check_Click"
+                      />
+            <CheckBox Name="checkIgnorePreviewTextInput"
+                      Content="Игнорировать событие PreviewTextInput" 
+                      IsChecked="True" 
+                      Click="Check_Click"
+                      />
+            <CheckBox Name="checkIgnoreSymbol"
+                      Content="Запретить в TextBox нечисловые клавиши" 
+                      Click="Check_Click"
+                      />
+            <CheckBox Name="checkIgnoreOther"
+                      Content="Запретить в TextBox некоторые клавиши" 
+                      Click="Check_Click"
+                      />
+            <CheckBox Name="checkConvertNumber"
+                      Content="Конвертировать вывод цифровых клавиш" 
+                      Click="Check_Click"
+                      />
+        </StackPanel>
+    </Grid>
+    
+    
+    
+    <!--<Grid ShowGridLines="True">
+        --><!--<Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>-->
+
+        <!--<ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
             <TextBlock x:Name="textBlockInfo" TextWrapping="Wrap"
                        Padding="5" Background="AliceBlue"
                        FontSize="14">
             </TextBlock>
-        </ScrollViewer>
+        </ScrollViewer>-->
 
         <!--<StackPanel Background="AliceBlue" MouseUp="Bubble_MouseUp">
             <Label Margin="30" HorizontalAlignment="Center"
@@ -35,7 +106,7 @@
         </StackPanel>-->
 
         <!-- Туннельные события -->
-        <StackPanel Background="AliceBlue" PreviewMouseUp="Tunnel_MouseUp">
+        <!--<StackPanel Background="AliceBlue" PreviewMouseUp="Tunnel_MouseUp">
             <Label Margin="30" HorizontalAlignment="Center"
                    BorderBrush="DarkGreen" BorderThickness="10"
                    PreviewMouseUp="Tunnel_MouseUp">
@@ -48,7 +119,7 @@
                     </Rectangle>
                 </TextBlock>
             </Label>
-        </StackPanel>
+        </StackPanel>--><!--
 
-    </Grid>
+    </Grid>-->
 </Window>
