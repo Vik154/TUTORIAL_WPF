@@ -239,6 +239,7 @@ WPF обычно определяет события попарно. Это оз
 *MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/advanced/events-wpf?view=netframeworkdesktop-4.8&viewFallbackFrom=netdesktop-7.0* <br>
 *Источник: https://professorweb.ru/my/WPF/base_WPF/level5/5_7.php* <br>
 *Источник: https://intuit.ru/studies/courses/596/452/lecture/10117?page=1* <br>
+*Источник: https://metanit.com/sharp/wpf/6.2.php* <br>
 
 *Стандартные события WPF делятся на несколько групп: <br>*
 
@@ -392,6 +393,14 @@ ___События клавиатурного ввода:___ <br>
         </tbody>
     </table>
 </div>
+
+Большинство событий клавиатуры (KeyUp/PreviewKeyUp, KeyDown/PreviewKeyDown) принимает в качестве аргумента объект KeyEventArgs, у которого можно отметить следующие свойства:
+* __Key__ - позволяет получить нажатую или отпущенную клавишу.
+* __SystemKey__ - позволяет узнать, нажата ли системная клавиша, например, Alt.
+* __KeyboardDevice__ - получает объект KeyboardDevice, представляющее устройство клавиатуры.
+* __IsRepeat__ - указывает, что клавиша удерживается в нажатом положении.
+* __IsUp/IsDown__ - указывает, была ли клавиша нажата или отпущена.
+* __IsToggled__ - указывает, была ли клавиша включена - относится только к включаемым клавишам Caps Lock, Scroll Lock, Num Lock.
 
 ___Пример работы событий клавиатуры:___ <br>
 
