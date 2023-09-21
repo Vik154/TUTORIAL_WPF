@@ -19,7 +19,7 @@
             </TextBlock>
         </ScrollViewer>
 
-        <StackPanel Background="AliceBlue" MouseUp="Bubble_MouseUp">
+        <!--<StackPanel Background="AliceBlue" MouseUp="Bubble_MouseUp">
             <Label Margin="30" HorizontalAlignment="Center"
                    BorderBrush="DarkGreen" BorderThickness="10"
                    MouseUp="Bubble_MouseUp">
@@ -32,7 +32,23 @@
                     </Rectangle>
                 </TextBlock>
             </Label>
+        </StackPanel>-->
+
+        <!-- Туннельные события -->
+        <StackPanel Background="AliceBlue" PreviewMouseUp="Tunnel_MouseUp">
+            <Label Margin="30" HorizontalAlignment="Center"
+                   BorderBrush="DarkGreen" BorderThickness="10"
+                   PreviewMouseUp="Tunnel_MouseUp">
+                <TextBlock Margin="30" Text="Текст блок" FontSize="18"
+                           Background="Aqua" HorizontalAlignment="Center"
+                           PreviewMouseUp="Tunnel_MouseUp">
+                    <Rectangle Height="100" Width="100" Margin="20"
+                               HorizontalAlignment="Center"
+                               Fill="Bisque" PreviewMouseUp="Tunnel_MouseUp">
+                    </Rectangle>
+                </TextBlock>
+            </Label>
         </StackPanel>
-    
+
     </Grid>
 </Window>
