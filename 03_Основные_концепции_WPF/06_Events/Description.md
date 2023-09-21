@@ -219,5 +219,12 @@ ___Пример прикрепляемого события:___ <br>
 MyStackPanel.AddHandler(Button.Click, new RoutedEventHandler(DoSomething));
 ~~~
 
+#### Попарное определение событий:
+WPF обычно определяет события попарно. Это означает, что если имеется пузырьковое событие MouseUp, то, скорее всего, существует и туннелируемое событие PreviewMouseUp. Туннелируемые событие всегда возникает перед пузырьковым событием, как показано на рисунке: <br>
+> ***Источник: https://professorweb.ru/my/WPF/base_WPF/level5/5_6.php*** <br>
+
+<img align="center" src="img/Event3.png" alt="Пример работы данного кода"/>
+
+
 
 
