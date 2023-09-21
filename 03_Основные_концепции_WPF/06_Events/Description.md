@@ -342,4 +342,53 @@ ___События жизни окна:___ <br>
     </table>
 </div>
 
+<hr>
 
+#### Обработка событий клавиатуры:
+___События клавиатурного ввода:___ <br>
+
+<div>
+    <table>
+        <tbody>
+            <tr>
+                <th><b><i>Событие</i></b></th>
+                <th><b><i>Стратегия маршрутизации</i></b></th>
+                <th><b><i>Описание</i></b></th>
+            </tr>
+            <tr>
+                <td valign="top"><b>PreviewKeyDown</b></td>
+                <td valign="top"><b>Tunnel</b></td>
+                <td valign="top">Происходит при нажатии</td>
+            </tr>
+            <tr>
+                <td valign="top"><b>KeyDown</b></td>
+                <td valign="top"><b>Bubble</b></td>
+                <td valign="top">Происходит при нажатии</td>
+            </tr>
+            <tr>
+                <td valign="top"><b>PreviewTextInput</b></td>
+                <td valign="top"><b>Tunnel</b></td>
+                <td valign="top">
+                    Происходит для символьных клавиш, когда нажатие завершено и элемент получил символ
+                </td>
+            </tr>
+            <tr>
+                <td valign="top"><b>TextInput</b></td>
+                <td valign="top"><b>Bubble</b></td>
+                <td valign="top">
+                    Происходит для символьных клавиш, когда нажатие завершено и элемент получил символ
+                </td>
+            </tr>
+            <tr>
+                <td valign="top"><b>PreviewKeyUp</b></td>
+                <td valign="top"><b>Tunnel</b></td>
+                <td valign="top">Происходит при отпускании</td>
+            </tr>
+            <tr>
+                <td valign="top"><b>KeyUp</b></td>
+                <td valign="top"><b>Bubble</b></td>
+                <td valign="top">Происходит при отпускании</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
