@@ -580,7 +580,7 @@ public partial class MainWindow : Window {
 ___События клавиатурного ввода:___ <br>
 
 *MSDN: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/input-overview?view=netframeworkdesktop-4.8* <br>
-*Источник 1: https://metanit.com/sharp/wpf/6.3.php*
+*Источник 1: https://metanit.com/sharp/wpf/6.3.php* <br>
 *Источник 2: https://intuit.ru/studies/courses/596/452/lecture/10117?page=2*
 
 В классе любого элемента управления WPF предусмотрено достаточно событий для программного реагирования на действия мышью со стороны пользователя. Все такие события имеют информативные названия со вставкой Mouse, например: <br>
@@ -595,11 +595,6 @@ ___События клавиатурного ввода:___ <br>
 
 <div>
 <table class="tab">
-<colgroup>
-    <col style="width: 150">
-    <col style="width: 250">
-<colgroup>
-
 <tbody><tr class="tabhead"><td><p>Событие</p></td><td><p>Тип события</p></td><td><p>Описание</p></td></tr>
 <tr><td><p><span class="b">GotMouseCapture</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при получении фокуса с помощью мыши</p></td></tr>
 <tr><td><p><span class="b">LostMouseCapture</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при потере фокуса с помощью мыши</p></td></tr>
