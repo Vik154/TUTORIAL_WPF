@@ -663,3 +663,121 @@ ___События клавиатурного ввода:___ <br>
         </tbody>
     </table>
 </div>
+
+___Пример работы событий мыши:___ <br>
+
+<img align="center" src="img/Event5.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window x:Class="_06_Events.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_06_Events"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="480" Width="720">
+
+    <!--События мыши-->
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Visible">
+            <TextBlock x:Name="txtBlockInfo" Grid.Column="1"
+                       Background="AliceBlue" Margin="5" Padding="5">
+            </TextBlock>
+        </ScrollViewer>
+
+        <StackPanel Background="AliceBlue" Margin="5">
+            <Button Margin="5" Content="Очистить" Background="Bisque"
+                    Width="100" HorizontalAlignment="Right" FontSize="16"
+                    Click="ButtonClear_Click"/>
+
+            <Ellipse x:Name="testEvent" Margin="25" Width="250"
+                     Height="200" Fill="Bisque"
+                     MouseDown="testEvent_MouseDown"
+                     MouseUp="testEvent_MouseUp"
+                     MouseEnter="testEvent_MouseEnter"
+                     MouseLeave="testEvent_MouseLeave"
+                     MouseLeftButtonDown="testEvent_MouseLeftButtonDown"
+                     MouseLeftButtonUp="testEvent_MouseLeftButtonUp"
+                     MouseMove="testEvent_MouseMove"
+                     PreviewMouseDown="testEvent_PreviewMouseDown"
+                     PreviewMouseUp="testEvent_PreviewMouseUp"
+                     />
+            <Label x:Name="labelCoord" Margin="10" Background="Beige"
+                   FontSize="16" FontWeight="Bold"></Label>
+        </StackPanel>     
+    </Grid>
+</Window>
+~~~
+
+~~~C#
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+
+namespace _06_Events;
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+    }
+    
+    int counter = 0;
+
+    private void ButtonClear_Click(object sender, RoutedEventArgs e) {
+        txtBlockInfo.Text = string.Empty;
+    }
+
+    private void testEvent_MouseDown(object sender, MouseButtonEventArgs e) {
+        txtBlockInfo.Text += $"\n{++counter} Событие: MouseDown - Поднимающееся\n" +
+            $"Нажата кнопка мыши: {e.ChangedButton}; Кол-во нажатий: {e.ClickCount}\n";
+    }
+
+    private void testEvent_MouseEnter(object sender, MouseEventArgs e) {
+        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Прямое\n" +
+            $"Курсор попал в поле элемента \n";
+
+    }
+
+    private void testEvent_MouseLeave(object sender, MouseEventArgs e) {
+        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Прямое\n" +
+            $"Курсор вышел за пределы элемента\n"; 
+    }
+
+    private void testEvent_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Поднимающееся\n" +
+            $"Нажата левая кнопка мыши\n";
+    }
+
+    private void testEvent_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
+        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Поднимающееся\n" +
+            $"Отпущена левая кнопка мыши\n";
+    }
+
+    private void testEvent_MouseMove(object sender, MouseEventArgs e) {
+        labelCoord.Content = $"X: {e.GetPosition(this).X}; Y: {e.GetPosition(this).Y}";
+    }
+
+    private void testEvent_MouseUp(object sender, MouseButtonEventArgs e) {
+        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
+            $"Поднимающееся\n Кнопка мыши отпущена\n";
+    }
+
+    private void testEvent_PreviewMouseDown(object sender, MouseButtonEventArgs e) {
+        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
+            $"Прямое\n Кнопка мыши нажата\n";
+    }
+
+    private void testEvent_PreviewMouseUp(object sender, MouseButtonEventArgs e) {
+        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
+            $"Прямое\n Кнопка мыши отпущена\n";
+    }
+}
+~~~
