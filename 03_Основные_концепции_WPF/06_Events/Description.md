@@ -596,9 +596,9 @@ ___События клавиатурного ввода:___ <br>
 <table>
     <tbody>
         <tr>
-            <td valign="top"><b>Событие</b></td>
-            <td valign="top"><b>Тип события</b></td>
-            <td valign="top"><b>Описание</b></td>
+            <td valign="top"><b>Событие</b>25%</td>
+            <td valign="top"><b>Тип события</b>25%</td>
+            <td valign="top"><b>Описание</b>50%</td>
         </tr>
         <tr>
             <td>GotMouseCapture</td>
