@@ -611,7 +611,7 @@ ___События клавиатурного ввода:___ <br>
                 <td><p>Возникает при вхождении / выхождении указателя мыши в пределы и за пределы элемента</p></td>
             </tr>
             <tr>
-                <td>MouseLeftButtonDown<b>MouseLeftButtonUp</td>
+                <td>MouseLeftButtonDown<br>MouseLeftButtonUp</td>
                 <td><p>Поднимающееся</p></td>
                 <td><p>Возникает при нажатии / отпускании левой кнопки мыши</p></td>
             </tr>
@@ -620,23 +620,46 @@ ___События клавиатурного ввода:___ <br>
                 <td><p>Поднимающееся</p></td>
                 <td><p>Возникает при нажатии / отпускании правой кнопки мыши</p></td>
             </tr>
-
-            
-<tr><td><p><span class="b">PreviewMouseLeftButtonDown</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при нажатии левой кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">PreviewMouseLeftButtonUp</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при освобождении левой кнопки мыши</p></td></tr>
-
-
-<tr><td><p><span class="b">PreviewMouseRightButtonDown</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при нажатии правой кнопки мыши</p></td></tr>
-
-<tr><td><p><span class="b"></span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при освобождении правой кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">PreviewMouseRightButtonUp</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при освобождении правой кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">MouseDown</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при нажатии кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">PreviewMouseDown</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при нажатии кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">MouseUp</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при освобождении кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">PreviewMouseUp</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при освобождении кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">MouseMove</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при передвижении указателя мыши</p></td></tr>
-<tr><td><p><span class="b">PreviewMouseMove</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при передвижении указателя мыши</p></td></tr>
-<tr><td><p><span class="b">MouseWheel</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при передвижении колесика мыши</p></td></tr>
-<tr><td><p><span class="b">PreviewMouseWheel</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при передвижении колесика мыши</p></td></tr>
-</tbody></table>
+            <tr>
+                <td>MouseDown<br>MouseUp</td>
+                <td><p>Поднимающееся</p></td>
+                <td><p>Возникает при нажатии / отпускании кнопки мыши</p></td>
+            </tr>
+            <tr>
+                <td>MouseMove</td>
+                <td><p>Поднимающееся</p></td>
+                <td><p>Возникает при передвижении указателя мыши</p></td>
+            </tr>
+            <tr>
+                <td>MouseWheel</td>
+                <td><p>Поднимающееся</p></td>
+                <td><p>Возникает при передвижении колесика мыши</p></td>
+            </tr>
+            <tr>
+                <td>PreviewMouseLeftButtonDown<br>PreviewMouseLeftButtonUp</td>
+                <td><p>Прямое</p></td>
+                <td><p>Возникает при нажатии / отпускании левой кнопки мыши</p></td>
+            </tr>
+            <tr>
+                <td>PreviewMouseRightButtonDown<br>PreviewMouseRightButtonUp</td>
+                <td>Прямое</td>
+                <td><p>Возникает при нажатии / отпускании правой кнопки мыши</p></td>
+            </tr>
+            <tr>
+                <td>PreviewMouseDown<br>PreviewMouseUp</td>
+                <td><p>Туннельное</p></td>
+                <td><p>Возникает при нажатии / освобождении кнопки мыши</p></td>
+            </tr>
+            <tr>
+                <td>PreviewMouseMove</td>
+                <td><p>Туннельное</p></td>
+                <td><p>Возникает при передвижении указателя мыши</p></td>
+            </tr>
+            <tr>
+                <td>PreviewMouseWheel</td>
+                <td><p>Туннельное</p></td>
+                <td><p>Возникает при передвижении колесика мыши</p></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
