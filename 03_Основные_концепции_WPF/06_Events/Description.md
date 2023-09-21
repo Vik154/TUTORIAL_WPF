@@ -593,12 +593,12 @@ ___События клавиатурного ввода:___ <br>
 Разновидности событий мыши в WPF: <br>
 
 <div>
-<table>
+<table width="100%">
     <tbody>
         <tr>
-            <td valign="top"><b>Событие</b>25%</td>
-            <td valign="top"><b>Тип события</b>25%</td>
-            <td valign="top"><b>Описание</b>50%</td>
+            <td width="25%" valign="top"><b>Событие</b>25%</td>
+            <td width="25%" valign="top"><b>Тип события</b>25%</td>
+            <td width="50%" valign="top"><b>Описание</b>50%</td>
         </tr>
         <tr>
             <td>GotMouseCapture</td>
