@@ -592,17 +592,18 @@ ___События клавиатурного ввода:___ <br>
 
 Разновидности событий мыши в WPF: <br>
 
-<style>
-tab {
-    width: auto;
-    max-width: 99%;
-    clear: both;
-    background-color: var(--tab-bgcolor);
-    border-collapse: collapse;
-}
-</style>
+
 
 <table class="tab">
+    <style>
+    tab {
+        width: auto;
+        max-width: 99%;
+        clear: both;
+        background-color: var(--tab-bgcolor);
+        border-collapse: collapse;
+    }
+</style>
 <tbody><tr class="tabhead"><td><p>Событие</p></td><td><p>Тип события</p></td><td><p>Описание</p></td></tr>
 <tr><td><p><span class="b">GotMouseCapture</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при получении фокуса с помощью мыши</p></td></tr>
 <tr><td><p><span class="b">LostMouseCapture</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при потере фокуса с помощью мыши</p></td></tr>
