@@ -596,8 +596,8 @@ ___События клавиатурного ввода:___ <br>
 <div>
 <table class="tab">
 <colgroup>
-    <col style="width: 50%">
-    <col style="width: 50%">
+    <col style="width: 150">
+    <col style="width: 250">
 <colgroup>
 
 <tbody><tr class="tabhead"><td><p>Событие</p></td><td><p>Тип события</p></td><td><p>Описание</p></td></tr>
