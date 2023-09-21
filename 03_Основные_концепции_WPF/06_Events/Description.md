@@ -137,3 +137,63 @@ public partial class MainWindow : Window {
     </Grid>
 </Window>
 ~~~
+
+___Пример туннельного распространение события:___ <br>
+*Туннельные события действуют противоположо пузырьковым событиям, они генерируются в корневом элементе, затем в каждом дочернем элементе, пока не достигнут элемента-источника. Как правило, все они начинаются со слова Preview.*
+
+<img align="center" width="1200" src="img/Event2.png" alt="Пример работы данного кода"/>
+
+~~~C#
+using System.Windows;
+using System.Windows.Input;
+
+namespace _06_Events;
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+    }
+    int i = 0;
+
+    private void Tunnel_MouseUp(object sender, MouseButtonEventArgs e) {
+        ++i;
+        textBlockInfo.Text += new string('*', 50) + $"\n{i}. \nОбъект: {sender} \n" +
+            $"Источник: {e.Source} \nНачальный источник: {e.OriginalSource}\n";
+    }
+}
+~~~
+
+~~~XAML
+<Window ...VS>
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
+            <TextBlock x:Name="textBlockInfo" TextWrapping="Wrap"
+                       Padding="5" Background="AliceBlue"
+                       FontSize="14">
+            </TextBlock>
+        </ScrollViewer>
+
+        <!-- Туннельные события -->
+        <StackPanel Background="AliceBlue" PreviewMouseUp="Tunnel_MouseUp">
+            <Label Margin="30" HorizontalAlignment="Center"
+                   BorderBrush="DarkGreen" BorderThickness="10"
+                   PreviewMouseUp="Tunnel_MouseUp">
+                <TextBlock Margin="30" Text="Текст блок" FontSize="18"
+                           Background="Aqua" HorizontalAlignment="Center"
+                           PreviewMouseUp="Tunnel_MouseUp">
+                    <Rectangle Height="100" Width="100" Margin="20"
+                               HorizontalAlignment="Center"
+                               Fill="Bisque" PreviewMouseUp="Tunnel_MouseUp">
+                    </Rectangle>
+                </TextBlock>
+            </Label>
+        </StackPanel>
+
+    </Grid>
+</Window>
+~~~
