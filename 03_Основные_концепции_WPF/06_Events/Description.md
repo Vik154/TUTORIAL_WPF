@@ -575,3 +575,61 @@ public partial class MainWindow : Window {
     }
 }
 ~~~
+
+#### Обработка событий мыши:
+___События клавиатурного ввода:___ <br>
+
+*MSDN: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/input-overview?view=netframeworkdesktop-4.8* <br>
+*Источник 1: https://metanit.com/sharp/wpf/6.3.php*
+*Источник 2: https://intuit.ru/studies/courses/596/452/lecture/10117?page=2*
+
+В классе любого элемента управления WPF предусмотрено достаточно событий для программного реагирования на действия мышью со стороны пользователя. Все такие события имеют информативные названия со вставкой Mouse, например: <br>
+*PreviewMouseDown, MouseDown, PreviewMouseUp, MouseUp, PreviewMouseMove, MouseMove, PreviewMouseWheel, MouseWheel и т.д.* <br>
+
+Большинство событий унаследовано интерфейсными элементами WPF от класса UIElement, но часть событий добавлена самостоятельно или другими классами. Так, более поздний в цепочке наследования класс Control добавляет события PreviewMouseDoubleClick и MouseDoubleClick. Всеразличная информация о состоянии мыши передается вместе с событием в обработчик через объект аргумента и может быть из него извлечена. Но также, как и в случае с клавиатурным классом Keyboard, статический класс Mouse следит за состоянием мыши в реальном масштабе времени. <br>
+
+Все события мыши, связанные со щелчками или перемещением, передают объект аргументов MouseButtonEventArgs, наследующий класс MouseEventArgs. В этом объекте содержится информации о текущих координатах курсора, кнопке мыши, которая произвела щелчок (левая/правая/средняя), состоянии кнопки (нажата/отпущена), какой щелчок (одинарный/двойной) и многое другое. Даже если в элементе нет события MouseClick или MouseDoubleClick, его можно легко распознать в обработчике события MouseDown, проанализировав свойство аргумента ( MouseButtonEventArgs e ) как e.ClickCount == 1 (одинарный щелчок) или e.ClickCount == 2 (двойной щелчок).
+
+Разновидности событий мыши в WPF: <br>
+
+<table>
+    <tbody>
+        <tr>
+            <td><b>Событие</b></td>
+            <td><b>Тип события</b></td>
+            <td><b>Описание</b></td>
+        </tr>
+        <tr>
+            <td>GotMouseCapture</td>
+            <td>Поднимающееся</td>
+            <td>Возникает при получении фокуса с помощью мыши</td>
+        </tr>
+<tr><td><p><span class="b">LostMouseCapture</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при потере фокуса с помощью мыши</p></td></tr>
+<tr><td><p><span class="b">MouseEnter</span></p></td><td><p>Прямое</p></td><td><p>Возникает при вхождении указателя мыши в пределы элемента</p></td></tr>
+<tr><td><p><span class="b">MouseLeave</span></p></td><td><p>Прямое</p></td><td><p>Возникает, когда указатель мыши выходит за пределы элемента</p></td></tr>
+<tr><td><p><span class="b">MouseLeftButtonDown</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при нажатии левой кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">PreviewMouseLeftButtonDown</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при нажатии левой кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">MouseLeftButtonUp</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при освобождении левой кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">PreviewMouseLeftButtonUp</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при освобождении левой кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">MouseRightButtonDown</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при нажатии правой кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">PreviewMouseRightButtonDown</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при нажатии правой кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">MouseRightButtonUp</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при освобождении правой кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">PreviewMouseRightButtonUp</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при освобождении правой кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">MouseDown</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при нажатии кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">PreviewMouseDown</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при нажатии кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">MouseUp</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при освобождении кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">PreviewMouseUp</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при освобождении кнопки мыши</p></td></tr>
+<tr><td><p><span class="b">MouseMove</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при передвижении указателя мыши</p></td></tr>
+<tr><td><p><span class="b">PreviewMouseMove</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при передвижении указателя мыши</p></td></tr>
+<tr><td><p><span class="b">MouseWheel</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при передвижении колесика мыши</p></td></tr>
+<tr><td><p><span class="b">PreviewMouseWheel</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при передвижении колесика мыши</p></td></tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
