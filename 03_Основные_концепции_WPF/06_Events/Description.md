@@ -592,10 +592,12 @@ ___События клавиатурного ввода:___ <br>
 
 Разновидности событий мыши в WPF: <br>
 
-
 <div>
-<table class="tab">
-<tbody><tr class="tabhead"><td><p>Событие</p></td><td><p>Тип события</p></td><td><p>Описание</p></td></tr>
+    <table>
+        <tbody>
+            <tr>
+                <td valign="top"><b>Событие</b></td>
+                <td><b>Тип события</b></td><td><p>Описание</p></td></tr>
 <tr><td><p><span class="b">GotMouseCapture</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при получении фокуса с помощью мыши</p></td></tr>
 <tr><td><p><span class="b">LostMouseCapture</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при потере фокуса с помощью мыши</p></td></tr>
 <tr><td><p><span class="b">MouseEnter</span></p></td><td><p>Прямое</p></td><td><p>Возникает при вхождении указателя мыши в пределы элемента</p></td></tr>
