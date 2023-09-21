@@ -601,18 +601,34 @@ ___События клавиатурного ввода:___ <br>
                 <td align="center"><b>Описание</b></td>
             </tr>
             <tr>
-                <td>GotMouseCapture<br>yyyyyyyyyyyyyyyyyyuu</td>
-                <td><p>Поднимающееся</p></td><td><p>Возникает при получении фокуса с помощью мыши</p></td></tr>
-<tr><td><p><span class="b">LostMouseCapture</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при потере фокуса с помощью мыши</p></td></tr>
-<tr><td><p><span class="b">MouseEnter</span></p></td><td><p>Прямое</p></td><td><p>Возникает при вхождении указателя мыши в пределы элемента</p></td></tr>
-<tr><td><p><span class="b">MouseLeave</span></p></td><td><p>Прямое</p></td><td><p>Возникает, когда указатель мыши выходит за пределы элемента</p></td></tr>
-<tr><td><p><span class="b">MouseLeftButtonDown</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при нажатии левой кнопки мыши</p></td></tr>
+                <td>GotMouseCapture<br>LostMouseCapture</td>
+                <td><p>Поднимающееся</p></td>
+                <td><p>Возникает при получении / потери фокуса с помощью мыши</p></td>
+            </tr>
+            <tr>
+                <td>MouseEnter<br>MouseLeave</td>
+                <td><p>Прямое</p></td>
+                <td><p>Возникает при вхождении / выхождении указателя мыши в пределы и за пределы элемента</p></td>
+            </tr>
+            <tr>
+                <td>MouseLeftButtonDown<b>MouseLeftButtonUp</td>
+                <td><p>Поднимающееся</p></td>
+                <td><p>Возникает при нажатии / отпускании левой кнопки мыши</p></td>
+            </tr>
+            <tr>
+                <td>MouseRightButtonDown<br>MouseRightButtonUp</td>
+                <td><p>Поднимающееся</p></td>
+                <td><p>Возникает при нажатии / отпускании правой кнопки мыши</p></td>
+            </tr>
+
+            
 <tr><td><p><span class="b">PreviewMouseLeftButtonDown</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при нажатии левой кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">MouseLeftButtonUp</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при освобождении левой кнопки мыши</p></td></tr>
 <tr><td><p><span class="b">PreviewMouseLeftButtonUp</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при освобождении левой кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">MouseRightButtonDown</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при нажатии правой кнопки мыши</p></td></tr>
+
+
 <tr><td><p><span class="b">PreviewMouseRightButtonDown</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при нажатии правой кнопки мыши</p></td></tr>
-<tr><td><p><span class="b">MouseRightButtonUp</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при освобождении правой кнопки мыши</p></td></tr>
+
+<tr><td><p><span class="b"></span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при освобождении правой кнопки мыши</p></td></tr>
 <tr><td><p><span class="b">PreviewMouseRightButtonUp</span></p></td><td><p>Прямое (но как и при туннельных событиях, событие генерируется на всех контейнерах дерева элементов)</p></td><td><p>Возникает при освобождении правой кнопки мыши</p></td></tr>
 <tr><td><p><span class="b">MouseDown</span></p></td><td><p>Поднимающееся</p></td><td><p>Возникает при нажатии кнопки мыши</p></td></tr>
 <tr><td><p><span class="b">PreviewMouseDown</span></p></td><td><p>Туннельное</p></td><td><p>Возникает при нажатии кнопки мыши</p></td></tr>
