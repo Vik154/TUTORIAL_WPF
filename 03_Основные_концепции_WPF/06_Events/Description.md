@@ -600,6 +600,14 @@ ___События клавиатурного ввода:___ <br>
             <td width="25%" valign="top"><b>Тип события</b>25%</td>
             <td width="50%" valign="top"><b>Описание</b>50%</td>
         </tr>
+    </tbody>
+</table>
+</div>
+
+<hr>
+<hr>
+<hr>
+
         <tr>
             <td>GotMouseCapture</td>
             <td>Поднимающееся</td>
