@@ -184,8 +184,8 @@ public partial class MainWindow : Window {
 * __EditingCommands__ - Команды редактирования документов (AllignCenter, DecreaseFontSize, MoveDownByLine и др.). <br>
   *https://learn.microsoft.com/ru-RU/dotnet/api/system.windows.documents.editingcommands?view=netframework-4.7* <br>
 
-В каждом из приведенных классов команда объявлена как статическое свойство только для чтения типа RoutedUICommand (или RoutedCommand), следовательно при использовании команды создавать экземпляр класса команды не нужно. Команды имеют имена, ассоциируемые с выполняемой задачей, например, Cut, Copy, New и т.д.
-align="left" width="260" height="290"
+В каждом из приведенных классов команда объявлена как статическое свойство только для чтения типа RoutedUICommand (или RoutedCommand), следовательно при использовании команды создавать экземпляр класса команды не нужно. Команды имеют имена, ассоциируемые с выполняемой задачей, например, Cut, Copy, New и т.д. <br>
+
 ___Пример работы со стандартными командами WPF:___ <br>
 
 <img src="img/Command4.png" alt="Пример работы данного кода"/>
