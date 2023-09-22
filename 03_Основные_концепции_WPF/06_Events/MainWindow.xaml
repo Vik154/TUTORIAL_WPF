@@ -7,8 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="480" Width="720">
 
+    <!-- Пользовательские события -->
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MyButton}">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel>
+        <local:MyButton MyClick="newButton_MyClick">Кнопка 1</local:MyButton>
+        <local:MyButton MyClick="newButton_MyClick">Кнопка 2</local:MyButton>
+        <local:MyButton MyClick="newButton_MyClick">Кнопка 3</local:MyButton>
+        <local:MyButton MyClick="newButton_MyClick">Кнопка 4</local:MyButton>
+    </StackPanel>
+
     <!--События мыши-->
-    <Grid ShowGridLines="True">
+    <!--<Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -44,7 +62,7 @@
         </StackPanel>
 
         
-    </Grid>
+    </Grid>-->
 
 
 

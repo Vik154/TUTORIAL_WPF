@@ -9,61 +9,66 @@ public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
     }
-    
-    #region События Мыши
 
-    int counter = 0;
-
-    private void ButtonClear_Click(object sender, RoutedEventArgs e) {
-        txtBlockInfo.Text = string.Empty;
+    private void newButton_MyClick(object sender, RoutedEventArgs e) {
+        MessageBox.Show($"Событие произошло: {e.Source}");
     }
 
-    private void testEvent_MouseDown(object sender, MouseButtonEventArgs e) {
-        txtBlockInfo.Text += $"\n{++counter} Событие: MouseDown - Поднимающееся\n" +
-            $"Нажата кнопка мыши: {e.ChangedButton}; Кол-во нажатий: {e.ClickCount}\n";
-    }
+    //#region События Мыши
 
-    private void testEvent_MouseEnter(object sender, MouseEventArgs e) {
-        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Прямое\n" +
-            $"Курсор попал в поле элемента \n";
+    //int counter = 0;
 
-    }
+    //private void ButtonClear_Click(object sender, RoutedEventArgs e) {
+    //    txtBlockInfo.Text = string.Empty;
+    //}
 
-    private void testEvent_MouseLeave(object sender, MouseEventArgs e) {
-        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Прямое\n" +
-            $"Курсор вышел за пределы элемента\n"; 
+    //private void testEvent_MouseDown(object sender, MouseButtonEventArgs e) {
+    //    txtBlockInfo.Text += $"\n{++counter} Событие: MouseDown - Поднимающееся\n" +
+    //        $"Нажата кнопка мыши: {e.ChangedButton}; Кол-во нажатий: {e.ClickCount}\n";
+    //}
 
-    }
+    //private void testEvent_MouseEnter(object sender, MouseEventArgs e) {
+    //    txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Прямое\n" +
+    //        $"Курсор попал в поле элемента \n";
 
-    private void testEvent_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
-        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Поднимающееся\n" +
-            $"Нажата левая кнопка мыши\n";
-    }
+    //}
 
-    private void testEvent_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
-        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Поднимающееся\n" +
-            $"Отпущена левая кнопка мыши\n";
-    }
+    //private void testEvent_MouseLeave(object sender, MouseEventArgs e) {
+    //    txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Прямое\n" +
+    //        $"Курсор вышел за пределы элемента\n"; 
 
-    private void testEvent_MouseMove(object sender, MouseEventArgs e) {
-        labelCoord.Content = $"X: {e.GetPosition(this).X}; Y: {e.GetPosition(this).Y}";
-    }
+    //}
 
-    private void testEvent_MouseUp(object sender, MouseButtonEventArgs e) {
-        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
-            $"Поднимающееся\n Кнопка мыши отпущена\n";
-    }
+    //private void testEvent_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+    //    txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Поднимающееся\n" +
+    //        $"Нажата левая кнопка мыши\n";
+    //}
 
-    private void testEvent_PreviewMouseDown(object sender, MouseButtonEventArgs e) {
-        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
-            $"Прямое\n Кнопка мыши нажата\n";
-    }
+    //private void testEvent_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
+    //    txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - Поднимающееся\n" +
+    //        $"Отпущена левая кнопка мыши\n";
+    //}
 
-    private void testEvent_PreviewMouseUp(object sender, MouseButtonEventArgs e) {
-        txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
-            $"Прямое\n Кнопка мыши отпущена\n";
-    }
-    #endregion
+    //private void testEvent_MouseMove(object sender, MouseEventArgs e) {
+    //    labelCoord.Content = $"X: {e.GetPosition(this).X}; Y: {e.GetPosition(this).Y}";
+    //}
+
+    //private void testEvent_MouseUp(object sender, MouseButtonEventArgs e) {
+    //    txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
+    //        $"Поднимающееся\n Кнопка мыши отпущена\n";
+    //}
+
+    //private void testEvent_PreviewMouseDown(object sender, MouseButtonEventArgs e) {
+    //    txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
+    //        $"Прямое\n Кнопка мыши нажата\n";
+    //}
+
+    //private void testEvent_PreviewMouseUp(object sender, MouseButtonEventArgs e) {
+    //    txtBlockInfo.Text += $"\n{++counter} Событие: {e.RoutedEvent.Name} - " +
+    //        $"Прямое\n Кнопка мыши отпущена\n";
+    //}
+
+    //#endregion
 
     #region События клавиатуры
     //private void textBox_KeyEvent(object sender, KeyEventArgs e) {
