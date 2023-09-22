@@ -820,7 +820,7 @@ ___Шаги по созданию события:___ <br>
 
 ___Пример создания:___ <br>
 
-<img align="left" width="320" height="425" src="img/Event6.png" alt="Пример работы данного кода"/>
+<img align="left" width="320" height="420" src="img/Event6.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window .................................... VS
