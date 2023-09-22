@@ -170,3 +170,12 @@ public partial class MainWindow : Window {
     <Button Command="New" Content="Help" Width="120" Height="30"/>
 </Window>
 ~~~
+
+#### Встроенные классы команд:
+В WPF содержится множество готовых команд, наиболее часто встречающихся в приложениях. Команды представлены в пространствах имен System.Windows.Input и System.Windows.Documents следующими статическими классами: <br>
+* __ApplicationCommands__ - Общие команды приложения (Close, Copy, Cut, Delete, Find, Help, New, Open, Paste, Print и др.)
+* __ComponentCommands__ - Команды компонентов интерфейса (перемещение и выделения содержимого) (MoveDown, MoveUp и др.)
+MediaCommands
+NavigationCommands
+EditingCommands
+В каждом из приведенных классов команда объявлена как статическое свойство только для чтения типа RoutedUICommand (или RoutedCommand ), следовательно при использовании команды создавать экземпляр класса команды не нужно. Команды имеют имена, ассоциируемые с выполняемой задачей, например, Cut, Copy, New и т.д.
