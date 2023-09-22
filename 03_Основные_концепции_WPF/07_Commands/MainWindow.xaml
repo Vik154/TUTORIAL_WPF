@@ -7,7 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
+    <Window.CommandBindings>
+        <CommandBinding Command="local:MyCommand.Delete" Executed="Delete_Executed"/>
+        <CommandBinding Command="local:MyCommand.Edit"   Executed="Edit_Executed"/>
+    </Window.CommandBindings>
+
     <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="Background" Value="Bisque"/>
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Command="local:MyCommand.Edit" Content="Редактировать Ctrl+E"/>
+            <Button Command="local:MyCommand.Delete" Content="Очистить Ctrl+D"/>
+        </StackPanel>
+        <TextBox x:Name="txt" Margin="5,50" Background="AliceBlue"
+                 TextWrapping="Wrap" IsReadOnly="True">
+        </TextBox>
+    </Grid>
+    
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -26,8 +49,8 @@
             </MenuItem>
         </Menu>
 
-        <!-- ToolBarTray - позволяет динамически перемещать
-             и сдвигать вложенные элементы, менять размеры. -->
+        --><!-- ToolBarTray - позволяет динамически перемещать
+             и сдвигать вложенные элементы, менять размеры. --><!--
         <ToolBarTray Grid.Row="1">
             <ToolBar>
                 <Button Command="New"  Content="New"/>
@@ -50,7 +73,7 @@
                  TextWrapping="Wrap" AcceptsReturn="True"
                  TextChanged="txt_TextChanged"
                  />
-    </Grid>
+    </Grid>-->
     
     
     <!--<Window.CommandBindings>
