@@ -13,6 +13,7 @@ public partial class MainWindow : Window {
         btn.CommandBindings.Add(commandBinding);
     }
 
+    // Обработчик для команды
     private void MyLogical(object sender, ExecutedRoutedEventArgs e) {
         txtInfo.Text += $"Вызвана команда HELP\nИсточник: {e.Source}\n";
     }
