@@ -70,7 +70,7 @@ button_name.Command = ApplicationCommands.New;
 
 Например, после создания кнопки New (Создать), она появляется как затененная и недоступная для щелчка, как будто ее свойство IsEnabled установлено в false:
 
-<img align="left" width="220" height="100" src="img/Command2.png" alt="Пример работы данного кода"/>
+<img align="left" width="220" height="90" src="img/Command2.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ...VS>
