@@ -818,3 +818,64 @@ ___Шаги по созданию события:___ <br>
   }
   ~~~
 
+___Пример создания:___ <br>
+
+<img align="left" src="img/Event6.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window .................................... VS
+        xmlns:local="clr-namespace:_06_Events">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MyButton}">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel>
+        <local:MyButton MyClick="newButton_MyClick">Кнопка 1</local:MyButton>
+        <local:MyButton MyClick="newButton_MyClick">Кнопка 2</local:MyButton>
+        <local:MyButton MyClick="newButton_MyClick">Кнопка 3</local:MyButton>
+        <local:MyButton MyClick="newButton_MyClick">Кнопка 4</local:MyButton>
+    </StackPanel>
+</Window>
+~~~
+
+~~~C#
+using System.Windows;
+using System.Windows.Controls;
+
+namespace _06_Events;
+
+public class MyButton : Button {
+
+    // Создание и регистрация собственного события
+    public static readonly RoutedEvent MyClickEvent =
+                        EventManager.RegisterRoutedEvent(
+                              "MyClick"
+                            , RoutingStrategy.Bubble
+                            , typeof(RoutedEventHandler)
+                            , typeof(MyButton));
+    
+    // Обёртка над свойством CLR
+    public event RoutedEventHandler MyClick {
+        add { AddHandler(MyClickEvent, value); } 
+        remove { RemoveHandler(MyClickEvent, value); } 
+    }
+
+    // Вызывает событие MyClick
+    private void RaiseMyClickEvent() {
+        RoutedEventArgs newEventArgs = new RoutedEventArgs(MyClickEvent);
+        RaiseEvent(newEventArgs);
+    }
+
+    // Переопределение стандартного поведения
+    protected override void OnClick() {
+        RaiseMyClickEvent();
+    }
+}
+~~~
