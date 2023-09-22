@@ -13,6 +13,11 @@ public partial class MainWindow : Window {
         //btn.CommandBindings.Add(commandBinding);
     }
 
+
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e) {
+        MessageBox.Show("Обработчик создан декларативно в XAML");
+    }
+
     // Обработчик для команды
     //private void MyLogical(object sender, ExecutedRoutedEventArgs e) {
     //    txtInfo.Text += $"Вызвана команда HELP\nИсточник: {e.Source}\n";
