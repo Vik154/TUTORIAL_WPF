@@ -7,18 +7,66 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Command="New"/>
+                <MenuItem Command="Open"/>
+                <MenuItem Command="Save"/>
+                <MenuItem Command="SaveAs"/>
+                <Separator/>
+                <MenuItem Command="Close"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- ToolBarTray - позволяет динамически перемещать
+             и сдвигать вложенные элементы, менять размеры. -->
+        <ToolBarTray Grid.Row="1">
+            <ToolBar>
+                <Button Command="New"  Content="New"/>
+                <Button Command="Open" Content="Open"/>
+                <Button Command="Save" Content="Save"/>
+            </ToolBar>
+
+            <ToolBar>
+                <Button Command="Copy"  Content="Copy"/>
+                <Button Command="Paste" Content="Paste"/>
+                <Button Command="Cut"   Content="Cut"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <TextBox x:Name="txt1" Grid.Row="2" Margin="10"
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 TextChanged="txt_TextChanged"
+                 />
+        <TextBox x:Name="txt2" Grid.Row="3" Margin="10"
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 TextChanged="txt_TextChanged"
+                 />
+    </Grid>
+    
+    
+    <!--<Window.CommandBindings>
         <CommandBinding Command="New" Executed="CommandBinding_Executed"/>
     </Window.CommandBindings>
     
     <Grid>
         <Button Command="New" Content="Help" Width="120" Height="30"/>
-        <!--<Button Command="New" Content="New" Width="120" Height="30"/>-->
+        --><!--<Button Command="New" Content="New" Width="120" Height="30"/>-->
         <!--<StackPanel HorizontalAlignment="Left">
             <Button x:Name="btn" Content="Help" Width="150"
                     Command="ApplicationCommands.Help">
             </Button>
             <TextBlock x:Name="txtInfo" Margin="5" MinHeight="200"/>
-        </StackPanel>-->
-    </Grid>
+        </StackPanel>--><!--
+    </Grid>-->
+    
+    
 </Window>
