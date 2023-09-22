@@ -173,7 +173,8 @@ public partial class MainWindow : Window {
 
 #### Встроенные классы команд:
 В WPF содержится множество готовых команд, наиболее часто встречающихся в приложениях. Команды представлены в пространствах имен System.Windows.Input и System.Windows.Documents следующими статическими классами: <br>
-* __ApplicationCommands__ - Общие команды приложения (Close, Copy, Cut, Delete, Find, Help, New, Open, Paste, Print и др.)
+* __ApplicationCommands__ - Общие команды приложения (Close, Copy, Cut, Delete, Find, Help, New, Open, Paste, Print и др.) <br>
+  > *https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.input.applicationcommands?view=windowsdesktop-7.0*
 * __ComponentCommands__ - Команды компонентов интерфейса (перемещение и выделения содержимого) (MoveDown, MoveUp и др.)
 MediaCommands
 NavigationCommands
