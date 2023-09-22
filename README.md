@@ -43,6 +43,8 @@
    * *[Триггеры](03_Основные_концепции_WPF/03_Triggers/Description.md)*
    * *[Привязка данных](03_Основные_концепции_WPF/04_Binding/Description.md)*
    * *[Свойства зависимостей](03_Основные_концепции_WPF/05_DependencyProperty/Description.md)*
+   * *[Маршрутизируемые события](03_Основные_концепции_WPF/06_Events/Description.md)*
    * 
+
 
 
