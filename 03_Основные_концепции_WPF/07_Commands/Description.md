@@ -65,6 +65,15 @@ public interface ICommandSource {
 button_name.Command = ApplicationCommands.New;
 ~~~
 
+**Привязки команд** <br>
+После присоединения команды к источнику команды происходит нечто интересное: источник команды автоматически отключается. <br>
+
+Например, после создания кнопки New (Создать), она появляется как затененная и недоступная для щелчка, как будто ее свойство IsEnabled установлено в false:
+<img align="left" width="200" height="100" src="img/Command2.png" alt="Пример работы данного кода"/>
+~~~XAML
+<Button Command="New" Content="New" Width="120" Height="30"/>
+~~~
+
 
 
 <img align="left" width="300" height="190" src="img/Command1.png" alt="Пример работы данного кода"/>
