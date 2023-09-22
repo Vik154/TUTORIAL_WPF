@@ -292,3 +292,39 @@ public partial class MainWindow : Window {
     }
 }
 ~~~
+
+#### Создание пользовательских команд:
+
+<img align="left" width="250" height="350" src="img/Command4.png" alt="Пример работы данного кода"/>
+
+Наиболее простой способ создания команды - использование готовых классов RoutedCommand и RoutedUICommand, в которых уже реализован интерфейс ICommand. <br>
+Класс RoutedUICommand имеет несколько конструкторов. Экземпляр RoutedUICommand можно создавать без дополнительной информации, однако практически всегда необходимо задавать имя команды, текст команды и тип владения. Вдобавок может предоставляться сокращенная клавиатурная комбинация для помещения в коллекцию InputGestures.
+
+~~~XAML
+<Window ............................... VS
+        xmlns:local="clr-namespace:_07_Commands">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="local:MyCommand.Delete" Executed="Delete_Executed"/>
+        <CommandBinding Command="local:MyCommand.Edit"   Executed="Edit_Executed"/>
+    </Window.CommandBindings>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="Background" Value="Bisque"/>
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Command="local:MyCommand.Edit" Content="Редактировать Ctrl+E"/>
+            <Button Command="local:MyCommand.Delete" Content="Очистить Ctrl+D"/>
+        </StackPanel>
+        <TextBox x:Name="txt" Margin="5,50" Background="AliceBlue"
+                 TextWrapping="Wrap" IsReadOnly="True">
+        </TextBox>
+    </Grid>
+</Window>
+~~~
