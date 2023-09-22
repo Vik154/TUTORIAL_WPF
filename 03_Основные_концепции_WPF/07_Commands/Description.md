@@ -103,7 +103,7 @@ MyButton.CommandBindings.Add(commandBinding);          // добавление �
 
 В качестве прослушивающего можно сделать любой элемент логического дерева. Но для получения наибольшей гибкости привязки команд рекомендуется добавлять в корневой элемент - окно (или Page ).
 
-Пример работы с командой: <br>
+Пример работы с командой (создание привязки программно из кода C#): <br>
 
 <img align="left" width="300" height="190" src="img/Command1.png" alt="Пример работы данного кода"/>
 
@@ -141,5 +141,31 @@ public partial class MainWindow : Window {
 }
 ~~~
 
+Пример работы с командой (создание привязки в разметке XAML): <br>
 
+<img align="left" width="300" height="190" src="img/Command3.png" alt="Пример работы данного кода"/>
 
+~~~XAML
+<Window ....... VS>
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    <Button Command="New" Content="Help" Width="120" Height="30"/>
+</Window>
+~~~
+
+~~~C#
+using System.Windows;
+using System.Windows.Input;
+
+namespace _07_Commands;
+
+public partial class MainWindow : Window {
+    public MainWindow() {
+        InitializeComponent();
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e) {
+        MessageBox.Show("Обработчик создан декларативно в XAML");
+    }
+}
+~~~
