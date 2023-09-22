@@ -143,7 +143,7 @@ public partial class MainWindow : Window {
 
 Пример работы с командой (создание привязки в разметке XAML): <br>
 
-<img align="left" width="260" height="220" src="img/Command3.png" alt="Пример работы данного кода"/>
+<img align="left" width="260" height="300" src="img/Command3.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System.Windows;
