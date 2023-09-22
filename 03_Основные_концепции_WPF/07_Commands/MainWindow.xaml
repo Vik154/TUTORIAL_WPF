@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel HorizontalAlignment="Left">
+        <Button Command="New" Content="New" Width="120" Height="30"/>
+        <!--<StackPanel HorizontalAlignment="Left">
             <Button x:Name="btn" Content="Help" Width="150"
                     Command="ApplicationCommands.Help">
             </Button>
             <TextBlock x:Name="txtInfo" Margin="5" MinHeight="200"/>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Window>
