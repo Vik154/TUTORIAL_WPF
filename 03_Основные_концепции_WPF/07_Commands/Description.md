@@ -1,6 +1,6 @@
 ### Концепция команд - *представляет собой механизм, упрощающий связывание задач, запросов и действий.* 
 
-*Информация MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/advanced/commanding-overview?view=netframeworkdesktop-4.8* <br>
+*MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/advanced/commanding-overview?view=netframeworkdesktop-4.8* <br>
 *Источник 1: https://metanit.com/sharp/wpf/7.1.php* <br>
 *Источник 2: https://intuit.ru/studies/courses/596/452/lecture/10117?page=3* <br>
 *Источник 3: https://professorweb.ru/my/WPF/binding_and_styles_WPF/level9/9_2.php* <br>
