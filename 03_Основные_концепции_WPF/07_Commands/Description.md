@@ -185,3 +185,56 @@ public partial class MainWindow : Window {
   *https://learn.microsoft.com/ru-RU/dotnet/api/system.windows.documents.editingcommands?view=netframework-4.7* <br>
 
 В каждом из приведенных классов команда объявлена как статическое свойство только для чтения типа RoutedUICommand (или RoutedCommand), следовательно при использовании команды создавать экземпляр класса команды не нужно. Команды имеют имена, ассоциируемые с выполняемой задачей, например, Cut, Copy, New и т.д.
+align="left" width="260" height="290"
+___Пример работы со стандартными командами WPF:___ <br>
+
+<img src="img/Command4.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window .... VS>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Command="New"/>
+                <MenuItem Command="Open"/>
+                <MenuItem Command="Save"/>
+                <MenuItem Command="SaveAs"/>
+                <Separator/>
+                <MenuItem Command="Close"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- ToolBarTray - позволяет динамически перемещать
+             и сдвигать вложенные элементы, менять размеры. -->
+        <ToolBarTray Grid.Row="1">
+            <ToolBar>
+                <Button Command="New"  Content="New"/>
+                <Button Command="Open" Content="Open"/>
+                <Button Command="Save" Content="Save"/>
+            </ToolBar>
+
+            <ToolBar>
+                <Button Command="Copy"  Content="Copy"/>
+                <Button Command="Paste" Content="Paste"/>
+                <Button Command="Cut"   Content="Cut"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <TextBox x:Name="txt1" Grid.Row="2" Margin="10"
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 TextChanged="txt_TextChanged"
+                 />
+        <TextBox x:Name="txt2" Grid.Row="3" Margin="10"
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 TextChanged="txt_TextChanged"
+                 />
+    </Grid>
+</Window>
+~~~
