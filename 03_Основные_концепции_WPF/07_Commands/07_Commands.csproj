@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="img\Com1.png" />
+    <None Remove="img\Command1.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\Com1.png">
+    <Resource Include="img\Command1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
