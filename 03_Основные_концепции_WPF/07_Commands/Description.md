@@ -143,16 +143,7 @@ public partial class MainWindow : Window {
 
 Пример работы с командой (создание привязки в разметке XAML): <br>
 
-<img align="left" width="300" height="190" src="img/Command3.png" alt="Пример работы данного кода"/>
-
-~~~XAML
-<Window ....... VS>
-    <Window.CommandBindings>
-        <CommandBinding Command="New" Executed="CommandBinding_Executed"/>
-    </Window.CommandBindings>
-    <Button Command="New" Content="Help" Width="120" Height="30"/>
-</Window>
-~~~
+<img align="left" width="260" height="220" src="img/Command3.png" alt="Пример работы данного кода"/>
 
 ~~~C#
 using System.Windows;
@@ -168,4 +159,13 @@ public partial class MainWindow : Window {
         MessageBox.Show("Обработчик создан декларативно в XAML");
     }
 }
+~~~
+
+~~~XAML
+<Window ....... VS>
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    <Button Command="New" Content="Help" Width="120" Height="30"/>
+</Window>
 ~~~
