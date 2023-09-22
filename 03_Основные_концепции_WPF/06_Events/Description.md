@@ -781,3 +781,40 @@ public partial class MainWindow : Window {
     }
 }
 ~~~
+
+#### Создание пользовательского события:
+*MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/advanced/how-to-create-a-custom-routed-event?view=netframeworkdesktop-4.8* <br>
+*MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/events/how-to-create-a-custom-routed-event?view=netdesktop-7.0* <br>
+
+> Чтобы пользовательское событие поддерживало маршрутизацию, необходимо зарегистрировать событие используя метод RegisterRoutedEvent. <br>
+
+___Шаги по созданию события:___ <br>
+* Вначале объявляется статическое поле класса только для чтения типа RoutedEvent, которое будет являться базовым при упаковке события. В соответствии с соглашением, имя поля правильно заканчивать постфиксом Event. <br>
+    ~~~C#
+    public static readonly RoutedEvent MyClickEvent;
+    ~~~
+* С помощью метода RegisterRoutedEvent() класса System.Windows.EventManager событие нужно зарегистрировать в среде исполнения CLR (Common Language Runtime) и сохранить ссылку на объект события в статическом поле. В дальнейшем этот объект можно передавать обработчикам события. Вызов метода регистрации можно разместить в статическом конструкторе класса или вызвать сразу при инициализации поля. <br>
+    ~~~C#
+     MyClickEvent = EventManager.RegisterRoutedEvent(
+                  "MyClick"
+                , RoutingStrategy.Bubble
+                , typeof(RoutedEventHandler)
+                , typeof(MyButton));
+    ~~~
+* Объявить само событие с помощью делегата RoutedEventHandler, использовав расширенный способ объявления события, который используется для упаковки поля события. Делегат обеспечивает стандартную сигнатуру для обработчиков public delegate void RoutedEventHandler(object sender, RoutedEventArgs e).
+  ~~~C#
+  // Обёртка над свойством CLR
+  public event RoutedEventHandler MyClick {
+      add { AddHandler(MyClickEvent, value); } 
+      remove { RemoveHandler(MyClickEvent, value); } 
+  }
+  ~~~
+* Определить, если нужно, метод диспетчеризации события с префиксом On...
+  ~~~C#   
+  // Переопределение стандартного поведения (Вызывает событие MyClick)
+  protected override void OnClick() {
+      RoutedEventArgs newEventArgs = new RoutedEventArgs(MyClickEvent);
+      RaiseEvent(newEventArgs);
+  }
+  ~~~
+
