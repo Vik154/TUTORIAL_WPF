@@ -174,9 +174,14 @@ public partial class MainWindow : Window {
 #### Встроенные классы команд:
 В WPF содержится множество готовых команд, наиболее часто встречающихся в приложениях. Команды представлены в пространствах имен System.Windows.Input и System.Windows.Documents следующими статическими классами: <br>
 * __ApplicationCommands__ - Общие команды приложения (Close, Copy, Cut, Delete, Find, Help, New, Open, Paste, Print и др.) <br>
-  > *https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.input.applicationcommands?view=windowsdesktop-7.0*
-* __ComponentCommands__ - Команды компонентов интерфейса (перемещение и выделения содержимого) (MoveDown, MoveUp и др.)
-MediaCommands
-NavigationCommands
-EditingCommands
-В каждом из приведенных классов команда объявлена как статическое свойство только для чтения типа RoutedUICommand (или RoutedCommand ), следовательно при использовании команды создавать экземпляр класса команды не нужно. Команды имеют имена, ассоциируемые с выполняемой задачей, например, Cut, Copy, New и т.д.
+  *https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.input.applicationcommands?view=windowsdesktop-7.0*
+* __ComponentCommands__ - Команды компонентов интерфейса (перемещение и выделения содержимого) (MoveDown, MoveUp и др.) <br>
+  *https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.componentcommands?view=windowsdesktop-3.0*
+* __MediaCommands__ - Команды для управления мультимедиа (Play, Rewind, Record и др.). <br>
+  *https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.input.mediacommands?view=netframework-4.7*
+* __NavigationCommands__ - Команды навигации по содержимому (BrowseBack, BrowseForward, BrowseHome и д.р.).
+  *https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.input.navigationcommands?view=windowsdesktop-7.0*
+* __EditingCommands__ - Команды редактирования документов (AllignCenter, DecreaseFontSize, MoveDownByLine и др.). <br>
+  *https://learn.microsoft.com/ru-RU/dotnet/api/system.windows.documents.editingcommands?view=netframework-4.7* <br>
+
+В каждом из приведенных классов команда объявлена как статическое свойство только для чтения типа RoutedUICommand (или RoutedCommand), следовательно при использовании команды создавать экземпляр класса команды не нужно. Команды имеют имена, ассоциируемые с выполняемой задачей, например, Cut, Copy, New и т.д.
