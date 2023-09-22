@@ -313,13 +313,13 @@ public partial class MainWindow : Window {
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
             <StackPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="Width" Value="150"/>
-                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="Width"      Value="150"/>
+                    <Setter Property="Height"     Value="30"/>
                     <Setter Property="Background" Value="Bisque"/>
-                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="Margin"     Value="10"/>
                 </Style>
             </StackPanel.Resources>
-            <Button Command="local:MyCommand.Edit" Content="Редактировать Ctrl+E"/>
+            <Button Command="local:MyCommand.Edit"   Content="Редактировать Ctrl+E"/>
             <Button Command="local:MyCommand.Delete" Content="Очистить Ctrl+D"/>
         </StackPanel>
         <TextBox x:Name="txt" Margin="5,50" Background="AliceBlue"
@@ -357,4 +357,5 @@ public partial class MainWindow : Window {
     public MainWindow() { InitializeComponent(); }
     private void Edit_Executed(object sender, ExecutedRoutedEventArgs e)   { txt.IsReadOnly = false; }
     private void Delete_Executed(object sender, ExecutedRoutedEventArgs e) { txt.Clear(); }
+}
 ~~~
