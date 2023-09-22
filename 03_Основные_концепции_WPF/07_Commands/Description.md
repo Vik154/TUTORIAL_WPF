@@ -52,6 +52,18 @@ public interface ICommandSource {
     IInputElement CommandTarget {get;} // идентифицирует элемент, на котором должна выполняться команда
 }
 ~~~
+Чтобы связать элемент с командой, используется следующий синтаксис:
+~~~XAML
+<!-- Кнопка связывается с командой ApplicationCommands.New посредством свойства Command -->
+<Button Command="ApplicationCommands.New" />
+
+<!-- Также допустимо сокращение название команды: -->
+<Button Command="New" />
+~~~
+~~~C#
+// Свзывание можно производить и в коде C#:
+button_name.Command = ApplicationCommands.New;
+~~~
 
 
 
