@@ -26,7 +26,7 @@ public interface ICommand {
 }
 ~~~
 
-Также существует стандартная реализация ICommand в виде классов RoutedCommand и RoutedUICommand: <br>
+Также существует стандартная реализация ICommand в виде класса RoutedCommand, который является базовым для всех встроенных команд и если потребуется создать свой класс команды, можно реализовать интерфейс ICommand или унаследовать свой класс от RoutedCommand. <br>
 *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.input.routedcommand?view=windowsdesktop-7.0* <br>
 ~~~C#
 // Реализующий класс RoutedCommand расширяет сигнатуру объявленных в ICommand методов до второго аргумента target
