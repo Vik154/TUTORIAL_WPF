@@ -70,23 +70,23 @@
 
 В шаблонах элементов управления частои спользуются триггеры. Например, для кнопки при помощи триггеров можно реализовать изменение внешнего вида при нажатии или при перемещении указателя мыши:
 
-<img src="img/Templ4.png" align="left" width="330" height="300" alt="пример работы данного кода">
+<img src="img/Templ4.png" align="left" width="360" height="300" alt="пример работы данного кода">
 
 ~~~XAML
 <Button Content="Кнопка" Width="120" Height="50" Margin="10" Padding="35,10">
-    <Button.Template>
-        <ControlTemplate TargetType="Button">
-            <Border x:Name="_border" BorderBrush="Green" BorderThickness="5"
-                    Background="Beige" CornerRadius="3">
-                <ContentPresenter Margin="{TemplateBinding Padding}"/>
-            </Border>
+  <Button.Template>
+    <ControlTemplate TargetType="Button">
+      <Border x:Name="_border" BorderBrush="Green" BorderThickness="5"
+              Background="Beige" CornerRadius="3">
+        <ContentPresenter Margin="{TemplateBinding Padding}"/>
+      </Border>
 
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="_border" Property="Background" Value="Blue"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-    </Button.Template>
+      <ControlTemplate.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+          <Setter TargetName="_border" Property="Background" Value="Blue"/>
+        </Trigger>
+      </ControlTemplate.Triggers>
+    </ControlTemplate>
+  </Button.Template>
 </Button>
 ~~~
