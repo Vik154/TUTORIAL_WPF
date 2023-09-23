@@ -123,3 +123,49 @@ ControlPresenter в составе стандартного шаблона кн�
     </Style>
 </Window.Resources>
 ~~~
+
+___Сочетание шаблонов со стилями:___ <br>
+
+<img src="img/Templ5.png" align="left" width="320" height="645" alt="пример работы данного кода">
+
+~~~XAML
+<Window ....... VS>
+    <Window.Resources>
+        <Style x:Key="default" TargetType="Button">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="30,3"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="40"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="_border" 
+                                BorderBrush="Black" 
+                                BorderThickness="3"
+                                CornerRadius="8"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="_border" Property="Background" Value="Blue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+        </Style>
+    </Window.Resources>
+
+    <StackPanel HorizontalAlignment="Left">
+        <Button Content="Кнопка 1" Style="{StaticResource default}" />
+        <Button Content="Кнопка 2" Style="{StaticResource default}" />
+        <Button Content="Кнопка 3" Style="{StaticResource default}" />
+    </StackPanel>    
+</Window>
+~~~
