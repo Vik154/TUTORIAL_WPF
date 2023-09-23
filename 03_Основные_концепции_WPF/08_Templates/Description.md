@@ -33,4 +33,21 @@
 </Button>
 ~~~
 
+Самый большой недостаток шаблона заключается в том, что он не отображает содержимое кнопки (свойство Content). Исправим это. У шаблона может быть установлено свойство TargetType. Оно содержит тип элемента управления, являющегося целью шаблона. Если это свойство установлено, при описании VisualTree для ссылки на содержимое элемента управления можно использовать объект ContentPresenter (для элементов управления содержимым) или объект ItemsPresenter (для списков).
+
+<img src="img/Templ2.png" align="left" width="350" height="220" alt="пример работы данного кода">
+
+~~~XAML
+<Button Content="Кнопка" Width="120" Height="50" Margin="10">
+    <Button.Template>
+        <ControlTemplate TargetType="Button">
+            <Border BorderBrush="Green" BorderThickness="5"
+                    Background="Beige" CornerRadius="3">
+                            <ContentPresenter/>
+            </Border>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
+~~~
+
 
