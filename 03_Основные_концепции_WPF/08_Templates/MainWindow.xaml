@@ -8,13 +8,19 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Button Content="Кнопка" Width="120" Height="50" Margin="10" Padding="35,10,0,0">
+            <Button Content="Кнопка" Width="120" Height="50" Margin="10" Padding="35,10">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
-                        <Border BorderBrush="Green" BorderThickness="5"
+                        <Border x:Name="_border" BorderBrush="Green" BorderThickness="5"
                                 Background="Beige" CornerRadius="3">
                             <ContentPresenter Margin="{TemplateBinding Padding}"/>
                         </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="_border" Property="Background" Value="Blue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
