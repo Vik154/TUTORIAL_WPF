@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_DependencyProperty", "05
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_Events", "06_Events\06_Events.csproj", "{38471BB7-6EBD-4640-9B46-684C4CB1BDC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_Commands", "07_Commands\07_Commands.csproj", "{3CAA0084-421F-4430-8DEB-A69C21C6F4DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_Commands", "07_Commands\07_Commands.csproj", "{3CAA0084-421F-4430-8DEB-A69C21C6F4DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_Templates", "08_Templates\08_Templates.csproj", "{D433A905-02A6-4AF7-B26A-051F4C9AB452}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{3CAA0084-421F-4430-8DEB-A69C21C6F4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CAA0084-421F-4430-8DEB-A69C21C6F4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CAA0084-421F-4430-8DEB-A69C21C6F4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D433A905-02A6-4AF7-B26A-051F4C9AB452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D433A905-02A6-4AF7-B26A-051F4C9AB452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D433A905-02A6-4AF7-B26A-051F4C9AB452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D433A905-02A6-4AF7-B26A-051F4C9AB452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
