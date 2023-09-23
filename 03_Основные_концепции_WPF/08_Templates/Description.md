@@ -17,20 +17,18 @@
 Рассмотрим создание пользовательского шаблона для кнопки. Шаблон элемента управления – это экземпляр класса System.Windows.ControlTemplate. <br>
 Основным свойством шаблона является свойство содержимого VisualTree, которое содержит визуальный элемент, определяющий внешний вид шаблона. В элементах управления ссылка на шаблон устанавливается через свойство Template. С учётом вышесказанного первая версия шаблона для кнопки будет описана следующей разметкой:
 
-<img src="img/Templ1.png" align="left" width="300" height="250" alt="пример работы данного кода">
+<img src="img/Templ1.png" align="left" width="350" height="220" alt="пример работы данного кода">
 
 ~~~XAML
-<StackPanel>
-    <Button Content="Кнопка" Width="120" Height="50" Margin="10">
-        <Button.Template>
-            <ControlTemplate TargetType="Button">
-                <Border BorderBrush="Green" BorderThickness="5"
-                        Background="Beige" CornerRadius="3">
-                </Border>
-            </ControlTemplate>
-        </Button.Template>
-    </Button>
-</StackPanel>
+<Button Content="Кнопка" Width="120" Height="50" Margin="10">
+    <Button.Template>
+        <ControlTemplate TargetType="Button">
+            <Border BorderBrush="Green" BorderThickness="5"
+                    Background="Beige" CornerRadius="3">
+            </Border>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
 ~~~
 
 
