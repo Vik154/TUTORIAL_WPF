@@ -43,7 +43,7 @@
         <ControlTemplate TargetType="Button">
             <Border BorderBrush="Green" BorderThickness="5"
                     Background="Beige" CornerRadius="3">
-                            <ContentPresenter/>
+                <ContentPresenter/>
             </Border>
         </ControlTemplate>
     </Button.Template>
