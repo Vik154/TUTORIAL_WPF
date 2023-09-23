@@ -359,3 +359,21 @@ public partial class MainWindow : Window {
     private void Delete_Executed(object sender, ExecutedRoutedEventArgs e) { txt.Clear(); }
 }
 ~~~
+
+#### Создание пользовательских команд напрямую от ICommand:
+
+<img align="left" width="200" height="200" src="img/Command6.png" alt="Пример работы данного кода"/>
+
+~~~XAML
+<Window ................ VS>
+        Loaded="Window_Loaded">
+
+    <!--Создание команд с помощью ICommand-->
+    <StackPanel>
+        <TextBox x:Name="_txt" Margin="5" MinHeight="30"/>
+        <Button x:Name="_button" Margin="5" Content="Кнопка" Width="120"
+                CommandParameter="{Binding ElementName=_txt, Path=Text}"
+                />
+    </StackPanel>
+</Window>
+~~~
