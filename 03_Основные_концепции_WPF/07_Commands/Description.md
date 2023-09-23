@@ -362,7 +362,7 @@ public partial class MainWindow : Window {
 
 #### Создание пользовательских команд напрямую от ICommand:
 
-<img align="left" width="200" height="260" src="img/Command6.png" alt="Пример работы данного кода"/>
+<img align="left" width="200" height="250" src="img/Command6.png" alt="Пример работы данного кода"/>
 
 ~~~XAML
 <Window ................ VS>
