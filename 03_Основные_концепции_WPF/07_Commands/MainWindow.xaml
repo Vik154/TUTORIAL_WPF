@@ -5,9 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_07_Commands"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="450" Width="800"
+        Loaded="Window_Loaded">
 
-    <Window.CommandBindings>
+    <!--Создание команд с помощью ICommand-->
+    <StackPanel>
+        <TextBox x:Name="_txt" Margin="5" MinHeight="30"/>
+        <Button x:Name="_button" Margin="5" Content="Кнопка" Width="120"
+                CommandParameter="{Binding ElementName=_txt, Path=Text}"
+                />
+    </StackPanel>
+
+
+
+    <!-- Разметка для класса MyCommand -->
+    
+    <!--<Window.CommandBindings>
         <CommandBinding Command="local:MyCommand.Delete" Executed="Delete_Executed"/>
         <CommandBinding Command="local:MyCommand.Edit"   Executed="Edit_Executed"/>
     </Window.CommandBindings>
@@ -28,7 +42,10 @@
         <TextBox x:Name="txt" Margin="5,50" Background="AliceBlue"
                  TextWrapping="Wrap" IsReadOnly="True">
         </TextBox>
-    </Grid>
+    </Grid>-->
+    
+    
+    <!-- Стандартные команды WPF -->
     
     <!--<Grid>
         <Grid.RowDefinitions>
@@ -74,7 +91,9 @@
                  TextChanged="txt_TextChanged"
                  />
     </Grid>-->
-    
+
+   
+    <!-- Первый пример -->
     
     <!--<Window.CommandBindings>
         <CommandBinding Command="New" Executed="CommandBinding_Executed"/>
@@ -90,6 +109,5 @@
             <TextBlock x:Name="txtInfo" Margin="5" MinHeight="200"/>
         </StackPanel>--><!--
     </Grid>-->
-    
     
 </Window>
