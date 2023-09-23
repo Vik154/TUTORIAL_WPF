@@ -50,4 +50,19 @@
 </Button>
 ~~~
 
+Вторая версия шаблона не учитывает отступ, заданный на кнопке при помощи свойства Padding. Чтобы исправить это, используем привязку данных. В шаблонах допустим особый вид привязки – TemplateBinding. Эта привязка извлекает информацию из свойства элемента управления, являющегося целью шаблона.
 
+<img src="img/Templ3.png" align="left" width="350" height="220" alt="пример работы данного кода">
+
+~~~XAML
+<Button Content="Кнопка" Width="120" Height="50" Margin="10" Padding="35,10,0,0">
+    <Button.Template>
+        <ControlTemplate TargetType="Button">
+            <Border BorderBrush="Green" BorderThickness="5"
+                    Background="Beige" CornerRadius="3">
+                <ContentPresenter Margin="{TemplateBinding Padding}"/>
+            </Border>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
+~~~
