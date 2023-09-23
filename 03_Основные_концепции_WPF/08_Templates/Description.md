@@ -95,13 +95,13 @@
 
 ~~~XAML
 <Window.Resources>
-    <StyleTargetType="Button">
-        <SetterProperty="Template">
+    <Style TargetType="Button">
+        <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplateTargetType="Button" />
+                <ControlTemplate TargetType="Button" />
                 <!--содержимое шаблона не изменилось-->
             </Setter.Value>
         </Setter>
     </Style>
-</Window.Resources
+</Window.Resources>
 ~~~
