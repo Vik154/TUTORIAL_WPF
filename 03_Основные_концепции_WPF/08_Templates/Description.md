@@ -55,7 +55,7 @@
 <img src="img/Templ3.png" align="left" width="350" height="220" alt="пример работы данного кода">
 
 ~~~XAML
-<Button Content="Кнопка" Width="120" Height="50" Margin="10" Padding="35,10,0,0">
+<Button Content="Кнопка" Width="120" Height="50" Margin="10" Padding="35,10">
     <Button.Template>
         <ControlTemplate TargetType="Button">
             <Border BorderBrush="Green" BorderThickness="5"
