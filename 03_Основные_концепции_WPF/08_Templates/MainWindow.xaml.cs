@@ -1,25 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
-namespace _08_Templates {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            InitializeComponent();
-        }
+namespace _08_Templates;
+
+public partial class MainWindow : Window {
+
+    private static ResourceDictionary _resources = new ResourceDictionary();
+
+    public MainWindow() {
+        InitializeComponent();
+
+        _resources.Source = new System.Uri("Dictionary1.xaml", System.UriKind.Relative);
+        Application.Current.Resources.MergedDictionaries[0] = _resources;
     }
 }

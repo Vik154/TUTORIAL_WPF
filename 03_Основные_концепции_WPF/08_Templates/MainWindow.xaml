@@ -43,6 +43,8 @@
         <Button Content="Кнопка 1" Style="{StaticResource default}" />
         <Button Content="Кнопка 2" Style="{StaticResource default}" />
         <Button Content="Кнопка 3" Style="{StaticResource default}" />
+        <Button Margin="10" Content="Кнопка 3" />
+        <Button Margin="10" Content="Кнопка 3" />
     </StackPanel>
     
     <!--Пример 1-->
