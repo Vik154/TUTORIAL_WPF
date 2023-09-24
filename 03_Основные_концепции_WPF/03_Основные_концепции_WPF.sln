@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_Templates", "08_Template
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_LVTrees", "09_LVTrees\09_LVTrees.csproj", "{7909EBB0-D6F1-4FDD-9D3E-382C124983AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_DataTemplate", "10_DataTemplate\10_DataTemplate.csproj", "{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{7909EBB0-D6F1-4FDD-9D3E-382C124983AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7909EBB0-D6F1-4FDD-9D3E-382C124983AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7909EBB0-D6F1-4FDD-9D3E-382C124983AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
