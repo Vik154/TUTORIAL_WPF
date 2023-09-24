@@ -169,3 +169,95 @@ ___Сочетание шаблонов со стилями:___ <br>
     </StackPanel>    
 </Window>
 ~~~
+
+<hr>
+
+#### Добавление шаблона в словарь ресурсов:
+
+~~~XAML
+<!-- App.xaml -->
+<Application x:Class="_08_Templates.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:_08_Templates"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+
+<!-- Dictionary1 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate TargetType="Button"  x:Key="Gradient1">
+        
+        <Border Name="Border" 
+                CornerRadius="25" 
+                BorderBrush="Aquamarine"  
+                BorderThickness="3"
+                Background="LightBlue" 
+                Height="30" Width="90"
+                >
+            <ContentControl Margin="5" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Content="Кнопка" />
+        </Border>
+        
+        <ControlTemplate.Triggers>
+            
+            <!--При наведении мыши-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="Blue"/>
+            </Trigger>
+
+            <!--При нажатии-->
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="DarkBlue"/>
+            </Trigger>
+            
+            <!--Если кнопка отключена-->
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="TextBlock.Foreground" Value="Black" />
+                <Setter TargetName="Border" Property="Background" Value="MistyRose" />
+            </Trigger>
+            
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Control.Template" Value="{StaticResource Gradient1}"/>
+    </Style>
+</ResourceDictionary>
+
+<!-- MainWindow -->
+<Window ... VS>
+    <StackPanel HorizontalAlignment="Left">
+        <Button Margin="10" Content="Кнопка 3" />
+        <Button Margin="10" Content="Кнопка 3" />
+    </StackPanel>
+</Window>
+~~~
+
+~~~C#
+using System.Windows;
+
+namespace _08_Templates;
+
+public partial class MainWindow : Window {
+
+    private static ResourceDictionary _resources = new ResourceDictionary();
+
+    public MainWindow() {
+        InitializeComponent();
+
+        _resources.Source = new System.Uri("Dictionary1.xaml", System.UriKind.Relative);
+        Application.Current.Resources.MergedDictionaries[0] = _resources;
+    }
+}
+~~~
