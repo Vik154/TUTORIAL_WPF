@@ -43,7 +43,7 @@ Windows Presentation Foundation имеет комплексную древови
 
 #### Использование классов LogicalTreeHelper и VisualTreeHelper:
 
-<img align="left" src="img/Tree1.png" width="420" height="590" alt="пример работы данного кода">
+<img align="left" src="img/Tree1.png" width="420" height="800" alt="пример работы данного кода">
 
 ~~~XAML
 <Window .... стандартный код VS>
