@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_09_LVTrees"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="450" Width="800"
+        Loaded="Window_Loaded">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -17,39 +19,72 @@
             <Setter Property="Margin" Value="10"/>
         </Style>
     </Window.Resources>
-    
-    <Grid ShowGridLines="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
 
-        <StackPanel>
-            <Button x:Name="logicBtn"  
+    <TabControl>
+
+        <!-- Обход деревьев -->
+        <TabItem Header="Обход деревьев">
+            <Grid ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Button x:Name="logicBtn"  
                     Content="Обход LogicalTree"
                     Click="logicBtn_Click"
                     />
-            <Button x:Name="visualBtn" 
+                    <Button x:Name="visualBtn" 
                     Content="Обход VisualTree"
                     Click="visualBtn_Click"
                     />
-            <Button x:Name="ClearBtn"
+                    <Button x:Name="ClearBtn"
                     Content="Очистить"
                     Click="ClearBtn_Click"
                     />
-        </StackPanel>
+                </StackPanel>
 
-        <ScrollViewer Grid.Column="1"
+                <ScrollViewer Grid.Column="1"
                       VerticalScrollBarVisibility="Visible"
                       HorizontalScrollBarVisibility="Visible"
                       >
-            <TextBlock x:Name="txt" 
+                    <TextBlock x:Name="txt" 
                        Margin="5" 
                        Background="AliceBlue"
                        TextWrapping="Wrap"
                        FontSize="16">
-            </TextBlock>
-        </ScrollViewer>
-        
-    </Grid>
+                    </TextBlock>
+                </ScrollViewer>
+
+            </Grid>
+
+        </TabItem>
+
+        <!-- Просмотр исходников шаблонов -->
+        <TabItem Header="Просмотр исходного шаблона">
+            <Grid Name="grid" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListBox x:Name="_listBaseElements" 
+                             Margin="5" 
+                             SelectionChanged="_listBaseElements_SelectionChanged"
+                             />
+                </ScrollViewer>
+
+                <TextBox x:Name="_textInfo" 
+                         Grid.Column="1"
+                         TextWrapping="Wrap" 
+                         IsReadOnly="True" 
+                         Margin="5"
+                         VerticalScrollBarVisibility="Auto">
+                </TextBox>
+            </Grid>
+        </TabItem>
+
+    </TabControl>
 </Window>
