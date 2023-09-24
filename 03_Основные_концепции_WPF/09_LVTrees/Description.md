@@ -6,9 +6,9 @@
 
 Windows Presentation Foundation имеет комплексную древовидную структуру в виде объектов.
 В WPF существует два способа концептуализации целого дерева объектов: <br>
-* __Логическая древовидная структура__ - которая представлена в WPF классом System.Windows.LogicalTreeHelper
+* __Логическая древовидная структура__ - которая представлена в WPF классом System.Windows.LogicalTreeHelper <br>
     _LogicalTreeHelper - https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.logicaltreehelper?view=windowsdesktop-7.0_
-* __Визуальная древовидная структура__ - которая в WPF представлена классом System.Windows.Media.VisualTreeHelper
+* __Визуальная древовидная структура__ - которая в WPF представлена классом System.Windows.Media.VisualTreeHelper <br>
     _VisualTreeHelper - https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.media.visualtreehelper?view=windowsdesktop-7.0_
 
 С помощью этих древовидных структур вы можете легко создавать и идентифицировать отношения между элементами пользовательского интерфейса.
