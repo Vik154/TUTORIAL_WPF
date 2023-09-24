@@ -143,3 +143,8 @@ public partial class MainWindow : Window {
 }
 ~~~
 
+#### Просмотр исходников шаблонов XAML-разметки:
+> *Исходники для программки: https://professorweb.ru/my/WPF/Template/level17/17_4.php*
+
+<img align="center" src="img/Tree2.png" width="1200" alt="пример работы данного кода">
+
