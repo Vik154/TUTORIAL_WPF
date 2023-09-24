@@ -27,7 +27,7 @@ Windows Presentation Foundation имеет комплексную древови
 </Window>
 ~~~
 
-<img src="img/Logical.png" width="200" height="400" alt="пример работы данного кода">
+<img src="img/Logical.png" width="400" height="400" alt="пример работы данного кода">
 
 Элементы пользовательского интерфейса WPF иерархически связаны. Это отношение называется LogicalTree.
 
