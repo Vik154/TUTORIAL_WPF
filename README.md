@@ -47,7 +47,9 @@
    * *[Команды](03_Основные_концепции_WPF/07_Commands/Description.md)*
    * *[Шаблоны элементов управления](03_Основные_концепции_WPF/08_Templates/Description.md)*
    * *[Логическое и визуальное дерево](03_Основные_концепции_WPF/09_LVTrees/Description.md)*
+   * *[Шаблоны данных](03_Основные_концепции_WPF/10_DataTemplate/Description.md)*
    * 
+
 
 
 
