@@ -47,13 +47,14 @@ Windows Presentation Foundation имеет комплексную древови
 
 ~~~XAML
 <Window x:Class="_09_LVTrees.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_09_LVTrees"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:_09_LVTrees"
+    mc:Ignorable="d"
+    Title="MainWindow" Height="450" Width="800"
+    >
 
     <Window.Resources>
         <Style TargetType="Button">
