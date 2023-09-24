@@ -46,16 +46,7 @@ Windows Presentation Foundation имеет комплексную древови
 <img align="left" src="img/Tree2.png" width="420" height="590" alt="пример работы данного кода">
 
 ~~~XAML
-<Window x:Class="_09_LVTrees.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:_09_LVTrees"
-    mc:Ignorable="d"
-    Title="MainWindow" Height="450" Width="800"
-    >
-
+<Window .... стандартный код VS>
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="180"/>
