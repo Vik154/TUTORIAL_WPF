@@ -18,7 +18,7 @@ Windows Presentation Foundation имеет комплексную древови
 
 ***Если представить данную разметку в виде логического дерева, тогда она будет выглядеть следующим образом:*** <br>
 
-<img align="left" src="img/Logical.png" width="400" height="420" alt="пример работы данного кода">
+<img align="left" src="img/Logical.png" width="420" height="430" alt="пример работы данного кода">
 
 ~~~XAML
 <Window>
