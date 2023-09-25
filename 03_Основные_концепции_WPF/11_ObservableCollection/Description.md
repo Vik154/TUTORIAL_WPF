@@ -1,4 +1,4 @@
-### Концепция шаблонов данных - *представляет механизм для настройки отображения объектов заданного типа.* 
+### ObservableCollection - *представляет механизм для настройки отображения объектов заданного типа.* 
 
 *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.collections.objectmodel.observablecollection-1?view=net-7.0* <br>
 *https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/data/how-to-create-and-bind-to-an-observablecollection?view=netframeworkdesktop-4.8* <br>
