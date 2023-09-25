@@ -17,7 +17,7 @@
 __Использование DataTemplate:__ <br>
 > *https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.datatemplate?view=windowsdesktop-7.0* <br>
 
-<img src="img/Data1.png" align="left" alt="Пример работы данного кода" width="200" height="250">
+<img src="img/Data1.png" align="left" alt="Пример работы данного кода" width="300" height="245">
 
 ~~~XAML
 <ListBox x:Name="_listStudents">
