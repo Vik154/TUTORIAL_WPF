@@ -83,3 +83,26 @@ __Отделение и повторное использование шабло
     </Grid>
 </Window>
 ~~~
+
+Если нужно автоматически повторно использовать тот же шаблон данных в других типах элементов управления, можно воспользоваться другим интересным трюком — установить свойство DataTemplate.DataType, чтобы идентифицировать тип привязанных данных, для которых должен применяться шаблон. Например, предыщущий пример можно было бы изменить, исключив ключ и указав этот шаблон, как предназначенный для привязки объектов CarTable, независимо от того, где они появляются:
+
+~~~XAML
+<Window .....VS>
+    <Window.Resources>
+        <!--<DataTemplate x:Key="ListTemplate">-->
+        <DataTemplate DataType="{x:Type local:Student}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=Name}" Padding="3"/>
+                <TextBlock Text="{Binding Path=SurName}" Padding="3"/>
+                <TextBlock Text="{Binding Path=ID}" Padding="3"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
+    
+    <Grid>
+        <!--<ListBox x:Name="_listStudents" ItemTemplate="{StaticResource ListTemplate}"/>-->
+        <ListBox x:Name="_listStudents"/>
+    </Grid>
+</Window>
+~~~
