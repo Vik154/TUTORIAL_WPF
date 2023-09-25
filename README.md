@@ -48,6 +48,7 @@
    * *[Шаблоны элементов управления](03_Основные_концепции_WPF/08_Templates/Description.md)*
    * *[Логическое и визуальное дерево](03_Основные_концепции_WPF/09_LVTrees/Description.md)*
    * *[Шаблоны данных](03_Основные_концепции_WPF/10_DataTemplate/Description.md)*
+   * *[Коллекции данных - ObservableCollection](03_Основные_концепции_WPF/11_ObservableCollection/Description.md)*
    * 
 
 
