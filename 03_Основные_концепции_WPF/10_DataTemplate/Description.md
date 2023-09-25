@@ -142,7 +142,14 @@ __Отделение и повторное использование шабло
 </Window>
 ~~~
 
+<hr>
 
+#### HierarchicalDataTemplate
+> *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.hierarchicaldatatemplate?view=netframework-4.8* <br>
+> *Источник 1: https://professorweb.ru/my/WPF/UI_WPF/level22/22_5.php* <br>
+> *Источник 1: https://professorweb.ru/my/WPF/UI_WPF/level22/22_5.php* <br>
+
+sdsdsds
 
 
 
