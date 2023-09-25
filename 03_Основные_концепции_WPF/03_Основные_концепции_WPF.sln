@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_Commands", "07_Commands\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_Templates", "08_Templates\08_Templates.csproj", "{D433A905-02A6-4AF7-B26A-051F4C9AB452}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_LVTrees", "09_LVTrees\09_LVTrees.csproj", "{7909EBB0-D6F1-4FDD-9D3E-382C124983AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "09_LVTrees", "09_LVTrees\09_LVTrees.csproj", "{7909EBB0-D6F1-4FDD-9D3E-382C124983AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_DataTemplate", "10_DataTemplate\10_DataTemplate.csproj", "{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_DataTemplate", "10_DataTemplate\10_DataTemplate.csproj", "{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_ObservableCollection", "11_ObservableCollection\11_ObservableCollection.csproj", "{77DEDB50-11A3-4FBA-AA85-A8A3CFCD9598}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA73FFB6-FBC3-4BEA-A99F-9CD400613B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77DEDB50-11A3-4FBA-AA85-A8A3CFCD9598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77DEDB50-11A3-4FBA-AA85-A8A3CFCD9598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77DEDB50-11A3-4FBA-AA85-A8A3CFCD9598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77DEDB50-11A3-4FBA-AA85-A8A3CFCD9598}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
