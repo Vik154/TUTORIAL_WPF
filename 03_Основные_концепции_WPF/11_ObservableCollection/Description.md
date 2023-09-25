@@ -25,30 +25,30 @@ ___NotifyCollectionChangedEventArgs___ - хранит всю информаци�
 
 ~~~XAML
 <Window ...... VS>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+  <Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
 
-        <ListBox x:Name="_listBox" Margin="10" FontSize="16"/>
+    <ListBox x:Name="_listBox" Margin="10" FontSize="16"/>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <StackPanel>
-                <Label Margin="5">Имя:</Label>
-                <Label Margin="5">Фамилия:</Label>
-                <Label Margin="5">Возраст:</Label>
-                <Button Margin="10" Height="30" Click="AddPerson_Click">
-                    Добавить
-                </Button>
-            </StackPanel>
-            <StackPanel>
-                <TextBox x:Name="_txtName" Margin="10" MinWidth="120" />
-                <TextBox x:Name="_txtSur" Margin="10" MinWidth="120" />
-                <TextBox x:Name="_txtAge" Margin="10" MinWidth="120" 
-                         PreviewTextInput="_txtAge_PreviewTextInput" />
-            </StackPanel>
+    <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <StackPanel>
+            <Label Margin="5">Имя:</Label>
+            <Label Margin="5">Фамилия:</Label>
+            <Label Margin="5">Возраст:</Label>
+            <Button Margin="10" Height="30" Click="AddPerson_Click">
+                Добавить
+            </Button>
         </StackPanel>
-    </Grid>
+        <StackPanel>
+            <TextBox x:Name="_txtName" Margin="10" MinWidth="120" />
+            <TextBox x:Name="_txtSur" Margin="10" MinWidth="120" />
+            <TextBox x:Name="_txtAge" Margin="10" MinWidth="120" 
+                     PreviewTextInput="_txtAge_PreviewTextInput" />
+        </StackPanel>
+    </StackPanel>
+  </Grid>
 </Window>
 ~~~
