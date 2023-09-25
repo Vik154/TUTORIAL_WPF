@@ -1,21 +1,39 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace _11_ObservableCollection {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            InitializeComponent();
-        }
+namespace _11_ObservableCollection;
+
+public record class Person(string? Name, string? SurName, int Age);
+
+public partial class MainWindow : Window {
+
+    ObservableCollection<Person> people { get; set; }
+
+    public MainWindow() {
+        InitializeComponent();
+
+        people = new ObservableCollection<Person> {
+            new Person("Tom", "Tomson", 22),
+            new Person("Bob", "Bobson", 25),
+            new Person("Sam", "Samson", 28),
+            new Person("Tim", "Timson", 33),
+            new Person("Nik", "Nikson", 34)
+        };
+
+        _listBox.ItemsSource = people;
+    }
+
+    private void AddPerson_Click(object sender, RoutedEventArgs e) {
+        if (_txtAge.Text == string.Empty)
+            _txtAge.Text = "150";
+
+        var newUser = new Person(_txtName.Text, _txtSur.Text, Convert.ToInt32(_txtAge.Text));
+        people.Add(newUser);
+    }
+
+    private void _txtAge_PreviewTextInput(object sender, TextCompositionEventArgs e) {
+        e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
     }
 }
