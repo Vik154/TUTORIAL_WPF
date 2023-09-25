@@ -151,7 +151,7 @@ __Отделение и повторное использование шабло
 > *Источник 1: https://professorweb.ru/my/WPF/UI_WPF/level22/22_5.php* <br>
 > *Источник 2: https://metanit.com/sharp/wpf/14.8.php* <br>
 
-<img src="img/Data2.png" align="left" alt="Пример работы данного кода" width="300" height="450">
+<img src="img/Data2.png" align="left" alt="Пример работы данного кода" width="300" height="500">
 
 ~~~XAML
 <Window .... VS>
