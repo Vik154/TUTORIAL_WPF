@@ -3,7 +3,6 @@
 *MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/data/data-templating-overview?view=netframeworkdesktop-4.8* <br>
 *Источник 1: https://metanit.com/sharp/wpf/14.3.php* <br>
 *Источник 2: https://professorweb.ru/my/WPF/binding_and_styles_WPF/level20/20_4.php* <br>
-*Источник 3: https://intuit.ru/studies/courses/690/546/lecture/12353?page=6* <br>
 
 **Шаблон данных (data template)** — это фрагмент XAML-разметки, который определяет, как привязанный объект данных должен быть отображен. 
 Подобно любому другому блоку XAML-разметки, шаблон может включать любую комбинацию элементов. Он также должен включать одно или более выражений привязки, которые извлекают информацию для отображения. <br>
@@ -60,3 +59,27 @@ public class Student {
 }
 ~~~
 <hr>
+
+__Отделение и повторное использование шаблонов__ <br>
+Подобно стилям, шаблоны часто объявляются как ресурс окна или приложения, который определен в списке, где он используется. Такое отделение часто более ясно, особенно если применяются длинные сложные шаблоны или множество шаблонов к одному и тому же элементу управления. Это также дает возможность повторно использовать шаблоны в более чем одном списочном элементе управления или элементе с содержимым, если нужно представлять данные одинаковым образом в разных местах пользовательского интерфейса.
+
+Все, что потребуется — это определить шаблон данных в коллекции ресурсов и назначить ему ключевое имя. Ниже приведен пример извлечения шаблона, показанного в предыдущем примере:
+
+~~~XAML
+<Window .....VS>
+    <Window.Resources>
+        <DataTemplate x:Key="ListTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=Name}" Padding="3"/>
+                <TextBlock Text="{Binding Path=SurName}" Padding="3"/>
+                <TextBlock Text="{Binding Path=ID}" Padding="3"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Теперь шаблон данных можно применить с использованием ссылки StaticResource: -->
+        <ListBox x:Name="_listStudents" ItemTemplate="{StaticResource ListTemplate}"/>
+    </Grid>
+</Window>
+~~~
