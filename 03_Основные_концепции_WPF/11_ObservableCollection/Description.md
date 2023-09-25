@@ -8,8 +8,10 @@ ObservableCollection — это класс коллекции, которая п
 
 ___Уведомление об измении коллекции:___ <br>
 Класс ObservableCollection определяет событие CollectionChanged, подписавшись на которое, мы можем обработать любые изменения коллекции. Данное событие представляет делегат NotifyCollectionChangedEventHandler:
-> ~~~C# void NotifyCollectionChangedEventHandler(object? sender, NotifyCollectionChangedEventArgs e); ~~~
-
+>
+~~~C#
+void NotifyCollectionChangedEventHandler(object? sender, NotifyCollectionChangedEventArgs e);
+~~~
 
 Второй параметр делегата - объект NotifyCollectionChangedEventArgs хранит всю информацию о событии. В частности, его свойство Action позволяет узнать характер изменений. Оно хранит одно из значений из перечисления NotifyCollectionChangedAction:
 
