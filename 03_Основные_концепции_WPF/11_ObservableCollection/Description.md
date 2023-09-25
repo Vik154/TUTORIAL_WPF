@@ -1,6 +1,7 @@
 ### Концепция шаблонов данных - *представляет механизм для настройки отображения объектов заданного типа.* 
 
 *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.collections.objectmodel.observablecollection-1?view=net-7.0* <br>
+*MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/data/how-to-create-and-bind-to-an-observablecollection?view=netframeworkdesktop-4.8* <br>
 *Источник 1: https://metanit.com/sharp/wpf/14.2.php* <br>
 *Источник 2: https://metanit.com/sharp/tutorial/4.13.php* <br>
 
@@ -21,8 +22,7 @@ ___NotifyCollectionChangedEventArgs___ - хранит всю информаци�
 
 Кроме того, свойства NewItems и OldItems позволяют получить соответственно добавленные и удаленные объекты. Таким образом, мы получаем полный контроль над обработкой добавления, удаления и замены объектов в коллекции. <br>
 
-При использовании ObservableCollection, данные автоматически обновляются при добавленние объекта в коллекцию. <br>
-*https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/data/how-to-create-and-bind-to-an-observablecollection?view=netframeworkdesktop-4.8*
+При использовании ObservableCollection, данные автоматически обновляются при добавленние объекта в коллекцию. 
 
 <img src="img/Obser.png" align="left" alt="Пример работы данного кода" width="430" height="560">
 
