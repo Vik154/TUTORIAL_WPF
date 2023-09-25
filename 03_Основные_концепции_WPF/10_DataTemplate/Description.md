@@ -109,3 +109,42 @@ __Отделение и повторное использование шабло
 Теперь этот шаблон будет использован с любым списочным элементом или элементом управления содержимым в данном окне, который привязан к объектам Student. Настройку ItemTemplate указывать не нужно.
 
 Шаблоны данных не требуют привязки данных. Другими словами, использовать свойство ItemsSource для заполнения шаблона списка не понадобится. В предыдущих примерах добавлять объекты Student можно было декларативно (в XAML-разметке) или программно (вызывая метод ListBox.Items.Add()). В обоих случаях шаблон данных работает одинаково.
+
+
+#### Триггеры данных:
+> *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.datatrigger?view=windowsdesktop-7.0* <br>
+
+С помощью триггеров данных (DataTrigger) можно задать дополнительную логику визуализации, которая срабатывает, если свойство привязанного объекта принимает то или иное значение: <br>
+
+~~~XAML
+<Window ..... VS>
+    <Window.Resources>
+        <DataTemplate x:Key="ListTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="tBlockName" Text="{Binding Path=Name}" Padding="3"/>
+                <TextBlock Text="{Binding Path=SurName}" Padding="3"/>
+                <TextBlock Text="{Binding Path=ID}" Padding="3"/>
+            </StackPanel>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding ElementName=tBlockName, Path=IsMouseOver}" Value="True">
+                    <Setter TargetName="tBlockName" Property="FontWeight" Value="Bold"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+            
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid>
+        <ListBox x:Name="_listStudents" ItemTemplate="{StaticResource ListTemplate}"/>
+    </Grid>
+</Window>
+~~~
+
+
+
+
+
+
+
+
