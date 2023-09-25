@@ -151,7 +151,34 @@ __Отделение и повторное использование шабло
 > *Источник 1: https://professorweb.ru/my/WPF/UI_WPF/level22/22_5.php* <br>
 > *Источник 2: https://metanit.com/sharp/wpf/14.8.php* <br>
 
-sdsdsds
+<img src="img/Data2.png" align="left" alt="Пример работы данного кода" width="300" height="450">
+
+~~~XAML
+<Window .... VS>
+    <TreeView x:Name="_treeView">
+        <TreeView.ItemTemplate>
+            <HierarchicalDataTemplate ItemsSource="{Binding StreetsList}">
+                <Label Content="{Binding CityName}"/>
+    
+                <HierarchicalDataTemplate.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding StreetsList}">
+    
+                        <Expander Header="{Binding StreetName}">
+                            <ListBox>
+                                <ListBoxItem Content="{Binding HouseNumber[0]}"/>
+                                <ListBoxItem Content="{Binding HouseNumber[1]}"/>
+                                <ListBoxItem Content="{Binding HouseNumber[2]}"/>
+                            </ListBox>
+                        </Expander>
+    
+                    </HierarchicalDataTemplate>
+                </HierarchicalDataTemplate.ItemTemplate>
+                
+            </HierarchicalDataTemplate>
+        </TreeView.ItemTemplate>
+    </TreeView>
+</Window>
+~~~
 
 
 
