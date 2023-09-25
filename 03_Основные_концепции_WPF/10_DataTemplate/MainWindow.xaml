@@ -7,17 +7,55 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="480">
 
-    <Grid>
-        <ListBox x:Name="_listStudents">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=Name}" Padding="3"/>
-                        <TextBlock Text="{Binding Path=SurName}" Padding="3"/>
-                        <TextBlock Text="{Binding Path=ID}" Padding="3"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </Grid>
+    <Window.Resources>
+        <DataTemplate x:Key="ListTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="tBlockName" Text="{Binding Path=Name}" Padding="3"/>
+                <TextBlock Text="{Binding Path=SurName}" Padding="3"/>
+                <TextBlock Text="{Binding Path=ID}" Padding="3"/>
+            </StackPanel>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding ElementName=tBlockName, Path=IsMouseOver}" Value="True">
+                    <Setter TargetName="tBlockName" Property="FontWeight" Value="Bold"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+            
+        </DataTemplate>
+    </Window.Resources>
+
+    <TabControl>
+        <TabItem Header="DataTemplate">
+            <Grid>
+                <ListBox x:Name="_listStudents" ItemTemplate="{StaticResource ListTemplate}"/>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="HierarchicalDataTemplate">
+
+            <TreeView x:Name="_treeView">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding StreetsList}">
+                        <Label Content="{Binding CityName}"/>
+
+                        <HierarchicalDataTemplate.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding StreetsList}">
+
+                                <Expander Header="{Binding StreetName}">
+                                    <ListBox>
+                                        <ListBoxItem Content="{Binding HouseNumber[0]}"/>
+                                        <ListBoxItem Content="{Binding HouseNumber[1]}"/>
+                                        <ListBoxItem Content="{Binding HouseNumber[2]}"/>
+                                    </ListBox>
+                                </Expander>
+
+                            </HierarchicalDataTemplate>
+                        </HierarchicalDataTemplate.ItemTemplate>
+                        
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+
+        </TabItem>
+    </TabControl>
 </Window>
