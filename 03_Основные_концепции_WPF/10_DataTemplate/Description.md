@@ -144,10 +144,12 @@ __Отделение и повторное использование шабло
 
 <hr>
 
-#### HierarchicalDataTemplate
+#### Иерархические данные HierarchicalDataTemplate и TreeView:
+
 > *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.hierarchicaldatatemplate?view=netframework-4.8* <br>
+> *MSDN: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/controls/treeview-overview?view=netframeworkdesktop-4.8* <br>
 > *Источник 1: https://professorweb.ru/my/WPF/UI_WPF/level22/22_5.php* <br>
-> *Источник 1: https://professorweb.ru/my/WPF/UI_WPF/level22/22_5.php* <br>
+> *Источник 2: https://metanit.com/sharp/wpf/14.8.php* <br>
 
 sdsdsds
 
