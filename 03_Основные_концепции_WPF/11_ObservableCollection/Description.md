@@ -43,11 +43,10 @@ ___NotifyCollectionChangedEventArgs___ - хранит всю информаци�
                 </Button>
             </StackPanel>
             <StackPanel>
-                <TextBox x:Name="_txtName" Margin="10" MinWidth="120"></TextBox>
-                <TextBox x:Name="_txtSur" Margin="10" MinWidth="120"></TextBox>
+                <TextBox x:Name="_txtName" Margin="10" MinWidth="120" />
+                <TextBox x:Name="_txtSur" Margin="10" MinWidth="120" />
                 <TextBox x:Name="_txtAge" Margin="10" MinWidth="120" 
-                         PreviewTextInput="_txtAge_PreviewTextInput"
-                         />
+                         PreviewTextInput="_txtAge_PreviewTextInput" />
             </StackPanel>
         </StackPanel>
     </Grid>
