@@ -114,7 +114,7 @@ __Отделение и повторное использование шабло
 #### Триггеры данных:
 > *MSDN: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.datatrigger?view=windowsdesktop-7.0* <br>
 
-С помощью триггеров данных (DataTrigger) можно задать дополнительную логику визуализации, которая срабатывает, если свойство привязанного объекта принимает то или иное значение: в данном случае, при наведении курсора на привязанный элемент, текст станет жирным, как твоя бывшая: <br>
+С помощью триггеров данных (DataTrigger) можно задать дополнительную логику визуализации, которая срабатывает, если свойство привязанного объекта принимает то или иное значение: <br>
 
 ~~~XAML
 <Window ..... VS>
@@ -127,6 +127,7 @@ __Отделение и повторное использование шабло
             </StackPanel>
 
             <DataTemplate.Triggers>
+                <!-- при наведении курсора на привязанный элемент, текст станет жирным, как моя бывшая -->
                 <DataTrigger Binding="{Binding ElementName=tBlockName, Path=IsMouseOver}" Value="True">
                     <Setter TargetName="tBlockName" Property="FontWeight" Value="Bold"/>
                 </DataTrigger>
