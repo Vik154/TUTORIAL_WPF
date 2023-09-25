@@ -21,7 +21,7 @@ ___NotifyCollectionChangedEventArgs___ - хранит всю информаци�
 
 Кроме того, свойства NewItems и OldItems позволяют получить соответственно добавленные и удаленные объекты. Таким образом, мы получаем полный контроль над обработкой добавления, удаления и замены объектов в коллекции. <br>
 
-<img src="img/Obser.png" align="left" alt="Пример работы данного кода" width="400" height="550">
+<img src="img/Obser.png" align="left" alt="Пример работы данного кода" width="450" height="560">
 
 ~~~XAML
 <Window ...... VS>
@@ -34,20 +34,20 @@ ___NotifyCollectionChangedEventArgs___ - хранит всю информаци�
     <ListBox x:Name="_listBox" Margin="10" FontSize="16"/>
 
     <StackPanel Grid.Row="1" Orientation="Horizontal">
-        <StackPanel>
-            <Label Margin="5">Имя:</Label>
-            <Label Margin="5">Фамилия:</Label>
-            <Label Margin="5">Возраст:</Label>
-            <Button Margin="10" Height="30" Click="AddPerson_Click">
-                Добавить
-            </Button>
-        </StackPanel>
-        <StackPanel>
-            <TextBox x:Name="_txtName" Margin="10" MinWidth="120" />
-            <TextBox x:Name="_txtSur" Margin="10" MinWidth="120" />
-            <TextBox x:Name="_txtAge" Margin="10" MinWidth="120" 
-                     PreviewTextInput="_txtAge_PreviewTextInput" />
-        </StackPanel>
+      <StackPanel>
+        <Label Margin="5">Имя:</Label>
+        <Label Margin="5">Фамилия:</Label>
+        <Label Margin="5">Возраст:</Label>
+        <Button Margin="10" Height="30" Click="AddPerson_Click">
+            Добавить
+        </Button>
+      </StackPanel>
+      <StackPanel>
+        <TextBox x:Name="_txtName" Margin="10" MinWidth="120" />
+        <TextBox x:Name="_txtSur" Margin="10" MinWidth="120" />
+        <TextBox x:Name="_txtAge" Margin="10" MinWidth="120" 
+                 PreviewTextInput="_txtAge_PreviewTextInput" />
+      </StackPanel>
     </StackPanel>
   </Grid>
 </Window>
