@@ -97,3 +97,54 @@ public partial class MainWindow : Window {
     }
 }
 ~~~
+
+<hr>
+
+#### Добавление элементов в DataGrid из ObservableCollection:
+
+<img src="img/Obser2.png" align="left" alt="Пример работы данного кода" width="430" height="560">
+
+~~~XAML
+<Window ............VS>
+    <Window.Resources>
+        <local:EmployeesList x:Key="Empl"/>
+    </Window.Resources>
+
+    <Grid>
+        <DataGrid ItemsSource="{StaticResource Empl}"
+                  AutoGenerateColumns="False"
+                  >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Имя:" MinWidth="100" SortMemberPath="FirstName">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FirstName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Фамилия" MinWidth="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LastName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Компания" MinWidth="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Company}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Телефон" MinWidth="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Phone}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
+~~~
