@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace _11_ObservableCollection;
@@ -10,6 +11,8 @@ public record class Person(string? Name, string? SurName, int Age);
 public partial class MainWindow : Window {
 
     ObservableCollection<Person> people { get; set; }
+
+    Window Employess = new Employees();
 
     public MainWindow() {
         InitializeComponent();
@@ -23,6 +26,7 @@ public partial class MainWindow : Window {
         };
 
         _listBox.ItemsSource = people;
+        Employess.Show();
     }
 
     private void AddPerson_Click(object sender, RoutedEventArgs e) {
