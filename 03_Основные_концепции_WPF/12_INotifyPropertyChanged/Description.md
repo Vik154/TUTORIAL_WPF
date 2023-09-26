@@ -1,6 +1,6 @@
 ### INotifyPropertyChanged - *Интерфейс представляющий уведомления об изменении свойств.*
 
-*MSDN: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8* <br>
+*https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8* <br>
 *Источник 1: https://metanit.com/sharp/wpf/11.2.php* <br>
 
 
