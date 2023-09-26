@@ -13,7 +13,60 @@
         <vm:MainWindowViewModel />
     </Window.DataContext>
 
-    <Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход"/>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе"/>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="TEXT"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="120" Height="14" Value="40"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <TabControl>
+            <TabItem Header="Вкладка 1">
+                <Grid ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Grid.Column="0" Grid.Row="0"
+                               Fill="AliceBlue" Stroke="Green"
+                               StrokeThickness="5" Margin="5,7"
+                               RadiusX="6" RadiusY="8"
+                               />
+                    <Ellipse Grid.Column="1" Grid.Row="0"
+                             Fill="Aqua" Stroke="Bisque" 
+                             StrokeThickness="5"
+                             Margin="10,10"                             
+                             />
+
+
+
+                </Grid>
+            </TabItem>
+            
+            <TabItem></TabItem>
+        </TabControl>
+            
+    </DockPanel>
+    
+    
+    <!--<Grid>
         <TextBox Margin="5,10,0,0"
                  Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
                  FontSize="16"
@@ -21,8 +74,7 @@
                  HorizontalAlignment="Left"
                  Width="300"
                  >
-            
         </TextBox>
 
-    </Grid>
+    </Grid>-->
 </Window>
