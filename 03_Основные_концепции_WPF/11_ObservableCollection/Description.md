@@ -102,7 +102,7 @@ public partial class MainWindow : Window {
 
 #### Добавление элементов в DataGrid из ObservableCollection:
 
-<img src="img/Obser2.png" align="left" alt="Пример работы данного кода" width="430" height="560">
+<img src="img/Obser2.png" align="center" alt="Пример работы данного кода" width="550" height="560">
 
 ~~~XAML
 <Window ............VS>
