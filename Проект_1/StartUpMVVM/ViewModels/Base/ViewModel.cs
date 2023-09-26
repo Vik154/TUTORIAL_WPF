@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 namespace StartUpMVVM.ViewModels.Base;
 
 // ViewModelBase
-internal abstract class ViewModel : INotifyPropertyChanged {
+internal abstract class ViewModel : INotifyPropertyChanged, IDisposable {
 
     // Событие, возникающее при изменении свойств
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -28,4 +28,20 @@ internal abstract class ViewModel : INotifyPropertyChanged {
         OnPropertyChanged(propertyName);    // Генерируется событие
         return true;                        // Флаг для отслеживания изменилось ли свойство 
     }
+
+    // Для примера
+    public void Dispose() {
+        Dispose(true);
+    }
+
+    private bool _Disposed;
+
+    // Освобождение управляемых ресурсов
+    protected virtual void Dispose(bool disposing) {
+        if (!disposing || _Disposed)
+            return;
+        _Disposed = true;
+    }
+
+    // ~ViewModel() { Dispose(false); }
 }
