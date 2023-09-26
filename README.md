@@ -49,6 +49,7 @@
    * *[Логическое и визуальное дерево](03_Основные_концепции_WPF/09_LVTrees/Description.md)*
    * *[Шаблоны данных](03_Основные_концепции_WPF/10_DataTemplate/Description.md)*
    * *[Коллекции данных - ObservableCollection](03_Основные_концепции_WPF/11_ObservableCollection/Description.md)*
+   * *[Уведомления об изменениях свойств - INotifyPropertyChanged](03_Основные_концепции_WPF/12_INotifyPropertyChanged/Description.md)*
    * 
 
 
