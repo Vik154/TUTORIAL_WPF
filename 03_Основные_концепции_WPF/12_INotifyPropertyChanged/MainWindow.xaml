@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_12_INotifyPropertyChanged"
+        xmlns:sys ="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        >
+    <Window.Resources>
+        <local:Person x:Key="person" FirstName="Tom" LastName="Tompson" Age="33"/>
+    </Window.Resources>
+    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
+        <Button Width="100" Height="30" Margin="5"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Click="Button_Click"
+                Content="Изменить значение"
+                />
+        <StackPanel VerticalAlignment="Top" Margin="0,40,0,0"
+                    Orientation="Horizontal"
+                    DataContext="{StaticResource person}">
+            <TextBlock Margin="5" Text="{Binding FirstName}"/>
+            <TextBlock Margin="5" Text="{Binding LastName}"/>
+            <TextBlock Margin="5" Text="{Binding Age}"/>
+        </StackPanel>
+        
+        <ListBox Grid.Column="1" x:Name="_list"/>
     </Grid>
 </Window>
