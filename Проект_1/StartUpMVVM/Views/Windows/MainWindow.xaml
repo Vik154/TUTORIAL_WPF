@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:StartUpMVVM"
         xmlns:vm="clr-namespace:StartUpMVVM.ViewModels"
         xmlns:cmd="clr-namespace:StartUpMVVM.Infrastructure.Commands"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
         Title="{Binding Title}"
         Height="450" Width="800">
@@ -56,6 +57,7 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
+                        <fa></fa>
                         <TextBlock Text="Вкладка 1"/>
                     </StackPanel>
                 </TabItem.Header>

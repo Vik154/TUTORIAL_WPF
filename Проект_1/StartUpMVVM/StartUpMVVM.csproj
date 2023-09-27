@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome" Version="4.7.0" />
+    <PackageReference Include="FontAwesome5" Version="2.1.11" />
   </ItemGroup>
 
 </Project>
