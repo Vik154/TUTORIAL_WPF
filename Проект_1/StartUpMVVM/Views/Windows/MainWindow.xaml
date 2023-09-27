@@ -7,6 +7,7 @@
         xmlns:vm="clr-namespace:StartUpMVVM.ViewModels"
         xmlns:cmd="clr-namespace:StartUpMVVM.Infrastructure.Commands"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:oxy="http://oxyplot.org/wpf/contrib"
         mc:Ignorable="d"
         Title="{Binding Title}"
         Height="450" Width="800">
@@ -96,9 +97,18 @@
 
                 </Grid>
             </TabItem>
-            
-            <TabItem Header="Вкладка 2">
-                
+
+            <TabItem Header="График">
+                <oxy:Plot>
+                    <oxy:Plot.Axes>
+                        <oxy:LinearAxis Position="Left"/>
+                        <oxy:LinearAxis Position="Bottom"/>
+                    </oxy:Plot.Axes>
+                    <oxy:LineSeries Color="Red"
+                                    ItemsSource="{Binding TestDataPoint}"
+                                    DataFieldX="XValue"
+                                    DataFieldY="YValue"/>
+                </oxy:Plot>
             </TabItem>
         
         </TabControl>
