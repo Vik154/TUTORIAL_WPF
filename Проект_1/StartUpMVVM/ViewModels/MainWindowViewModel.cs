@@ -1,8 +1,10 @@
 ﻿using StartUpMVVM.Infrastructure.Commands;
 using StartUpMVVM.Models;
+using StartUpMVVM.Models.Decanat;
 using StartUpMVVM.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,12 @@ using System.Windows.Input;
 namespace StartUpMVVM.ViewModels;
 
 internal class MainWindowViewModel : ViewModel {
+    
+    /*------------------------------------------------------------------------------------*/
+
+    public ObservableCollection<Group> Groups { get; }
+
+    /*------------------------------------------------------------------------------------*/
 
     #region Переключатель вкладок
 
@@ -67,6 +75,8 @@ internal class MainWindowViewModel : ViewModel {
     }
     #endregion
 
+    /*------------------------------------------------------------------------------------*/
+
     #region Команды
 
     #region CloseApplicationCommand
@@ -96,6 +106,8 @@ internal class MainWindowViewModel : ViewModel {
 
     #endregion
 
+    /*------------------------------------------------------------------------------------*/
+
     public MainWindowViewModel() {
 
         #region Команды
@@ -115,6 +127,27 @@ internal class MainWindowViewModel : ViewModel {
             data_points.Add(new DataPoint { XValue = x, YValue = y });
         }
         TestDataPoint = data_points;
+        #endregion
+
+        #region Заполнение коллекции студентов
+
+        var student_index = 1;
+
+        var students = Enumerable.Range(1, 10).Select(i => new Student {
+            Name = $"Name {student_index}",
+            SurName = $"SurName {student_index}",
+            Patronymic = $"Patronymic {student_index++}",
+            Birthday = DateTime.Now,
+            Rating = 0
+        });
+        
+        var groups = Enumerable.Range(1, 20).Select(i => new Group {
+            Name = $"Группа {i}",
+            Students = new ObservableCollection<Student>(students)
+        });
+
+        Groups = new ObservableCollection<Group>(groups);
+
         #endregion
     }
 }

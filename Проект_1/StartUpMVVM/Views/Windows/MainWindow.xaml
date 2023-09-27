@@ -68,7 +68,8 @@
         </StatusBar>
 
         <TabControl SelectedIndex="{Binding SelectedPageIndex}">
-            <TabItem>
+
+            <!--<TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:ImageAwesome Height="13" Margin="0,0,5,0" 
@@ -98,7 +99,9 @@
                              StrokeThickness="5"
                              Margin="10,10"                             
                              >
-                        <!-- Привязка команд к элементам не имеющим команд -->
+                        -->
+            <!-- Привязка команд к элементам не имеющим команд -->
+            <!--
                         <Ellipse.InputBindings>
                             <MouseBinding Command="{Binding CloseApplicationCommand}"
                                           MouseAction="LeftDoubleClick">                             
@@ -109,7 +112,7 @@
 
 
                 </Grid>
-            </TabItem>
+            </TabItem>-->
 
             <TabItem Header="График">
                 <oxy:Plot>
@@ -124,8 +127,26 @@
                 </oxy:Plot>
             </TabItem>
 
-        </TabControl>
+            <TabItem Header="Студенты">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Grid.Column="0" Header="Группы">
+                        <ListBox ItemsSource="{Binding Groups}" DisplayMemberPath="Name"/>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Header="Студенты">
+                        <DataGrid>
+                            
+                        </DataGrid>
+                    </GroupBox>
+                
+                </Grid>
+            </TabItem>
             
+        </TabControl>
     </DockPanel>
     
     
