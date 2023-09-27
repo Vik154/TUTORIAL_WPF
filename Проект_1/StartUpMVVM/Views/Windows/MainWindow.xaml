@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StartUpMVVM"
         xmlns:vm="clr-namespace:StartUpMVVM.ViewModels"
+        xmlns:cmd="clr-namespace:StartUpMVVM.Infrastructure.Commands"
         mc:Ignorable="d"
         Title="{Binding Title}"
         Height="450" Width="800">
@@ -16,7 +17,12 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"/>
+                <!--<MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"/>-->
+                <MenuItem Header="Выход">
+                    <MenuItem.Command>
+                        <cmd:CloseApplicationCommand/>
+                    </MenuItem.Command>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"/>
@@ -53,7 +59,14 @@
                              Fill="Aqua" Stroke="Bisque" 
                              StrokeThickness="5"
                              Margin="10,10"                             
-                             />
+                             >
+                        <!-- Привязка команд к элементам не имеющим команд -->
+                        <Ellipse.InputBindings>
+                            <MouseBinding Command="{Binding CloseApplicationCommand}"
+                                          MouseAction="LeftDoubleClick">                             
+                            </MouseBinding>
+                        </Ellipse.InputBindings>
+                    </Ellipse>
 
 
 
