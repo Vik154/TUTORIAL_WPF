@@ -4,6 +4,8 @@
    + :speech_balloon: https://metanit.com/sharp/wpf/
    + :speech_balloon: https://professorweb.ru/my/WPF/base_WPF/level1/info_WPF.php
    + :speech_balloon: https://intuit.ru/studies/courses?page=1
+   + <hr>
+   + https://www.youtube.com/@Shmachilin
 2. :notebook: Книги:
    + :blue_book: Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
    + :blue_book: Адам Натан "WPF 4. Подробное руководство." (*Книга понятная только её автору*)
@@ -13,7 +15,6 @@
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.uielement?view=windowsdesktop-7.0
    + :sos: https://learn.microsoft.com/ru-ru/windows/apps/desktop/
    + :octocat: https://github.com/microsoft/WPF-Samples/tree/main
-   + s
 4. Исходники стандартных библиотек (быстрый поиск в браузере)
    + https://source.dot.net/ онлайн браузер исходников .NET Core
    + https://referencesource.microsoft.com/ онлайн браузер исходников .NET Framework
