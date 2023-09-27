@@ -51,7 +51,7 @@
    * *[Коллекции данных - ObservableCollection](03_Основные_концепции_WPF/11_ObservableCollection/Description.md)*
    * *[Уведомления об изменениях свойств - INotifyPropertyChanged](03_Основные_концепции_WPF/12_INotifyPropertyChanged/Description.md)*
 4. ___Проекты___:
-   * *[Проект №1]() - по серии уроков (Павла Шмачилина WPF+MVVM) https://www.youtube.com/@Shmachilin*
+   * *[Проект №1](Проект_1/) - по серии уроков (Павла Шмачилина WPF+MVVM) https://www.youtube.com/@Shmachilin*
 
 
 
