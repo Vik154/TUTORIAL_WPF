@@ -53,7 +53,12 @@
         </StatusBar>
 
         <TabControl>
-            <TabItem Header="Вкладка 1">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Вкладка 1"/>
+                    </StackPanel>
+                </TabItem.Header>
                 <Grid ShowGridLines="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
