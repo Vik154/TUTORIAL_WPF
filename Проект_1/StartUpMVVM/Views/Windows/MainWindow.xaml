@@ -16,7 +16,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Выход"/>
+                <MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"/>
             </MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"/>
@@ -60,7 +60,10 @@
                 </Grid>
             </TabItem>
             
-            <TabItem></TabItem>
+            <TabItem Header="Вкладка 2">
+                
+            </TabItem>
+        
         </TabControl>
             
     </DockPanel>
