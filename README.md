@@ -9,7 +9,6 @@
    + :blue_book: Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
    + :blue_book: Адам Натан "WPF 4. Подробное руководство." (*Книга понятная только её автору*)
 3. :page_with_curl: Документация:
-   + :sos: https://learn.microsoft.com/ru-ru/dotnet/fundamentals/languages
    + :sos: https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.uielement?view=windowsdesktop-7.0
    + :sos: https://learn.microsoft.com/ru-ru/windows/apps/desktop/
