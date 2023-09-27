@@ -143,7 +143,10 @@
                     <GroupBox Grid.Column="1" Header="{Binding SelectedGroup.Name, FallbackValue='Студенты', TargetNullValue='Группа не выбрана'}">
                         <DataGrid ItemsSource="{Binding SelectedGroup.Students}"
                                   AutoGenerateColumns="False"
-                                  IsReadOnly="True">
+                                  IsReadOnly="True"
+                                  VerticalGridLinesBrush="Gray"
+                                  GridLinesVisibility="Vertical"
+                                  AlternatingRowBackground="LightGray">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Фамилия" Binding="{Binding SurName}"/>
                                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
@@ -151,6 +154,7 @@
                                 <DataGridTextColumn Header="Рейтинг" Binding="{Binding Rating}"/>
                                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday, StringFormat=dd.MM.yyyy}"/>
                                 <DataGridTextColumn Header="Группа" Binding="{Binding DataContext.SelectedGroup.Name, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                                <DataGridTextColumn Header="Заметки" Binding="{Binding Description}" Width="*"/>
                             </DataGrid.Columns>
                             
                         </DataGrid>
