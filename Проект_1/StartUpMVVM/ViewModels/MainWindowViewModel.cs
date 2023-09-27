@@ -13,6 +13,19 @@ namespace StartUpMVVM.ViewModels;
 
 internal class MainWindowViewModel : ViewModel {
 
+    #region Переключатель вкладок
+
+    /// <summary> Переключатель вкладок </summary>
+    private int _SelectedPageIndex;
+    
+    /// <summary> Переключатель вкладок </summary>
+    public int SelectedPageIndex {
+        get => _SelectedPageIndex;
+        set => Set(ref _SelectedPageIndex, value);
+    }
+
+    #endregion
+
     #region Тестовые данные для визуализации графиков
 
     /// <summary> Тестовые данные для визуализации графиков </summary>
@@ -61,7 +74,6 @@ internal class MainWindowViewModel : ViewModel {
 
     // Выполняется, когда команда выполняется
     private void OnCloseApplicationCommandExecuted(object sender) {
-
         Application.Current.Shutdown();
     }
 
@@ -69,14 +81,28 @@ internal class MainWindowViewModel : ViewModel {
     private bool CanCloseApplicationCommandExecute(object sender) => true;
     #endregion
 
+    #region ChangeTabIndexCommand - переключение вкладок
+
+    public ICommand ChangeTabIndexCommand {  get; }
+
+    private bool CanChangeTabIndexCommandExecute(object sender) => _SelectedPageIndex >= 0;
+
+    private void OnChangeTabIndexCommandExecuted(object sender) {
+        if (sender is null) return;
+        SelectedPageIndex += Convert.ToInt32(sender);
+    }
+
+    #endregion
+
     #endregion
 
     public MainWindowViewModel() {
 
         #region Команды
-        CloseApplicationCommand = new LambdaCommand(
-                                        OnCloseApplicationCommandExecuted, 
-                                        CanCloseApplicationCommandExecute);
+        CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, 
+                                                    CanCloseApplicationCommandExecute);
+        ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, 
+                                                  CanChangeTabIndexCommandExecute);
         #endregion
 
         #region Генерация графика
