@@ -10,6 +10,7 @@
    + :blue_book: Адам Натан "WPF 4. Подробное руководство." (*Книга понятная только её автору*)
 3. :page_with_curl: Документация:
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netdesktop-7.0
+   + :sos: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netframeworkdesktop-4.8
    + :sos: https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
    + :sos: https://learn.microsoft.com/ru-ru/windows/apps/desktop/
    + :octocat: https://github.com/microsoft/WPF-Samples/tree/main
