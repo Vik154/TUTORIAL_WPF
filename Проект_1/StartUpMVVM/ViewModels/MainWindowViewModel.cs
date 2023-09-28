@@ -19,6 +19,21 @@ internal class MainWindowViewModel : ViewModel {
 
     public ObservableCollection<Group> Groups { get; }
 
+    #region Разнородные элементы
+
+    public object[] CompositeCollection { get; }
+
+    /// <summary> Элемент любого типа </summary>
+    private object _SelectedCompositeValue;
+
+    /// <summary> Элемент любого типа </summary>
+    public object SelectedCompositeValue {
+        get => _SelectedCompositeValue;
+        set => Set(ref  _SelectedCompositeValue, value);
+    }
+
+    #endregion
+
     #region Выбранная группа
 
     /// <summary> Выбранная группа </summary>
@@ -158,6 +173,20 @@ internal class MainWindowViewModel : ViewModel {
         });
 
         Groups = new ObservableCollection<Group>(groups);
+
+        #endregion
+
+        #region CompositeCollection
+
+        var data_list = new List<object>();
+        var group = Groups[1];
+
+        data_list.Add("Hello world");
+        data_list.Add(99);
+        data_list.Add(group);
+        data_list.Add(group.Students[0]);
+
+        CompositeCollection = data_list.ToArray();
 
         #endregion
     }
