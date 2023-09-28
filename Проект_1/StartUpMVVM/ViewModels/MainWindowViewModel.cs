@@ -130,6 +130,35 @@ internal class MainWindowViewModel : ViewModel {
 
     #endregion
 
+    #region CreateGroup and DeleteGroup - добавление и удаление групп
+
+    public ICommand CreateGroupCommand { get; }
+
+    private bool CanCreateGroupCommandExecute(object sender) => true;
+
+    private void OnCreateGroupCommandExecuted(object sender) {
+        var group_max_index = Groups.Count + 1;
+        var new_group = new Group {
+            Name = $"Группа {group_max_index}",
+            Students = new ObservableCollection<Student>()
+        };
+        Groups.Add(new_group);
+    }
+
+    public ICommand DeleteGroupCommand { get; }
+
+    private bool CanDeleteGroupCommandExecute(object sender) => 
+        sender is Group group && Groups.Contains(group);
+
+    private void OnDeleteGroupCommandExecuted(object sender) {
+        if (!(sender is Group group)) return;
+        var group_index = Groups.IndexOf(group);
+        Groups.Remove(group);
+        if (group_index < Groups.Count)
+            SelectedGroup = Groups[group_index];
+    }
+    #endregion
+
     #endregion
 
     /*------------------------------------------------------------------------------------*/
@@ -137,10 +166,10 @@ internal class MainWindowViewModel : ViewModel {
     public MainWindowViewModel() {
 
         #region Команды
-        CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, 
-                                                    CanCloseApplicationCommandExecute);
-        ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, 
-                                                  CanChangeTabIndexCommandExecute);
+        CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+        ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, CanChangeTabIndexCommandExecute);
+        CreateGroupCommand = new LambdaCommand(OnCreateGroupCommandExecuted, CanCreateGroupCommandExecute);
+        DeleteGroupCommand = new LambdaCommand(OnDeleteGroupCommandExecuted, CanDeleteGroupCommandExecute);
         #endregion
 
         #region Генерация графика
