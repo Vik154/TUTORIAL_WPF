@@ -1,8 +1,10 @@
 ﻿using StartUpMVVM.Infrastructure.Commands;
 using StartUpMVVM.Models;
+using StartUpMVVM.Models.Decanat;
 using StartUpMVVM.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,38 @@ using System.Windows.Input;
 namespace StartUpMVVM.ViewModels;
 
 internal class MainWindowViewModel : ViewModel {
+    
+    /*------------------------------------------------------------------------------------*/
+
+    public ObservableCollection<Group> Groups { get; }
+
+    #region Разнородные элементы
+
+    public object[] CompositeCollection { get; }
+
+    /// <summary> Элемент любого типа </summary>
+    private object _SelectedCompositeValue;
+
+    /// <summary> Элемент любого типа </summary>
+    public object SelectedCompositeValue {
+        get => _SelectedCompositeValue;
+        set => Set(ref  _SelectedCompositeValue, value);
+    }
+
+    #endregion
+
+    #region Выбранная группа
+
+    /// <summary> Выбранная группа </summary>
+    private Group _SelectedGroup;
+    
+    /// <summary> Выбранная группа </summary>
+    public Group SelectedGroup {
+        get => _SelectedGroup;
+        set => Set(ref _SelectedGroup, value);
+    }
+
+    #endregion
 
     #region Переключатель вкладок
 
@@ -67,6 +101,8 @@ internal class MainWindowViewModel : ViewModel {
     }
     #endregion
 
+    /*------------------------------------------------------------------------------------*/
+
     #region Команды
 
     #region CloseApplicationCommand
@@ -94,15 +130,46 @@ internal class MainWindowViewModel : ViewModel {
 
     #endregion
 
+    #region CreateGroup and DeleteGroup - добавление и удаление групп
+
+    public ICommand CreateGroupCommand { get; }
+
+    private bool CanCreateGroupCommandExecute(object sender) => true;
+
+    private void OnCreateGroupCommandExecuted(object sender) {
+        var group_max_index = Groups.Count + 1;
+        var new_group = new Group {
+            Name = $"Группа {group_max_index}",
+            Students = new ObservableCollection<Student>()
+        };
+        Groups.Add(new_group);
+    }
+
+    public ICommand DeleteGroupCommand { get; }
+
+    private bool CanDeleteGroupCommandExecute(object sender) => 
+        sender is Group group && Groups.Contains(group);
+
+    private void OnDeleteGroupCommandExecuted(object sender) {
+        if (!(sender is Group group)) return;
+        var group_index = Groups.IndexOf(group);
+        Groups.Remove(group);
+        if (group_index < Groups.Count)
+            SelectedGroup = Groups[group_index];
+    }
     #endregion
+
+    #endregion
+
+    /*------------------------------------------------------------------------------------*/
 
     public MainWindowViewModel() {
 
         #region Команды
-        CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, 
-                                                    CanCloseApplicationCommandExecute);
-        ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, 
-                                                  CanChangeTabIndexCommandExecute);
+        CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+        ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, CanChangeTabIndexCommandExecute);
+        CreateGroupCommand = new LambdaCommand(OnCreateGroupCommandExecuted, CanCreateGroupCommandExecute);
+        DeleteGroupCommand = new LambdaCommand(OnDeleteGroupCommandExecuted, CanDeleteGroupCommandExecute);
         #endregion
 
         #region Генерация графика
@@ -115,6 +182,41 @@ internal class MainWindowViewModel : ViewModel {
             data_points.Add(new DataPoint { XValue = x, YValue = y });
         }
         TestDataPoint = data_points;
+        #endregion
+
+        #region Заполнение коллекции студентов
+
+        var student_index = 1;
+
+        var students = Enumerable.Range(1, 10).Select(i => new Student {
+            Name = $"Name {student_index}",
+            SurName = $"SurName {student_index}",
+            Patronymic = $"Patronymic {student_index++}",
+            Birthday = DateTime.Now,
+            Rating = 0
+        });
+        
+        var groups = Enumerable.Range(1, 20).Select(i => new Group {
+            Name = $"Группа {i}",
+            Students = new ObservableCollection<Student>(students)
+        });
+
+        Groups = new ObservableCollection<Group>(groups);
+
+        #endregion
+
+        #region CompositeCollection
+
+        var data_list = new List<object>();
+        var group = Groups[1];
+
+        data_list.Add("Hello world");
+        data_list.Add(99);
+        data_list.Add(group);
+        data_list.Add(group.Students[0]);
+
+        CompositeCollection = data_list.ToArray();
+
         #endregion
     }
 }
