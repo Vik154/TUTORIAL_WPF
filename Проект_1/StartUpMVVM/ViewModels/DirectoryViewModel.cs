@@ -1,4 +1,5 @@
 ﻿using StartUpMVVM.ViewModels.Base;
+using System.Diagnostics;
 using System.IO;
 
 
@@ -13,15 +14,46 @@ class DirectoryViewModel : ViewModel {
 
     public DirectoryViewModel(string Path) => _DirectoryInfo = new DirectoryInfo(Path);    
 
-    public IEnumerable<DirectoryViewModel> SubDirectories => _DirectoryInfo
-        .EnumerateDirectories()
-        .Select(dir_info => new DirectoryViewModel(dir_info.FullName));
+    public IEnumerable<DirectoryViewModel> SubDirectories {
+        get {
+            try {
+                return _DirectoryInfo
+                    .EnumerateDirectories()
+                    .Select(dir_info => new DirectoryViewModel(dir_info.FullName));
+            }
+            catch (UnauthorizedAccessException exp) {
+                Debug.WriteLine(exp.Message);
+            }
+            return Enumerable.Empty<DirectoryViewModel>();
+        }
+    }
 
-    public IEnumerable<FileViewModel> Files => _DirectoryInfo
-        .EnumerateFiles()
-        .Select(file => new FileViewModel(file.FullName));
+    public IEnumerable<FileViewModel> Files {
+        get {
+            try {
+                var files = _DirectoryInfo
+                    .EnumerateFiles()
+                    .Select(file => new FileViewModel(file.FullName));
+                return files;
+            }
+            catch (UnauthorizedAccessException exp) {
+                Debug.WriteLine(exp.Message);
+            }
+            return Enumerable.Empty<FileViewModel>();
+        }
+    }
 
-    public IEnumerable<object> DirectoryItems => SubDirectories.Cast<object>().Concat(Files);
+    public IEnumerable<object> DirectoryItems {
+        get {
+            try {
+                return SubDirectories.Cast<object>().Concat(Files);
+            }
+            catch (UnauthorizedAccessException exp) {
+                Debug.WriteLine(exp.Message);
+            }
+            return Enumerable.Empty<object>();
+        }
+    }
 }
 
 
