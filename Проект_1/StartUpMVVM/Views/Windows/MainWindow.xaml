@@ -319,10 +319,10 @@
                             <DockPanel DockPanel.Dock="Top" Margin="0,3">
                                 <DockPanel DockPanel.Dock="Top" Margin="0,3">
                                     <fa:ImageAwesome Icon="Solid_Search" Height="12" Margin="3,0"/>
-                                    <TextBlock />
+                                    <TextBox Text="{Binding StudentFilterText, UpdateSourceTrigger=PropertyChanged}" />
                                 </DockPanel>
                             </DockPanel>
-                            <DataGrid ItemsSource="{Binding SelectedGroup.Students}"
+                            <DataGrid ItemsSource="{Binding SelectedGroupStudents}"
                                   AutoGenerateColumns="False"
                                   CanUserAddRows="False"
                                   VerticalGridLinesBrush="Gray"

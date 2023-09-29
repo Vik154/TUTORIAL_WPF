@@ -5,10 +5,12 @@ using StartUpMVVM.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace StartUpMVVM.ViewModels;
@@ -44,7 +46,53 @@ internal class MainWindowViewModel : ViewModel {
     /// <summary> Выбранная группа </summary>
     public Group SelectedGroup {
         get => _SelectedGroup;
-        set => Set(ref _SelectedGroup, value);
+        set {
+            if (!Set(ref _SelectedGroup, value)) return;
+            _SelectedGroupStudents.Source = value?.Students;
+            OnPropertyChanged(nameof(SelectedGroupStudents));
+        }
+    }
+
+    private readonly CollectionViewSource _SelectedGroupStudents = new CollectionViewSource();
+
+    public ICollectionView? SelectedGroupStudents => _SelectedGroupStudents?.View;
+
+    private void OnStudentFiltred(object sender, FilterEventArgs e) {
+        if (!(e.Item is Student student)) {
+            e.Accepted = false;
+            return;
+        }
+
+        var filter_text = _StudentFilterText;
+        if (string.IsNullOrWhiteSpace(filter_text))
+            return;
+
+        if (student.Name is null || student.SurName is null || student.Patronymic is null) {
+            e.Accepted = false;
+            return;
+        }
+
+        if (student.Name.Contains(filter_text, StringComparison.OrdinalIgnoreCase)) return;
+        if (student.SurName.Contains(filter_text, StringComparison.OrdinalIgnoreCase)) return;
+        if (student.Patronymic.Contains(filter_text, StringComparison.OrdinalIgnoreCase)) return;
+
+        e.Accepted = false;
+    }
+
+    #endregion
+
+    #region _StudentFilterText - Текст фильтра студентов
+
+    /// <summary> Текст фильтра студентов </summary>
+    private string _StudentFilterText;
+
+    /// <summary> Текст фильтра студентов </summary>
+    public string StudentFilterText {
+        get => _StudentFilterText;
+        set { 
+            if (!Set(ref _StudentFilterText, value)) return;
+            _SelectedGroupStudents.View.Refresh();
+        }
     }
 
     #endregion
@@ -231,5 +279,8 @@ internal class MainWindowViewModel : ViewModel {
         CompositeCollection = data_list.ToArray();
 
         #endregion
+
+        _SelectedGroupStudents.Filter += OnStudentFiltred;
     }
+
 }
