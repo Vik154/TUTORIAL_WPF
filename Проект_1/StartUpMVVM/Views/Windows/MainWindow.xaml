@@ -235,10 +235,19 @@
 
                     <GroupBox Grid.Column="0" Header="Группы">
                         <DockPanel>
+                            <DockPanel.Resources>
+                                <CollectionViewSource x:Key="GroupsCollection"
+                                                      Source="{Binding Groups}"
+                                                      Filter="GroupsCollectionFilter"
+                                                      >                                    
+                                </CollectionViewSource>
+                            </DockPanel.Resources>
+                            
                             <DockPanel DockPanel.Dock="Top" Margin="0,3">
                                 <fa:ImageAwesome Icon="Solid_Search" Height="12" Margin="3,0"/>
-                                <TextBlock />
+                                <TextBox x:Name="GroupNameFilterText" TextChanged="OnGroupsFilterChanged"/>
                             </DockPanel>
+                            
                             <UniformGrid DockPanel.Dock="Bottom" 
                                          Rows="1" Margin="0,3">
                                 
@@ -273,7 +282,7 @@
                                         />
                             </UniformGrid>
                             
-                            <ListBox ItemsSource="{Binding Groups}" 
+                            <ListBox ItemsSource="{Binding Source={StaticResource GroupsCollection}}" 
                                  SelectedItem="{Binding SelectedGroup}"
                                  SelectedIndex="0">
 
