@@ -16,6 +16,8 @@ namespace StartUpMVVM.ViewModels;
 internal class MainWindowViewModel : ViewModel {
     
     /*------------------------------------------------------------------------------------*/
+    // Проверка работы скрипта автоматической сборки на гите
+    /*------------------------------------------------------------------------------------*/
 
     public ObservableCollection<Group> Groups { get; }
 
