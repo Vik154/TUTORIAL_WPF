@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using StartUpMVVM.Services;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -14,5 +15,9 @@ public partial class App : Application {
     protected override void OnStartup(StartupEventArgs e) {
         IsDesignModel = false;
         base.OnStartup(e);
+
+        var service_test = new DataService();
+
+        var countries = service_test.GetData().ToArray();
     }
 }
