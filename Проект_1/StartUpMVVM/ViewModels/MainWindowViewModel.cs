@@ -103,6 +103,17 @@ internal class MainWindowViewModel : ViewModel {
     }
     #endregion
 
+    #region Тестирование виртуализации, заполнение списка студентов
+
+    public IEnumerable<Student> TestStudents => 
+        Enumerable.Range(1, (App.IsDesignModel ? 10 : 100_000))
+            .Select(i => new Student {
+                Name = $"Имя {i}",
+                SurName = $"Фамилия {i}"
+            });
+
+    #endregion
+
     /*------------------------------------------------------------------------------------*/
 
     #region Команды

@@ -425,7 +425,37 @@
                     </Button.Triggers>
                 </Button>
             </TabItem>
-            
+
+            <!-- Элементы рендерятся и остаются в памяти -->
+            <TabItem Header="Тест виртуализации">
+                <Grid>
+                    <!--<TextBlock Text="{Binding Source={x:Static local:App.IsDesignModel}}"/>-->
+                    <ListBox HorizontalAlignment="Left" Width="200" Margin="30"
+                             ItemsSource="{Binding TestStudents}"
+                             >
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="decanat:Student">
+                                <Border BorderBrush="Blue" 
+                                        BorderThickness="1"
+                                        CornerRadius="3"
+                                        Padding="3"
+                                        >
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding SurName}" ToolTip="{Binding Name}"/>
+                                        <TextBlock Text="{Binding Name}" ToolTip="{Binding Name}"/>
+                                        <TextBlock Text="{Binding Patronymic, TargetNullValue=----}" ToolTip="{Binding Name}"/>
+                                    </StackPanel>                                    
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
         </TabControl>
     </DockPanel>
     
