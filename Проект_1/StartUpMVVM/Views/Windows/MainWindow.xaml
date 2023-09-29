@@ -432,12 +432,22 @@
                     <!--<TextBlock Text="{Binding Source={x:Static local:App.IsDesignModel}}"/>-->
                     <ListBox HorizontalAlignment="Left" Width="200" Margin="30"
                              ItemsSource="{Binding TestStudents}"
+                             VirtualizingPanel.IsVirtualizing="True"
+                             VirtualizingPanel.VirtualizationMode="Recycling"
+                             VirtualizingPanel.IsContainerVirtualizable="True"
                              >
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>    
+                        </ListBox.ItemsPanel>
+                        
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="ListBoxItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                             </Style>
                         </ListBox.ItemContainerStyle>
+                        
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="decanat:Student">
                                 <Border BorderBrush="Blue" 
