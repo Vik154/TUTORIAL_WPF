@@ -162,6 +162,11 @@ internal class MainWindowViewModel : ViewModel {
 
     #endregion
 
+    #region Работа с директориями - DirectoryViewModel
+
+    public DirectoryViewModel DiskRootDir { get; } = new DirectoryViewModel("C:\\");
+    
+    #endregion
     /*------------------------------------------------------------------------------------*/
 
     #region Команды
