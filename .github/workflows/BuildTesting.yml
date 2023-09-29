@@ -1,10 +1,16 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: .NET
+name: dotNet_AutoCompiler
 
-on: [push, pull_request]
-
+on: 
+  push:
+    branches: 
+      - lecture2
+  pull_request:
+    branches: 
+      - lecture2
+  
 jobs:
   build:
     name: Initialize build on dotNet
@@ -24,6 +30,9 @@ jobs:
       
     - name: Build
       run: dotnet build -c Release --no-restore
+      working-directory: ./Проект_1/
       
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      working-directory: ./Проект_1/
+      
