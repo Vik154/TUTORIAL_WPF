@@ -63,13 +63,27 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
+                <Grid.Resources>
+                    <c:Ratio K="2" x:Key="Ratio2"/>
+                    <c:Linear K="5" B="3" x:Key="Linear_K5_B3"/>
+                </Grid.Resources>
+
                 <GridSplitter VerticalAlignment="Bottom"
                               HorizontalAlignment="Stretch"
                               />
-                <Slider Grid.Row="0" x:Name="ValueSlider"/>
+                <Slider Grid.Row="0" x:Name="ValueSlider" Maximum="100"
+                        ToolTip="{Binding Value, RelativeSource={RelativeSource Self}}"
+                        />
 
-                <TextBlock Grid.Row="0" Margin="0,30,0,0" 
-                           Text="{Binding Value, ElementName=ValueSlider}"/>
+                <TextBox Grid.Row="0" Margin="0,30,0,0"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left"
+                         MinWidth="200"
+                         Text="{Binding Value
+                                 ,ElementName=ValueSlider
+                                 ,Converter={StaticResource Ratio2}
+                                 ,UpdateSourceTrigger=PropertyChanged}"
+                           />
             </Grid>
         </GroupBox>
 

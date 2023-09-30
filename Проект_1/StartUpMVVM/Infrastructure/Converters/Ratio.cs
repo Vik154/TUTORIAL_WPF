@@ -13,7 +13,7 @@ internal class Ratio : Converter {
 
     public Ratio() { }
 
-    public override object Convert(object value, Type t, object p, CultureInfo c) {
+    public override object? Convert(object value, Type t, object p, CultureInfo c) {
         if (value is null)
             return null;
         var x = System.Convert.ToDouble(value, c);
@@ -21,8 +21,8 @@ internal class Ratio : Converter {
         return x * K;
     }
 
-    public override object ConvertBack(object value, Type t, object p, CultureInfo c) {
-        if (value is null)
+    public override object? ConvertBack(object value, Type t, object p, CultureInfo c) {
+        if (value is null || string.IsNullOrEmpty(value.ToString()))
             return null;
         var x = System.Convert.ToDouble(value, c);
         
