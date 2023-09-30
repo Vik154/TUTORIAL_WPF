@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Markup;
+using System.Xaml;
 
 
 namespace StartUpMVVM.ViewModels.Base;
@@ -47,7 +48,31 @@ internal abstract class ViewModel : MarkupExtension, INotifyPropertyChanged, IDi
     // ~ViewModel() { Dispose(false); }
 
     // Теперь viewmodel стала расширением разметки
-    public override object ProvideValue(IServiceProvider serviceProvider) {
+    public override object ProvideValue(IServiceProvider sp) {
+        
+        // Целевой объект к которому выполняется обращение 
+        var value_target_service = sp.GetService(typeof(IProvideValueTarget)) as IProvideValueTarget;
+       
+        // Корень дерева - окно (mainWindow)
+        var root_object_service = sp.GetService(typeof(IRootObjectProvider)) as IRootObjectProvider;
+
+        OnInitialized(
+            value_target_service?.TargetObject,
+            value_target_service?.TargetProperty,
+            root_object_service?.RootObject);
+
         return this;
+    }
+
+    private WeakReference? _TargetRef;  // Ссылка на целевой объект
+    private WeakReference? _RootRef;    // Ссылка на корень
+
+    public object? TargetObject => _TargetRef?.Target;
+
+    public object? RootObject => _RootRef?.Target;
+
+    protected virtual void OnInitialized(object? Target, object? Property, object? Root) {
+        _TargetRef = new WeakReference(Target);
+        _RootRef = new WeakReference(Root);
     }
 }

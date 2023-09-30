@@ -13,7 +13,9 @@
         xmlns:view="clr-namespace:StartUpMVVM.Views"
         mc:Ignorable="d"
         Title="{Binding Title}"
-        Height="450" Width="800">
+        Height="450" Width="800"
+        DataContext="{vm:MainWindowViewModel}"
+        >
     
     <!-- Определение на уровне приложения команд -->
     <Window.InputBindings>
@@ -21,9 +23,9 @@
     </Window.InputBindings>
     
     <!-- Контекст данных -->
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:MainWindowViewModel />
-    </Window.DataContext>
+    </Window.DataContext>-->
     
     <!-- Ресурсы -->
     <Window.Resources>

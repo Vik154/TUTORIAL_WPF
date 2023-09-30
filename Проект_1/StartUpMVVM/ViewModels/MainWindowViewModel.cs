@@ -7,9 +7,12 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Markup;
 
 namespace StartUpMVVM.ViewModels;
 
+
+[MarkupExtensionReturnType(typeof(MainWindowViewModel))]
 internal class MainWindowViewModel : ViewModel {
 
     /*------------------------------------------------------------------------------------*/
