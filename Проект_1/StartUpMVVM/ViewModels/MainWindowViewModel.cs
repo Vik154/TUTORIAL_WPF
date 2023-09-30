@@ -19,7 +19,7 @@ internal class MainWindowViewModel : ViewModel {
 
     /*------------------------------------------------------------------------------------*/
 
-    public CountriesStatisticViewModel CountriesStatistic;
+    public CountriesStatisticViewModel CountriesStatistic { get; }
 
     /*------------------------------------------------------------------------------------*/
 

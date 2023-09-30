@@ -2,11 +2,7 @@
 using StartUpMVVM.Models;
 using StartUpMVVM.Services;
 using StartUpMVVM.ViewModels.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StartUpMVVM.ViewModels;
@@ -14,7 +10,8 @@ namespace StartUpMVVM.ViewModels;
 internal class CountriesStatisticViewModel : ViewModel {
 
     private DataService _dataService;
-    private MainWindowViewModel MainModel { get; set; }
+
+    public MainWindowViewModel MainModel { get; set; }
 
     #region _Countries - Статистика по странам
 
@@ -47,19 +44,29 @@ internal class CountriesStatisticViewModel : ViewModel {
     public ICommand RefreshDataCommand { get; }
 
     private void OnRefreshDataCommandExecuted(object p) {
-        Countries = _dataService.GetData();            
+        MessageBox.Show("Отработала");
+        Countries = _dataService.GetData();
     }
+
+    public ICommand Test { get; }
+
+    private void OnTest(object p) => MessageBox.Show("TestCommand OK");
+    private bool CanTest(object p) => true;
 
     #endregion
 
     public CountriesStatisticViewModel(MainWindowViewModel mainModel) {
+        
         MainModel = mainModel;
+
         _dataService = new DataService();
 
         RefreshDataCommand = new LambdaCommand(OnRefreshDataCommandExecuted);
+
+        Test = new LambdaCommand(OnTest, CanTest);
     }
 
-    /// <summary> Отладочный конструктор, используемый в процессе разработки в визуальном конструкторе </summary>
+    /// <summary> Отладочный конструктор, используемый в процессе разработки в визуальном конструкторе</summary>
     public CountriesStatisticViewModel() : this(null) {
         if (!App.IsDesignModel)
             throw new InvalidOperationException("Вызов конструктора не предназначенного для использования");
