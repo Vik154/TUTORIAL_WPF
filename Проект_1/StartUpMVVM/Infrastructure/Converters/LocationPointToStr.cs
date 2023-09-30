@@ -4,16 +4,16 @@ using System.Windows;
 
 namespace StartUpMVVM.Infrastructure.Converters;
 
-internal class LocationPointToStr : IValueConverter {
+internal class LocationPointToStr : Converter {
 
-    public object? Convert(object value, Type t, object p, CultureInfo c) {
+    public override object Convert(object value, Type t, object p, CultureInfo c) {
         
         if (!(value is Point point)) return null;
 
         return $"Lat:{point.X};Lon:{point.Y}";
     }
 
-    public object? ConvertBack(object value, Type t, object p, CultureInfo c) {
+    public override object ConvertBack(object value, Type t, object p, CultureInfo c) {
         
         if (!(value is string str)) return null;
 
