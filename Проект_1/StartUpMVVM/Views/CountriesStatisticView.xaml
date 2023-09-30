@@ -76,12 +76,31 @@
                             <c:Linear K="-3" B="10"/>
                         </c:CompositeConverter.Second>
                     </c:CompositeConverter>
+                    <c:ToArray x:Key="ToArrayConverter"/>
                 </Grid.Resources>
 
                 <GridSplitter VerticalAlignment="Bottom"
                               HorizontalAlignment="Stretch"
                               />
-                <Slider Grid.Row="0" x:Name="ValueSlider" Maximum="100"
+
+                <StackPanel Grid.Row="0">
+                    <Slider Grid.Row="0" x:Name="Value1" Margin="5" Maximum="100" ToolTip="{Binding Value, RelativeSource={RelativeSource Self}}"/>
+                    <Slider Grid.Row="0" x:Name="Value2" Margin="5" Maximum="100" ToolTip="{Binding Value, RelativeSource={RelativeSource Self}}"/>
+                    <Slider Grid.Row="0" x:Name="Value3" Margin="5" Maximum="100" ToolTip="{Binding Value, RelativeSource={RelativeSource Self}}"/>
+                    <Slider Grid.Row="0" x:Name="Value4" Margin="5" Maximum="100" ToolTip="{Binding Value, RelativeSource={RelativeSource Self}}"/>
+                </StackPanel>
+                <ListBox Grid.Row="1">
+                    <ListBox.ItemsSource>
+                        <MultiBinding Converter="{StaticResource ToArrayConverter}">
+                            <Binding ElementName="Value1" Path="Value"/>
+                            <Binding ElementName="Value2" Path="Value"/>
+                            <Binding ElementName="Value3" Path="Value"/>
+                            <Binding ElementName="Value4" Path="Value"/>
+                        </MultiBinding>
+                    </ListBox.ItemsSource>
+                </ListBox>
+                
+                <!--<Slider Grid.Row="0" x:Name="ValueSlider" Maximum="100"
                         ToolTip="{Binding Value, RelativeSource={RelativeSource Self}}"
                         />
 
@@ -93,7 +112,7 @@
                                  ,ElementName=ValueSlider
                                  ,Converter={StaticResource TestConverter}
                                  ,UpdateSourceTrigger=PropertyChanged}"
-                           />
+                           />-->
             </Grid>
         </GroupBox>
 
