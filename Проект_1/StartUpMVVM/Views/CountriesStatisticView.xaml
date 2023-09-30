@@ -58,6 +58,9 @@
 
         <GroupBox Grid.Column="1" Header="Информация">
             <Grid>
+                <Grid.Resources>
+                    <c:Ratio K="2" x:Key="Ratio2"/>
+                </Grid.Resources>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -66,10 +69,18 @@
                 <GridSplitter VerticalAlignment="Bottom"
                               HorizontalAlignment="Stretch"
                               />
-                <Slider Grid.Row="0" x:Name="ValueSlider"/>
+                <Slider Grid.Row="0" x:Name="ValueSlider" Maximum="100"
+                        ToolTip="{Binding Value, RelativeSource={RelativeSource Self}}"
+                        />
 
-                <TextBlock Grid.Row="0" Margin="0,30,0,0" 
-                           Text="{Binding Value, ElementName=ValueSlider}"/>
+                <TextBox Grid.Row="0" Margin="0,30,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top" Width="200"
+                         Text="{Binding Value, 
+                                ElementName=ValueSlider, 
+                                Converter={StaticResource Ratio2},
+                                UpdateSourceTrigger=PropertyChanged}"
+                         />
             </Grid>
         </GroupBox>
 
