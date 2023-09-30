@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Markup;
 
 
 namespace StartUpMVVM.ViewModels.Base;
 
 // ViewModelBase
-internal abstract class ViewModel : INotifyPropertyChanged, IDisposable {
+internal abstract class ViewModel : MarkupExtension, INotifyPropertyChanged, IDisposable {
 
     // Событие, возникающее при изменении свойств
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -44,4 +45,9 @@ internal abstract class ViewModel : INotifyPropertyChanged, IDisposable {
     }
 
     // ~ViewModel() { Dispose(false); }
+
+    // Теперь viewmodel стала расширением разметки
+    public override object ProvideValue(IServiceProvider serviceProvider) {
+        return this;
+    }
 }
