@@ -1,9 +1,11 @@
 ﻿using System.Globalization;
-using System.Windows.Data;
 using System.Windows.Markup;
+
 
 namespace StartUpMVVM.Infrastructure.Converters;
 
+
+[MarkupExtensionReturnType(typeof(Ratio))]
 internal class Ratio : Converter {
 
     [ConstructorArgument("K")]
