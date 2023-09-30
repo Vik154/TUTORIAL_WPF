@@ -10,6 +10,7 @@
         xmlns:oxy="http://oxyplot.org/wpf/contrib"
         xmlns:decanat="clr-namespace:StartUpMVVM.Models.Decanat"
         xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        xmlns:view="clr-namespace:StartUpMVVM.Views"
         mc:Ignorable="d"
         Title="{Binding Title}"
         Height="450" Width="800">
@@ -516,7 +517,10 @@
 
                 </Grid>
             </TabItem>
-            
+
+            <TabItem Header="Статиска COVID19">
+                <view:CountriesStatisticView/>
+            </TabItem>
         </TabControl>
     </DockPanel>
     

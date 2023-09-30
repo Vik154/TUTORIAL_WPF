@@ -7,6 +7,33 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <GridSplitter />
+
+        <GroupBox Grid.Column="0" Header="Список стран">
+            <ListBox />
+        </GroupBox>
+
+        <GroupBox Grid.Column="1" Header="Информация">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <GridSplitter VerticalAlignment="Bottom"
+                              HorizontalAlignment="Stretch"
+                              />
+                
+
+
+            </Grid>
+        </GroupBox>
+
+
     </Grid>
 </UserControl>
