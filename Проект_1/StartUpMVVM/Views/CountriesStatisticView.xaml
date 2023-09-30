@@ -8,6 +8,7 @@
              xmlns:vm="clr-namespace:StartUpMVVM.ViewModels"
              xmlns:m="clr-namespace:StartUpMVVM.Models"
              xmlns:c="clr-namespace:StartUpMVVM.Infrastructure.Converters"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance vm:CountriesStatisticViewModel, d:IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -64,8 +65,17 @@
                 </Grid.RowDefinitions>
 
                 <Grid.Resources>
+                    <sys:Double x:Key="Value3">3</sys:Double>
                     <c:Ratio K="2" x:Key="Ratio2"/>
-                    <c:Linear K="5" B="3" x:Key="Linear_K5_B3"/>
+                    <c:Linear K="5" B="{StaticResource Value3}" x:Key="Linear_K5_B3"/>
+                    <c:CompositeConverter x:Key="TestConverter">
+                        <c:CompositeConverter.First>
+                            <c:Linear K="5"/>
+                        </c:CompositeConverter.First>
+                        <c:CompositeConverter.Second>
+                            <c:Linear K="-3" B="10"/>
+                        </c:CompositeConverter.Second>
+                    </c:CompositeConverter>
                 </Grid.Resources>
 
                 <GridSplitter VerticalAlignment="Bottom"
@@ -81,7 +91,7 @@
                          MinWidth="200"
                          Text="{Binding Value
                                  ,ElementName=ValueSlider
-                                 ,Converter={StaticResource Ratio2}
+                                 ,Converter={StaticResource TestConverter}
                                  ,UpdateSourceTrigger=PropertyChanged}"
                            />
             </Grid>

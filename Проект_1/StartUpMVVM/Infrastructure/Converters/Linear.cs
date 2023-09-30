@@ -8,6 +8,7 @@ namespace StartUpMVVM.Infrastructure.Converters;
 [ValueConversion(typeof(double), typeof(double))]
 [MarkupExtensionReturnType(typeof(Linear))]
 internal class Linear : Converter {
+
     [ConstructorArgument("K")]
     public double K { get; set; } = 1;
 
