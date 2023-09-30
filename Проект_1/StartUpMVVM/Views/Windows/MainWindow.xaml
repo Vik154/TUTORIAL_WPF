@@ -519,8 +519,9 @@
             </TabItem>
 
             <TabItem Header="Статиска COVID19">
-                <view:CountriesStatisticView/>
+                <view:CountriesStatisticView DataContext="{Binding CountriesStatistic}"/>
             </TabItem>
+        
         </TabControl>
     </DockPanel>
     

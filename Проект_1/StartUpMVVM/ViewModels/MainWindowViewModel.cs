@@ -19,7 +19,7 @@ internal class MainWindowViewModel : ViewModel {
 
     /*------------------------------------------------------------------------------------*/
 
-    private readonly CountriesStatisticViewModel _CountriesStatistic;
+    public CountriesStatisticViewModel CountriesStatistic;
 
     /*------------------------------------------------------------------------------------*/
 
@@ -242,7 +242,7 @@ internal class MainWindowViewModel : ViewModel {
 
     public MainWindowViewModel() {
 
-        _CountriesStatistic = new CountriesStatisticViewModel(this);
+        CountriesStatistic = new CountriesStatisticViewModel(this);
 
         #region Команды
         CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
