@@ -16,9 +16,11 @@ using System.Windows.Input;
 namespace StartUpMVVM.ViewModels;
 
 internal class MainWindowViewModel : ViewModel {
-    
+
     /*------------------------------------------------------------------------------------*/
-    // Проверка работы скрипта автоматической сборки на гите
+
+    private readonly CountriesStatisticViewModel _CountriesStatistic;
+
     /*------------------------------------------------------------------------------------*/
 
     public ObservableCollection<Group> Groups { get; }
@@ -239,6 +241,8 @@ internal class MainWindowViewModel : ViewModel {
     /*------------------------------------------------------------------------------------*/
 
     public MainWindowViewModel() {
+
+        _CountriesStatistic = new CountriesStatisticViewModel(this);
 
         #region Команды
         CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
