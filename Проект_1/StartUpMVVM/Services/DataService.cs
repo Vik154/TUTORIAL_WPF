@@ -21,13 +21,16 @@ internal class DataService {
             HttpCompletionOption.ResponseHeadersRead);
 
         // Возвращает поток, который позволит читать из буфера сетевой карты
-        return await response.Content.ReadAsStreamAsync();
+        return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
     }
 
     // Чтение данных из потока с разбиением на строки, т.е. 
     // каждая строка извлекается отдельно из потока
     private static IEnumerable<string> GetDataLines() {
-        using var data_stream = GetDataStream().Result;         // Получаем поток
+
+        using var data_stream = (SynchronizationContext.Current is null ? 
+            GetDataStream() : Task.Run(GetDataStream)).Result;              // Получаем поток
+        
         using var data_reader = new StreamReader(data_stream);  // Читатель данных из потока
 
         while (!data_reader.EndOfStream) {      // Чтение данных, пока не закончится поток
