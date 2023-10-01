@@ -4,6 +4,8 @@ using StartUpMVVM.Services;
 using StartUpMVVM.ViewModels;
 using System.Configuration;
 using System.Data;
+using System.IO;
+using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace StartUpMVVM;
@@ -47,4 +49,11 @@ public partial class App : Application {
         collection.AddSingleton<DataService>();
         collection.AddSingleton<CountriesStatisticViewModel>();
     }
+
+    public static string? CurrentDirectory => IsDesignModel
+        ? Path.GetDirectoryName(GetSourceCodePath())
+        : Environment.CurrentDirectory;
+
+    private static string? GetSourceCodePath([CallerFilePath] string? path = null) => path;
+
 }

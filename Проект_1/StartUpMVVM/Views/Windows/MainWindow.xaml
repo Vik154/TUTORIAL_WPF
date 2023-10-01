@@ -523,7 +523,11 @@
             <TabItem Header="Статиска COVID19">
                 <view:CountriesStatisticView DataContext="{Binding CountriesStatistic}"/>
             </TabItem>
-        
+
+            <TabItem Header="Отладка">
+                <TextBlock Text="{x:Static sys:Environment.CurrentDirectory}"/>
+            </TabItem>
+            
         </TabControl>
     </DockPanel>
     
