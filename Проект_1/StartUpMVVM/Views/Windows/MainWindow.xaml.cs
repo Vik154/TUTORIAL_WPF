@@ -3,12 +3,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace StartUpMVVM; 
 
-public partial class MainWindow : Window {
-    public MainWindow() {
-        InitializeComponent();
-    }
+namespace StartUpMVVM;
+
+
+ public partial class MainWindow : Window {
+
+    public MainWindow() => InitializeComponent();
 
     private void GroupsCollectionFilter(object sender, FilterEventArgs e) {
         if(!(e.Item is Group group)) 

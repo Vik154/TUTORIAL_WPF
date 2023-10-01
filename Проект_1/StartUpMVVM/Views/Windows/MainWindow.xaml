@@ -16,17 +16,17 @@
         Height="450" Width="800"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         >
-    
+
     <!-- Определение на уровне приложения команд -->
     <Window.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="Q" Command="{Binding CloseApplicationCommand}"/>
     </Window.InputBindings>
-    
+
     <!-- Контекст данных -->
     <!--<Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>-->
-    
+
     <!-- Ресурсы -->
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
@@ -36,7 +36,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
                 <!--<MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"/>-->
-                
+
                 <!--<MenuItem Header="Выход">
                     <MenuItem.Command>
                         <cmd:CloseApplicationCommand/>
@@ -48,7 +48,7 @@
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"/>
             </MenuItem>
-            
+
             <!--Команды для переключения страниц-->
             <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter="-1">
                 <MenuItem.Header>
@@ -111,10 +111,10 @@
                                 </TextBlock>
                             </DataTemplate>-->
                         </GroupBox.Resources>
-                            
+
                         <ListBox ItemsSource="{Binding CompositeCollection}"
                                  SelectedItem="{Binding SelectedCompositeValue}">
-                        </ListBox>                        
+                        </ListBox>
                     </GroupBox>
 
                     <!--<ListBox ItemsSource="{Binding CompositeCollection}"
@@ -125,7 +125,7 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>-->
-                    
+
                     <GroupBox Header="Выбранный элемент" Grid.Column="1">
 
                         <GroupBox.Resources>
@@ -242,18 +242,18 @@
                                 <CollectionViewSource x:Key="GroupsCollection"
                                                       Source="{Binding Groups}"
                                                       Filter="GroupsCollectionFilter"
-                                                      >                                    
+                                                      >
                                 </CollectionViewSource>
                             </DockPanel.Resources>
-                            
+
                             <DockPanel DockPanel.Dock="Top" Margin="0,3">
                                 <fa:ImageAwesome Icon="Solid_Search" Height="12" Margin="3,0"/>
                                 <TextBox x:Name="GroupNameFilterText" TextChanged="OnGroupsFilterChanged"/>
                             </DockPanel>
-                            
+
                             <UniformGrid DockPanel.Dock="Bottom" 
                                          Rows="1" Margin="0,3">
-                                
+
                                 <!--<UniformGrid.Resources>
                                     <Style TargetType="Button">
                                         <Setter Property="Margin" Value="3,0"/>
@@ -261,7 +261,7 @@
                                         <Setter Property="Background" Value="White"/>
                                     </Style>
                                 </UniformGrid.Resources>-->
-                                
+
                                 <Button Command="{Binding CreateGroupCommand}"
                                         Content="Добавить"
                                         Style="{StaticResource CheckButtonStyle}"
@@ -284,7 +284,7 @@
                                         Style="{StaticResource RemoveButtonStyle}"
                                         />
                             </UniformGrid>
-                            
+
                             <ListBox ItemsSource="{Binding Source={StaticResource GroupsCollection}}" 
                                      SelectedItem="{Binding SelectedGroup}"
                                      SelectedIndex="0"
@@ -316,7 +316,7 @@
                             </ListBox>
                         </DockPanel>
                     </GroupBox>
-                        
+
                     <GroupBox Grid.Column="1" Header="{Binding SelectedGroup.Name, FallbackValue='Студенты', TargetNullValue='Группа не выбрана'}">
                         <DockPanel>
                             <DockPanel DockPanel.Dock="Top" Margin="0,3">
@@ -367,7 +367,7 @@
 
                         </DockPanel>
                     </GroupBox>
-                
+
                 </Grid>
             </TabItem>
 
@@ -383,7 +383,7 @@
                     <Button.Background>
                         <SolidColorBrush Color="White" x:Name="ButtonBrush"/>
                     </Button.Background>
-                    
+
                     <Button.RenderTransform>
                         <RotateTransform x:Name="ButtonRotate" Angle="0"/>
                     </Button.RenderTransform>
@@ -397,7 +397,7 @@
                                                      From="0" To="360"
                                                      Duration="0:0:3"/>
                                 </Storyboard>
-                            </BeginStoryboard>                           
+                            </BeginStoryboard>
                         </EventTrigger>
 
                         <EventTrigger RoutedEvent="Button.MouseEnter">
@@ -407,7 +407,7 @@
                                                     Storyboard.TargetProperty="Color"
                                                     To="Red"
                                                     Duration="0:0:0.1"
-                                                    >                                        
+                                                    >
                                     </ColorAnimation>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -442,15 +442,15 @@
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel />
-                            </ItemsPanelTemplate>    
+                            </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
-                        
+
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="ListBoxItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                             </Style>
                         </ListBox.ItemContainerStyle>
-                        
+
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="decanat:Student">
                                 <Border BorderBrush="Blue" 
@@ -462,7 +462,7 @@
                                         <TextBlock Text="{Binding SurName}" ToolTip="{Binding Name}"/>
                                         <TextBlock Text="{Binding Name}" ToolTip="{Binding Name}"/>
                                         <TextBlock Text="{Binding Patronymic, TargetNullValue=----}" ToolTip="{Binding Name}"/>
-                                    </StackPanel>                                    
+                                    </StackPanel>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -505,15 +505,15 @@
                                 </StackPanel>
                             </DataTemplate>
                         </GroupBox.Resources>
-                        
+
                         <TreeView ItemsSource="{Binding DiskRootDir.DirectoryItems}">
 
                         </TreeView>
                     </GroupBox>
-                    
+
                     <GroupBox Header="Файлы" Grid.Column="1">
                         <ListBox SelectedItem="{Binding SelectedDirectory.Files, Mode=OneWay}">
-                            
+
                         </ListBox>
                     </GroupBox>
 
@@ -527,20 +527,7 @@
             <TabItem Header="Отладка">
                 <TextBlock Text="{x:Static sys:Environment.CurrentDirectory}"/>
             </TabItem>
-            
+
         </TabControl>
     </DockPanel>
-    
-    
-    <!--<Grid>
-        <TextBox Margin="5,10,0,0"
-                 Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
-                 FontSize="16"
-                 VerticalAlignment="Top"
-                 HorizontalAlignment="Left"
-                 Width="300"
-                 >
-        </TextBox>
-
-    </Grid>-->
-</Window>
+</Window> 
