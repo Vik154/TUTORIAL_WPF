@@ -10,10 +10,10 @@ namespace StartUpMVVM.Infrastructure.Converters;
 internal class CompositeConverter : Converter {
 
     [ConstructorArgument("First")]
-    public IValueConverter First { get; set; }
+    public IValueConverter? First { get; set; }
 
     [ConstructorArgument("Second")]
-    public IValueConverter Second { get; set; }
+    public IValueConverter? Second { get; set; }
 
     public CompositeConverter() { }
 

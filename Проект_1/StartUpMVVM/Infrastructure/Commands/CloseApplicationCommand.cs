@@ -6,6 +6,6 @@ namespace StartUpMVVM.Infrastructure.Commands;
 
 // Вынос команд в отдельные классы
 internal class CloseApplicationCommand : Command {
-    public override bool CanExecute(object parameter) => true;
-    public override void Execute(object parameter) => Application.Current.Shutdown();
+    public override bool CanExecute(object? parameter) => true;
+    public override void Execute(object? parameter) => Application.Current.Shutdown();
 }

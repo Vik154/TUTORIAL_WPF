@@ -7,13 +7,13 @@ namespace StartUpMVVM.Infrastructure.Common;
 internal class StringToIntArray : MarkupExtension {
 
     public override object ProvideValue(IServiceProvider sp) =>
-        Str.Split(new[] { Separator }, StringSplitOptions.RemoveEmptyEntries)
+        Str!.Split(new[] { Separator }, StringSplitOptions.RemoveEmptyEntries)
            .DefaultIfEmpty()
-           .Select(int.Parse)
+           .Select(int.Parse!)
            .ToArray();
 
     [ConstructorArgument("Str")]
-    public string Str { get; set; }
+    public string? Str { get; set; }
 
     public char Separator { get; set; } = ';';
 

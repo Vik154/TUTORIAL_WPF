@@ -9,14 +9,14 @@ namespace StartUpMVVM.Infrastructure.Converters;
 [MarkupExtensionReturnType(typeof(LocationPointToStr))]
 internal class LocationPointToStr : Converter {
 
-    public override object Convert(object value, Type t, object p, CultureInfo c) {
+    public override object? Convert(object value, Type t, object p, CultureInfo c) {
         
         if (!(value is Point point)) return null;
 
         return $"Lat:{point.X};Lon:{point.Y}";
     }
 
-    public override object ConvertBack(object value, Type t, object p, CultureInfo c) {
+    public override object? ConvertBack(object value, Type t, object p, CultureInfo c) {
         
         if (!(value is string str)) return null;
 

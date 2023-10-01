@@ -11,6 +11,6 @@ internal abstract class Command : ICommand {
         remove => CommandManager.RequerySuggested -= value;
     }
 
-    public abstract bool CanExecute(object parameter);
-    public abstract void Execute(object parameter);
+    public abstract bool CanExecute(object? parameter);
+    public abstract void Execute(object? parameter);
 }
