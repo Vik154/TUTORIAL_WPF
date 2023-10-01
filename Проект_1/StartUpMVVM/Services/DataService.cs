@@ -33,20 +33,6 @@ internal class DataService {
         
         using var data_reader = new StreamReader(data_stream);  // Читатель данных из потока
 
-        /*
-        while (!data_reader.EndOfStream) {      // Чтение данных, пока не закончится поток
-            var line = data_reader.ReadLine();  // Построчное чтение из потока
-            if (string.IsNullOrEmpty(line))     // Если строка пустая, читаем дальше до конца потока
-                continue;
-            yield return line
-                .Replace("Korea,", "Korea -")
-                .Replace("Bonaire,", "Bonaire -")
-                .Replace("Helena,", "Helena -");
-            // Прочитал 1 строчку - вернул, если больше не нужно читать,
-            // прервал чтение и остальные данные не загружают память.
-            // "Korea," на "Korea-" для корректного отображения данных при парсинге
-        }
-        */
         while (!data_reader.EndOfStream) {      // Чтение данных, пока не закончится поток
             var line = data_reader.ReadLine();  // Построчное чтение из потока
             if (string.IsNullOrEmpty(line))     // Если строка пустая, читаем дальше до конца потока
@@ -81,9 +67,6 @@ internal class DataService {
         foreach (var row in lines) {
             var province = row[0].Trim();
             var country_name = row[1].Trim(' ', '"');
-            //var latitude = double.Parse(row[2]);
-            //var longitude = double.Parse(row[3]);
-            //var counts = row.Skip(4).Select(int.Parse).ToArray();
             var latitude = double.Parse(row[3] == "" ? "0" : row[3], CultureInfo.InvariantCulture);
             var longitude = double.Parse(row[4] == "" ? "0" : row[4], CultureInfo.InvariantCulture);
             var counts = row.Skip(5).Select(int.Parse).ToArray();
