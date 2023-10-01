@@ -44,10 +44,11 @@ public partial class App : Application {
     }
 
     public static void ConfigureServices(HostBuilderContext context, 
-                                         IServiceCollection collection)
+                                         IServiceCollection services)
     {
-        collection.AddSingleton<DataService>();
-        collection.AddSingleton<CountriesStatisticViewModel>();
+        services.AddSingleton<DataService>();
+        services.AddSingleton<MainWindowViewModel>();
+        services.AddSingleton<CountriesStatisticViewModel>();
     }
 
     public static string? CurrentDirectory => IsDesignModel
