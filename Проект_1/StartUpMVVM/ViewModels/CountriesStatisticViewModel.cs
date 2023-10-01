@@ -1,6 +1,8 @@
-﻿using StartUpMVVM.Infrastructure.Commands;
+﻿using Microsoft.Extensions.DependencyInjection;
+using StartUpMVVM.Infrastructure.Commands;
 using StartUpMVVM.Models;
 using StartUpMVVM.Services;
+using StartUpMVVM.Services.Interfaces;
 using StartUpMVVM.ViewModels.Base;
 using System.Windows.Input;
 
@@ -8,7 +10,7 @@ namespace StartUpMVVM.ViewModels;
 
 internal class CountriesStatisticViewModel : ViewModel {
 
-    private DataService? _dataService;
+    private readonly IDataService _dataService;
 
     public MainWindowViewModel? MainModel { get; internal set; }
 
@@ -46,9 +48,19 @@ internal class CountriesStatisticViewModel : ViewModel {
     }
     #endregion
 
-    public CountriesStatisticViewModel(DataService dataService) {
+    public CountriesStatisticViewModel(IDataService dataService) {
 
         _dataService = dataService;
+
+        //var data = App.Host.Services.GetRequiredService<IDataService>();
+
+        //var are_ref_equal = ReferenceEquals(dataService, data);
+
+        //using (var scope = App.Host.Services.CreateScope()) {
+        //    var data2 = scope.ServiceProvider.GetRequiredService<IDataService>();
+        //    var are_ref_equal2 = ReferenceEquals(DataService, data2);
+        //    var are_ref_equal3 = ReferenceEquals(data, data2);
+        //}
 
         RefreshDataCommand = new LambdaCommand(OnRefreshDataCommandExecuted);
     }

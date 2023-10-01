@@ -1,4 +1,5 @@
 ﻿using StartUpMVVM.Models;
+using StartUpMVVM.Services.Interfaces;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
@@ -6,7 +7,7 @@ using System.Windows;
 
 namespace StartUpMVVM.Services;
 
-internal class DataService {
+internal class DataService : IDataService {
     private const string __DataSourceAddress = @"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 
     // Возвращает поток, из которого можно будет читать данные

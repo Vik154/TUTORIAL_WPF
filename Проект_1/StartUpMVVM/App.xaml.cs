@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StartUpMVVM.Services;
+using StartUpMVVM.Services.Interfaces;
 using StartUpMVVM.ViewModels;
 using System.Configuration;
 using System.Data;
@@ -46,7 +47,9 @@ public partial class App : Application {
     public static void ConfigureServices(HostBuilderContext context, 
                                          IServiceCollection services)
     {
-        services.AddSingleton<DataService>();
+        services.AddSingleton<IDataService, DataService>();
+        //services.AddScoped<IDataService, DataService>();
+        //services.AddTransient<IDataService, DataService>();
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<CountriesStatisticViewModel>();
     }
