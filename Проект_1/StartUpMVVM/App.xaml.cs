@@ -1,4 +1,7 @@
-﻿using StartUpMVVM.Services;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using StartUpMVVM.Services;
+using StartUpMVVM.ViewModels;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -15,5 +18,12 @@ public partial class App : Application {
     protected override void OnStartup(StartupEventArgs e) {
         IsDesignModel = false;
         base.OnStartup(e);
+    }
+
+    public static void ConfigureServices(HostBuilderContext context, 
+                                         IServiceCollection collection)
+    {
+        collection.AddSingleton<DataService>();
+        collection.AddSingleton<CountriesStatisticViewModel>();
     }
 }
