@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 
+
 namespace MVVMConsole;
 
 
@@ -15,7 +16,7 @@ internal class Program {
         // Получение ответа от сервера, который не скачивает сразу весь файл, а только заголовки,
         // остальное тело запроса, пока что не требуется извлекать из буфера сетевой карты
         var response = await client.GetAsync(data_uri, HttpCompletionOption.ResponseHeadersRead);
-        
+
         // Возвращает поток, который позволит читать из буфера сетевой карты
         return await response.Content.ReadAsStreamAsync();
     }
@@ -65,8 +66,8 @@ internal class Program {
 
     static void Main(string[] args) {
 
-         var ru = GetData()
-            .First(v => v.Country.Equals("Russia", StringComparison.OrdinalIgnoreCase));
+        var ru = GetData()
+           .First(v => v.Country.Equals("Russia", StringComparison.OrdinalIgnoreCase));
 
         Console.WriteLine(string.Join("\r\n", GetDates().Zip(ru.Counts, (date, counts) => $"{date} - {counts}")));
     }
