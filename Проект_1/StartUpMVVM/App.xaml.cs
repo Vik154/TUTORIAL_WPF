@@ -3,8 +3,6 @@ using Microsoft.Extensions.Hosting;
 using StartUpMVVM.Services;
 using StartUpMVVM.Services.Interfaces;
 using StartUpMVVM.ViewModels;
-using System.Configuration;
-using System.Data;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
