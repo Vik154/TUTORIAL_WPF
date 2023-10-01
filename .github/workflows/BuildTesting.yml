@@ -6,10 +6,10 @@ name: dotNet_AutoCompiler
 on: 
   push:
     branches: 
-      - lecture2
+      - main
   pull_request:
     branches: 
-      - lecture2
+      - main
   
 jobs:
   build:
