@@ -42,15 +42,9 @@ public partial class App : Application {
         _Host = null;
     }
 
-    public static void ConfigureServices(HostBuilderContext context, 
-                                         IServiceCollection services)
-    {
-        services.AddSingleton<IDataService, DataService>();
-        //services.AddScoped<IDataService, DataService>();
-        //services.AddTransient<IDataService, DataService>();
-        services.AddSingleton<MainWindowViewModel>();
-        services.AddSingleton<CountriesStatisticViewModel>();
-    }
+    public static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
+           .RegisterServices()
+           .RegisterViewModels();
 
     public static string? CurrentDirectory => IsDesignModel
         ? Path.GetDirectoryName(GetSourceCodePath())

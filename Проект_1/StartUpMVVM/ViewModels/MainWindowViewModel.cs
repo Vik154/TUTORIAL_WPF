@@ -1,5 +1,6 @@
 ﻿using StartUpMVVM.Infrastructure.Commands;
 using StartUpMVVM.Models;
+using StartUpMVVM.Services.Interfaces;
 using StartUpMVVM.ViewModels.Base;
 using System.Windows;
 using System.Windows.Input;
@@ -10,6 +11,8 @@ namespace StartUpMVVM.ViewModels;
 
 [MarkupExtensionReturnType(typeof(MainWindowViewModel))]
 internal class MainWindowViewModel : ViewModel {
+
+    private readonly IAsyncDataService _AsyncData;
 
     /*------------------------------------------------------------------------------------*/
 
@@ -51,6 +54,16 @@ internal class MainWindowViewModel : ViewModel {
     }
     #endregion
 
+    #region DataValue : string - Результат длительной асинхронной операции
+
+    /// <summary>Результат длительной асинхронной операции</summary>
+    private string _DataValue;
+
+    /// <summary>Результат длительной асинхронной операции</summary>
+    public string DataValue { get => _DataValue; private set => Set(ref _DataValue, value); }
+
+    #endregion
+
     /*------------------------------------------------------------------------------------*/
 
     #region Команды
@@ -67,17 +80,56 @@ internal class MainWindowViewModel : ViewModel {
     private bool CanCloseApplicationCommandExecute(object sender) => true;
     #endregion
 
+    #region Command StartProcessCommand - Запуск процесса
+
+    /// <summary>Запуск процесса</summary>
+    public ICommand StartProcessCommand { get; }
+
+    /// <summary>Проверка возможности выполнения - Запуск процесса</summary>
+    private static bool CanStartProcessCommandExecute(object p) => true;
+
+    /// <summary>Логика выполнения - Запуск процесса</summary>
+    private void OnStartProcessCommandExecuted(object p) {
+        new Thread(ComputeValue).Start()
+;
+    }
+
+    private void ComputeValue() {
+        DataValue = _AsyncData.GetResult(DateTime.Now);
+    }
+
+    #endregion
+
+    #region Command StopProcessCommand - Остановка процесса
+
+    /// <summary>Остановка процесса</summary>
+    public ICommand StopProcessCommand { get; }
+
+    /// <summary>Проверка возможности выполнения - Остановка процесса</summary>
+    private static bool CanStopProcessCommandExecute(object p) => true;
+
+    /// <summary>Логика выполнения - Остановка процесса</summary>
+    private void OnStopProcessCommandExecuted(object p) {
+
+    }
+
+    #endregion
+
     #endregion
 
     /*------------------------------------------------------------------------------------*/
 
-    public MainWindowViewModel(CountriesStatisticViewModel Statistic) {
+    public MainWindowViewModel(CountriesStatisticViewModel Statistic, IAsyncDataService asyncData) {
 
+        _AsyncData = asyncData;
         CountriesStatistic = Statistic;
         Statistic.MainModel = this;
 
         #region Команды
         CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+
+        StartProcessCommand = new LambdaCommand(OnStartProcessCommandExecuted, CanStartProcessCommandExecute);
+        StopProcessCommand = new LambdaCommand(OnStopProcessCommandExecuted, CanStopProcessCommandExecute);
         #endregion
 
         #region Генерация графика

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Markup;
+using System.Windows.Threading;
 using System.Xaml;
 
 
@@ -15,7 +16,19 @@ internal abstract class ViewModel : MarkupExtension, INotifyPropertyChanged, IDi
     // Атрибут CallerMemberName - позволяет не указывать имя свойства, компилятор автоматически
     // подставит в propertyName имя метода из которого вызывается процедура
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "") {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        var handlers = PropertyChanged;
+        if (handlers is null) return;
+
+        var invocation_list = handlers.GetInvocationList();
+
+        var arg = new PropertyChangedEventArgs(propertyName);
+        foreach (var action in invocation_list)
+            if (action.Target is DispatcherObject disp_object)
+                disp_object.Dispatcher.Invoke(action, this, arg);
+            else
+                action.DynamicInvoke(this, arg);
     }
 
     // Метод, устанавливающий новое значение свойства, field - ссылка на поле свойства,
