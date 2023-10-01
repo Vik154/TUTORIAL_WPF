@@ -238,9 +238,11 @@ internal class MainWindowViewModel : ViewModel {
 
     /*------------------------------------------------------------------------------------*/
 
-    public MainWindowViewModel() {
+    public MainWindowViewModel(CountriesStatisticViewModel Statistic) {
 
-        CountriesStatistic = new CountriesStatisticViewModel(this);
+        CountriesStatistic = Statistic;
+        Statistic.MainModel = this;
+        // CountriesStatistic = new CountriesStatisticViewModel(this);
 
         #region Команды
         CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);

@@ -11,7 +11,7 @@ internal class CountriesStatisticViewModel : ViewModel {
 
     private DataService _dataService;
 
-    public MainWindowViewModel MainModel { get; set; }
+    public MainWindowViewModel MainModel { get; internal set; }
 
     #region _Countries - Статистика по странам
 
@@ -55,11 +55,9 @@ internal class CountriesStatisticViewModel : ViewModel {
 
     #endregion
 
-    public CountriesStatisticViewModel(MainWindowViewModel mainModel) {
-        
-        MainModel = mainModel;
+    public CountriesStatisticViewModel(DataService dataService) {
 
-        _dataService = new DataService();
+        _dataService = dataService;
 
         RefreshDataCommand = new LambdaCommand(OnRefreshDataCommandExecuted);
 
@@ -67,23 +65,23 @@ internal class CountriesStatisticViewModel : ViewModel {
     }
 
     /// <summary> Отладочный конструктор, используемый в процессе разработки в визуальном конструкторе</summary>
-    public CountriesStatisticViewModel() : this(null) {
-        if (!App.IsDesignModel)
-            throw new InvalidOperationException("Вызов конструктора не предназначенного для использования");
+    //public CountriesStatisticViewModel() : this(null) {
+    //    if (!App.IsDesignModel)
+    //        throw new InvalidOperationException("Вызов конструктора не предназначенного для использования");
 
-        _Countries = Enumerable.Range(1, 10)
-            .Select(i => new CountryInfo {
-                Name = $"Country {i}",
+    //    _Countries = Enumerable.Range(1, 10)
+    //        .Select(i => new CountryInfo {
+    //            Name = $"Country {i}",
 
-                Provinces = Enumerable.Range(1, 10).Select(j => new PlaceInfo {
-                    Name = $"Province {i}",
-                    Location = new System.Windows.Point(i, j),
+    //            Provinces = Enumerable.Range(1, 10).Select(j => new PlaceInfo {
+    //                Name = $"Province {i}",
+    //                Location = new System.Windows.Point(i, j),
 
-                    Counts = Enumerable.Range(1, 10).Select(k => new ConfirmedCount {
-                        Date = DateTime.Now.Subtract(TimeSpan.FromDays(100 - k)),
-                        Count = k
-                    }).ToArray()
-                }).ToArray()
-            }).ToArray();
-    }
+    //                Counts = Enumerable.Range(1, 10).Select(k => new ConfirmedCount {
+    //                    Date = DateTime.Now.Subtract(TimeSpan.FromDays(100 - k)),
+    //                    Count = k
+    //                }).ToArray()
+    //            }).ToArray()
+    //        }).ToArray();
+    //}
 }

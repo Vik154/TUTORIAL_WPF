@@ -14,7 +14,7 @@
         mc:Ignorable="d"
         Title="{Binding Title}"
         Height="450" Width="800"
-        DataContext="{vm:MainWindowViewModel}"
+        DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         >
     
     <!-- Определение на уровне приложения команд -->
