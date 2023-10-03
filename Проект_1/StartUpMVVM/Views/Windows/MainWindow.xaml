@@ -13,6 +13,8 @@
         xmlns:view="clr-namespace:StartUpMVVM.Views"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
+        Icon="../../Resources/WindowIcon.png"
+        Style="{StaticResource TestWindowStyle}"
         Title="{Binding Title}"
         Height="450" Width="800"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"

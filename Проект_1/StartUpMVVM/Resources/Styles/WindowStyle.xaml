@@ -42,14 +42,23 @@
             <Border x:Name="PART_Border"
                     Margin="7"
                     BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}">
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    >                
+                <Border.Effect>
+                    <BlurEffect RenderingBias="{TemplateBinding BorderThickness}"/>
+                </Border.Effect>
             </Border>
+            
             <Grid x:Name="PART_MainGrid"
                   Margin="7"
                   Background="{TemplateBinding Background}"
                   TextOptions.TextRenderingMode="ClearType"
                   TextOptions.TextFormattingMode="Display"
                   >
+                <Grid.Effect>
+                    <DropShadowEffect Opacity="0.5" BlurRadius="7" ShadowDepth="4" Color="Blue"/>
+                </Grid.Effect>
+                
                 <DockPanel>
                     <Grid x:Name="PART_TitleBar" DockPanel.Dock="Top" Background="WhiteSmoke">
                         <i:Interaction.Behaviors>
