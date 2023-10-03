@@ -52,11 +52,14 @@
                   >
                 <DockPanel>
                     <Grid x:Name="PART_TitleBar" DockPanel.Dock="Top" Background="WhiteSmoke">
+                        <i:Interaction.Behaviors>
+                            <b:WindowTitleBarBehavior/>
+                        </i:Interaction.Behaviors>
+                        
                         <DockPanel Height="32">
                             <Image x:Name="PART_Icon" 
                                    DockPanel.Dock="Left"
                                    Source="{TemplateBinding Icon}">
-                                
                             </Image>
                             
                             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
