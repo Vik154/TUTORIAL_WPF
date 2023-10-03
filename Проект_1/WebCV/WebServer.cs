@@ -23,7 +23,10 @@ public class WebServer {
             if (_Enabled) return;
 
             _Listener = new HttpListener();
-            _Listener.Prefixes.Add($"http://*:{_Port}/"); // netsh http add urlacl url=http://*:8080/ user=user_name
+
+            // Для запуска сервера
+            // netsh http add urlacl url=http://*:8080/ user=user_name
+            _Listener.Prefixes.Add($"http://*:{_Port}/"); 
             _Listener.Prefixes.Add($"http://+:{_Port}/");
             _Enabled = true;
             ListenAsync();

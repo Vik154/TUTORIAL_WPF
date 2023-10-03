@@ -6,27 +6,34 @@ namespace MVVMConsole;
 class Program {
 
     static void Main(string[] args) {
-
-        Thread.CurrentThread.Name = "Main thread";
-
-        var thread = new Thread(ThreadMethod);
-        thread.Name = "Other thread";
-
-        thread.Start();
-
-        CheckThread();    
+        WebServerTest.Run();
     }
-
-    private static void ThreadMethod() {
-        CheckThread();
-    }
-
-    private static void CheckThread() {
-        var th = Thread.CurrentThread;
-        Console.WriteLine($"{0}:{1}", th.ManagedThreadId, th.Name);
-    }
-
 }
+
+//class Program {
+
+//    static void Main(string[] args) {
+
+//        Thread.CurrentThread.Name = "Main thread";
+
+//        var thread = new Thread(ThreadMethod);
+//        thread.Name = "Other thread";
+
+//        thread.Start();
+
+//        CheckThread();    
+//    }
+
+//    private static void ThreadMethod() {
+//        CheckThread();
+//    }
+
+//    private static void CheckThread() {
+//        var th = Thread.CurrentThread;
+//        Console.WriteLine($"{0}:{1}", th.ManagedThreadId, th.Name);
+//    }
+
+//}
 
 
 
