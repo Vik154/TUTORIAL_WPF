@@ -17,17 +17,24 @@ public class WebServer {
 
     public WebServer(int Port) => _Port = Port;
 
+
+    //private static string[] prefixes = new string[] { $"{}", $""};
+
     public void Start() {
         if (_Enabled) return;
         lock (_SyncRoot) {
             if (_Enabled) return;
 
-            _Listener = new HttpListener();
+            //foreach (string s in prefixes) {
+            //    listener.Prefixes.Add(s);
+            //}
 
-            // Для запуска сервера
-            // netsh http add urlacl url=http://*:8080/ user=user_name
-            _Listener.Prefixes.Add($"http://*:{_Port}/"); 
-            _Listener.Prefixes.Add($"http://+:{_Port}/");
+            _Listener = new HttpListener();
+            // _Listener.Prefixes.Add($"http://*:{_Port}/"); // netsh http add urlacl url=http://*:8080/ user=user_name
+            // _Listener.Prefixes.Add($"http://+:{_Port}/");
+
+            _Listener.Prefixes.Add("http://localhost:8001/");
+
             _Enabled = true;
             ListenAsync();
         }

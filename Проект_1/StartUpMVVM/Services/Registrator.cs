@@ -11,7 +11,7 @@ internal static class Registrator {
         //services.AddScoped<IDataService, DataService>();
 
         services.AddTransient<IAsyncDataService, AsyncDataService>();
-        //services.AddTransient<IWebServerService, HttpListenerWebSeverer>();
+        services.AddTransient<IWebServerService, HttpListenerWebSeverer>();
 
         //services.AddSingleton<StudentsRepository>();
         //services.AddSingleton<GroupsRepository>();

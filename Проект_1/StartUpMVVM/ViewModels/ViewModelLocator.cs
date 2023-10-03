@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics;
 
 
 namespace StartUpMVVM.ViewModels;
@@ -6,9 +7,15 @@ namespace StartUpMVVM.ViewModels;
 // Класс - за счет которого осуществляется доступ к определенным ViewModels
 internal class ViewModelLocator {
 
-    public MainWindowViewModel MainWindowModel => 
-        App.Host.Services.GetRequiredService<MainWindowViewModel>();
-
-    //public StudentsManagementViewModel StudentManagement => 
-    //    App.Host.Services.GetRequiredService<StudentsManagementViewModel>();
+    public MainWindowViewModel MainWindowModel {
+        get {
+            try {
+                return App.Host.Services.GetRequiredService<MainWindowViewModel>();
+            }
+            catch (Exception ex) { 
+                Debug.WriteLine(ex.Message);
+            }
+            throw new Exception("Сервис не регистрируется");
+        }
+    }
 }

@@ -6,7 +6,9 @@ internal static class WebServerTest {
     
     public static void Run() {
 
-        var server = new WebServer(8080);
+       // _Listener.Prefixes.Add("http://localhost:8001/");
+
+        var server = new WebServer(8001);
         server.RequestReceived += OnRequestReceived;
         server.Start();
         Console.WriteLine("Сервер запущен");
