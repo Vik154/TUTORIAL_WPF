@@ -1,5 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:b="clr-namespace:StartUpMVVM.Infrastructure.Behaviors">
 
     <Style x:Key="TestWindowHeaderButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Focusable" Value="False"/>
@@ -69,12 +71,21 @@
                                     </Style>
                                 </StackPanel.Resources>
                                 <Button>
+                                    <i:Interaction.Behaviors>
+                                        <b:MinimizeWindow/>
+                                    </i:Interaction.Behaviors>
                                     <Path Data="{StaticResource MinimizeButtonIconGeometry}"/>
                                 </Button>
                                 <Button>
+                                    <i:Interaction.Behaviors>
+                                        <b:WindowStateChange/>
+                                    </i:Interaction.Behaviors>
                                     <Path Data="{StaticResource MaximizeToMaxButtonIconGeometry}"/>
                                 </Button>
                                 <Button Foreground="Red">
+                                    <i:Interaction.Behaviors>
+                                        <b:CloseWindow/>
+                                    </i:Interaction.Behaviors>
                                     <Path Data="{StaticResource CloseButtonIconGeometry}"/>
                                 </Button>    
                             </StackPanel>
