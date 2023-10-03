@@ -32,6 +32,14 @@
             <MenuItem Header="Файл">
                 <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand}"/>
             </MenuItem>
+            <MenuItem Header="Сервис">
+                <MenuItem Header="Веб-сервер" DataContext="{Binding WebServer}">
+                    <MenuItem Header="Сервер включен" IsCheckable="True" IsChecked="{Binding Enabled}"/>
+                    <Separator/>
+                    <MenuItem Header="Включить" Command="{Binding StartCommand}"/>
+                    <MenuItem Header="Выключить" Command="{Binding StopCommand}"/>
+                </MenuItem>
+            </MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"/>
             </MenuItem>

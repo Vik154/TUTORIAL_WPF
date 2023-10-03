@@ -17,6 +17,7 @@ internal class MainWindowViewModel : ViewModel {
     /*------------------------------------------------------------------------------------*/
 
     public CountriesStatisticViewModel CountriesStatistic { get; }
+    public WebServerViewModel WebServer { get; }
 
     /*------------------------------------------------------------------------------------*/
 
@@ -119,10 +120,13 @@ internal class MainWindowViewModel : ViewModel {
 
     /*------------------------------------------------------------------------------------*/
 
-    public MainWindowViewModel(CountriesStatisticViewModel Statistic, IAsyncDataService asyncData) {
-
+    public MainWindowViewModel(CountriesStatisticViewModel Statistic
+                                ,IAsyncDataService asyncData
+                                ,WebServerViewModel webServer)
+        {
         _AsyncData = asyncData;
         CountriesStatistic = Statistic;
+        WebServer = webServer;
         Statistic.MainModel = this;
 
         #region Команды
