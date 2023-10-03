@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xaml.Behaviors;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,6 +11,46 @@ public class DragInCanvas : Behavior<UIElement> {
 
     private Point _StartPoint;
     private Canvas? _Canvas;
+
+    #region PositionX : double - Горизонтальное смещение
+
+    /// <summary>Горизонтальное смещение</summary>
+    public static readonly DependencyProperty PositionXProperty =
+        DependencyProperty.Register(
+            nameof(PositionX),
+            typeof(double),
+            typeof(DragInCanvas),
+            new PropertyMetadata(default(double)));
+
+    /// <summary>Горизонтальное смещение</summary>
+    //[Category("")]
+    [Description("Горизонтальное смещение")]
+    public double PositionX {
+        get => (double)GetValue(PositionXProperty);
+        set => SetValue(PositionXProperty, value);
+    }
+
+    #endregion
+
+    #region PositionY : double - Вертикальное положение
+
+    /// <summary>Вертикальное положение</summary>
+    public static readonly DependencyProperty PositionYProperty =
+        DependencyProperty.Register(
+            nameof(PositionY),
+            typeof(double),
+            typeof(DragInCanvas),
+            new PropertyMetadata(default(double)));
+
+    /// <summary>Вертикальное положение</summary>
+    //[Category("")]
+    [Description("Вертикальное положение")]
+    public double PositionY {
+        get => (double)GetValue(PositionYProperty);
+        set => SetValue(PositionYProperty, value);
+    }
+
+    #endregion
 
     // Когда элемент добавляется в коллекцию
     // Чтобы реализовать поведение - нужно реализовать эти два метода,
@@ -51,5 +92,8 @@ public class DragInCanvas : Behavior<UIElement> {
 
         obj.SetValue(Canvas.LeftProperty, delta.X);
         obj.SetValue(Canvas.TopProperty, delta.Y);
+
+        PositionX = delta.X;
+        PositionY = delta.Y;
     }
 }
