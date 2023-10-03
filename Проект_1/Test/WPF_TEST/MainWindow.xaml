@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_TEST"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:b="clr-namespace:WPF_TEST.Behaviors"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -28,7 +29,8 @@
                      Width="20" Height="20"
                      >                
                 <i:Interaction.Behaviors>
-                    <i:MouseDragElementBehavior/>
+                    <!--<i:MouseDragElementBehavior/>-->
+                    <b:DragInCanvas/>
                 </i:Interaction.Behaviors>
             </Ellipse>
         </Canvas>
