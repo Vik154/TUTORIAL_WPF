@@ -7,9 +7,21 @@
         mc:Ignorable="d"
         Title="TestWindow" 
         Height="450" Width="800"
+        WindowStyle="None"
         Style="{StaticResource TestWindowStyle}"
         >
     <Grid>
-        
+        <Button VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="30,40"
+                Padding="20,5"
+                Content="Hello world">
+        </Button>
+        <Canvas>
+            <Ellipse Canvas.Left="20" Canvas.Bottom="20"
+                     StrokeThickness="1" Stroke="Blue"
+                     Fill="Red" Width="30" Height="20">
+            </Ellipse>
+        </Canvas>
     </Grid>
 </Window>
