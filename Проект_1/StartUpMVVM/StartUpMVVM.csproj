@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\WindowIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\" />
   </ItemGroup>
 
@@ -25,6 +29,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebCV\WebCV.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\WindowIcon.png" />
   </ItemGroup>
 
   <ItemGroup>

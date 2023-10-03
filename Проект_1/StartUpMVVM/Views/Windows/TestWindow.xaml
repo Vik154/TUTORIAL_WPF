@@ -9,6 +9,7 @@
         Height="450" Width="800"
         WindowStyle="None"
         Style="{StaticResource TestWindowStyle}"
+        Icon="../../Resources/WindowIcon.png"
         >
     <Grid>
         <Button VerticalAlignment="Top"
