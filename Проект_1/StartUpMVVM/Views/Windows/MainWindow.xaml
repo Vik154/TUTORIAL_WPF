@@ -11,11 +11,18 @@
         xmlns:decanat="clr-namespace:StartUpMVVM.Models.Decanat"
         xmlns:sys="clr-namespace:System;assembly=System.Runtime"
         xmlns:view="clr-namespace:StartUpMVVM.Views"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="{Binding Title}"
         Height="450" Width="800"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         >
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding CountriesStatistic.RefreshDataCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <!-- Определение на уровне приложения команд -->
     <Window.InputBindings>
