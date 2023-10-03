@@ -111,6 +111,9 @@
             </Grid>
 
             <Grid x:Name="PART_ResizeElements">
+                <i:Interaction.Behaviors>
+                    <b:ResizeWindowPanel/>
+                </i:Interaction.Behaviors>
                 <Grid.Resources>
                     <Style TargetType="{x:Type Line}">
                         <Setter Property="Stroke" Value="White"/>
