@@ -17,5 +17,9 @@ namespace WPF_TEST {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 }

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_TEST"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -12,10 +13,28 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
         >
-    <Window.Resources>
+    <Grid>
+        <Button VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Padding="30,20"
+                Click="StartButton_Click">
+            Start
+        </Button>
+        <Canvas>
+            <Ellipse Canvas.Left="30" Canvas.Top="10"
+                     Stroke="Red" StrokeThickness="3"
+                     Fill="DarkBlue"
+                     Width="20" Height="20"
+                     >                
+                <i:Interaction.Behaviors>
+                    <i:MouseDragElementBehavior/>
+                </i:Interaction.Behaviors>
+            </Ellipse>
+        </Canvas>
+    </Grid>
+    
+    <!--<Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -80,5 +99,5 @@
 
             <TextBlock Margin="10">TextBlock Sample</TextBlock>
         </StackPanel>
-    </Grid>
+    </Grid>-->
 </Window>
