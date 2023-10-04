@@ -20,7 +20,7 @@
 
 ## Структура проекта:
 <details>
-   <summary><b>1. Основные элементы компоновки:</b></summary>
+   <summary><b><i>1. Основные элементы компоновки:</i></b></summary>
    
    * *[01_Canvas](01_Элементы_компоновки/01_Canvas/Description.md)*
    * *[02_StackPanel](01_Элементы_компоновки/02_StackPanel/Description.md)*
@@ -29,8 +29,9 @@
    * *[05_Grid](01_Элементы_компоновки/05_Grid/Description.md)* 
    * *[06_GridSplitter](01_Элементы_компоновки/06_GridSplitter/Description.md)* 
 </details>
-
-2. ___Основные элементы управления:___
+<details>
+   <summary><b><i>2. Основные элементы управления:</i></b></summary>
+   
    * *[01_Button](02_Элементы_управления/01_Button/Description.md)*
    * *[02_CheckBox/RadioButton](02_Элементы_управления/02_CheckBox_and_RadioButton/Description.md)*
    * *[03_ToolTip/Popup](02_Элементы_управления/03_ToolTip_and_Popup/Description.md)*
@@ -41,6 +42,9 @@
    * *[08_ComboBox](02_Элементы_управления/08_ComboBox/Description.md)*
    * *[09_ListView](02_Элементы_управления/09_ListView/Description.md)*
    * *[10_DataGrid](02_Элементы_управления/10_DataGrid/Description.md)*
+</details>
+
+
 3. ___Основные концепции в WPF:___
    * *[Ресурсы](03_Основные_концепции_WPF/01_Resources/Description.md)*
    * *[Стили](03_Основные_концепции_WPF/02_Styles/Description.md)*
