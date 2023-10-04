@@ -62,10 +62,10 @@
 <details>
    <summary><b><i>4. Проекты:</i></b></summary>
 
-   * *[Проект №1](Проект_1/) - по серии уроков (Павла Шмачилина WPF+MVVM) https://www.youtube.com/@Shmachilin* <br>
+   * *[Проект №1](Проект_1/) - по серии уроков (Павла Шмачилина WPF+MVVM) https://www.youtube.com/@Shmachilin* --> <br>
    _Статистика по COVID из института хопкинса, с визуализацией на график и карты._ <br>
-   * *[Проект №1](Проект_2/) - по серии уроков (Павла Шмачилина WPF+MVVM) https://www.youtube.com/@Shmachilin* <br>
-   *
+   * *[Проект №2](Проект_2/) - по серии уроков (Павла Шмачилина WPF+MVVM) https://www.youtube.com/@Shmachilin* --> <br>
+   _proj_
 </details>
 
 
