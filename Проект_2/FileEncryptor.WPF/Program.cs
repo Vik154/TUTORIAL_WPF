@@ -1,4 +1,6 @@
-﻿namespace FileEncryptor.WPF;
+﻿using Microsoft.Extensions.Hosting;
+
+namespace FileEncryptor.WPF;
 
 // Точка входа
 internal static class Program {
@@ -9,4 +11,9 @@ internal static class Program {
         app.InitializeComponent();
         app.Run();
     }
+
+    // Построитель хоста
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureServices(App.ConfigureServices);
 }
