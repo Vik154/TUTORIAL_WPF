@@ -16,7 +16,7 @@ public partial class StudentEditorWindow : Window
             typeof(StudentEditorWindow),
             new PropertyMetadata(null));
 
-    public string FirstName { 
+    public string? FirstName { 
         get => (string)GetValue(FirstNameProperty); 
         set => SetValue(FirstNameProperty, value); 
     }
@@ -36,7 +36,7 @@ public partial class StudentEditorWindow : Window
     /// <summary>Фамилия</summary>
     //[Category("")]
     [Description("Фамилия")]
-    public string LastName { 
+    public string? LastName { 
         get => (string)GetValue(LastNameProperty); 
         set => SetValue(LastNameProperty, value); 
     }
@@ -56,7 +56,7 @@ public partial class StudentEditorWindow : Window
     /// <summary>Отчество</summary>
     //[Category("")]
     [Description("Отчество")]
-    public string Patronymic { 
+    public string? Patronymic { 
         get => (string)GetValue(PatronymicProperty); 
         set => SetValue(PatronymicProperty, value); 
     }
@@ -76,7 +76,7 @@ public partial class StudentEditorWindow : Window
     /// <summary>Оценка</summary>
     //[Category("")]
     [Description("Оценка")]
-    public double Rating { 
+    public double? Rating { 
         get => (Double)GetValue(RatingProperty); 
         set => SetValue(RatingProperty, value); 
     }
@@ -96,11 +96,10 @@ public partial class StudentEditorWindow : Window
     /// <summary>Дата рождения</summary>
     //[Category("")]
     [Description("Дата рождения")]
-    public DateTime Birthday { 
+    public DateTime? Birthday { 
         get => (DateTime)GetValue(BirthdayProperty); 
         set => SetValue(BirthdayProperty, value); 
     }
 
     #endregion
-
 }
