@@ -19,13 +19,16 @@
    + https://referencesource.microsoft.com/ онлайн браузер исходников .NET Framework
 
 ## Структура проекта:
-1. ___Основные элементы компоновки:___
+<details>
+   <summary>1. ___Основные элементы компоновки:___</summary>
    * *[01_Canvas](01_Элементы_компоновки/01_Canvas/Description.md)*
    * *[02_StackPanel](01_Элементы_компоновки/02_StackPanel/Description.md)*
    * *[03_WrapPanel](01_Элементы_компоновки/03_WrapPanel/Description.md)* 
    * *[04_DockPanel](01_Элементы_компоновки/04_DockPanel/Description.md)* 
    * *[05_Grid](01_Элементы_компоновки/05_Grid/Description.md)* 
    * *[06_GridSplitter](01_Элементы_компоновки/06_GridSplitter/Description.md)* 
+</details>
+
 2. ___Основные элементы управления:___
    * *[01_Button](02_Элементы_управления/01_Button/Description.md)*
    * *[02_CheckBox/RadioButton](02_Элементы_управления/02_CheckBox_and_RadioButton/Description.md)*
