@@ -60,7 +60,7 @@
                                         Оценка: <TextBlock Text="{Binding Rating}"/>
                                     </TextBlock>
                                 </TextBlock.ToolTip>
-                                <TextBlock Text="{Binding Surname}"/>
+                                <TextBlock Text="{Binding SurName}"/>
                                 <TextBlock Text="{Binding Name}"/>
                                 <TextBlock Text="{Binding Patronymic}"/>
                             </TextBlock>
@@ -103,7 +103,7 @@
                 <TextBlock Grid.Column="0" Grid.Row="3" Text="Рейтинг:"/>
                 <TextBlock Grid.Column="0" Grid.Row="4" Text="Дата рождения:"/>
 
-                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Surname}"/>
+                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding SurName}"/>
                 <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Name}"/>
                 <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Patronymic}"/>
                 <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Rating, StringFormat=0.##}"/>
