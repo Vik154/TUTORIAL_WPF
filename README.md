@@ -43,9 +43,9 @@
    * *[09_ListView](02_Элементы_управления/09_ListView/Description.md)*
    * *[10_DataGrid](02_Элементы_управления/10_DataGrid/Description.md)*
 </details>
-
-
-3. ___Основные концепции в WPF:___
+<details>
+   <summary><b><i>3. Основные концепции в WPF:</i></b></summary>
+   
    * *[Ресурсы](03_Основные_концепции_WPF/01_Resources/Description.md)*
    * *[Стили](03_Основные_концепции_WPF/02_Styles/Description.md)*
    * *[Триггеры](03_Основные_концепции_WPF/03_Triggers/Description.md)*
@@ -58,11 +58,11 @@
    * *[Шаблоны данных](03_Основные_концепции_WPF/10_DataTemplate/Description.md)*
    * *[Коллекции данных - ObservableCollection](03_Основные_концепции_WPF/11_ObservableCollection/Description.md)*
    * *[Уведомления об изменениях свойств - INotifyPropertyChanged](03_Основные_концепции_WPF/12_INotifyPropertyChanged/Description.md)*
-4. ___Проекты___:
+</details>
+<details>
+   <summary><b><i>4. Проекты:</i></b></summary>
+
    * *[Проект №1](Проект_1/) - по серии уроков (Павла Шмачилина WPF+MVVM) https://www.youtube.com/@Shmachilin*
-
-
-
-
+</details>
 
 
