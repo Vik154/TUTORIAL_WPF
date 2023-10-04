@@ -8,9 +8,7 @@ internal static class Registrator {
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<CountriesStatisticViewModel>();
         services.AddSingleton<WebServerViewModel>();
-
-        //services.AddTransient<StudentsManagementViewModel>();
-
+        services.AddTransient<StudentsManagementViewModel>();
         return services;
     }
 }
