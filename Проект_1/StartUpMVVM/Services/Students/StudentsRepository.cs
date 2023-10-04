@@ -1,7 +1,7 @@
 ﻿using StartUpMVVM.Models.Decanat;
 using StartUpMVVM.Services.Base;
 
-namespace StartUpMVVM.Services;
+namespace StartUpMVVM.Services.Students;
 
 class StudentsRepository : RepositoryInMemory<Student> {
 
