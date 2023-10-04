@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Commands\Base\" />
     <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 
