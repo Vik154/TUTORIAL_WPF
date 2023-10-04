@@ -13,7 +13,7 @@ internal static class Registrator {
 
         services.AddSingleton<StudentsRepository>();
         services.AddSingleton<GroupRepository>();
-        //services.AddSingleton<StudentsManager>();
+        services.AddSingleton<StudentsManager>();
 
         //services.AddTransient<IUserDialogService, WindowsUserDialogService>();
 
