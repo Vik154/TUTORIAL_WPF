@@ -20,10 +20,7 @@
 
 ## Структура проекта:
 <details>
-   <summary>1. ___Основные элементы компоновки:___</summary>
-   <ul>
-      <li>*[01_Canvas](01_Элементы_компоновки/01_Canvas/Description.md)*</li>
-   </ul>
+   <summary><b>1. Основные элементы компоновки:</b></summary>
    
    * *[01_Canvas](01_Элементы_компоновки/01_Canvas/Description.md)*
    * *[02_StackPanel](01_Элементы_компоновки/02_StackPanel/Description.md)*
