@@ -19,5 +19,5 @@ internal class LambdaCommand : Command {
             throw new ArgumentNullException("Не валидный параметр")) ?? true;
 
     protected override void Execute(object? parameter) => _Execute(parameter ??
-        throw new ArgumentNullException("Не валидный параметр")));
+        throw new ArgumentNullException("Не валидный параметр"));
 }
