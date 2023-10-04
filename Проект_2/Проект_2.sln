@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34112.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileEncryptor.WPF", "FileEncryptor.WPF\FileEncryptor.WPF.csproj", "{7DA0E6F7-B410-4EBF-9E10-58C8D7E81817}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DA0E6F7-B410-4EBF-9E10-58C8D7E81817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA0E6F7-B410-4EBF-9E10-58C8D7E81817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA0E6F7-B410-4EBF-9E10-58C8D7E81817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA0E6F7-B410-4EBF-9E10-58C8D7E81817}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F0F5248-EC89-4FF9-8E17-27EDB8964D11}
+	EndGlobalSection
+EndGlobal
