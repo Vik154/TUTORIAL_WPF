@@ -18,4 +18,7 @@ internal class ViewModelLocator {
             throw new Exception("Сервис не регистрируется");
         }
     }
+
+    public StudentsManagementViewModel StudentsManagement =>
+        App.Host.Services.GetRequiredService<StudentsManagementViewModel>();
 }
