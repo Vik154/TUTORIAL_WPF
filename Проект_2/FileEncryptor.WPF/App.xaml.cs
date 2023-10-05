@@ -8,6 +8,13 @@ namespace FileEncryptor.WPF;
 
 public partial class App {
 
+    // Свойства для команды window_closed 
+    public static Window? FocusedWindow =>
+        Current.Windows.Cast<Window>().FirstOrDefault(w => w.IsFocused);
+
+    public static Window? ActivedWindow =>
+        Current.Windows.Cast<Window>().FirstOrDefault(w => w.IsActive);
+
     // Ленивый хост
     private static IHost? __Host;
 
