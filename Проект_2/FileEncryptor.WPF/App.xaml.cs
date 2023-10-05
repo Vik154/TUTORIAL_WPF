@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FileEncryptor.WPF.Services;
+using FileEncryptor.WPF.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 
@@ -13,8 +15,10 @@ public partial class App {
         .CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
 
     internal static void ConfigureServices(HostBuilderContext host, 
-                                           IServiceCollection services) {    
-        
+                                           IServiceCollection services) 
+    {
+        services.AddServices();
+        services.AddViewModels();
     }
 
     protected override async void OnStartup(StartupEventArgs e) {
