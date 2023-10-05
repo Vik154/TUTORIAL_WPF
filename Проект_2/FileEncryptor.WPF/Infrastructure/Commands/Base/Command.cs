@@ -11,7 +11,7 @@ internal abstract class Command : ICommand {
     }
 
     // Дополнительное свойство - которое включает или выключает команду целиком
-    private bool _Executable;
+    private bool _Executable = true;
     public bool Executable {
         get => _Executable;
         set {
