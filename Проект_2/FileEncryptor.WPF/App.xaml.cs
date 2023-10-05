@@ -14,6 +14,9 @@ public partial class App {
     public static IHost Host => __Host ??= Program
         .CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
 
+    // Свойство для извлечения из приложения необходимых сервисов
+    public static IServiceProvider Services => Host.Services;
+
     internal static void ConfigureServices(HostBuilderContext host, 
                                            IServiceCollection services) 
     {
