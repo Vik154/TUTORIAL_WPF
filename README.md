@@ -18,8 +18,9 @@
    + https://source.dot.net/ онлайн браузер исходников .NET Core
    + https://referencesource.microsoft.com/ онлайн браузер исходников .NET Framework
 5. Для работы:
-   + https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn/related <br>
-   <i>Расширение для скачивания отдельных папок из GitHub</i>
+   + ___Расширение для скачивания отдельных папок из GitHub:___ <br>
+     _https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn/related_
+   + 123
 
 ## Структура проекта:
 <details>
