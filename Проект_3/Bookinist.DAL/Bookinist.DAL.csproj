@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bookinist.Interfaces\Bookinist.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>
