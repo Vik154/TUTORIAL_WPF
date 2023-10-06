@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace FileEncryptor.WPF.Services;
 
+
 // Регистратор всех сервисов приложения
 internal static class ServicesRegistrator {
 
