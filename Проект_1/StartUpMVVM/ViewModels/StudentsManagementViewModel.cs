@@ -28,20 +28,20 @@ class StudentsManagementViewModel : ViewModel {
     #region SelectedGroup : Group - Выбранная группа студентов
 
     /// <summary>Выбранная группа студентов</summary>
-    private Group _SelectedGroup;
+    private Group? _SelectedGroup;
 
     /// <summary>Выбранная группа студентов</summary>
-    public Group SelectedGroup { get => _SelectedGroup; set => Set(ref _SelectedGroup, value); }
+    public Group? SelectedGroup { get => _SelectedGroup; set => Set(ref _SelectedGroup, value); }
 
     #endregion
 
     #region SelectedStudent : Student - Выбранный студент
 
     /// <summary>Выбранный студент</summary>
-    private Student _SelectedStudent;
+    private Student? _SelectedStudent;
 
     /// <summary>Выбранный студент</summary>
-    public Student SelectedStudent { get => _SelectedStudent; set => Set(ref _SelectedStudent, value); }
+    public Student? SelectedStudent { get => _SelectedStudent; set => Set(ref _SelectedStudent, value); }
 
     #endregion
 
@@ -49,7 +49,7 @@ class StudentsManagementViewModel : ViewModel {
 
     #region EditStudentCommand - Команда редактирования студента
 
-    private ICommand _EditStudentCommand;
+    private ICommand? _EditStudentCommand;
 
     /// <summary>Команда редактирования студента</summary>
     public ICommand EditStudentCommand => _EditStudentCommand ??= new LambdaCommand(OnEditStudentCommandExecuted, CanEditStudentCommandExecute);
@@ -71,7 +71,7 @@ class StudentsManagementViewModel : ViewModel {
     #region Command CreateNewStudentCommand - Создание нового студента
 
     /// <summary>Создание нового студента</summary>
-    private ICommand _CreateNewStudentCommand;
+    private ICommand? _CreateNewStudentCommand;
 
     /// <summary>Создание нового студента</summary>
     public ICommand CreateNewStudentCommand => _CreateNewStudentCommand
@@ -86,7 +86,7 @@ class StudentsManagementViewModel : ViewModel {
 
         var student = new Student();
 
-        if (!_UserDialog.Edit(student) || _StudentsManager.Create(student, group.Name)) {
+        if (!_UserDialog.Edit(student) || _StudentsManager.Create(student, group.Name!)) {
             OnPropertyChanged(nameof(Students));
             return;
         }
@@ -100,7 +100,7 @@ class StudentsManagementViewModel : ViewModel {
     #region Command TestCommand - Тестовая команда
 
     /// <summary>Тестовая команда</summary>
-    private ICommand _TestCommand;
+    private ICommand? _TestCommand;
 
     /// <summary>Тестовая команда</summary>
     public ICommand TestCommand => _TestCommand
