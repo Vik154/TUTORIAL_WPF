@@ -2,6 +2,7 @@
 
 namespace FileEncryptor.WPF.Infrastructure.Commands.Base;
 
+
 // Базовая логика команды
 internal abstract class Command : ICommand {
 
