@@ -8,10 +8,8 @@ namespace Bookinist.Data;
 static class DbRegistrator {
 
     public static IServiceCollection AddDataBase(this IServiceCollection services, 
-                                                 IConfiguration configuration
-        ) => services
-             .AddDbContext<BookinistDB>(opt => {
-                    
+                                                 IConfiguration configuration) => services
+        .AddDbContext<BookinistDB>(opt => {                 
                 var type = configuration["Type"];
 
                 switch (type) {
@@ -31,5 +29,7 @@ static class DbRegistrator {
                         opt.UseInMemoryDatabase("Bookinist.db");
                         break;
                 }
-            });
+            })
+        .AddTransient<DbInitializer>()
+        ;
 }

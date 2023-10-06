@@ -25,6 +25,17 @@ public partial class App : Application {
 
     protected override async void OnStartup(StartupEventArgs e) {
         var host = Host;
+        
+        // Тестовые мероприятия
+        // Контекст базы данных создается под цели отладки, потом уничтожается
+        using (var scope = Services.CreateScope()) {
+            scope
+                .ServiceProvider
+                .GetRequiredService<DbInitializer>()
+                .InitializeAsync()
+                .Wait();
+        }
+        
         base.OnStartup(e);
         await host.StartAsync();
     }
