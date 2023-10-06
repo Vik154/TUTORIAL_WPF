@@ -1,24 +1,25 @@
 # Туториал по WPF
 ## Основные источники информации:
-0. Для работы:
-   + https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn/related
-2. :earth_asia: WEB:
+1. :earth_asia: WEB:
    + :speech_balloon: https://metanit.com/sharp/wpf/
    + :speech_balloon: https://professorweb.ru/my/WPF/base_WPF/level1/info_WPF.php
    + :speech_balloon: https://intuit.ru/studies/courses?page=1
    + :speech_balloon: https://www.youtube.com/@Shmachilin
-3. :notebook: Книги:
+2. :notebook: Книги:
    + :blue_book: Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
    + :blue_book: Адам Натан "WPF 4. Подробное руководство." (*Книга понятная только её автору*)
-4. :page_with_curl: Документация:
+3. :page_with_curl: Документация:
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netdesktop-7.0
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netframeworkdesktop-4.8
    + :sos: https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
    + :sos: https://learn.microsoft.com/ru-ru/windows/apps/desktop/
    + :octocat: https://github.com/microsoft/WPF-Samples/tree/main
-5. Исходники стандартных библиотек (быстрый поиск в браузере)
+4. Исходники стандартных библиотек (быстрый поиск в браузере)
    + https://source.dot.net/ онлайн браузер исходников .NET Core
    + https://referencesource.microsoft.com/ онлайн браузер исходников .NET Framework
+5. Для работы:
+   + https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn/related <br>
+   <i>Расширение для скачивания отдельных папок из GitHub</i>
 
 ## Структура проекта:
 <details>
