@@ -2,6 +2,7 @@
 
 namespace FileEncryptor.WPF.Infrastructure.Commands;
 
+// Базовая реализация команды
 internal class LambdaCommand : Command {
 
     private readonly Action<object> _Execute;
