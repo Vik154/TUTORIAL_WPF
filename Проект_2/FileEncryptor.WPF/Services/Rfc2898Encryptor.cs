@@ -8,6 +8,7 @@ namespace FileEncryptor.WPF.Services;
 // Реализация интерфейса и логики шифратора
 internal class Rfc2898Encryptor : IEncryptor {
     
+    // Соль
     private static readonly byte[] __Salt = {
             0x26, 0xdc, 0xff, 0x00,
             0xad, 0xed, 0x7a, 0xee,
@@ -15,11 +16,19 @@ internal class Rfc2898Encryptor : IEncryptor {
             0x4d, 0x08, 0x22, 0x3c
         };
 
+    // Количество итерация для алгоритма шифрования
+    private static readonly int __iterations = 1000;
+
     private static byte[] CreateRandomSalt(int length = 16) => 
         RandomNumberGenerator.GetBytes(Math.Max(1, length));
 
     private static ICryptoTransform GetEncryptor(string password, byte[]? Salt = null) {
-        var pdb = new Rfc2898DeriveBytes(password, Salt ?? __Salt);
+        // Устаревший вариант == Rfc2898DeriveBytes(String, Byte[], Int32)
+        // var pdb = new Rfc2898DeriveBytes(password, Salt ?? __Salt);
+
+        // Рекомендуемый == Rfc2898DeriveBytes(String, Byte[], Int32, HashAlgorithmName)
+        var pdb = new Rfc2898DeriveBytes(password, Salt ?? __Salt, __iterations, HashAlgorithmName.SHA256);
+        
         var algorithm = Aes.Create();
         algorithm.Key = pdb.GetBytes(32);
         algorithm.IV = pdb.GetBytes(16);
@@ -27,7 +36,11 @@ internal class Rfc2898Encryptor : IEncryptor {
     }
 
     private static ICryptoTransform GetDecryptor(string password, byte[]? Salt = null) {
-        var pdb = new Rfc2898DeriveBytes(password, Salt ?? __Salt);
+        // Устаревший вариант == Rfc2898DeriveBytes(String, Byte[], Int32)
+        // var pdb = new Rfc2898DeriveBytes(password, Salt ?? __Salt);
+
+        // Рекомендуемый == Rfc2898DeriveBytes(String, Byte[], Int32, HashAlgorithmName)
+        var pdb = new Rfc2898DeriveBytes(password, Salt ?? __Salt, __iterations, HashAlgorithmName.SHA256);
         var algorithm = Aes.Create();
         algorithm.Key = pdb.GetBytes(32);
         algorithm.IV = pdb.GetBytes(16);
@@ -44,7 +57,7 @@ internal class Rfc2898Encryptor : IEncryptor {
         var buffer = new byte[BufferLength];
         int readed;
         do {
-            Thread.Sleep(1);
+            // Thread.Sleep(1);
             readed = source.Read(buffer, 0, BufferLength);
             destination.Write(buffer, 0, readed);
         }
@@ -104,7 +117,9 @@ internal class Rfc2898Encryptor : IEncryptor {
             do {
                 readed = await source.ReadAsync(buffer, 0, BufferLength, Cancel).ConfigureAwait(false);
                 // дополнительные действия по завершению асинхронной операции
+
                 await destination.WriteAsync(buffer, 0, readed, Cancel).ConfigureAwait(false);
+                    
 
                 var position = source.Position;
                 var percent = (double)position / file_length;
@@ -117,7 +132,6 @@ internal class Rfc2898Encryptor : IEncryptor {
                     // очистка состояния операции
                     Cancel.ThrowIfCancellationRequested();
                 }
-                Thread.Sleep(10);
             }
             while (readed > 0);
 
