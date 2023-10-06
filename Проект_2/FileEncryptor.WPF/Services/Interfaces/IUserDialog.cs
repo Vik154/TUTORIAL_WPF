@@ -1,5 +1,6 @@
 ﻿namespace FileEncryptor.WPF.Services.Interfaces;
 
+
 // Интерфейс диалогового окна для взаимодействия с пользователем
 internal interface IUserDialog {
     bool OpenFile(string Title, out string? SelectedFile, string Filter = "Все файлы (*.*)|*.*");
