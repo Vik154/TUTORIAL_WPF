@@ -1,14 +1,16 @@
 # Туториал по WPF
 ## Основные источники информации:
-1. :earth_asia: WEB:
+0. Для работы:
+   + https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn/related
+2. :earth_asia: WEB:
    + :speech_balloon: https://metanit.com/sharp/wpf/
    + :speech_balloon: https://professorweb.ru/my/WPF/base_WPF/level1/info_WPF.php
    + :speech_balloon: https://intuit.ru/studies/courses?page=1
    + :speech_balloon: https://www.youtube.com/@Shmachilin
-2. :notebook: Книги:
+3. :notebook: Книги:
    + :blue_book: Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
    + :blue_book: Адам Натан "WPF 4. Подробное руководство." (*Книга понятная только её автору*)
-3. :page_with_curl: Документация:
+4. :page_with_curl: Документация:
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netdesktop-7.0
    + :sos: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netframeworkdesktop-4.8
    + :sos: https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
