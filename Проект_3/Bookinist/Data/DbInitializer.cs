@@ -9,9 +9,9 @@ namespace Bookinist.Data;
 
 class DbInitializer {
     private readonly BookinistDB _db;
-    private readonly ILogger _Logger;
+    private readonly ILogger<DbInitializer> _Logger;
 
-    public DbInitializer(BookinistDB dB, ILogger logger) {
+    public DbInitializer(BookinistDB dB, ILogger<DbInitializer> logger) {
         _db = dB;
         _Logger = logger;
     }

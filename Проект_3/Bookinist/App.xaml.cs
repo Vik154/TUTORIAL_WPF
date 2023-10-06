@@ -29,11 +29,10 @@ public partial class App : Application {
         // Тестовые мероприятия
         // Контекст базы данных создается под цели отладки, потом уничтожается
         using (var scope = Services.CreateScope()) {
-            scope
+            await scope
                 .ServiceProvider
                 .GetRequiredService<DbInitializer>()
-                .InitializeAsync()
-                .Wait();
+                .InitializeAsync();
         }
         
         base.OnStartup(e);
