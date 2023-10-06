@@ -3,6 +3,7 @@ using System.Windows;
 
 namespace FileEncryptor.WPF.Views.Windows;
 
+// Окно прогресс - бара, выполнения шифровки / дешифровки
 public partial class ProgressWindow {
 
     #region Status : string - Статусное сообщение
@@ -18,7 +19,10 @@ public partial class ProgressWindow {
     /// <summary>Статусное сообщение</summary>
     //[Category("")]
     [Description("Статусное сообщение")]
-    public string Status { get => (string)GetValue(StatusProperty); set => SetValue(StatusProperty, value); }
+    public string Status { 
+        get => (string)GetValue(StatusProperty); 
+        set => SetValue(StatusProperty, value); 
+    }
 
     #endregion
 
@@ -42,28 +46,33 @@ public partial class ProgressWindow {
     /// <summary>Значение прогресса</summary>
     //[Category("")]
     [Description("Значение прогресса")]
-    public double ProgressValue { get => (double)GetValue(ProgressValueProperty); set => SetValue(ProgressValueProperty, value); }
+    public double ProgressValue { 
+        get => (double)GetValue(ProgressValueProperty); 
+        set => SetValue(ProgressValueProperty, value); 
+    }
 
     #endregion
 
-    private IProgress<double> _ProgressInformer;
+    private IProgress<double>? _ProgressInformer;
 
-    public IProgress<double> ProgressInformer => _ProgressInformer ??= new Progress<double>(p => ProgressValue = p);
+    public IProgress<double>? ProgressInformer => _ProgressInformer 
+        ??= new Progress<double>(p => ProgressValue = p);
 
-    private IProgress<string> _StatusInformer;
+    private IProgress<string>? _StatusInformer;
 
-    public IProgress<string> StatusInformer => _StatusInformer ??= new Progress<string>(status => Status = status);
+    public IProgress<string>? StatusInformer => _StatusInformer 
+        ??= new Progress<string>(status => Status = status);
 
-    private IProgress<(double Percent, string Message)> _ProgressStatusInformer;
+    private IProgress<(double Percent, string Message)>? _ProgressStatusInformer;
 
-    public IProgress<(double Percent, string Message)> ProgressStatusInformer => _ProgressStatusInformer
-        ??= new Progress<(double Percent, string Message)>(
+    public IProgress<(double Percent, string Message)>? ProgressStatusInformer => 
+        _ProgressStatusInformer ??= new Progress<(double Percent, string Message)>(
             p => {
                 ProgressValue = p.Percent;
                 Status = p.Message;
             });
 
-    private CancellationTokenSource _Cancellation;
+    private CancellationTokenSource? _Cancellation;
 
     public CancellationToken Cancel {
         get {
