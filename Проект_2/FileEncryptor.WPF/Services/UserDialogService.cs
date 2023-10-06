@@ -24,7 +24,9 @@ internal class UserDialogService : IUserDialog {
         return true;
     }
 
-    public bool OpenFiles(string Title, out IEnumerable<string> SelectedFiles, string Filter = "Все файлы (*.*)|*.*") {
+    public bool OpenFiles(string Title, out IEnumerable<string> SelectedFiles, 
+                          string Filter = "Все файлы (*.*)|*.*")
+    {
         var file_dialog = new OpenFileDialog {
             Title = Title,
             Filter = Filter
@@ -40,11 +42,14 @@ internal class UserDialogService : IUserDialog {
         return true;
     }
 
-    public bool SaveFile(string Title, out string? SelectedFile, string? DefaultFileName = null, string Filter = "Все файлы (*.*)|*.*") {
+    public bool SaveFile(string Title, out string? SelectedFile, 
+                         string? DefaultFileName = null, string Filter = "Все файлы (*.*)|*.*")
+    {
         var file_dialog = new SaveFileDialog {
             Title = Title,
             Filter = Filter
         };
+
         if (!string.IsNullOrWhiteSpace(DefaultFileName))
             file_dialog.FileName = DefaultFileName;
 
@@ -73,7 +78,11 @@ internal class UserDialogService : IUserDialog {
             Action Close) 
         ShowProgress(string Title) 
     {
-        var progress_window = new ProgressWindow { Title = Title, Owner = App.FocusedWindow, WindowStartupLocation = WindowStartupLocation.CenterOwner };
+        var progress_window = new ProgressWindow { 
+            Title = Title, 
+            Owner = App.FocusedWindow, 
+            WindowStartupLocation = WindowStartupLocation.CenterOwner 
+        };
         progress_window.Show();
 
         return (progress_window.ProgressInformer, progress_window.StatusInformer, progress_window.Cancel, progress_window.Close);
