@@ -3,6 +3,7 @@ using System.Windows;
 
 namespace FileEncryptor.WPF.Infrastructure.Commands;
 
+
 // Команда закрытия окна
 internal class CloseWindow : Command {
 
