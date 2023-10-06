@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace FileEncryptor.WPF.ViewModels.Base;
 
+
 // Реализация базовой логики - модели представления
 internal abstract class ViewModel : INotifyPropertyChanged {
 
