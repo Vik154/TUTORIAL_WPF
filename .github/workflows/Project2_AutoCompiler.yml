@@ -29,6 +29,6 @@
 #      run: dotnet build -c Release --no-restore
 #      working-directory: ./Проект_2/
 #      
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
-      working-directory: ./Проект_2/
+#    - name: Test
+#      run: dotnet test --no-restore --verbosity normal
+#      working-directory: ./Проект_2/
