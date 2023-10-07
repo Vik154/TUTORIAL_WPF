@@ -3,7 +3,7 @@
 // Шаблонный интерфейс, который имеет ограничение на шаблон,
 // он должен быть классом, иметь базовый конструктор и наследовать IEntity
 public interface IRepository<T> where T : class, IEntity, new() {
-    IEnumerable<T> Items {  get; }
+    IQueryable<T> Items {  get; }
     
     T Get(int id);
     Task<T> GetAsync(int id, CancellationToken Cancel = default);
