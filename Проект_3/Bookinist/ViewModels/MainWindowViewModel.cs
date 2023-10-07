@@ -1,15 +1,19 @@
 ﻿using Bookinist.DAL.Entityes;
+using Bookinist.DAL.Context;
 using Bookinist.Interfaces;
-using Bookinist.Services;
 using Bookinist.Services.Interfaces;
+using System.Windows.Input;
+
 using MathCore.ViewModels;
+using MathCore.WPF.Commands;
 
 
 namespace Bookinist.ViewModels; 
 
+
 class MainWindowViewModel : ViewModel {
 
-    private readonly IRepository<Book> _BooksRepository;
+    private readonly IRepository<Book> _Books;
     private readonly IRepository<Seller> _Sellers;
     private readonly IRepository<Buyer> _Buyers;
     private readonly ISalesService _SalesService;
@@ -38,13 +42,71 @@ class MainWindowViewModel : ViewModel {
 
     #endregion
 
+    #region Command ShowBooksViewCommand - Отобразить представление книг
+
+    /// <summary>Отобразить представление книг</summary>
+    private ICommand _ShowBooksViewCommand;
+
+    /// <summary>Отобразить представление книг</summary>
+    public ICommand ShowBooksViewCommand => _ShowBooksViewCommand
+        ??= new LambdaCommand(OnShowBooksViewCommandExecuted, CanShowBooksViewCommandExecute);
+
+    /// <summary>Проверка возможности выполнения - Отобразить представление книг</summary>
+    private bool CanShowBooksViewCommandExecute() => true;
+
+    /// <summary>Логика выполнения - Отобразить представление книг</summary>
+    private void OnShowBooksViewCommandExecuted() {
+        // CurrentModel = new BooksViewModel(_Books, _UserDialog);
+        CurrentModel = new BooksViewModel(_Books);
+    }
+
+    #endregion
+
+    #region Command ShowBuyersViewCommand - Отобразить представление покупателей
+
+    /// <summary>Отобразить представление покупателей</summary>
+    private ICommand _ShowBuyersViewCommand;
+
+    /// <summary>Отобразить представление покупателей</summary>
+    public ICommand ShowBuyersViewCommand => _ShowBuyersViewCommand
+        ??= new LambdaCommand(OnShowBuyersViewCommandExecuted, CanShowBuyersViewCommandExecute);
+
+    /// <summary>Проверка возможности выполнения - Отобразить представление покупателей</summary>
+    private bool CanShowBuyersViewCommandExecute() => true;
+
+    /// <summary>Логика выполнения - Отобразить представление покупателей</summary>
+    private void OnShowBuyersViewCommandExecuted() {
+        CurrentModel = new BuyersViewModel(_Buyers);
+    }
+
+    #endregion
+
+    #region Command ShowStatisticViewCommand - Отобразить представление статистики
+
+    /// <summary>Отобразить представление статистики</summary>
+    private ICommand _ShowStatisticViewCommand;
+
+    /// <summary>Отобразить представление статистики</summary>
+    public ICommand ShowStatisticViewCommand => _ShowStatisticViewCommand
+        ??= new LambdaCommand(OnShowStatisticViewCommandExecuted, CanShowStatisticViewCommandExecute);
+
+    /// <summary>Проверка возможности выполнения - Отобразить представление статистики</summary>
+    private bool CanShowStatisticViewCommandExecute() => true;
+
+    /// <summary>Логика выполнения - Отобразить представление статистики</summary>
+    private void OnShowStatisticViewCommandExecuted() {
+        CurrentModel = new StatisticViewModel(_Books, _Buyers, _Sellers);
+    }
+
+    #endregion
+
     public MainWindowViewModel(
         IRepository<Book> BooksRepository, 
         ISalesService SalesService,
         IRepository<Seller> Sellers,
         IRepository<Buyer> Buyers)     
     {
-        _BooksRepository = BooksRepository;
+        _Books = BooksRepository;
         _SalesService = SalesService;
         _Sellers = Sellers;
         _Buyers = Buyers;
