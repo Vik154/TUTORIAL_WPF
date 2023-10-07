@@ -11,12 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Commands\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MathCore" Version="0.0.87.2" />
     <PackageReference Include="MathCore.WPF" Version="0.0.44.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
@@ -31,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bookinist.DAL\Bookinist.DAL.csproj" />
+    <ProjectReference Include="..\Bookinist.Interfaces\Bookinist.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
