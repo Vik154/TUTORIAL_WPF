@@ -1,40 +1,79 @@
-﻿using Bookinist.DAL.Entityes.Base;
+﻿using Bookinist.DAL.Context;
+using Bookinist.DAL.Entityes.Base;
 using Bookinist.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bookinist.DAL;
 
 class DbRepository<T> : IRepository<T> where T : Entity, new() {
-    public IEnumerable<T> Items => throw new NotImplementedException();
+
+    private readonly BookinistDB _db;
+    private readonly DbSet<T> _Set;
+
+    public bool AutoSaveChanges { get; set; } = true;
+
+    public DbRepository(BookinistDB dB) {
+        _db = dB;
+        _Set = dB.Set<T>();
+    }
+
+    public virtual IQueryable<T> Items => _Set;
+
+    public T Get(int id) => Items.SingleOrDefault(item => item.Id == id);
+
+    public async Task<T> GetAsync(int id, CancellationToken Cancel = default) => await Items
+        .SingleOrDefaultAsync(item => item.Id == id, Cancel)
+        .ConfigureAwait(false);
+
 
     public T Add(T item) {
-        throw new NotImplementedException();
+        if (item is null) 
+            throw new ArgumentNullException(nameof(item));
+
+        _db.Entry(item).State = EntityState.Added;
+
+        if (AutoSaveChanges)
+            _db.SaveChanges();
+        return item;
     }
 
-    public Task<T> AddAsync(T item, CancellationToken Cancel = default) {
-        throw new NotImplementedException();
-    }
-
-    public T Get(int id) {
-        throw new NotImplementedException();
-    }
-
-    public Task<T> GetAsync(int id, CancellationToken Cancel = default) {
-        throw new NotImplementedException();
-    }
-
-    public void Remove(int id) {
-        throw new NotImplementedException();
-    }
-
-    public Task RemoveAsync(int id, CancellationToken Cancel = default) {
-        throw new NotImplementedException();
+    public async Task<T> AddAsync(T item, CancellationToken Cancel = default) {
+        if (item is null)
+            throw new ArgumentNullException(nameof(item));
+        _db.Entry(item).State = EntityState.Added;
+        if (AutoSaveChanges)
+            await _db.SaveChangesAsync(Cancel).ConfigureAwait(false);
+        return item;
     }
 
     public void Update(T item) {
-        throw new NotImplementedException();
+        if (item is null)
+            throw new ArgumentNullException(nameof(item));
+        _db.Entry(item).State = EntityState.Modified;
+        if (AutoSaveChanges)
+            _db.SaveChanges();
     }
 
-    public Task UpdateAsync(T item, CancellationToken Cancel = default) {
-        throw new NotImplementedException();
+    public async Task UpdateAsync(T item, CancellationToken Cancel = default) {
+        if (item is null)
+            throw new ArgumentNullException(nameof(item));
+        _db.Entry(item).State = EntityState.Modified;
+        if (AutoSaveChanges)
+            await _db.SaveChangesAsync(Cancel).ConfigureAwait(false);
+    }
+
+    public void Remove(int id) {
+        var item = _Set.Local.FirstOrDefault(i => i.Id == id) ?? new T { Id = id };
+
+        _db.Remove(item);
+
+        if (AutoSaveChanges)
+            _db.SaveChanges();
+    }
+
+    public async Task RemoveAsync(int id, CancellationToken Cancel = default) {
+        _db.Remove(new T { Id = id });
+        if (AutoSaveChanges)
+            await _db.SaveChangesAsync(Cancel).ConfigureAwait(false);
     }
 }
