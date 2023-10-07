@@ -25,6 +25,19 @@ class MainWindowViewModel : ViewModel {
     }
     #endregion
 
+    #region CurrentModel : ViewModel - Текущая дочерняя модель-представления
+
+    /// <summary>Текущая дочерняя модель-представления</summary>
+    private ViewModel _CurrentModel;
+
+    /// <summary>Текущая дочерняя модель-представления</summary>
+    public ViewModel CurrentModel { 
+        get => _CurrentModel; 
+        private set => Set(ref _CurrentModel, value); 
+    }
+
+    #endregion
+
     public MainWindowViewModel(
         IRepository<Book> BooksRepository, 
         ISalesService SalesService,
