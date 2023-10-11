@@ -1,4 +1,7 @@
-﻿namespace TaskManager.API.Models;
+﻿using System.Numerics;
+using TaskManager.Common.Models;
+
+namespace TaskManager.API.Models;
 
 public class User {
     public int Id { get; set; }
@@ -28,5 +31,20 @@ public class User {
         Status = userstatus;
         Phone = phone;
         Photo = photo;
+        RegistrationDate = DateTime.Now;
+    }
+
+    public UserModel ToDto() {
+        return new UserModel {
+            Id = Id,
+            FirstName = FirstName,
+            LastName = LastName,
+            Email = Email,
+            Password = Password,
+            Status = Status,
+            Phone = Phone,
+            Photo = Photo,
+            RegistrationDate = RegistrationDate
+        };
     }
 }
