@@ -14,4 +14,19 @@ public class User {
     public List<Desk> Desks { get; set; } = new();
     public List<TaskModel> Tasks { get; set; } = new();
     public UserStatus Status { get; set; }
+
+    public User() { }
+
+    public User(string fname, string lname, string email, string password,
+                UserStatus userstatus = UserStatus.User, 
+                string? phone = null, byte[]? photo = null) 
+    {
+        FirstName = fname;
+        LastName = lname;
+        Email = email;
+        Password = password;
+        Status = userstatus;
+        Phone = phone;
+        Photo = photo;
+    }
 }
