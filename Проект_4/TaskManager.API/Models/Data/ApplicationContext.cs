@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TaskManager.Common.Models;
 
 namespace TaskManager.API.Models.Data;
 

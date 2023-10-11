@@ -27,4 +27,9 @@ public class UsersController : ControllerBase {
         _db.SaveChanges();
         return Ok();
     }
+
+    [HttpGet("test")]
+    public IActionResult Test() {
+        return Ok("Всё ок");
+    }
 }
