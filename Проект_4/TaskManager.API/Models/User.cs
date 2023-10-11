@@ -34,6 +34,17 @@ public class User {
         RegistrationDate = DateTime.Now;
     }
 
+    public User(UserModel userModel) {
+        FirstName = userModel.FirstName;
+        LastName = userModel.LastName;
+        Email = userModel.Email;
+        Password = userModel.Password;
+        Status = userModel.Status;
+        Phone = userModel.Phone;
+        Photo = userModel.Photo;
+        RegistrationDate = DateTime.Now;
+    }
+
     public UserModel ToDto() {
         return new UserModel {
             Id = Id,

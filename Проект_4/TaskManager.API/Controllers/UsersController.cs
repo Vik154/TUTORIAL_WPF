@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TaskManager.API.Models;
 using TaskManager.API.Models.Data;
 using TaskManager.Common.Models;
@@ -34,7 +35,7 @@ public class UsersController : ControllerBase {
         return Ok();
     }
 
-    [HttpPatch("{id}/update")]
+    [HttpPatch("update/{id}")]
     public IActionResult UpdateUser(int id, [FromBody] UserModel user) {
         if (user is null)
             return BadRequest("\"Не корректный юзер в [Update]");
@@ -54,6 +55,39 @@ public class UsersController : ControllerBase {
 
         _db.Users.Update(userUpdate);
         _db.SaveChanges();
+        return Ok();
+    }
+
+    [HttpDelete("delete/{id}")]
+    public IActionResult DeleteUser(int id) {
+        User? user = _db.Users.FirstOrDefault(x => x.Id == id);
+
+        if (user is null) return NotFound();
+
+        _db.Users.Remove(user);
+        _db.SaveChanges();
+        return Ok();
+    }
+
+    //[HttpGet]
+    //public IEnumerable<UserModel> GetUsers() {
+    //    return _db.Users.Select(u => u.ToDto());
+    //}
+
+    [HttpGet]
+    public async Task<IEnumerable<UserModel>> GetUsersAsync() {
+        return await _db.Users.Select(u => u.ToDto()).ToListAsync();
+    }
+
+    [HttpPost("create/all")]
+    public async Task<IActionResult> CreateMultipleUsersAsync(
+        [FromBody] List<UserModel> userModels) 
+    {
+        if (userModels is null) return NotFound();
+
+        var newUsers = userModels.Select(u => new User(u));
+        _db.Users.AddRange(newUsers);
+        await _db.SaveChangesAsync();
         return Ok();
     }
 }
