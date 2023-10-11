@@ -13,6 +13,12 @@ public class UsersController : ControllerBase {
 
     private readonly ApplicationContext _db;
 
+    // Для теста
+    [HttpGet("test")]
+    public IActionResult Test() {
+        return Ok("Всё ок");
+    }
+
     // Ctor
     public UsersController(ApplicationContext db) => _db = db;
 
@@ -28,8 +34,26 @@ public class UsersController : ControllerBase {
         return Ok();
     }
 
-    [HttpGet("test")]
-    public IActionResult Test() {
-        return Ok("Всё ок");
+    [HttpPatch("{id}/update")]
+    public IActionResult UpdateUser(int id, [FromBody] UserModel user) {
+        if (user is null)
+            return BadRequest("\"Не корректный юзер в [Update]");
+
+        User? userUpdate = _db.Users.FirstOrDefault(x => x.Id == id);
+
+        if (userUpdate is null)
+            return NotFound();
+
+        userUpdate.FirstName = user.FirstName;
+        userUpdate.LastName = user.LastName;
+        userUpdate.Password = user.Password;
+        userUpdate.Phone = user.Phone;
+        userUpdate.Photo = user.Photo;
+        userUpdate.Status = user.Status;
+        userUpdate.Email = user.Email;
+
+        _db.Users.Update(userUpdate);
+        _db.SaveChanges();
+        return Ok();
     }
 }
