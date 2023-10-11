@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34112.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.API", "TaskManager.API\TaskManager.API.csproj", "{DE670BBB-5CD1-4630-B221-3F545F33CCC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Common.Models", "TaskManager.Common.Models\TaskManager.Common.Models.csproj", "{841C148F-0408-486C-9D2B-8F3791A1FD4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DE670BBB-5CD1-4630-B221-3F545F33CCC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE670BBB-5CD1-4630-B221-3F545F33CCC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE670BBB-5CD1-4630-B221-3F545F33CCC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841C148F-0408-486C-9D2B-8F3791A1FD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841C148F-0408-486C-9D2B-8F3791A1FD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841C148F-0408-486C-9D2B-8F3791A1FD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841C148F-0408-486C-9D2B-8F3791A1FD4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
