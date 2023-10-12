@@ -14,7 +14,7 @@ public class ApplicationContext : DbContext {
         Database.EnsureCreated();
 
         if (Users?.Any(u => u.Status == UserStatus.Admin) == false ) {
-            Users.Add(new User("Admin", "Adminovich", "admin@mail", "123", UserStatus.Admin));
+            Users.Add(new User("Admin", "Adminovich", "admin", "123", UserStatus.Admin));
             SaveChanges();
         }
     }
