@@ -9,7 +9,7 @@ using TaskManager.Common.Models;
 namespace TaskManager.API.Models.Services;
 
 
-public class UserService : ICommonService<UserModel> {
+public class UserService : AbstractionService ,ICommonService<UserModel> {
     private readonly ApplicationContext _db;
 
     public UserService(ApplicationContext db) => _db = db;
@@ -39,6 +39,10 @@ public class UserService : ICommonService<UserModel> {
             u.Email == login && u.Password == pass
         );
         return user;
+    }
+    
+    public User? GetUser(string login) {
+        return _db.Users.FirstOrDefault(u => u.Email == login);
     }
 
     public ClaimsIdentity? GetIdentity(string username, string password) {
@@ -130,14 +134,15 @@ public class UserService : ICommonService<UserModel> {
         });
     }
 
-    private bool DoAction(Action action) {
-        try {
-            action.Invoke();
-            return true;
-        }
-        catch (Exception exp) {
-            Debug.WriteLine(exp.Message);
-            return false;
-        }
-    }
+    //private bool DoAction(Action action) {
+    //    try {
+    //        action.Invoke();
+    //        return true;
+    //    }
+    //    catch (Exception exp) {
+    //        Debug.WriteLine(exp.Message);
+    //        return false;
+    //    }
+    //}
+
 }
