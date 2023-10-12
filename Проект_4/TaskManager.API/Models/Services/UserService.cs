@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Text;
 using TaskManager.API.Models.Data;
 using TaskManager.API.Models.Interfaces;
@@ -10,6 +8,7 @@ namespace TaskManager.API.Models.Services;
 
 
 public class UserService : AbstractionService ,ICommonService<UserModel> {
+    
     private readonly ApplicationContext _db;
 
     public UserService(ApplicationContext db) => _db = db;
@@ -34,16 +33,11 @@ public class UserService : AbstractionService ,ICommonService<UserModel> {
         return Tuple.Create(userName, userPass);
     }
 
-    public User? GetUser(string login, string pass) {
-        var user = _db.Users.FirstOrDefault(u =>
-            u.Email == login && u.Password == pass
-        );
-        return user;
-    }
-    
-    public User? GetUser(string login) {
-        return _db.Users.FirstOrDefault(u => u.Email == login);
-    }
+    public User? GetUser(string login, string pass) =>
+        _db.Users.FirstOrDefault(u => u.Email == login && u.Password == pass);
+
+    public User? GetUser(string login) => 
+        _db.Users.FirstOrDefault(u => u.Email == login);
 
     public ClaimsIdentity? GetIdentity(string username, string password) {
         User? currentUser = GetUser(username, password);
@@ -134,6 +128,20 @@ public class UserService : AbstractionService ,ICommonService<UserModel> {
         });
     }
 
+    public UserModel? Get(int id) => 
+        _db.Users.FirstOrDefault(u => u.Id == id)?.ToDto();
+
+    public ProjectAdmin? GetProjectAdmin(int userId) {
+        return _db.ProjectAdmins.FirstOrDefault(a => a.UserId == userId);
+    }
+
+    public IEnumerable<UserModel> GetAllByIds(List<int> usersIds) {
+        foreach (int id in usersIds) {
+            var user = _db.Users.FirstOrDefault(u => u.Id == id).ToDto();
+            yield return user;
+        }
+    }
+
     //private bool DoAction(Action action) {
     //    try {
     //        action.Invoke();
@@ -144,5 +152,4 @@ public class UserService : AbstractionService ,ICommonService<UserModel> {
     //        return false;
     //    }
     //}
-
 }
