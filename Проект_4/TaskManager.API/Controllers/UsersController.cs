@@ -26,8 +26,8 @@ public class UsersController : ControllerBase {
     // Для теста
     [HttpGet("test")]
     [AllowAnonymous]
-    public IActionResult Test() {
-        return Ok("Всё ок");
+    public IActionResult TestApi() {
+        return Ok($"Сервер запущен {DateTime.Now}");
     }
 
     [HttpPost]

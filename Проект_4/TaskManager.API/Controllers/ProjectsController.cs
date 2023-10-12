@@ -25,8 +25,20 @@ public class ProjectsController : ControllerBase {
     }
 
     [HttpGet]
-    public async Task<IEnumerable<ProjectModel>> Get() { 
-        return await _db.Projects.Select(x => x.ToDto()).ToListAsync();
+    public async Task<IEnumerable<CommonModel>> Get() {
+        var user = _userService.GetUser(HttpContext.User.Identity?.Name ?? "Unknown");
+
+        if (user?.Status == UserStatus.Admin)
+            return await _projectsService.GetAll().ToListAsync();
+        else {
+            return await _projectsService.GetByUserId(user.Id);
+        }
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult Get(int id) {
+        var project = _projectsService.Get(id);
+        return project == null ? NoContent() : Ok(project);
     }
 
     [HttpPost]
@@ -35,32 +47,80 @@ public class ProjectsController : ControllerBase {
             var user = _userService.GetUser(HttpContext.User.Identity?.Name ?? "Unknown");
             
             if (user != null) {
-                var admin = _db.ProjectAdmins.FirstOrDefault(a => a.UserId == user.Id);
-                if (admin == null) {
-                    admin = new ProjectAdmin(user);
-                    _db.ProjectAdmins.Add(admin);
+                if (user.Status == UserStatus.Admin ||
+                    user.Status == UserStatus.Editor) {
+
+                    var admin = _db.ProjectAdmins.FirstOrDefault(a => a.UserId == user.Id);
+                    if (admin == null) {
+                        admin = new ProjectAdmin(user);
+                        _db.ProjectAdmins.Add(admin);
+                        _db.SaveChanges();
+                    }
+                    projectModel.AdminId = admin.Id;
+
+                    bool res = _projectsService.Create(projectModel);
+                    return res ? Ok() : NotFound();
                 }
-                projectModel.AdminId = admin.Id;
             }
-            
-            bool res = _projectsService.Create(projectModel);
-            return res ? Ok() : NotFound();
+            return Unauthorized();
         }
         return BadRequest();
     }
 
-    [HttpPatch]
+    [HttpPatch("{id}")]
     public IActionResult Update(int id, [FromBody] ProjectModel projectModel) {
         if (projectModel != null) {
-
+            var user = _userService.GetUser(HttpContext.User.Identity?.Name ?? "Unknown");
+            
+            if (user != null) {
+                if (user.Status == UserStatus.Admin ||
+                    user.Status == UserStatus.Editor) 
+                {
+                    bool res = _projectsService.Update(id, projectModel);
+                    return res ? Ok() : NotFound();
+                }
+            }
+            return Unauthorized();
         }
         return BadRequest();
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult Delete(int id) {
         bool res = _projectsService.Delete(id);
         return res ? Ok() : NotFound();
     }
 
+    [HttpPatch("{id}/users")]
+    public IActionResult AddUsersToProject(int id, [FromBody] List<int> usersIds) {
+        if (usersIds != null) {
+            var user = _userService.GetUser(HttpContext.User.Identity?.Name ?? "Unknown");
+
+            if (user != null) {
+                if (user.Status == UserStatus.Admin ||
+                    user.Status == UserStatus.Editor) 
+                {
+                    _projectsService.AddUsersToProject(id, usersIds);
+                    return Ok();
+                }
+                return Unauthorized();
+            }
+        }
+        return BadRequest();
+    }
+
+    [HttpPatch("{id}/users/remove")]
+    public IActionResult RemoveUsersFromProject(int id, [FromBody] List<int> usersIds) {
+        if (usersIds != null) {
+            var user = _userService.GetUser(HttpContext.User.Identity.Name);
+            if (user != null) {
+                if (user.Status == UserStatus.Admin || user.Status == UserStatus.Editor) {
+                    _projectsService.RemoveUsersFromProject(id, usersIds);
+                    return Ok();
+                }
+                return Unauthorized();
+            }
+        }
+        return BadRequest();
+    }
 }
