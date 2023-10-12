@@ -24,7 +24,7 @@ public class Project : CommonObject {
             Id = Id,
             Name = Name,
             Description = Description,
-            CreatedDate = CreatedDate,
+            CreationDate = CreationDate,
             Photo = Photo,
             AdminId = AdminId,
             Status = Status

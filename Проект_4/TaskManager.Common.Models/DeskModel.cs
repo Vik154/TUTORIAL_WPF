@@ -5,5 +5,13 @@ public class DeskModel : CommonModel {
     public string[]? Columns { get; set; }
     public int ProjectId { get; set; }
     public int AdminId { get; set; }
-    public List<TaskModel> Tasks { get; set; } = new();
+    public List<int> TasksIds { get; set; } = new();
+
+    public DeskModel() { }
+    public DeskModel(string name, string description, bool isPrivate, string[] columns) {
+        Name = name;
+        Description = description;
+        IsPrivate = isPrivate;
+        Columns = columns;
+    }
 }

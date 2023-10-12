@@ -49,6 +49,7 @@ namespace TaskManager.API {
                 });
 
             builder.Services.AddControllers();
+            builder.Services.AddControllers().AddNewtonsoftJson();
 
             var app = builder.Build();
 
