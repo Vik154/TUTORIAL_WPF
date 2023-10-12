@@ -1,11 +1,15 @@
-﻿using System.Security.Claims;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+using System.Security.Claims;
 using System.Text;
 using TaskManager.API.Models.Data;
+using TaskManager.API.Models.Interfaces;
+using TaskManager.Common.Models;
 
 namespace TaskManager.API.Models.Services;
 
 
-public class UserService {
+public class UserService : ICommonService<UserModel> {
     private readonly ApplicationContext _db;
 
     public UserService(ApplicationContext db) => _db = db;
@@ -58,5 +62,82 @@ public class UserService {
             ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
 
         return claimsIdentity;
+    }
+
+    public bool Create(UserModel model) {
+        try {
+            if (model is null) throw new ArgumentException("model not found");
+
+            User newUser = new User(
+                model.FirstName ??= "UnknownFirstName",
+                model.LastName  ??= "UnknownLastName",
+                model.Email     ??= "UnknownEmail",
+                model.Password  ??= "UnknownPassword",
+                model.Status, 
+                model.Phone, 
+                model.Photo);
+
+            _db.Users.Add(newUser);
+            _db.SaveChanges();
+            return true;
+        }
+        catch (Exception) {
+            // TODO
+            return false;
+        }
+    }
+
+    public bool Update(int id, UserModel model) {
+        return DoAction(delegate () {
+            if (model is null)
+                throw new ArgumentException("Model not found");
+
+            User? userUpdate = _db.Users.FirstOrDefault(x => x.Id == id);
+
+            if (userUpdate is null)
+                throw new ArgumentNullException(nameof(userUpdate));
+
+            userUpdate.FirstName = model.FirstName;
+            userUpdate.LastName = model.LastName;
+            userUpdate.Password = model.Password;
+            userUpdate.Phone = model.Phone;
+            userUpdate.Photo = model.Photo;
+            userUpdate.Status = model.Status;
+            userUpdate.Email = model.Email;
+
+            _db.Users.Update(userUpdate);
+            _db.SaveChanges();
+        });
+    }
+
+    public bool Delete(int id) {
+        return DoAction(delegate () {
+            User? user = _db.Users.FirstOrDefault(x => x.Id == id);
+            if (user is null)
+                throw new ArgumentNullException("User id not found");
+            _db.Users.Remove(user);
+            _db.SaveChanges();
+        });
+    }
+
+    public bool CreateMultipleUsers(List<UserModel> userModels) {
+        return DoAction(delegate () {
+            if (userModels is null)
+                throw new ArgumentNullException("UserModel not found");
+            var newUsers = userModels.Select(u => new User(u));
+            _db.Users.AddRange(newUsers);
+            _db.SaveChangesAsync();
+        });
+    }
+
+    private bool DoAction(Action action) {
+        try {
+            action.Invoke();
+            return true;
+        }
+        catch (Exception exp) {
+            Debug.WriteLine(exp.Message);
+            return false;
+        }
     }
 }
