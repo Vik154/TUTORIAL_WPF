@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Claims;
+using System.Text;
 using TaskManager.API.Models.Data;
 
 namespace TaskManager.API.Models.Services;
@@ -34,5 +35,28 @@ public class UserService {
             u.Email == login && u.Password == pass
         );
         return user;
+    }
+
+    public ClaimsIdentity? GetIdentity(string username, string password) {
+        User? currentUser = GetUser(username, password);
+
+        if (currentUser == null)
+            return null;
+        if (currentUser.Email is null)
+            throw new ArgumentException("У пользователя нет email-адреса");
+
+        currentUser.LastLoginDate = DateTime.Now;
+        _db.Users.Update(currentUser);
+        _db.SaveChanges();
+
+        var claims = new List<Claim> {
+            new Claim(ClaimsIdentity.DefaultNameClaimType, currentUser.Email),
+            new Claim(ClaimsIdentity.DefaultNameClaimType, currentUser.Status.ToString()),
+        };
+
+        ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token", 
+            ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+
+        return claimsIdentity;
     }
 }
