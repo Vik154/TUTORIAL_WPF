@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using TaskManager.API.Models;
 using TaskManager.API.Models.Data;
 using TaskManager.API.Models.Services;
+using TaskManager.Common.Models;
 
 namespace TaskManager.API.Controllers;
 
@@ -21,6 +23,7 @@ public class AccountController : ControllerBase {
         _userService = new UserService(db);
     }
 
+    [Authorize]
     [HttpGet("info")]
     public IActionResult GetCurrentUserInfo() {
         string? username = HttpContext?.User?.Identity?.Name;
@@ -61,5 +64,28 @@ public class AccountController : ControllerBase {
         };
 
         return Ok(response);
+    }
+
+    [Authorize]
+    [HttpPatch("update")]
+    public IActionResult UpdateUser([FromBody] UserModel user) {
+        if (user is null)
+            return BadRequest("\"Не корректный юзер в [Update]");
+
+        string? userName = HttpContext?.User?.Identity?.Name;
+        User? userUpdate = _db.Users.FirstOrDefault(x => x.Email == userName);
+
+        if (userUpdate is null)
+            return NotFound();
+
+        userUpdate.FirstName = user.FirstName;
+        userUpdate.LastName = user.LastName;
+        userUpdate.Password = user.Password;
+        userUpdate.Phone = user.Phone;
+        userUpdate.Photo = user.Photo;
+
+        _db.Users.Update(userUpdate);
+        _db.SaveChanges();
+        return Ok();
     }
 }
