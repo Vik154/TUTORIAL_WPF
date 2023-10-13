@@ -2,6 +2,8 @@
 using ManageDB.View;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace ManageDB.ViewModel;
 
@@ -48,7 +50,35 @@ internal class DataManageVM : INotifyPropertyChanged {
         }
     }
 
-    #region КОМАНДЫ
+    // Имя отдела
+    public string DepartmentName { get; set; } = "";
+
+    #region КОМАНДЫ ОТКРЫТИЯ ОКОН ДЛЯ ДОБАВЛЕНИЯ НОВЫХ ЭЛЕМЕНТОВ
+    private RelayCommand? addNewDepartment;
+    public RelayCommand AddNewDepartment {
+        get {
+            return addNewDepartment ?? new RelayCommand(obj => {
+                Window? window = obj as Window;
+
+                string res = "";
+
+                if (string.IsNullOrEmpty(DepartmentName) ||
+                    DepartmentName.Replace(" ", "").Length == 0) 
+                {
+                    SetRedBlockControl(window!, "txtBox");
+                }
+                else {
+                    res = DataWorker.CreateDepartment(DepartmentName);
+                    ShowMessageToUser(res);
+                    window?.Close();
+                }
+            });
+        }
+    }
+
+    #endregion
+
+    #region КОМАНДЫ ОТКРЫТИЯ ОКОН
     private RelayCommand? openAddNewDepartmentWnd;
     public RelayCommand OpenAddNewDepartmentWnd {
         get => openAddNewDepartmentWnd ?? new RelayCommand(obj
@@ -109,5 +139,28 @@ internal class DataManageVM : INotifyPropertyChanged {
         EditUserWindow editUserWindow = new EditUserWindow();
         SetCenterPositionAndOpen(editUserWindow);
     }
+    #endregion
+
+    #region СЕРВИСНЫЕ МЕТОДЫ
+
+    /// <summary> Подсвечивает рамку ввода красным, если она пустая </summary>
+    private void SetRedBlockControl(Window window, string blockName) {
+        Control? block = window.FindName(blockName) as Control;
+        if (block is null) { return; }
+        block.BorderBrush = Brushes.Red;
+    }
+
+    /// <summary> Вызывает диалоговое окно уведомления </summary>
+    private void ShowMessageToUser(string message) {
+        MessageView messageView = new MessageView(message);
+        SetCenterPositionAndOpen(messageView);
+    }
+
+    #region Обновление VIEW
+    private void UpdateAllDepartmentsViews() {
+        AllDepartments = DataWorker.GetAllDepartments();
+    }
+    #endregion
+
     #endregion
 }

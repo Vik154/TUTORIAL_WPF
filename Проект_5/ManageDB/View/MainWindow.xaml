@@ -14,7 +14,7 @@
         
         <TabControl Grid.Row="0">
             <TabItem x:Name="UsersTab" Header="Staf">
-                <ListView ItemsSource="{Binding AllUsers}">
+                <ListView x:Name="ViewAllUsers" ItemsSource="{Binding AllUsers}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name"/>
@@ -29,7 +29,7 @@
             </TabItem>
             
             <TabItem x:Name="PositionTab" Header="Positions">
-                <ListView ItemsSource="{Binding AllPositions}">
+                <ListView x:Name="ViewAllPositions" ItemsSource="{Binding AllPositions}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name"/>
@@ -43,7 +43,7 @@
             </TabItem>
             
             <TabItem x:Name="DepartmentsTab" Header="Department">
-                <ListView ItemsSource="{Binding AllDepartments}">
+                <ListView x:Name="ViewAllDepartments" ItemsSource="{Binding AllDepartments}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" 
