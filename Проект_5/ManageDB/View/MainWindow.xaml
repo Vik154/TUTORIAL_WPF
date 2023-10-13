@@ -17,12 +17,12 @@
                 <ListView x:Name="ViewAllUsers" ItemsSource="{Binding AllUsers}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"/>
-                            <GridViewColumn Header="SurName"/>
-                            <GridViewColumn Header="Phone"/>
-                            <GridViewColumn Header="Salary"/>
-                            <GridViewColumn Header="Position"/>
-                            <GridViewColumn Header="Department"/>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="SurName" DisplayMemberBinding="{Binding Path=SurName}"/>
+                            <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding Path=Phone}"/>
+                            <GridViewColumn Header="Salary" DisplayMemberBinding="{Binding Path=UserPosition.Salary}"/>
+                            <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Path=UserPosition.Name}"/>
+                            <GridViewColumn Header="Department" DisplayMemberBinding="{Binding Path=UserPosition.PositionDepartment.Name}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -32,11 +32,16 @@
                 <ListView x:Name="ViewAllPositions" ItemsSource="{Binding AllPositions}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"/>
-                            <GridViewColumn Header="Salary"/>
-                            <GridViewColumn Header="Count of staffs"/>
-                            <GridViewColumn Header="Max number"/>
-                            <GridViewColumn Header="Department"/>
+                            <GridViewColumn Header="Name" 
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            <GridViewColumn Header="Salary" 
+                                            DisplayMemberBinding="{Binding Path=Salary}"/>
+                            <GridViewColumn Header="Count of staffs"
+                                            DisplayMemberBinding="{Binding Path=PositionUsers.Count}"/>
+                            <GridViewColumn Header="Max number" 
+                                            DisplayMemberBinding="{Binding Path=MaxNumber}"/>
+                            <GridViewColumn Header="Department"
+                                            DisplayMemberBinding="{Binding Path=PositionDepartment.Name}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -48,7 +53,8 @@
                         <GridView>
                             <GridViewColumn Header="Name" 
                                             DisplayMemberBinding="{Binding Path=Name}"/>
-                            <GridViewColumn Header="Count of positions"/>
+                            <GridViewColumn Header="Count of positions"
+                                            DisplayMemberBinding="{Binding Path=DepartmentPositions.Count}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

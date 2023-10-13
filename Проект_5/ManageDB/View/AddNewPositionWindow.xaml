@@ -29,14 +29,21 @@
             <TextBox x:Name="NameBlock" Text="{Binding PositionName}" Margin="0,5,0,0"/>
             
             <TextBlock Text="Salary" Margin="0,5,0,0"/>
-            <TextBox x:Name="SalaryBlock" Text="{Binding PositionSalary}" Margin="0,5,0,0"/>
+            <TextBox x:Name="SalaryBlock" 
+                     Text="{Binding PositionSalary}"
+                     PreviewTextInput="PreviewTextInput"
+                     Margin="0,5,0,0"/>
             
             <TextBlock Text="Max of vacancies" Margin="0,5,0,0"/>
-            <TextBox x:Name="MaxNumberBlock" Text="{Binding PositionMaxNumber}" Margin="0,5,0,0"/>
+            <TextBox x:Name="MaxNumberBlock" 
+                     Text="{Binding PositionMaxNumber}" 
+                     PreviewTextInput="PreviewTextInput"
+                     Margin="0,5,0,0"/>
             
             <TextBlock Text="Department" Margin="0,5,0,0"/>
             <ComboBox ItemsSource="{Binding AllDepartments}" 
                       SelectedItem="{Binding PositionDepartment}"
+                      DisplayMemberPath="Name"
                       Margin="0,5,0,0"/>
         </StackPanel>
 

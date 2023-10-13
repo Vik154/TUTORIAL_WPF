@@ -72,7 +72,7 @@ internal class DataManageVM : INotifyPropertyChanged {
 
     #endregion
 
-    #region КОМАНДЫ ОТКРЫТИЯ ОКОН ДЛЯ ДОБАВЛЕНИЯ НОВЫХ ЭЛЕМЕНТОВ
+    #region КОМАНДЫ ДОБАВЛЕНИЯ НОВЫХ ЭЛЕМЕНТОВ
 
     // Команда для добавления отделов
     private RelayCommand? addNewDepartment;
@@ -133,9 +133,40 @@ internal class DataManageVM : INotifyPropertyChanged {
         }
     }
 
+    // Команда для добавления пользователей
+    private RelayCommand? addNewUser;
+    public RelayCommand AddNewUser {
+        get {
+            return addNewUser ?? new RelayCommand(obj => {
+                Window? window = obj as Window;
+                string res = "";
+
+                if (UserName is null || UserName.Replace(" ", "").Length == 0) 
+                    SetRedBlockControl(window!, "NameBlock");                
+
+                if (UserSurName is null || UserSurName.Replace(" ", "").Length == 0)
+                    SetRedBlockControl(window!, "SurNameBlock");
+
+                if (UserPhone is null || UserPhone.Replace(" ", "").Length == 0)
+                    SetRedBlockControl(window!, "PhoneBlock");
+
+                if (UserPosition is null)
+                    MessageBox.Show("Укажите Позицию");
+
+                else {
+                    res = DataWorker.CreateUser(UserName!, UserSurName!, UserPhone!, UserPosition);
+                    UpdateAllDataView();
+                    ShowMessageToUser(res);
+                    SetNullValuesToProperties();
+                    window?.Close();
+                }
+            });
+        }
+    }
+
     #endregion
 
-        #region КОМАНДЫ ОТКРЫТИЯ ОКОН
+    #region КОМАНДЫ ОТКРЫТИЯ ОКОН
     private RelayCommand? openAddNewDepartmentWnd;
     public RelayCommand OpenAddNewDepartmentWnd {
         get => openAddNewDepartmentWnd ?? new RelayCommand(obj
@@ -251,6 +282,11 @@ internal class DataManageVM : INotifyPropertyChanged {
 
     /// <summary> Обнуление полей при изменениях </summary>
     private void SetNullValuesToProperties() {
+        // Обнуление ссылок для пользователей
+        UserName = null;
+        UserSurName = null;
+        UserPhone = null;
+        UserPosition = null;
 
         // Обнуление ссылок для позиций
         PositionName = null;

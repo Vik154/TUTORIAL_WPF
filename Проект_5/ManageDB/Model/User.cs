@@ -1,4 +1,6 @@
-﻿namespace ManageDB.Model;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ManageDB.Model;
 
 internal class User {
     public int Id { get; set; }
@@ -7,4 +9,9 @@ internal class User {
     public string Phone { get; set; } = "";
     public int PositionId { get; set; }
     public virtual Position Position { get; set; } = new();
+
+    [NotMapped]
+    public Position? UserPosition {
+        get => DataWorker.GetPositionById(PositionId);
+    }
 }

@@ -4,8 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManageDB.View"
+        xmlns:vm="clr-namespace:ManageDB.ViewModel"
         mc:Ignorable="d"
-        Title="AddNewUserWindow" Height="300" Width="300">
+        Title="AddNewUserWindow" 
+        Height="300" Width="300"
+        x:Name="AddNewUserWnd">
+
+    <Window.DataContext>
+        <vm:DataManageVM/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -17,16 +25,26 @@
                     HorizontalAlignment="Center"
                     Width="200">
             <TextBlock Text="Name" Margin="0,5,0,0"/>
-            <TextBox Text="" Margin="0,5,0,0"/>
+            <TextBox x:Name="NameBlock" Text="{Binding UserName}" Margin="0,5,0,0"/>
+            
             <TextBlock Text="SurName" Margin="0,5,0,0"/>
-            <TextBox Text="" Margin="0,5,0,0"/>
+            <TextBox x:Name="SurNameBlock" Text="{Binding UserSurName}" Margin="0,5,0,0"/>
+
             <TextBlock Text="Phone" Margin="0,5,0,0"/>
-            <TextBox Text="" Margin="0,5,0,0"/>
+            <TextBox x:Name="PhoneBlock" 
+                     PreviewTextInput="PreviewTextInput"
+                     Text="{Binding UserPhone}" 
+                     Margin="0,5,0,0"/>
+            
             <TextBlock Text="Position" Margin="0,5,0,0"/>
-            <ComboBox Margin="0,5,0,0"/>
+            <ComboBox ItemsSource="{Binding AllPositions}" 
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding UserPosition}"
+                      Margin="0,5,0,0"/>
         </StackPanel>
 
-        <Button Grid.Row="1">
+        <Button Grid.Row="1" Command="{Binding AddNewUser}"
+                CommandParameter="{Binding ElementName=AddNewUserWnd}">
             Add staff
         </Button>
     </Grid>

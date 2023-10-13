@@ -197,4 +197,34 @@ internal static class DataWorker {
         }
         return result;
     }
+
+    /// <summary> Получение позиции по id </summary>
+    public static Position? GetPositionById(int id) {
+        using (ApplicationContext db = new ApplicationContext()) {
+            return db.Positions.FirstOrDefault(i => i.Id == id);
+        }
+    }
+
+    /// <summary> Получение отдела по id </summary>
+    public static Department? GetDepartmentById(int id) {
+        using (ApplicationContext db = new ApplicationContext()) {
+            return db.Departments.FirstOrDefault(i => i.Id == id);
+        }
+    }
+
+    /// <summary> Получение отдела по id </summary>
+    public static List<User> GetAllUsersByPositionId(int id) {
+        using (var db = new ApplicationContext()) {
+            List<User> users = (from u in GetAllUsers() where u.PositionId == id select u).ToList();
+            return users;
+        }
+    }
+
+    /// <summary> Получение отдела по id </summary>
+    public static List<Position> GetAllPositionByDepartmentId(int id) {
+        using (var db = new ApplicationContext()) {
+            List<Position> pos = (from u in GetAllPositions() where u.DepartmentId == id select u).ToList();
+            return pos;
+        }
+    }
 }

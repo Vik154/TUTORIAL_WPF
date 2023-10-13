@@ -12,7 +12,12 @@ internal class Position {
     public virtual Department Department { get; set; } = new();
 
     [NotMapped]
-    public Department? PositionDepartment {
+    public Department PositionDepartment {
         get => DataWorker.GetDepartmentById(DepartmentId);
+    }
+
+    [NotMapped]
+    public List<User> PositionUsers {
+        get => DataWorker.GetAllUsersByPositionId(Id);
     }
 }
