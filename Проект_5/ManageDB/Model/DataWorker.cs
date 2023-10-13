@@ -20,7 +20,7 @@ internal static class DataWorker {
     }
 
     /// <summary> Вернуть позицию </summary>
-    public static List<Position> GetAllPosition() {
+    public static List<Position> GetAllPositions() {
         using (ApplicationContext db = new ApplicationContext()) {
             return db.Positions.ToList();
         }
