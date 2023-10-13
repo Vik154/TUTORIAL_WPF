@@ -20,7 +20,8 @@
 5. Для работы:
    + _Расширение для скачивания отдельных папок из GitHub:_ <br>
      https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn/related
-   + 123
+   + _Тестирование API:_ <br>
+     https://www.postman.com/
 
 ## Структура проекта:
 <details>
