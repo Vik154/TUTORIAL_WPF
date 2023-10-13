@@ -6,4 +6,11 @@ public class ProjectModel : CommonModel {
     public List<int> AllUsersIds { get; set; } = new();
     public List<int> AllDesksIds { get; set; } = new();
     public ProjectStatus Status { get; set; }
+
+    public ProjectModel() { }
+    public ProjectModel(string name, string description, ProjectStatus status) {
+        Name = name;
+        Description = description;
+        Status = status;
+    }
 }

@@ -9,13 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Extensions\" />
-    <Folder Include="Resources\Styles\" />
-    <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\AddWindows\" />
-    <Folder Include="Views\Components\" />
-    <Folder Include="Views\Pages\" />
+    <PackageReference Include="EPPlus" Version="6.2.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaskManager.Common.Models\TaskManager.Common.Models.csproj" />
   </ItemGroup>
 
 </Project>

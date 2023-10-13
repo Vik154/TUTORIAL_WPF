@@ -11,7 +11,7 @@ namespace TaskManager.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize(Roles = "admin")]
+// [Authorize(Roles = "admin")]
 public class UsersController : ControllerBase {
 
     private readonly ApplicationContext _db;
@@ -46,6 +46,12 @@ public class UsersController : ControllerBase {
 
         bool result = _userService.Update(id, user);
         return result ? Ok() : NotFound();
+    }
+
+    [HttpGet("{id}")]
+    public ActionResult<UserModel> GetUser(int id) {
+        var user = _userService.Get(id);
+        return user == null ? NotFound() : Ok(user);
     }
 
     [HttpDelete("{id}")]

@@ -26,4 +26,8 @@ public class UserModel {
         Phone = phone;
         RegistrationDate = DateTime.Now;
     }
+
+    public override string ToString() {
+        return $"{FirstName} {LastName}";
+    }
 }
