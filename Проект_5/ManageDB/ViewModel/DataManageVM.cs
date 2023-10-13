@@ -48,6 +48,27 @@ internal class DataManageVM : INotifyPropertyChanged {
         }
     }
 
+    #region КОМАНДЫ
+    private RelayCommand? openAddNewDepartmentWnd;
+    public RelayCommand OpenAddNewDepartmentWnd {
+        get => openAddNewDepartmentWnd ?? new RelayCommand(obj
+            => OpenAddDepartmentWindowMethod());
+    }
+
+    private RelayCommand? openAddNewPositionWnd;
+    public RelayCommand OpenAddNewPositionWnd {
+        get => openAddNewPositionWnd ?? new RelayCommand(obj
+            => OpenAddPositionWindowMethod());
+    }
+
+    private RelayCommand? openAddNewUserWnd;
+    public RelayCommand OpenAddNewUserWnd {
+        get => openAddNewUserWnd ?? new RelayCommand(obj
+            => OpenAddUserWindowMethod());
+    }
+
+    #endregion
+
     #region МЕТОДЫ ОТКРЫТИЯ ОКОН
     //----------------------------------------------
     // Методы открытия окон

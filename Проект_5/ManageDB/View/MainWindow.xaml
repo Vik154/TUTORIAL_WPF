@@ -55,9 +55,9 @@
         </TabControl>
         <StackPanel Grid.Row="1" Orientation="Horizontal"
                     HorizontalAlignment="Right">
-            <Button Content="Новый сотрудник" Command="{Binding}"/>
-            <Button Content="Новая позиция" Command="{Binding}"/>
-            <Button Content="Новый отдел" Command="{Binding}"/>
+            <Button Content="Новый сотрудник" Command="{Binding OpenAddNewUserWnd}"/>
+            <Button Content="Новая позиция" Command="{Binding OpenAddNewPositionWnd}"/>
+            <Button Content="Новый отдел" Command="{Binding OpenAddNewDepartmentWnd}"/>
 
         </StackPanel>
     </Grid>
