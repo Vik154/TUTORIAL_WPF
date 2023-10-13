@@ -4,8 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManageDB.View"
+        xmlns:vm="clr-namespace:ManageDB.ViewModel"
         mc:Ignorable="d"
-        Title="AddNewPositionWindow" Height="300" Width="300">
+        Title="AddNewPositionWindow" 
+        Height="300" Width="300"
+        x:Name="AddNewPositionWnd">
+
+    <Window.DataContext>
+        <vm:DataManageVM/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -18,16 +26,22 @@
                     Width="200">
             
             <TextBlock Text="Name" Margin="0,5,0,0"/>
-            <TextBox Text="" Margin="0,5,0,0"/>
+            <TextBox x:Name="NameBlock" Text="{Binding PositionName}" Margin="0,5,0,0"/>
+            
             <TextBlock Text="Salary" Margin="0,5,0,0"/>
-            <TextBox Text="" Margin="0,5,0,0"/>
+            <TextBox x:Name="SalaryBlock" Text="{Binding PositionSalary}" Margin="0,5,0,0"/>
+            
             <TextBlock Text="Max of vacancies" Margin="0,5,0,0"/>
-            <TextBox Text="" Margin="0,5,0,0"/>
+            <TextBox x:Name="MaxNumberBlock" Text="{Binding PositionMaxNumber}" Margin="0,5,0,0"/>
+            
             <TextBlock Text="Department" Margin="0,5,0,0"/>
-            <ComboBox Margin="0,5,0,0"/>
+            <ComboBox ItemsSource="{Binding AllDepartments}" 
+                      SelectedItem="{Binding PositionDepartment}"
+                      Margin="0,5,0,0"/>
         </StackPanel>
 
-        <Button Grid.Row="1">
+        <Button Grid.Row="1" Command="{Binding AddNewPosition}"
+                CommandParameter="{Binding ElementName=AddNewPositionWnd}">
             Add position
         </Button>
     </Grid>
