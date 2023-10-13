@@ -51,9 +51,10 @@ internal class DataManageVM : INotifyPropertyChanged {
     }
 
     // Имя отдела
-    public string DepartmentName { get; set; } = "";
+    public string? DepartmentName { get; set; }
 
     #region КОМАНДЫ ОТКРЫТИЯ ОКОН ДЛЯ ДОБАВЛЕНИЯ НОВЫХ ЭЛЕМЕНТОВ
+    
     private RelayCommand? addNewDepartment;
     public RelayCommand AddNewDepartment {
         get {
@@ -69,7 +70,9 @@ internal class DataManageVM : INotifyPropertyChanged {
                 }
                 else {
                     res = DataWorker.CreateDepartment(DepartmentName);
+                    UpdateAllDataView();
                     ShowMessageToUser(res);
+                    SetNullValuesToProperties();
                     window?.Close();
                 }
             });
@@ -157,9 +160,47 @@ internal class DataManageVM : INotifyPropertyChanged {
     }
 
     #region Обновление VIEW
+
+    /// <summary> Обновление VIEW при изменениях в отделах </summary>
     private void UpdateAllDepartmentsViews() {
         AllDepartments = DataWorker.GetAllDepartments();
+        MainWindow.AllDepartmentsView.ItemsSource = null;
+        MainWindow.AllDepartmentsView.Items.Clear();
+        MainWindow.AllDepartmentsView.ItemsSource = AllDepartments;
+        MainWindow.AllDepartmentsView.Items.Refresh();
     }
+
+    /// <summary> Обновление VIEW при изменениях в позициях </summary>
+    private void UpdateAllPositionsViews() {
+        AllPositions = DataWorker.GetAllPositions();
+        MainWindow.AllPositionsView.ItemsSource = null;
+        MainWindow.AllPositionsView.Items.Clear();
+        MainWindow.AllPositionsView.ItemsSource = AllPositions;
+        MainWindow.AllPositionsView.Items.Refresh();
+    }
+
+    /// <summary> Обновление VIEW при изменениях в пользователях </summary>
+    private void UpdateAllUsersViews() {
+        AllUsers = DataWorker.GetAllUsers();
+        MainWindow.AllUsersView.ItemsSource = null;
+        MainWindow.AllUsersView.Items.Clear();
+        MainWindow.AllUsersView.ItemsSource = AllUsers;
+        MainWindow.AllUsersView.Items.Refresh();
+    }
+
+    /// <summary> Обновление всех VIEW при изменениях </summary>
+    private void UpdateAllDataView() {
+        UpdateAllDepartmentsViews();
+        UpdateAllPositionsViews();
+        UpdateAllUsersViews();
+    }
+
+    /// <summary> Обнуление полей при изменениях </summary>
+    private void SetNullValuesToProperties() {
+
+        DepartmentName = null;
+    }
+
     #endregion
 
     #endregion
