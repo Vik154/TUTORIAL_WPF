@@ -46,7 +46,8 @@
                 <ListView ItemsSource="{Binding AllDepartments}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"/>
+                            <GridViewColumn Header="Name" 
+                                            DisplayMemberBinding="{Binding Path=Name}"/>
                             <GridViewColumn Header="Count of positions"/>
                         </GridView>
                     </ListView.View>
