@@ -7,6 +7,51 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
         
+        <TabControl Grid.Row="0">
+            <TabItem x:Name="UsersTab" Header="Staf">
+                <ListView>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name"/>
+                            <GridViewColumn Header="SurName"/>
+                            <GridViewColumn Header="Phone"/>
+                            <GridViewColumn Header="Salary"/>
+                            <GridViewColumn Header="Position"/>
+                            <GridViewColumn Header="Department"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            
+            <TabItem x:Name="PositionTab" Header="Positions">
+                <ListView>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name"/>
+                            <GridViewColumn Header="Salary"/>
+                            <GridViewColumn Header="Count of staffs"/>
+                            <GridViewColumn Header="Max number"/>
+                            <GridViewColumn Header="Department"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            
+            <TabItem x:Name="DepartmentsTab" Header="Department">
+                <ListView>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name"/>
+                            <GridViewColumn Header="Count of positions"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
