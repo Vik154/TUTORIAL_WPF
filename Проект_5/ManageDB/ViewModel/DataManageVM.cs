@@ -27,11 +27,22 @@ internal class DataManageVM : INotifyPropertyChanged {
     // Все позиции
     private List<Position> allPositions = DataWorker.GetAllPositions();
 
-    public List<Position> AllDepartments {
-        get => allDepartments;
+    public List<Position> AllPositions {
+        get => allPositions;
         set {
-            allDepartments = value;
-            OnPropertyChanged("AllDepartments");
+            allPositions = value;
+            OnPropertyChanged("AllPositions");
+        }
+    }
+
+    // Все сотрудники
+    private List<User> allUsers = DataWorker.GetAllUsers();
+
+    public List<User> AllUsers {
+        get => allUsers;
+        set {
+            allUsers = value;
+            OnPropertyChanged("AllUsers");
         }
     }
 
