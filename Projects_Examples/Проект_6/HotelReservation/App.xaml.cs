@@ -1,10 +1,8 @@
 ﻿using HotelReservation.Exceptions;
 using HotelReservation.Models;
-using System.Configuration;
-using System.Data;
 using System.Windows;
 
-namespace HotelReservation; 
+namespace HotelReservation;
 
 
 public partial class App : Application {
@@ -25,10 +23,8 @@ public partial class App : Application {
                 new DateTime(2000, 1, 3),
                 new DateTime(2000, 1, 4)));
         }
-        catch (ReservationConflictException ex) {
+        catch (ReservationConflictException ex) { }
 
-            throw;
-        }
         IEnumerable<Reservation> reservations = hotel.GetReservationsForUser("SingletonSean");
 
         base.OnStartup(e);
