@@ -1,12 +1,12 @@
 # Туториал по WPF
 ## Основные источники информации:
-1. :earth_asia: WEB: <br>
-   ___---------------Ru Tutorials:---------------___
+1. :earth_asia: WEB:
+   + ___---------------Ru Tutorials:---------------___
    + :speech_balloon: https://metanit.com/sharp/wpf/
    + :speech_balloon: https://professorweb.ru/my/WPF/base_WPF/level1/info_WPF.php
    + :speech_balloon: https://intuit.ru/studies/courses?page=1
-   + :speech_balloon: https://www.youtube.com/@Shmachilin <br>
-___---------------En Tutorials:---------------___
+   + :speech_balloon: https://www.youtube.com/@Shmachilin
+   + ___---------------En Tutorials:---------------___
    + :speech_balloon: https://www.youtube.com/@SingletonSean
 3. :notebook: Книги:
    + :blue_book: Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
