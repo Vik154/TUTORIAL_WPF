@@ -18,4 +18,14 @@ public class Hotel {
     public Hotel(string name) {
         Name = name;
     }
+
+    /// <summary> Возвращает коллекцию забронированных номеров пользователем по его имени </summary>
+    public IEnumerable<Reservation> GetReservationsForUser(string userName) {
+        return _reservationBook.GetReservationsForUser(userName);
+    }
+
+    /// <summary> Добавление записи о брони в книгу бронирования </summary>
+    public void MakeReservation(Reservation reservation) {
+        _reservationBook.AddReservation(reservation);
+    }
 }
