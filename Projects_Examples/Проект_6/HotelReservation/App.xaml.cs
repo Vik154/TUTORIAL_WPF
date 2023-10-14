@@ -12,7 +12,7 @@ public partial class App : Application {
 
         try {
             hotel.MakeReservation(new Reservation(
-                new RoomID(1, 2),
+                new RoomID(1, 1),
                 "SingletonSean",
                 new DateTime(2000, 1, 1),
                 new DateTime(2000, 1, 2)));
@@ -23,7 +23,9 @@ public partial class App : Application {
                 new DateTime(2000, 1, 1),
                 new DateTime(2000, 1, 4)));
         }
-        catch (ReservationConflictException ex) { }
+        catch (ReservationConflictException ex) {
+            // Thread.Sleep(1000);
+        }
 
         IEnumerable<Reservation> reservations = hotel.GetReservationsForUser("SingletonSean");
 
