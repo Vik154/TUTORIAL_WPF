@@ -5,7 +5,7 @@
    + :speech_balloon: https://professorweb.ru/my/WPF/base_WPF/level1/info_WPF.php
    + :speech_balloon: https://intuit.ru/studies/courses?page=1
    + :speech_balloon: https://www.youtube.com/@Shmachilin
-   + -----------------------------------------------------
+     ___En Tutorials:___
    + :speech_balloon: https://www.youtube.com/@SingletonSean
 2. :notebook: Книги:
    + :blue_book: Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
