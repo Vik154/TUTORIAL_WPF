@@ -18,9 +18,9 @@ public partial class App : Application {
                 new DateTime(2000, 1, 2)));
 
             hotel.MakeReservation(new Reservation(
-                new RoomID(1, 2),
+                new RoomID(1, 1),
                 "SingletonSean",
-                new DateTime(2000, 1, 3),
+                new DateTime(2000, 1, 1),
                 new DateTime(2000, 1, 4)));
         }
         catch (ReservationConflictException ex) { }
