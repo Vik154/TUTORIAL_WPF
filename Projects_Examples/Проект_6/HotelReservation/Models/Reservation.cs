@@ -30,4 +30,11 @@ public class Reservation {
         StartTime = startTime;
         EndTime = endTime;
     }
+
+    /// <summary> Проверка забронированного номера </summary>
+    public bool Conflicts(Reservation reservation) {
+        if (reservation.RoomID != RoomID)
+            return false;
+        return reservation.StartTime < EndTime && reservation.EndTime > StartTime;
+    }
 }

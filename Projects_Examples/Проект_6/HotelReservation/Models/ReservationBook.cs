@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelReservation.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,12 @@ public class ReservationBook {
 
     /// <summary> Добавление записи о бронировании номера </summary>
     public void AddReservation(Reservation reservation) {
-        
+
         // Проверка уже забронированных номеров
-        for
+        foreach (Reservation existingReservation in _reservations) {
+            if (existingReservation.Conflicts(reservation))
+                throw new ReservationConflictException(existingReservation, reservation);
+        }
         
         _reservations.Add(reservation);
     }
