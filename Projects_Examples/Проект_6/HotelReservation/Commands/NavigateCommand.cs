@@ -1,4 +1,5 @@
-﻿using HotelReservation.Stores;
+﻿using HotelReservation.Services;
+using HotelReservation.Stores;
 using HotelReservation.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,18 @@ namespace HotelReservation.Commands;
 /// <summary> Команда отвечающая за переключение между моделями - представлений </summary>
 public class NavigateCommand : BaseCommand {
 
-    /// <summary> Хранит view models для навигации по ним </summary>
+    private readonly NavigationService _navigationService;
+
+    public NavigateCommand(NavigationService navigation) {
+        _navigationService = navigation;        
+    }
+
+    public override void Execute(object? parameter) {
+        _navigationService.Navigate();
+    }
+
+    /* До сервисов
+     /// <summary> Хранит view models для навигации по ним </summary>
     private readonly NavigationStore _navigationStore;
 
     /// <summary> Указатель на функцию, которая позволяет переключаться между view models </summary>
@@ -21,8 +33,5 @@ public class NavigateCommand : BaseCommand {
         _navigationStore = navigationStore;
         _viewModelFactory = viewModelFactory;
     }
-
-    public override void Execute(object? parameter) {
-        _navigationStore.CurrentViewModel = _viewModelFactory(); 
-    }
+    */
 }

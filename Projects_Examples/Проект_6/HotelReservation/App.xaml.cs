@@ -1,5 +1,6 @@
 ﻿using HotelReservation.Exceptions;
 using HotelReservation.Models;
+using HotelReservation.Services;
 using HotelReservation.Stores;
 using HotelReservation.ViewModels;
 using System.Windows;
@@ -30,12 +31,12 @@ public partial class App : Application {
 
     /// <summary> Создает модель - представление формы создания списка бронирования номеров </summary>
     private MakeReservationViewModel CreateMakeReservationViewModel() {
-        return new MakeReservationViewModel(_hotel, _navigationStore, CreateReservationListingViewModel);
+        return new MakeReservationViewModel(_hotel, new NavigationService(_navigationStore, CreateReservationListingViewModel));
     }
 
     /// <summary> Создает модель - представление бронирования номеров </summary>
     private ReservationListingViewModel CreateReservationListingViewModel() {
-        return new ReservationListingViewModel(_navigationStore, CreateMakeReservationViewModel);
+        return new ReservationListingViewModel(_hotel, new NavigationService(_navigationStore, CreateMakeReservationViewModel));
     }
 }
 

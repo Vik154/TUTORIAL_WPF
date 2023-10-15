@@ -1,5 +1,6 @@
 ﻿using HotelReservation.Exceptions;
 using HotelReservation.Models;
+using HotelReservation.Services;
 using HotelReservation.ViewModels;
 using System.ComponentModel;
 using System.Windows;
@@ -11,9 +12,15 @@ public class MakeReservationCommand : BaseCommand {
 
     private readonly MakeReservationViewModel _makeReservationViewModel;
     private readonly Hotel _hotel;
-    public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, Hotel hotel) {
+    private readonly NavigationService _reservationViewNavigationService;
+
+    public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, 
+                                  Hotel hotel,
+                                  NavigationService reservationViewNavigationService) 
+    {
         _makeReservationViewModel = makeReservationViewModel;
         _hotel = hotel;
+        _reservationViewNavigationService = reservationViewNavigationService;
 
         // Подписка на изменение свойств в модели резервирования номеров
         _makeReservationViewModel.PropertyChanged += OnViewModelPropertyChanged;
@@ -49,6 +56,8 @@ public class MakeReservationCommand : BaseCommand {
             _hotel.MakeReservation(reservation);
             MessageBox.Show("Комната забронирована", "Success", 
                 MessageBoxButton.OK, MessageBoxImage.Information);
+
+            _reservationViewNavigationService.Navigate();
         }
         catch (ReservationConflictException exp) {
             MessageBox.Show("Комната уже забронирована", "Error", 

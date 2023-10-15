@@ -1,5 +1,6 @@
 ﻿using HotelReservation.Commands;
 using HotelReservation.Models;
+using HotelReservation.Services;
 using HotelReservation.Stores;
 using System.Windows.Input;
 
@@ -67,8 +68,8 @@ public class MakeReservationViewModel : BaseViewModel {
 
     #endregion
 
-    public MakeReservationViewModel(Hotel hotel, NavigationStore navigationStore, Func<ReservationListingViewModel> moveModels) {
-        SubmitCommand = new MakeReservationCommand(this, hotel);
-        CancelCommand = new NavigateCommand(navigationStore, moveModels);
+    public MakeReservationViewModel(Hotel hotel, NavigationService reservationViewNavigationService) {
+        SubmitCommand = new MakeReservationCommand(this, hotel, reservationViewNavigationService);
+        CancelCommand = new NavigateCommand(reservationViewNavigationService);
     }
 }
