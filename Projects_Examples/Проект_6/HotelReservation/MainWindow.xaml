@@ -5,13 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelReservation" 
         xmlns:views="clr-namespace:HotelReservation.Views"
+        xmlns:vms="clr-namespace:HotelReservation.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="450" Width="800"
         Background="AliceBlue"
         FontSize="14">
     <Grid Margin="20 10" MaxWidth="600">
-        <views:ReservationListingView DataContext="{Binding CurrentViewModel}"/>
+        <!-- Сопостовление моделей с представлениями-->
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:MakeReservationViewModel}">
+                <views:MakeReservationView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ReservationListingViewModel}">
+                <views:ReservationListingView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+
+        <!--<views:ReservationListingView DataContext="{Binding CurrentViewModel}"/>-->
         <!--<TabControl>
             <TabItem Header="MAKE">
                 <views:MakeReservationView/>

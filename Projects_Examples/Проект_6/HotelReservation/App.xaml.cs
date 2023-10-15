@@ -1,5 +1,6 @@
 ﻿using HotelReservation.Exceptions;
 using HotelReservation.Models;
+using HotelReservation.Stores;
 using HotelReservation.ViewModels;
 using System.Windows;
 
@@ -8,19 +9,33 @@ namespace HotelReservation;
 public partial class App : Application {
 
     private readonly Hotel _hotel;
+    private readonly NavigationStore _navigationStore;
 
     public App() {
         _hotel = new Hotel("SingletonSean Suites");
+        _navigationStore = new NavigationStore();
     }
 
     protected override void OnStartup(StartupEventArgs e) {
 
+        _navigationStore.CurrentViewModel = CreateReservationListingViewModel();
+
         MainWindow = new MainWindow {
-            DataContext = new MainViewModel(_hotel)
+            DataContext = new MainViewModel(_navigationStore)
         };
         MainWindow.Show();
         
         base.OnStartup(e);
+    }
+
+    /// <summary> Создает модель - представление формы создания списка бронирования номеров </summary>
+    private MakeReservationViewModel CreateMakeReservationViewModel() {
+        return new MakeReservationViewModel(_hotel, _navigationStore, CreateReservationListingViewModel);
+    }
+
+    /// <summary> Создает модель - представление бронирования номеров </summary>
+    private ReservationListingViewModel CreateReservationListingViewModel() {
+        return new ReservationListingViewModel(_navigationStore, CreateMakeReservationViewModel);
     }
 }
 
