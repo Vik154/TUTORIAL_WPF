@@ -9,10 +9,6 @@
              d:DesignHeight="450" 
              d:DesignWidth="800"
              Background="AliceBlue">
-
-    <UserControl.DataContext>
-        <vm:ReservationListingViewModel/>
-    </UserControl.DataContext>
     
     <Grid>
         <Grid.RowDefinitions>

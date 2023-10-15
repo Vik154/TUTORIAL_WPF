@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelReservation.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace HotelReservation.ViewModels;
 public class MainViewModel : BaseViewModel {
     public BaseViewModel CurrentViewModel { get; }
 
-    public MainViewModel() {
-        CurrentViewModel = new MakeReservationViewModel();
+    public MainViewModel(Hotel hotel) {
+        CurrentViewModel = new MakeReservationViewModel(hotel);
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Windows.Input;
+﻿using HotelReservation.Commands;
+using HotelReservation.Models;
+using System.Windows.Input;
 
 namespace HotelReservation.ViewModels;
 
@@ -63,4 +65,8 @@ public class MakeReservationViewModel : BaseViewModel {
 
 
     #endregion
+
+    public MakeReservationViewModel(Hotel hotel) {
+        SubmitCommand = new MakeReservationCommand(this, hotel);
+    }
 }
