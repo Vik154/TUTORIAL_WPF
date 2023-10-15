@@ -1,4 +1,5 @@
-﻿using HotelReservation.Models;
+﻿using HotelReservation.Commands;
+using HotelReservation.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -22,5 +23,7 @@ public class ReservationListingViewModel : BaseViewModel {
             new ReservationViewModel(new Reservation(new RoomID(3, 2), "Bob", DateTime.Now, DateTime.Now)),
             new ReservationViewModel(new Reservation(new RoomID(2, 4), "Sam", DateTime.Now, DateTime.Now))
         };
+
+        MakeReservationCommand = new NavigateCommand();
     }
 }
