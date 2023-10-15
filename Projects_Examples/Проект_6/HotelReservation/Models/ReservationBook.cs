@@ -17,8 +17,8 @@ public class ReservationBook {
     private readonly List<Reservation> _reservations = new();
 
     /// <summary> Возвращает коллекцию забронированных номеров пользователем по его имени </summary>
-    public IEnumerable<Reservation> GetReservationsForUser(string userName) {
-        return _reservations.Where(x => x.UserName == userName);
+    public IEnumerable<Reservation> GetAllReservations() {
+        return _reservations;
     }
 
     /// <summary> Добавление записи о бронировании номера </summary>

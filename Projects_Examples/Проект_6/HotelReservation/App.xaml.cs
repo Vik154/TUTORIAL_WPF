@@ -27,7 +27,7 @@ public partial class App : Application {
             // Thread.Sleep(1000);
         }
 
-        IEnumerable<Reservation> reservations = hotel.GetReservationsForUser("SingletonSean");
+        IEnumerable<Reservation> reservations = hotel.GetAllReservations();
 
         base.OnStartup(e);
     }

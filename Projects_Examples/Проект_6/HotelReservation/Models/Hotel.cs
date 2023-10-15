@@ -20,8 +20,8 @@ public class Hotel {
     }
 
     /// <summary> Возвращает коллекцию забронированных номеров пользователем по его имени </summary>
-    public IEnumerable<Reservation> GetReservationsForUser(string userName) {
-        return _reservationBook.GetReservationsForUser(userName);
+    public IEnumerable<Reservation> GetAllReservations() {
+        return _reservationBook.GetAllReservations();
     }
 
     /// <summary> Добавление записи о брони в книгу бронирования </summary>
