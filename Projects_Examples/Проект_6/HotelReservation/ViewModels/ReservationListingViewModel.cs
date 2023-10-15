@@ -19,6 +19,15 @@ public class ReservationListingViewModel : BaseViewModel {
     /// <summary> Коллекция забронированных номеров отеля </summary>
     public IEnumerable<ReservationViewModel> Reservations => _reservations;
 
+    /// <summary> Флаг для ожидания загрузки данных </summary>
+    private bool _isLoading;
+
+    /// <summary> Флаг для ожидания загрузки данных </summary>
+    public bool IsLoading {
+        get => _isLoading;
+        set { _isLoading = value; OnPropertyChanged(nameof(IsLoading)); }
+    }
+
     /// <summary> Свойство для примера концепции реактивности </summary>
     public MakeReservationViewModel MakeReservationViewModel { get; }
 

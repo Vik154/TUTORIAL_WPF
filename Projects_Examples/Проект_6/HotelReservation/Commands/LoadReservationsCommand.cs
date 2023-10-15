@@ -7,6 +7,7 @@ namespace HotelReservation.Commands;
 
 /// <summary> Асинхронная команда загрузки данных </summary>
 public class LoadReservationsCommand : AsyncCommandBase {
+
     private readonly ReservationListingViewModel _viewModel;
     private readonly HotelStore _hotelStore;
 
@@ -16,6 +17,9 @@ public class LoadReservationsCommand : AsyncCommandBase {
     }
 
     public override async Task ExecuteAsync(object parameter) {
+
+        _viewModel.IsLoading = true;
+
         try {
             await _hotelStore.Load();
             _viewModel.UpdateReservations(_hotelStore.Reservations);
@@ -24,6 +28,7 @@ public class LoadReservationsCommand : AsyncCommandBase {
             MessageBox.Show("Ошибка загрузки записей резервирования", "Error",
                             MessageBoxButton.OK, MessageBoxImage.Error);
         }
+        _viewModel.IsLoading = false;
     }
 
     //public override async Task ExecuteAsync(object parameter) {
