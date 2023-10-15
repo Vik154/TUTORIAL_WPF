@@ -68,5 +68,6 @@ public class MakeReservationViewModel : BaseViewModel {
 
     public MakeReservationViewModel(Hotel hotel) {
         SubmitCommand = new MakeReservationCommand(this, hotel);
+        CancelCommand = new CancelMakeReservationCommand();
     }
 }

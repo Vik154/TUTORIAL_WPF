@@ -11,7 +11,7 @@
         Background="AliceBlue"
         FontSize="14">
     <Grid Margin="20 10" MaxWidth="600">
-        <views:MakeReservationView DataContext="{Binding CurrentViewModel}"/>
+        <views:ReservationListingView DataContext="{Binding CurrentViewModel}"/>
         <!--<TabControl>
             <TabItem Header="MAKE">
                 <views:MakeReservationView/>
