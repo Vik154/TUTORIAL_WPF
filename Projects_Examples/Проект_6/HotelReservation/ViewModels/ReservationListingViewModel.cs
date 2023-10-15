@@ -10,11 +10,17 @@ namespace HotelReservation.ViewModels;
 /// <summary> Модель - представление забронированных номеров отеля </summary>
 public class ReservationListingViewModel : BaseViewModel {
 
+    /// <summary> Хранитель в памяти объектов из БД </summary>
+    private readonly HotelStore _hotelStore;
+
     /// <summary> Коллекция забронированных номеров отеля </summary>
     private readonly ObservableCollection<ReservationViewModel> _reservations;
 
     /// <summary> Коллекция забронированных номеров отеля </summary>
     public IEnumerable<ReservationViewModel> Reservations => _reservations;
+
+    /// <summary> Свойство для примера концепции реактивности </summary>
+    public MakeReservationViewModel MakeReservationViewModel { get; }
 
     /// <summary> Команда загрузки записей брони </summary>
     public ICommand LoadReservationCommand { get; }
@@ -22,15 +28,37 @@ public class ReservationListingViewModel : BaseViewModel {
     /// <summary> Создать запись о резервирование номера </summary>
     public ICommand MakeReservationCommand { get; }
 
-    public ReservationListingViewModel(HotelStore hotelStore, NavigationService makeReservationNavigationService) {
+    public ReservationListingViewModel(HotelStore hotelStore,
+                                       MakeReservationViewModel makeReservationViewModel,
+                                       NavigationService makeReservationNavigationService)
+    {
+        _hotelStore = hotelStore;
         _reservations = new();
+        MakeReservationViewModel = makeReservationViewModel;
+
         MakeReservationCommand = new NavigateCommand(makeReservationNavigationService);
         LoadReservationCommand = new LoadReservationsCommand(this, hotelStore);
         // UpdateReservations();
+        _hotelStore.ReservationMade += OnReservationMade;
     }
 
-    public static ReservationListingViewModel LoadViewModel(HotelStore hotelStore, NavigationService makeReservationNavigationService) {
-        ReservationListingViewModel viewModel = new ReservationListingViewModel(hotelStore, makeReservationNavigationService);
+    /// <summary> Освобождение ресурсов </summary>
+    public override void Dispose() {
+        _hotelStore.ReservationMade -= OnReservationMade;
+        base.Dispose();
+    }
+
+    private void OnReservationMade(Reservation reservation) {
+        ReservationViewModel reservationViewModel = new ReservationViewModel(reservation);
+        _reservations.Add(reservationViewModel);
+    }
+
+    public static ReservationListingViewModel LoadViewModel(HotelStore hotelStore,
+                                                            MakeReservationViewModel makeReservationViewModel,
+                                                            NavigationService makeReservationNavigationService) 
+    {
+        ReservationListingViewModel viewModel = 
+            new ReservationListingViewModel(hotelStore, makeReservationViewModel, makeReservationNavigationService);
 
         viewModel.LoadReservationCommand.Execute(null);
         return viewModel;

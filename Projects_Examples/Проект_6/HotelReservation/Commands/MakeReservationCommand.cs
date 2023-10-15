@@ -55,7 +55,7 @@ public class MakeReservationCommand : AsyncCommandBase {
             MessageBox.Show("Комната забронирована", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
 
-            _reservationViewNavigationService.Navigate();
+            // _reservationViewNavigationService.Navigate();
         }
         catch (ReservationConflictException exp) {
             MessageBox.Show($"Комната уже забронирована\n{exp.Message}", "Error",

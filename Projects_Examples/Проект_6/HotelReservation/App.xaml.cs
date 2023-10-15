@@ -38,7 +38,8 @@ public partial class App : Application {
             dbContext.Database.Migrate();
         }
 
-        _navigationStore.CurrentViewModel = CreateReservationListingViewModel();
+        // _navigationStore.CurrentViewModel = CreateReservationListingViewModel();
+        _navigationStore.CurrentViewModel = CreateReservationViewModel();
 
         MainWindow = new MainWindow {
             DataContext = new MainViewModel(_navigationStore)
@@ -50,12 +51,12 @@ public partial class App : Application {
 
     /// <summary> Создает модель - представление формы создания списка бронирования номеров </summary>
     private MakeReservationViewModel CreateMakeReservationViewModel() {
-        return new MakeReservationViewModel(_hotelStore, new NavigationService(_navigationStore, CreateReservationListingViewModel));
+        return new MakeReservationViewModel(_hotelStore, new NavigationService(_navigationStore, CreateReservationViewModel));
     }
 
     /// <summary> Создает модель - представление бронирования номеров </summary>
-    private ReservationListingViewModel CreateReservationListingViewModel() {
-        return ReservationListingViewModel.LoadViewModel(_hotelStore, 
+    private ReservationListingViewModel CreateReservationViewModel() {
+        return ReservationListingViewModel.LoadViewModel(_hotelStore, CreateMakeReservationViewModel(),
                new NavigationService(_navigationStore, CreateMakeReservationViewModel));
     }
 }

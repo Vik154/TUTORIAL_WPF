@@ -11,21 +11,22 @@
         Height="450" Width="800"
         Background="AliceBlue"
         FontSize="14">
-    <Grid Margin="20 10" MaxWidth="600">
-        <!-- Сопостовление моделей с представлениями-->
-        <Grid.Resources>
-            <DataTemplate DataType="{x:Type vms:MakeReservationViewModel}">
-                <views:MakeReservationView/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type vms:ReservationListingViewModel}">
-                <views:ReservationListingView/>
-            </DataTemplate>
-        </Grid.Resources>
+    <ScrollViewer>
+        <Grid Margin="20 10" MaxWidth="600">
+            <!-- Сопостовление моделей с представлениями-->
+            <Grid.Resources>
+                <DataTemplate DataType="{x:Type vms:MakeReservationViewModel}">
+                    <views:MakeReservationView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:ReservationListingViewModel}">
+                    <views:ReservationListingView/>
+                </DataTemplate>
+            </Grid.Resources>
 
-        <ContentControl Content="{Binding CurrentViewModel}"/>
+            <ContentControl Content="{Binding CurrentViewModel}"/>
 
-        <!--<views:ReservationListingView DataContext="{Binding CurrentViewModel}"/>-->
-        <!--<TabControl>
+            <!--<views:ReservationListingView DataContext="{Binding CurrentViewModel}"/>-->
+            <!--<TabControl>
             <TabItem Header="MAKE">
                 <views:MakeReservationView/>
             </TabItem>
@@ -33,5 +34,6 @@
                 <views:ReservationListingView/>
             </TabItem>
         </TabControl>-->
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>

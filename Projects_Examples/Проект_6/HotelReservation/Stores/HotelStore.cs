@@ -18,6 +18,7 @@ public class HotelStore {
     /// <summary> Получение списка забронированных номеров </summary>
     public IEnumerable<Reservation> Reservations => _reservations;
 
+    /// <summary> Событие возникающее при новом бронировании / пример концепций реактивности </summary>
     public event Action<Reservation>? ReservationMade;
 
     public HotelStore(Hotel hotel) {
@@ -50,6 +51,8 @@ public class HotelStore {
         OnReservationMade(reservation);
     }
 
+    /// <summary> Вызывает событие ReservationMade при сделанном бронировании </summary>
+    /// <param name="reservation"></param>
     private void OnReservationMade(Reservation reservation) {
         ReservationMade?.Invoke(reservation);
     }
