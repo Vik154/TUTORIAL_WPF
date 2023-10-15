@@ -2,6 +2,9 @@
 using HotelReservation.Exceptions;
 using HotelReservation.Models;
 using HotelReservation.Services;
+using HotelReservation.Services.ReservationConflictValidators;
+using HotelReservation.Services.ReservationCreators;
+using HotelReservation.Services.ReservationProviders;
 using HotelReservation.Stores;
 using HotelReservation.ViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -14,17 +17,24 @@ public partial class App : Application {
     private const string CONNECTION_STRING = "Data Source=reservoom.db";
     private readonly Hotel _hotel;
     private readonly NavigationStore _navigationStore;
+    private readonly ReservoomDbContextFactory _reservoomDbContextFactory;
 
     public App() {
-        _hotel = new Hotel("SingletonSean Suites");
+        _reservoomDbContextFactory = new ReservoomDbContextFactory(CONNECTION_STRING);
+        IReservationProvider reservationProvider = new DatabaseReservationProvider(_reservoomDbContextFactory);
+        IReservationCreator reservationCreator = new DatabaseReservationCreator(_reservoomDbContextFactory);
+        IReservationConflictValidator reservationConflictValidator = new DatabaseReservationConflictValidator(_reservoomDbContextFactory);
+
+        ReservationBook reservationBook = new ReservationBook(reservationProvider, reservationCreator, reservationConflictValidator);
+        _hotel = new Hotel("SingletonSean Suites", reservationBook);
         _navigationStore = new NavigationStore();
     }
 
     protected override void OnStartup(StartupEventArgs e) {
-        DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(CONNECTION_STRING).Options;
-        ReservoomDbContext dbContext = new ReservoomDbContext(options);
 
-        dbContext.Database.Migrate();
+        using (ReservoomDbContext dbContext = _reservoomDbContextFactory.CreateDbContext()) {
+            dbContext.Database.Migrate();
+        }
 
         _navigationStore.CurrentViewModel = CreateReservationListingViewModel();
 
