@@ -19,6 +19,22 @@ public class ReservationListingViewModel : BaseViewModel {
     /// <summary> Коллекция забронированных номеров отеля </summary>
     public IEnumerable<ReservationViewModel> Reservations => _reservations;
 
+    /// <summary> Сообщение об ошибке </summary>
+    private string _errorMessage;
+
+    /// <summary> Сообщение об ошибке </summary>
+    public string ErrorMessage {
+        get => _errorMessage;
+        set {
+            _errorMessage = value;
+            OnPropertyChanged(nameof(ErrorMessage));
+            OnPropertyChanged(nameof(HasErrorMessage));
+        }
+    }
+
+    /// <summary> Проверка на наличие ошибки </summary>
+    public bool HasErrorMessage => !string.IsNullOrEmpty(ErrorMessage);
+
     /// <summary> Флаг для ожидания загрузки данных </summary>
     private bool _isLoading;
 

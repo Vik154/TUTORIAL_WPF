@@ -2,11 +2,13 @@
 using HotelReservation.Models;
 using HotelReservation.Services;
 using HotelReservation.Stores;
+using System.Collections;
+using System.ComponentModel;
 using System.Windows.Input;
 
 namespace HotelReservation.ViewModels;
 
-public class MakeReservationViewModel : BaseViewModel {
+public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
 
     #region СВОЙСТВА
 
@@ -52,7 +54,18 @@ public class MakeReservationViewModel : BaseViewModel {
     /// <summary> Время окончания брони </summary>
     public DateTime EndDate {
         get => _endDate;
-        set { _endDate = value; OnPropertyChanged(nameof(EndDate)); }
+        set {
+            _endDate = value; 
+            OnPropertyChanged(nameof(EndDate)); 
+            
+            _propertyNameToErrorsDictionary.Remove(nameof(EndDate));
+
+            if (EndDate < StartDate) {
+                List<string> endDateErrors = new() { "Дата окончания не может быть меньше даты начала" };
+                _propertyNameToErrorsDictionary.Add(nameof(EndDate), endDateErrors);
+                ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(nameof(EndDate)));
+            }
+        }
     }
 
     #endregion
@@ -65,11 +78,47 @@ public class MakeReservationViewModel : BaseViewModel {
     /// <summary> Закрыть </summary>
     public ICommand CancelCommand { get; }
 
-
     #endregion
 
+    #region Интерфейс INotifyDataErrorInfo и логика работы с ошибками
+    /// <summary> Информация об ошибках, реализация INotifyDataErrorInfo </summary>
+    private readonly Dictionary<string, List<string>> _propertyNameToErrorsDictionary;
+
+    public bool HasErrors => _propertyNameToErrorsDictionary.Any();
+
+    public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
+    public IEnumerable GetErrors(string? propertyName) {
+        if (propertyName is null) 
+            throw new ArgumentNullException(nameof(propertyName));
+        return _propertyNameToErrorsDictionary.GetValueOrDefault(propertyName, new List<string>());
+    }
+
+    private void AddError(string errorMessage, string propertyName) {
+        if (!_propertyNameToErrorsDictionary.ContainsKey(propertyName)) {
+            _propertyNameToErrorsDictionary.Add(propertyName, new List<string>());
+        }
+
+        _propertyNameToErrorsDictionary[propertyName].Add(errorMessage);
+
+        OnErrorsChanged(propertyName);
+    }
+
+    private void ClearErrors(string propertyName) {
+        _propertyNameToErrorsDictionary.Remove(propertyName);
+
+        OnErrorsChanged(propertyName);
+    }
+
+    private void OnErrorsChanged(string propertyName) {
+        ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+    }
+
+    #endregion
+    
     public MakeReservationViewModel(HotelStore hotelStore, NavigationService reservationViewNavigationService) {
         SubmitCommand = new MakeReservationCommand(this, hotelStore, reservationViewNavigationService);
         CancelCommand = new NavigateCommand(reservationViewNavigationService);
+        _propertyNameToErrorsDictionary = new();
     }
+
 }
