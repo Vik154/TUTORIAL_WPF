@@ -12,25 +12,34 @@ public class ReservationListingViewModel : BaseViewModel {
 
     /// <summary> Коллекция забронированных номеров отеля </summary>
     private readonly ObservableCollection<ReservationViewModel> _reservations;
-    private readonly Hotel _hotel;
 
     /// <summary> Коллекция забронированных номеров отеля </summary>
     public IEnumerable<ReservationViewModel> Reservations => _reservations;
+
+    /// <summary> Команда загрузки записей брони </summary>
+    public ICommand LoadReservationCommand { get; }
 
     /// <summary> Создать запись о резервирование номера </summary>
     public ICommand MakeReservationCommand { get; }
 
     public ReservationListingViewModel(Hotel hotel, NavigationService makeReservationNavigationService) {
         _reservations = new();
-        _hotel = hotel;
         MakeReservationCommand = new NavigateCommand(makeReservationNavigationService);
-        UpdateReservations();
+        LoadReservationCommand = new LoadReservationsCommand(this, hotel);
+        // UpdateReservations();
     }
 
-    private void UpdateReservations() {
+    public static ReservationListingViewModel LoadViewModel(Hotel hotel, NavigationService makeReservationNavigationService) {
+        ReservationListingViewModel viewModel = new ReservationListingViewModel(hotel, makeReservationNavigationService);
+
+        viewModel.LoadReservationCommand.Execute(null);
+        return viewModel;
+    }
+
+    public void UpdateReservations(IEnumerable<Reservation> reservations) {
         _reservations.Clear();
 
-        foreach (Reservation reservation in _hotel.GetAllReservations()) {
+        foreach (Reservation reservation in reservations) {
             ReservationViewModel reservationViewModel = new ReservationViewModel(reservation);
             _reservations.Add(reservationViewModel);
         }

@@ -53,7 +53,8 @@ public partial class App : Application {
 
     /// <summary> Создает модель - представление бронирования номеров </summary>
     private ReservationListingViewModel CreateReservationListingViewModel() {
-        return new ReservationListingViewModel(_hotel, new NavigationService(_navigationStore, CreateMakeReservationViewModel));
+        return ReservationListingViewModel.LoadViewModel(_hotel, 
+               new NavigationService(_navigationStore, CreateMakeReservationViewModel));
     }
 }
 

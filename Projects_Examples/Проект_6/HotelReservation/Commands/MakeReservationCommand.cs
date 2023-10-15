@@ -8,7 +8,7 @@ using System.Windows;
 namespace HotelReservation.Commands;
 
 /// <summary> Команда бронирования номеров </summary>
-public class MakeReservationCommand : BaseCommand {
+public class MakeReservationCommand : AsyncCommandBase {
 
     private readonly MakeReservationViewModel _makeReservationViewModel;
     private readonly Hotel _hotel;
@@ -33,18 +33,13 @@ public class MakeReservationCommand : BaseCommand {
             OnCanExecutedChanged();
     }
 
-    /// <summary>
-    /// Если поля в форме бронирования не заданы, то кнопка "отправить" не активна
-    /// </summary>
-    /// <param name="parameter"></param>
-    /// <returns>Команда может быть выполнена, только если заданы валидные значения</returns>
     public override bool CanExecute(object? parameter) {
         return !string.IsNullOrEmpty(_makeReservationViewModel.UserName) &&
                 _makeReservationViewModel.FloorNumber > 0 &&
                 base.CanExecute(parameter);
     }
 
-    public override void Execute(object? parameter) {
+    public override async Task ExecuteAsync(object? parameter) {
         Reservation reservation = new Reservation(
             new RoomID(_makeReservationViewModel.FloorNumber, _makeReservationViewModel.RoomNumber),
             _makeReservationViewModel.UserName,
@@ -53,16 +48,53 @@ public class MakeReservationCommand : BaseCommand {
         );
 
         try {
-            _hotel.MakeReservation(reservation);
-            MessageBox.Show("Комната забронирована", "Success", 
+            await _hotel.MakeReservation(reservation);
+            MessageBox.Show("Комната забронирована", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
 
             _reservationViewNavigationService.Navigate();
         }
         catch (ReservationConflictException exp) {
-            MessageBox.Show("Комната уже забронирована", "Error", 
+            MessageBox.Show($"Комната уже забронирована\n{exp.Message}", "Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        catch (Exception ex) {
+            MessageBox.Show($"{ex.Message}", "Error",
+            MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
     }
+
+    /// <summary>
+    /// Если поля в форме бронирования не заданы, то кнопка "отправить" не активна
+    /// </summary>
+    /// <param name="parameter"></param>
+    /// <returns>Команда может быть выполнена, только если заданы валидные значения</returns>
+    //public override bool CanExecute(object? parameter) {
+    //    return !string.IsNullOrEmpty(_makeReservationViewModel.UserName) &&
+    //            _makeReservationViewModel.FloorNumber > 0 &&
+    //            base.CanExecute(parameter);
+    //}
+
+    //public override void Execute(object? parameter) {
+    //    Reservation reservation = new Reservation(
+    //        new RoomID(_makeReservationViewModel.FloorNumber, _makeReservationViewModel.RoomNumber),
+    //        _makeReservationViewModel.UserName,
+    //        _makeReservationViewModel.StartDate,
+    //        _makeReservationViewModel.EndDate
+    //    );
+
+    //    try {
+    //        _hotel.MakeReservation(reservation);
+    //        MessageBox.Show("Комната забронирована", "Success", 
+    //            MessageBoxButton.OK, MessageBoxImage.Information);
+
+    //        _reservationViewNavigationService.Navigate();
+    //    }
+    //    catch (ReservationConflictException exp) {
+    //        MessageBox.Show("Комната уже забронирована", "Error", 
+    //            MessageBoxButton.OK, MessageBoxImage.Error);
+    //    }
+
+    //}
 }
