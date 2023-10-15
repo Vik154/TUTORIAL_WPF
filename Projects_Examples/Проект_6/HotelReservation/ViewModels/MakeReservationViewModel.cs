@@ -36,7 +36,7 @@ public class MakeReservationViewModel : BaseViewModel {
     }
 
     /// <summary> Время начала брони </summary>
-    private DateTime _startDate;
+    private DateTime _startDate = new DateTime(2021, 1, 1);
 
     /// <summary> Время начала брони </summary>
     public DateTime StartDate {
@@ -45,7 +45,7 @@ public class MakeReservationViewModel : BaseViewModel {
     }
 
     /// <summary> Время окончания брони </summary>
-    private DateTime _endDate;
+    private DateTime _endDate = new DateTime(2021, 1, 8);
 
     /// <summary> Время окончания брони </summary>
     public DateTime EndDate {
