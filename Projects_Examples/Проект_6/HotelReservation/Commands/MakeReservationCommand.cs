@@ -1,6 +1,7 @@
 ﻿using HotelReservation.Exceptions;
 using HotelReservation.Models;
 using HotelReservation.Services;
+using HotelReservation.Stores;
 using HotelReservation.ViewModels;
 using System.ComponentModel;
 using System.Windows;
@@ -11,15 +12,15 @@ namespace HotelReservation.Commands;
 public class MakeReservationCommand : AsyncCommandBase {
 
     private readonly MakeReservationViewModel _makeReservationViewModel;
-    private readonly Hotel _hotel;
+    private readonly HotelStore _hotelStore;
     private readonly NavigationService _reservationViewNavigationService;
 
     public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, 
-                                  Hotel hotel,
+                                  HotelStore hotelStore,
                                   NavigationService reservationViewNavigationService) 
     {
         _makeReservationViewModel = makeReservationViewModel;
-        _hotel = hotel;
+        _hotelStore = hotelStore;
         _reservationViewNavigationService = reservationViewNavigationService;
 
         // Подписка на изменение свойств в модели резервирования номеров
@@ -48,7 +49,9 @@ public class MakeReservationCommand : AsyncCommandBase {
         );
 
         try {
-            await _hotel.MakeReservation(reservation);
+            // await _hotel.MakeReservation(reservation); - переехал в HotelStore в ленивую загрузку
+            await _hotelStore.MakeReservation(reservation);
+
             MessageBox.Show("Комната забронирована", "Success",
                 MessageBoxButton.OK, MessageBoxImage.Information);
 

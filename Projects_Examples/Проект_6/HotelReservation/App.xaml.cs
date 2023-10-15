@@ -16,6 +16,7 @@ public partial class App : Application {
 
     private const string CONNECTION_STRING = "Data Source=reservoom.db";
     private readonly Hotel _hotel;
+    private readonly HotelStore _hotelStore;
     private readonly NavigationStore _navigationStore;
     private readonly ReservoomDbContextFactory _reservoomDbContextFactory;
 
@@ -27,6 +28,7 @@ public partial class App : Application {
 
         ReservationBook reservationBook = new ReservationBook(reservationProvider, reservationCreator, reservationConflictValidator);
         _hotel = new Hotel("SingletonSean Suites", reservationBook);
+        _hotelStore = new HotelStore(_hotel);
         _navigationStore = new NavigationStore();
     }
 
@@ -48,12 +50,12 @@ public partial class App : Application {
 
     /// <summary> Создает модель - представление формы создания списка бронирования номеров </summary>
     private MakeReservationViewModel CreateMakeReservationViewModel() {
-        return new MakeReservationViewModel(_hotel, new NavigationService(_navigationStore, CreateReservationListingViewModel));
+        return new MakeReservationViewModel(_hotelStore, new NavigationService(_navigationStore, CreateReservationListingViewModel));
     }
 
     /// <summary> Создает модель - представление бронирования номеров </summary>
     private ReservationListingViewModel CreateReservationListingViewModel() {
-        return ReservationListingViewModel.LoadViewModel(_hotel, 
+        return ReservationListingViewModel.LoadViewModel(_hotelStore, 
                new NavigationService(_navigationStore, CreateMakeReservationViewModel));
     }
 }

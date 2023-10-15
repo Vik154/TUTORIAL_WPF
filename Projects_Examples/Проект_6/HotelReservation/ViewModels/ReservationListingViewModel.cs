@@ -22,15 +22,15 @@ public class ReservationListingViewModel : BaseViewModel {
     /// <summary> Создать запись о резервирование номера </summary>
     public ICommand MakeReservationCommand { get; }
 
-    public ReservationListingViewModel(Hotel hotel, NavigationService makeReservationNavigationService) {
+    public ReservationListingViewModel(HotelStore hotelStore, NavigationService makeReservationNavigationService) {
         _reservations = new();
         MakeReservationCommand = new NavigateCommand(makeReservationNavigationService);
-        LoadReservationCommand = new LoadReservationsCommand(this, hotel);
+        LoadReservationCommand = new LoadReservationsCommand(this, hotelStore);
         // UpdateReservations();
     }
 
-    public static ReservationListingViewModel LoadViewModel(Hotel hotel, NavigationService makeReservationNavigationService) {
-        ReservationListingViewModel viewModel = new ReservationListingViewModel(hotel, makeReservationNavigationService);
+    public static ReservationListingViewModel LoadViewModel(HotelStore hotelStore, NavigationService makeReservationNavigationService) {
+        ReservationListingViewModel viewModel = new ReservationListingViewModel(hotelStore, makeReservationNavigationService);
 
         viewModel.LoadReservationCommand.Execute(null);
         return viewModel;

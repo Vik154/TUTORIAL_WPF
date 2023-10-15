@@ -68,8 +68,8 @@ public class MakeReservationViewModel : BaseViewModel {
 
     #endregion
 
-    public MakeReservationViewModel(Hotel hotel, NavigationService reservationViewNavigationService) {
-        SubmitCommand = new MakeReservationCommand(this, hotel, reservationViewNavigationService);
+    public MakeReservationViewModel(HotelStore hotelStore, NavigationService reservationViewNavigationService) {
+        SubmitCommand = new MakeReservationCommand(this, hotelStore, reservationViewNavigationService);
         CancelCommand = new NavigateCommand(reservationViewNavigationService);
     }
 }
