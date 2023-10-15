@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HotelReservation.DTOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelReservation.DbContexts;
 
+/// <summary> Контекст базы данных </summary>
 public class ReservoomDbContext : DbContext {
+    public DbSet<ReservationDTO> Reservations { get; set; }
+
+    public ReservoomDbContext(DbContextOptions options) : base(options) { }
 }

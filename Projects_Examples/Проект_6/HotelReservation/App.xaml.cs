@@ -1,14 +1,17 @@
-﻿using HotelReservation.Exceptions;
+﻿using HotelReservation.DbContexts;
+using HotelReservation.Exceptions;
 using HotelReservation.Models;
 using HotelReservation.Services;
 using HotelReservation.Stores;
 using HotelReservation.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System.Windows;
 
 namespace HotelReservation;
 
 public partial class App : Application {
 
+    private const string CONNECTION_STRING = "Data Source=reservoom.db";
     private readonly Hotel _hotel;
     private readonly NavigationStore _navigationStore;
 
@@ -18,6 +21,10 @@ public partial class App : Application {
     }
 
     protected override void OnStartup(StartupEventArgs e) {
+        DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(CONNECTION_STRING).Options;
+        ReservoomDbContext dbContext = new ReservoomDbContext(options);
+
+        dbContext.Database.Migrate();
 
         _navigationStore.CurrentViewModel = CreateReservationListingViewModel();
 
