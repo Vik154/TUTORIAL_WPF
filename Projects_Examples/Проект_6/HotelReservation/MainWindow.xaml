@@ -11,6 +11,13 @@
         Background="AliceBlue"
         FontSize="14">
     <Grid Margin="20 10" MaxWidth="600">
-        <views:ReservationListingView/>
+        <TabControl>
+            <TabItem Header="MAKE">
+                <views:MakeReservationView/>
+            </TabItem>
+            <TabItem Header="ReservationListing">
+                <views:ReservationListingView/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
