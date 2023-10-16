@@ -55,13 +55,13 @@ public class ReservationListingViewModel : BaseViewModel {
 
     public ReservationListingViewModel(HotelStore hotelStore,
                                        MakeReservationViewModel makeReservationViewModel,
-                                       NavigationService makeReservationNavigationService)
+                                       NavigationService<MakeReservationViewModel> makeReservationNavigationService)
     {
         _hotelStore = hotelStore;
         _reservations = new();
         MakeReservationViewModel = makeReservationViewModel;
 
-        MakeReservationCommand = new NavigateCommand(makeReservationNavigationService);
+        MakeReservationCommand = new NavigateCommand<MakeReservationViewModel>(makeReservationNavigationService);
         LoadReservationCommand = new LoadReservationsCommand(this, hotelStore);
         // UpdateReservations();
         _hotelStore.ReservationMade += OnReservationMade;
@@ -79,8 +79,8 @@ public class ReservationListingViewModel : BaseViewModel {
     }
 
     public static ReservationListingViewModel LoadViewModel(HotelStore hotelStore,
-                                                            MakeReservationViewModel makeReservationViewModel,
-                                                            NavigationService makeReservationNavigationService) 
+        MakeReservationViewModel makeReservationViewModel,
+        NavigationService<MakeReservationViewModel> makeReservationNavigationService) 
     {
         ReservationListingViewModel viewModel = 
             new ReservationListingViewModel(hotelStore, makeReservationViewModel, makeReservationNavigationService);

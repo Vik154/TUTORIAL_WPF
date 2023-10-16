@@ -1,20 +1,14 @@
 ﻿using HotelReservation.Services;
-using HotelReservation.Stores;
 using HotelReservation.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelReservation.Commands;
 
 /// <summary> Команда отвечающая за переключение между моделями - представлений </summary>
-public class NavigateCommand : BaseCommand {
+public class NavigateCommand<TViewModel> : BaseCommand where TViewModel : BaseViewModel {
 
-    private readonly NavigationService _navigationService;
+    private readonly NavigationService<TViewModel> _navigationService;
 
-    public NavigateCommand(NavigationService navigation) {
+    public NavigateCommand(NavigationService<TViewModel> navigation) {
         _navigationService = navigation;        
     }
 
