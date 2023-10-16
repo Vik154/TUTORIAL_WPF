@@ -18,9 +18,9 @@ namespace HotelReservation;
 
 public partial class App : Application {
 
-    private const string CONNECTION_STRING = "Data Source=reservoom.db";
     private readonly IHost _host;
-
+    
+    //private const string CONNECTION_STRING = "Data Source=reservoom.db";
     //private readonly Hotel _hotel;
     //private readonly HotelStore _hotelStore;
     //private readonly NavigationStore _navigationStore;

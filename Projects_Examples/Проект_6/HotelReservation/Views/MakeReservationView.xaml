@@ -4,12 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HotelReservation.Views" 
-             xmlns:vm="clr-namespace:HotelReservation.ViewModels"
+             xmlns:vm="clr-namespace:HotelReservation.ViewModels" 
+             xmlns:custom="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
              Background="AliceBlue">
-    
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
+
     <Grid Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -22,7 +27,7 @@
 
         <TextBlock Grid.Row="0"
                    Style="{StaticResource Header}"
-                   Text="Make Reservation"/>
+                   Text="Форма бронирования номера"/>
 
         <Grid Grid.Row="1" Margin="0,25,0,0">
             <Grid.RowDefinitions>
@@ -30,8 +35,9 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="UserName"/>
+            <TextBlock Grid.Row="0" Text="Имя пользователя"/>
             <TextBox Grid.Row="1" Margin="0,5,0,0" 
+                     AutomationProperties.AutomationId="MakeReservationUsernameTextBox"
                      Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
@@ -47,23 +53,26 @@
 
             <TextBlock Grid.Row="0" 
                        Grid.Column="0" 
-                       Text="Floor No."
+                       Text="Номер этажа."
                        />
             <TextBox Grid.Row="1"
                      Grid.Column="0" 
                      Margin="0,5,0,0" 
+                     AutomationProperties.AutomationId="MakeReservationFloorNumberTextBox"
                      Text="{Binding FloorNumber, UpdateSourceTrigger=PropertyChanged}"
                      />
-            <TextBlock Grid.Row="0" 
-                       Grid.Column="1" 
-                       Margin="10,0,0,0" 
-                       Text="Room No."
-                       />
-            <TextBox Grid.Row="1"
-                     Grid.Column="1" 
-                     Margin="10,5,0,0" 
-                     Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}"
-                     />
+            
+            <TextBlock 
+                Grid.Row="0" 
+                Grid.Column="1" 
+                Margin="10,0,0,0" 
+                Text="Номер комнаты"/>
+            <TextBox 
+                Grid.Row="1"
+                Grid.Column="1" 
+                Margin="10,5,0,0" 
+                AutomationProperties.AutomationId="MakeReservationRoomNumberTextBox"
+                Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
 
         <Grid Grid.Row="3" Margin="0,10,0,0">
@@ -76,31 +85,72 @@
                 <ColumnDefinition Width="auto" SharedSizeGroup="SecondColumn"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" 
-                       Grid.Column="0" 
-                       Text="Start Date"
-                       />
-            <DatePicker Grid.Row="1"
-                        Grid.Column="0" 
-                        Margin="0,5,0,0" 
-                        SelectedDate="{Binding StartDate, UpdateSourceTrigger=PropertyChanged}"
-                        />
-            <TextBlock Grid.Row="0" 
-                       Grid.Column="1" 
-                       Margin="10,5,0,0" 
-                       Text="End Date"
-                       />
-            <DatePicker Grid.Row="1"
-                     Grid.Column="1" 
-                     Margin="10,5,0,0" 
-                     SelectedDate="{Binding EndDate, UpdateSourceTrigger=PropertyChanged}"
-                     />
+            <TextBlock 
+                Grid.Row="0" 
+                Grid.Column="0" 
+                Text="Начало брони"/>
+            <DatePicker 
+                Grid.Row="1"
+                Grid.Column="0" 
+                Margin="0,5,0,0"
+                AutomationProperties.AutomationId="MakeReservationStartDatePicker"
+                SelectedDate="{Binding StartDate, UpdateSourceTrigger=PropertyChanged}"/>
+            
+            <TextBlock 
+                Grid.Row="0" 
+                Grid.Column="1" 
+                Margin="10,0,0,0" 
+                Text="Окончание брони"/>
+            <DatePicker 
+                Grid.Row="1"
+                Grid.Column="1" 
+                Margin="10,5,0,0"
+                AutomationProperties.AutomationId="MakeReservationStartDatePicker"
+                SelectedDate="{Binding EndDate, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
-        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,25,0,0">
-            <Button Content="Submint" Command="{Binding SubmitCommand}"/>
-            <Button Content="Cancel" Command="{Binding CancelCommand}" Margin="10,0,0,0"/>
+        <StackPanel 
+            Grid.Row="4" 
+            Orientation="Horizontal" 
+            Margin="0,25,0,0">
+            
+            <Button 
+                AutomationProperties.AutomationId="MakeReservationSubmitButton"
+                Content="Забронировать"
+                Command="{Binding SubmitCommand}"/>
+            <Button 
+                Margin="10,0,0,0"
+                AutomationProperties.AutomationId="MakeReservationSubmitButton"
+                Content="Отменить" 
+                Command="{Binding CancelCommand}"
+                >
+                <Button.Style>
+                    <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsSubmitting}" Value="True">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <custom:LoadingSpinner
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                Diameter="25"
+                IsLoading="{Binding IsSubmitting}"
+                Thickness="3"
+                Color="Black" />
         </StackPanel>
+
+        <TextBlock
+            Grid.Row="5"
+            Margin="0,20,0,0"
+            AutomationProperties.AutomationId="MakeReservationSubmitErrorMessage"
+            Foreground="Red"
+            Text="{Binding SubmitErrorMessage}"
+            Visibility="{Binding HasSubmitErrorMessage, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
 
     </Grid>
 </UserControl>
