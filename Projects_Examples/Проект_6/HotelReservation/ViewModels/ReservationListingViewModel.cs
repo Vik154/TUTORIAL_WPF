@@ -3,6 +3,7 @@ using HotelReservation.Models;
 using HotelReservation.Services;
 using HotelReservation.Stores;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Windows.Input;
 
 namespace HotelReservation.ViewModels;
@@ -19,8 +20,11 @@ public class ReservationListingViewModel : BaseViewModel {
     /// <summary> Коллекция забронированных номеров отеля </summary>
     public IEnumerable<ReservationViewModel> Reservations => _reservations;
 
+    /// <summary> Проверка на наличие записей в книге бронирования номеров </summary>
+    public bool HasReservations => _reservations.Any();
+
     /// <summary> Сообщение об ошибке </summary>
-    private string _errorMessage;
+    private string _errorMessage = "";
 
     /// <summary> Сообщение об ошибке </summary>
     public string ErrorMessage {
@@ -53,18 +57,18 @@ public class ReservationListingViewModel : BaseViewModel {
     /// <summary> Создать запись о резервирование номера </summary>
     public ICommand MakeReservationCommand { get; }
 
-    public ReservationListingViewModel(HotelStore hotelStore,
-                                       MakeReservationViewModel makeReservationViewModel,
-                                       NavigationService<MakeReservationViewModel> makeReservationNavigationService)
+    public ReservationListingViewModel(HotelStore hotelStore, NavigationService<MakeReservationViewModel> makeReservationNavigationService)
     {
         _hotelStore = hotelStore;
         _reservations = new();
-        MakeReservationViewModel = makeReservationViewModel;
 
         MakeReservationCommand = new NavigateCommand<MakeReservationViewModel>(makeReservationNavigationService);
         LoadReservationCommand = new LoadReservationsCommand(this, hotelStore);
+        
         // UpdateReservations();
+        
         _hotelStore.ReservationMade += OnReservationMade;
+        _reservations.CollectionChanged += OnReservationsChanged;
     }
 
     /// <summary> Освобождение ресурсов </summary>
@@ -78,14 +82,17 @@ public class ReservationListingViewModel : BaseViewModel {
         _reservations.Add(reservationViewModel);
     }
 
-    public static ReservationListingViewModel LoadViewModel(HotelStore hotelStore,
-        MakeReservationViewModel makeReservationViewModel,
-        NavigationService<MakeReservationViewModel> makeReservationNavigationService) 
-    {
+    private void OnReservationsChanged(object? sender, NotifyCollectionChangedEventArgs e) {
+        OnPropertyChanged(nameof(HasReservations));
+    }
+
+    public static ReservationListingViewModel LoadViewModel(HotelStore hotelStore, NavigationService<MakeReservationViewModel> makeReservationNavigationService) {
+
         ReservationListingViewModel viewModel = 
-            new ReservationListingViewModel(hotelStore, makeReservationViewModel, makeReservationNavigationService);
+            new ReservationListingViewModel(hotelStore, makeReservationNavigationService);
 
         viewModel.LoadReservationCommand.Execute(null);
+
         return viewModel;
     }
 
