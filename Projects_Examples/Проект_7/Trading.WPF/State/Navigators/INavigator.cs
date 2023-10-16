@@ -12,3 +12,6 @@ public interface INavigator {
     /// <summary> Указатель на базовый интерфейс навигационной команды </summary>
     ICommand UpdateCurrentViewModelCommand { get; }
 }
+
+/// <summary> Перечисление представлений </summary>
+public enum ViewType { Home, Portfolio }
