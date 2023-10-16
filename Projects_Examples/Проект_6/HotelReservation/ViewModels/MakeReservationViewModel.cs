@@ -82,7 +82,7 @@ public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
     }
 
     /// <summary> Время окончания брони </summary>
-    private DateTime _endDate = new DateTime(2021, 1, 8);
+    private DateTime _endDate = new DateTime(2023, 1, 8);
 
     /// <summary> Время окончания брони </summary>
     public DateTime EndDate {
