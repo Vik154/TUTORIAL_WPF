@@ -1,5 +1,6 @@
 ﻿using HotelReservation.DbContexts;
 using HotelReservation.Exceptions;
+using HotelReservation.HostBuilders;
 using HotelReservation.Models;
 using HotelReservation.Services;
 using HotelReservation.Services.ReservationConflictValidators;
@@ -8,6 +9,7 @@ using HotelReservation.Services.ReservationProviders;
 using HotelReservation.Stores;
 using HotelReservation.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
@@ -26,27 +28,34 @@ public partial class App : Application {
 
     public App() {
         _host = Host.CreateDefaultBuilder()
-            .ConfigureServices(services => {
-                services.AddSingleton(new ReservoomDbContextFactory(CONNECTION_STRING));
+            .AddViewModels()
+            .ConfigureServices((hostContext, services) => {
+
+                string? connectionString = hostContext.Configuration.GetConnectionString("Default");
+
+                if (connectionString is null ) {
+                    MessageBox.Show("Строка подключения к БД не корректная", "Ошибка",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                services.AddSingleton(new ReservoomDbContextFactory(connectionString));
                 services.AddSingleton<IReservationProvider, DatabaseReservationProvider>();
                 services.AddSingleton<IReservationCreator, DatabaseReservationCreator>();
                 services.AddSingleton<IReservationConflictValidator, DatabaseReservationConflictValidator>();
 
                 services.AddTransient<ReservationBook>();
-                services.AddSingleton((s) => new Hotel("SingletonSean Suites", s.GetRequiredService<ReservationBook>()));
+                string? hotelName = hostContext.Configuration.GetValue<string>("HotelName");
 
-                services.AddTransient<ReservationListingViewModel>();
-                services.AddSingleton<Func<ReservationListingViewModel>>((s) => () => s.GetRequiredService<ReservationListingViewModel>());
-                services.AddSingleton<NavigationService<ReservationListingViewModel>>();
-
-                services.AddTransient<MakeReservationViewModel>();
-                services.AddSingleton<Func<MakeReservationViewModel>>((s) => () => s.GetRequiredService<MakeReservationViewModel>());
-                services.AddSingleton<NavigationService<MakeReservationViewModel>>();
+                if (hotelName is null) {
+                    MessageBox.Show("Название отеля не задано", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                services.AddSingleton((s) => new Hotel(hotelName, s.GetRequiredService<ReservationBook>()));
 
                 services.AddSingleton<HotelStore>();
                 services.AddSingleton<NavigationStore>();
 
-                services.AddSingleton<MainViewModel>();
                 services.AddSingleton((s) => new MainWindow {
                     DataContext = s.GetRequiredService<MainViewModel>()
                 });
