@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trading.Domain", "Trading.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trading.EntityFramework", "Trading.EntityFramework\Trading.EntityFramework.csproj", "{08FD9B11-292E-4071-9761-D1C89F348A8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trading.WPF", "Trading.WPF\Trading.WPF.csproj", "{9560B473-C590-4CE5-9ECD-1A5867CCDA3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{08FD9B11-292E-4071-9761-D1C89F348A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08FD9B11-292E-4071-9761-D1C89F348A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08FD9B11-292E-4071-9761-D1C89F348A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9560B473-C590-4CE5-9ECD-1A5867CCDA3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9560B473-C590-4CE5-9ECD-1A5867CCDA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9560B473-C590-4CE5-9ECD-1A5867CCDA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9560B473-C590-4CE5-9ECD-1A5867CCDA3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
