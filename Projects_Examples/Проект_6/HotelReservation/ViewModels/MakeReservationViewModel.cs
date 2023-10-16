@@ -1,13 +1,14 @@
 ﻿using HotelReservation.Commands;
-using HotelReservation.Models;
 using HotelReservation.Services;
 using HotelReservation.Stores;
 using System.Collections;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace HotelReservation.ViewModels;
 
+/// <summary> Модель - представление для работы с формой бронирования номеров </summary>
 public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
 
     #region СВОЙСТВА
@@ -18,7 +19,14 @@ public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
     /// <summary> Имя пользователя </summary>
     public string UserName {
 		get => _userName;
-		set { _userName = value; OnPropertyChanged(nameof(UserName)); }
+		set { 
+            _userName = value; 
+            OnPropertyChanged(nameof(UserName));
+
+            ClearErrors(nameof(UserName));
+            if (!HasUserName) { AddError("Имя пользователя не должно быть пустым", nameof(UserName)); }
+            OnPropertyChanged(nameof(CanCreateReservation));
+        }
 	}
 
     /// <summary> Номер комнаты отеля </summary>
@@ -27,25 +35,50 @@ public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
     /// <summary> Номер комнаты отеля </summary>
 	public int RoomNumber {
 		get => _roomNumber;
-		set { _roomNumber = value; OnPropertyChanged(nameof(RoomNumber)); }
+		set { 
+            _roomNumber = value;
+            OnPropertyChanged(nameof(RoomNumber)); 
+        }
 	}
 
     /// <summary> Номер этажа отеля </summary>
-    private int _floorNumber;
+    private int _floorNumber = 1;
 
     /// <summary> Номер этажа отеля </summary>
     public int FloorNumber {
         get => _floorNumber;
-        set { _floorNumber = value; OnPropertyChanged(nameof(FloorNumber)); }
+        set { 
+            _floorNumber = value; 
+            OnPropertyChanged(nameof(FloorNumber));
+
+            ClearErrors(nameof(FloorNumber));
+
+            if (!HasFloorNumberGreaterThanZero) {
+                AddError("Номер этажа должен быть больше нуля.", nameof(FloorNumber));
+            }
+            OnPropertyChanged(nameof(CanCreateReservation));
+        }
     }
 
     /// <summary> Время начала брони </summary>
-    private DateTime _startDate = new DateTime(2021, 1, 1);
+    private DateTime _startDate = new DateTime(2023, 1, 1);
 
     /// <summary> Время начала брони </summary>
     public DateTime StartDate {
         get => _startDate;
-        set { _startDate = value; OnPropertyChanged(nameof(StartDate)); }
+        set { 
+            _startDate = value; 
+            OnPropertyChanged(nameof(StartDate));
+
+            ClearErrors(nameof(StartDate));
+            ClearErrors(nameof(EndDate));
+
+            if (!HasStartDateBeforeEndDate) {
+                AddError("Дата начала не может быть меньше даты окончания.", nameof(StartDate));
+            }
+
+            OnPropertyChanged(nameof(CanCreateReservation));
+        }
     }
 
     /// <summary> Время окончания брони </summary>
@@ -56,15 +89,51 @@ public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
         get => _endDate;
         set {
             _endDate = value; 
-            OnPropertyChanged(nameof(EndDate)); 
-            
-            _propertyNameToErrorsDictionary.Remove(nameof(EndDate));
+            OnPropertyChanged(nameof(EndDate));
 
-            if (EndDate < StartDate) {
-                List<string> endDateErrors = new() { "Дата окончания не может быть меньше даты начала" };
-                _propertyNameToErrorsDictionary.Add(nameof(EndDate), endDateErrors);
-                ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(nameof(EndDate)));
+            ClearErrors(nameof(StartDate));
+            ClearErrors(nameof(EndDate));
+
+            if (!HasStartDateBeforeEndDate) {
+                AddError("Дата окончания не может быть меньше даты начала.", nameof(EndDate));
             }
+
+            OnPropertyChanged(nameof(CanCreateReservation));
+        }
+    }
+
+    public bool CanCreateReservation =>
+            HasUserName &&
+            HasFloorNumberGreaterThanZero &&
+            HasStartDateBeforeEndDate &&
+            !HasErrors;
+
+    private bool HasUserName => !string.IsNullOrEmpty(UserName);
+    private bool HasFloorNumberGreaterThanZero => FloorNumber > 0;
+    private bool HasStartDateBeforeEndDate => StartDate < EndDate;
+
+    private string _submitErrorMessage = "";
+    public string SubmitErrorMessage {
+        get {
+            return _submitErrorMessage;
+        }
+        set {
+            _submitErrorMessage = value;
+            OnPropertyChanged(nameof(SubmitErrorMessage));
+            OnPropertyChanged(nameof(HasSubmitErrorMessage));
+        }
+    }
+
+    public bool HasSubmitErrorMessage => !string.IsNullOrEmpty(SubmitErrorMessage);
+
+    private bool _isSubmitting;
+    public bool IsSubmitting {
+        get {
+            return _isSubmitting;
+        }
+        set {
+            _isSubmitting = value;
+            OnPropertyChanged(nameof(IsSubmitting));
         }
     }
 
@@ -73,7 +142,7 @@ public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
     #region КОМАНДЫ
 
     /// <summary> Отправить </summary>
-    public ICommand SubmitCommand { get; }
+    public AsyncCommandBase SubmitCommand { get; }
 
     /// <summary> Закрыть </summary>
     public ICommand CancelCommand { get; }
@@ -81,15 +150,19 @@ public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
     #endregion
 
     #region Интерфейс INotifyDataErrorInfo и логика работы с ошибками
+
     /// <summary> Информация об ошибках, реализация INotifyDataErrorInfo </summary>
     private readonly Dictionary<string, List<string>> _propertyNameToErrorsDictionary;
 
     public bool HasErrors => _propertyNameToErrorsDictionary.Any();
 
     public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
+
     public IEnumerable GetErrors(string? propertyName) {
-        if (propertyName is null) 
-            throw new ArgumentNullException(nameof(propertyName));
+        if (propertyName is null) {
+            MessageBox.Show($"Пустое имя свойства {nameof(propertyName)}");
+            return Enumerable.Empty<string>();
+        }
         return _propertyNameToErrorsDictionary.GetValueOrDefault(propertyName, new List<string>());
     }
 
@@ -115,8 +188,7 @@ public class MakeReservationViewModel : BaseViewModel, INotifyDataErrorInfo {
 
     #endregion
     
-    public MakeReservationViewModel(HotelStore hotelStore, 
-        NavigationService<ReservationListingViewModel> reservationViewNavigationService) 
+    public MakeReservationViewModel(HotelStore hotelStore, NavigationService<ReservationListingViewModel> reservationViewNavigationService) 
     {
         SubmitCommand = new MakeReservationCommand(this, hotelStore, reservationViewNavigationService);
         CancelCommand = new NavigateCommand<ReservationListingViewModel>(reservationViewNavigationService);
