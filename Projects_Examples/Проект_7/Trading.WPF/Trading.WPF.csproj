@@ -13,8 +13,4 @@
     <ProjectReference Include="..\Trading.EntityFramework\Trading.EntityFramework.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
-
 </Project>
