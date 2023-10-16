@@ -1,9 +1,7 @@
 ﻿namespace Trading.Domain.Models;
 
 /// <summary> Класс представляющий пользователя </summary>
-public class User {
-    /// <summary> ID пользователя в БД </summary>
-    public int Id { get; set; }
+public class User : DomainObject {
 
     /// <summary> Почта </summary>
     public string? Email {  get; set; }

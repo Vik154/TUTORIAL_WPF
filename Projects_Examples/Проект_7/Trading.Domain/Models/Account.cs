@@ -1,11 +1,9 @@
 ﻿namespace Trading.Domain.Models;
 
-public class Account { 
-    /// <summary> Идентификатор аккаунта </summary>
-    public int Id { get; set; }
+public class Account : DomainObject { 
 
     /// <summary> Владелец аккаунта </summary>
-    public User AccountHolder { get; set; }
+    public User? AccountHolder { get; set; }
 
     /// <summary> Баланс </summary>
     public double Balance { get; set; }

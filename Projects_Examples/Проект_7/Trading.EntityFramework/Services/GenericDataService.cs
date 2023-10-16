@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using Trading.Domain.Services;
 
 namespace Trading.EntityFramework.Services;
@@ -11,17 +7,31 @@ namespace Trading.EntityFramework.Services;
 /// Универсальный сервис передачи данных (обработка всех операций от доменной модели) 
 /// чтобы не создавать сервис для каждой модели отдельно
 /// </summary>
-public class GenericDataService<T> : IDataService<T> {
+public class GenericDataService<T> : IDataService<T> where T : class {
 
     /// <summary>Контекст данных</summary>
-    private readonly SimpleTraderDbContext _context;
+    private readonly SimpleTraderDbContextFactory _contextFactory;
 
-    public Task<T> Create(T entity) {
-        throw new NotImplementedException();
+    public GenericDataService(SimpleTraderDbContextFactory contextFactory) {
+        _contextFactory = contextFactory;
+    }
+
+    public async Task<T> Create(T entity) {
+        using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
+            var createdEntity = await db.Set<T>().AddAsync(entity);
+            await db.SaveChangesAsync();
+
+            return createdEntity.Entity;
+        }
     }
 
     public Task<bool> Delete(int id) {
-        throw new NotImplementedException();
+        using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
+            T findEntity = await db.Set<T>().FirstOrDefaultAsync((e) => e.)
+            await db.SaveChangesAsync();
+
+            return createdEntity.Entity;
+        }
     }
 
     public Task<T> Get(int id) {

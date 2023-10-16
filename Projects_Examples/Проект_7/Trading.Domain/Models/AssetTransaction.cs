@@ -1,10 +1,7 @@
 ﻿namespace Trading.Domain.Models;
 
 /// <summary> Класс представляющий сделки с активами </summary>
-public class AssetTransaction {
-
-    /// <summary> Идентификатор транзакции </summary>
-    public int Id { get; set; }
+public class AssetTransaction : DomainObject {
 
     /// <summary> Аккаунт связанный с транзакцией </summary>
     public Account? Account { get; set; }
