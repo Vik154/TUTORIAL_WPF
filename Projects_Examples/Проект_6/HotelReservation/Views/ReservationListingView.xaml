@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HotelReservation.Views" 
              xmlns:vm="clr-namespace:HotelReservation.ViewModels" 
-             xmlns:converters="clr-namespace:HotelReservation.Converters" xmlns:loadingspinnercontrol="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
+             xmlns:converters="clr-namespace:HotelReservation.Converters" 
+             xmlns:loadingspinnercontrol="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
@@ -20,7 +21,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -32,79 +32,92 @@
             <TextBlock
                 Grid.Column="0"
                 Style="{StaticResource Header}"
-                Text="View Reservations" />
+                Text="Забронированные номера" />
 
             <Button
                 Grid.Column="1"
                 Margin="10,0,0,0"
                 AutomationProperties.AutomationId="MakeReservationButton"
-                Content="Make Reservation"
+                Content="Забронировать номер"
                 Command="{Binding MakeReservationCommand}"/>
         </Grid>
 
         <Grid Grid.Row="1" Margin="0,25,0,0">
-            <loadingspinnercontrol:LoadingSpinner Thickness="5"
-                                                  Color="Gray"
-                                                  Diameter="100"
-                                                  IsLoading="{Binding IsLoading}"/>
+            <loadingspinnercontrol:LoadingSpinner 
+                Thickness="5"
+                Color="Gray"
+                Diameter="100"
+                IsLoading="{Binding IsLoading}"/>
 
             <Grid Visibility="{Binding IsLoading, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
 
-                <TextBlock Text="{Binding ErrorMessage}" Foreground="Red"
-                           Visibility="{Binding HasErrorMessage, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <TextBlock 
+                    Text="{Binding ErrorMessage}" 
+                    Foreground="Red"
+                    Visibility="{Binding HasErrorMessage, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
-                <ListView ItemsSource="{Binding Reservations}" 
-                          Visibility="{Binding HasErrorMessage, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
+                <Grid Visibility="{Binding HasErrorMessage, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
 
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
+                    <TextBlock 
+                        Text="Бронирований не было сделано" 
+                        Visibility="{Binding HasReservations, Converter={StaticResource InverseBooleanToVisibilityConverter}}" />
 
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="RoomID">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock HorizontalAlignment="Center" Text="{Binding RoomID}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
 
-                            <GridViewColumn Header="UserName">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Padding="0,0,20,0"  Text="{Binding Username}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                    <ListView 
+                        ItemsSource="{Binding Reservations}" 
+                        Visibility="{Binding HasErrorMessage, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
 
-                            <GridViewColumn Header="Start Date">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Padding="0,0,20,0" Text="{Binding StartDate}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="AutomationProperties.AutomationId" Value="{Binding RoomID, StringFormat={}{0}_ReservationListingItem}" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
 
-                            <GridViewColumn Header="End Date">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Padding="0,0,20,0" Text="{Binding EndDate}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Номер комнаты">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Center" Text="{Binding RoomID}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
 
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                                <GridViewColumn Header="Имя пользователя">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Padding="0,0,20,0"  Text="{Binding Username}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Дата начала брони">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Padding="0,0,20,0" Text="{Binding StartDate}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Дата окончания брони">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Padding="0,0,20,0" Text="{Binding EndDate}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
             </Grid>
         </Grid>
 
-        <local:MakeReservationView DataContext="{Binding MakeReservationViewModel}"
+        <!--<local:MakeReservationView DataContext="{Binding MakeReservationViewModel}"
                                    Grid.Row="2" Margin="0,20,0,0">
-        </local:MakeReservationView>
+        </local:MakeReservationView>-->
         
     </Grid>
 </UserControl>
