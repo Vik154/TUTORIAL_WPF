@@ -1,19 +1,14 @@
-﻿using HotelReservation.Models;
-using HotelReservation.Stores;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HotelReservation.Stores;
 
 namespace HotelReservation.ViewModels;
 
+/// <summary> Основная модель - представления </summary>
 public class MainViewModel : BaseViewModel {
 
     /// <summary> Навигация по моделям </summary>
     private readonly NavigationStore _navigationStore;
 
-    /// <summary> Базовая модель - представления для хранения наследники </summary>
+    /// <summary> Базовая модель - представления для хранения наследников, для навигации </summary>
     public BaseViewModel? CurrentViewModel => _navigationStore.CurrentViewModel;
 
     public MainViewModel(NavigationStore navigationStore) {
