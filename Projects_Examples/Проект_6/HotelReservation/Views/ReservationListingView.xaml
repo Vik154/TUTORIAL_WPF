@@ -76,7 +76,7 @@
 
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Номер комнаты">
+                                <GridViewColumn Header="Бронь">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock HorizontalAlignment="Center" Text="{Binding RoomID}"/>
