@@ -1,7 +1,7 @@
 ﻿namespace Trading.Domain.Models;
 
 /// <summary> Класс представляющий сделки с активами </summary>
-public class AssertTransaction {
+public class AssetTransaction {
 
     /// <summary> Идентификатор транзакции </summary>
     public int Id { get; set; }

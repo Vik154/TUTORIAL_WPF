@@ -11,5 +11,5 @@ public class Account {
     public double Balance { get; set; }
 
     /// <summary> Операции с активами </summary>
-    public IEnumerable<AssertTransaction> AssertTransactions { get; set; }
+    public IEnumerable<AssetTransaction> AssetTransactions { get; set; }
 }
