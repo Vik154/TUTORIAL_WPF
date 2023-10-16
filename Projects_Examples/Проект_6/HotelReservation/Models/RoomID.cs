@@ -43,7 +43,7 @@ public class RoomID {
     /// </summary>
     /// <returns>Номер этажа и номер комнаты</returns>
     public override string ToString() {
-        return $"{FloorNumber}{RoomNumber}";
+        return $"Эт: {FloorNumber}; Кв: {RoomNumber}";
     }
 
     /// <summary>
