@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Metrics;
-using System;
 using Trading.Domain.Models;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Trading.EntityFramework;
 
 /// <summary> Класс представляющий трейдера </summary>
 public class SimpleTraderDbContext : DbContext {
+
+    public SimpleTraderDbContext(DbContextOptions options) : base(options) { }
 
     /// <summary> Таблица пользователей </summary>
     public DbSet<User> Users { get; set; }
@@ -23,8 +22,4 @@ public class SimpleTraderDbContext : DbContext {
         base.OnModelCreating(modelBuilder);
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=TradingDB;Trusted_Connection=True;");
-        base.OnConfiguring(optionsBuilder);
-    }
 }

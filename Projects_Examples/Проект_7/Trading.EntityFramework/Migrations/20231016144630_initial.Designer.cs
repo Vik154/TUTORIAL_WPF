@@ -12,8 +12,8 @@ using Trading.EntityFramework;
 namespace Trading.EntityFramework.Migrations
 {
     [DbContext(typeof(SimpleTraderDbContext))]
-    [Migration("20231016143147_add-dates")]
-    partial class adddates
+    [Migration("20231016144630_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
