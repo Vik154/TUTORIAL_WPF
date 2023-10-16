@@ -81,7 +81,9 @@
    * *[Проект №5](Projects_Examples/Проект_5/) - Работа с EF в контексте WPF и MVVM https://www.youtube.com/@RuslanShishmarev* --> <br>
      _Работа с БД в контексте WPF (😷)_
    * *[Проект №6](Projects_Examples/Проект_6/) - По серии уроков "WPF MVVM Tutorial" https://www.youtube.com/@SingletonSean/playlists* --> <br>
-     _Бронирование номеров отеля WPF / MVVM_
+     _Бронирование номеров отеля EF / WPF / MVVM_
+   * *[Проект №7](Projects_Examples/Проект_7/) - По серии уроков "Full Stack WPF MVVM" https://www.youtube.com/@SingletonSean/playlists* --> <br>
+     _Приложение по торговле акциями в контексте WPF / MVVM / EF_
    
 </details>
 
