@@ -13,7 +13,7 @@ public partial class App : Application {
 
     protected override void OnStartup(StartupEventArgs e) {
 
-        new MajorIndexService().GetMajorIndex(MajorIndexType.DowJones).ContinueWith(task => {
+        new MajorIndexService().GetMajorIndex(MajorIndexType.RTS).ContinueWith(task => {
             var index = task.Result;
         });
 

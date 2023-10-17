@@ -1,7 +1,8 @@
 ﻿namespace Trading.Domain.Models;
 
 /// <summary> Перечисление основных индексов </summary>
-public enum MajorIndexType { DowJones, Nasdaq, SP500 }
+public enum MajorIndexType { RTS, MOEX }
+// public enum MajorIndexType { DowJones, Nasdaq, SP500 }
 
 /// <summary> Класс представляющий данные об индексе </summary>
 public class MajorIndex {
