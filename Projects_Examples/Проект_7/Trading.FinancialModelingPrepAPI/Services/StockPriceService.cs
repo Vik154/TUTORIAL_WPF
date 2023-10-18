@@ -1,40 +1,37 @@
 ﻿using Newtonsoft.Json.Linq;
-using Trading.Domain.Models;
 using Trading.Domain.Services;
+using Trading.FinancialModelingPrepAPI.Results;
 
 namespace Trading.FinancialModelingPrepAPI.Services;
 
 public class StockPriceService : IStockPriceService {
+
     public async Task<double> GetPrice(string symbol) {
 
         using (HttpClient client = new HttpClient()) {
-            HttpResponseMessage response = await client.GetAsync(GetUriSuffix(indexType));
 
-            string jsonResponse = await response.Content.ReadAsStringAsync();
-
-            JObject jObject = JObject.Parse(jsonResponse);
-
-            string indexName;
-            double indexPrice;
+            double StockPrice = 0d;
 
             try {
-                indexName = (string)jObject.SelectToken("history.data[0][1]");
-                indexPrice = (double)jObject.SelectToken("history.data[0][6]");
+                string uri = $"https://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities/{symbol}.json?iss.meta=off";
+
+                HttpResponseMessage response = await client.GetAsync(uri);
+
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                JObject jObject = JObject.Parse(jsonResponse);
+
+                StockPrice = (double)jObject.SelectToken("securities.data[0][15]");
             }
             catch (Exception ex) {
                 throw new Exception($"JSON - {ex.Message}");
             }
 
-            MajorIndex majorIndex = new MajorIndex {
-                Type = indexType,
-                IndexName = indexName ?? "ERORR_PARSE",
-                Price = indexPrice,
-                Changes = new Random().Next(-5, 5) + 0.2
+            StockPriceResult stockPriceResult = new StockPriceResult {
+                Price = StockPrice
             };
 
-
-            return majorIndex;
+            return stockPriceResult.Price;
         }
     }
-
 }
