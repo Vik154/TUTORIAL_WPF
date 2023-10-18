@@ -7,13 +7,14 @@ namespace Trading.FinancialModelingPrepAPI.Services;
 
 /// <summary> Класс по работе с api для получения биржевых данных </summary>
 public class MajorIndexService : IMajorIndexService {
-    public async Task<object> GetMajorIndex(MajorIndexType indexType) {
+    public async Task<MajorIndex> GetMajorIndex(MajorIndexType indexType) {
         
         using (HttpClient client = new HttpClient()) {
             HttpResponseMessage response =
-                await client.GetAsync(@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/RTSI/securities/RTSSM.json?from=2023-10-16&iss.meta=off");
+                //await client.GetAsync(@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/RTSI/securities/RTSSM.json?from=2023-10-16&iss.meta=off");
                 // await client.GetAsync("https://financialmodelingprep.com/api/v3/majors-indexes/.DJI");
                 // await client.GetAsync("https://iss.moex.com/iss/history/engines/stock/markets/index/boards/RTSI/securities/RTSSM.json?from=2023-10-16");
+                await client.GetAsync(GetUriSuffix(indexType));
 
             string jsonResponse = await response.Content.ReadAsStringAsync();
 
@@ -37,15 +38,20 @@ public class MajorIndexService : IMajorIndexService {
                 Changes = new Random().Next(-5, 5) + 0.2
             };
 
-            // MajorIndex majorIndex = JsonConvert.DeserializeObject<MajorIndex>(jsonResponse);
-            // var majorIndex = JsonConvert.DeserializeObject<MajorIndex>(jsonResponse);
 
-            // return majorIndex;
             return majorIndex;
         }    
     }
 
-    Task<MajorIndex> IMajorIndexService.GetMajorIndex(MajorIndexType indexType) {
-        throw new NotImplementedException();
+    private string GetUriSuffix(MajorIndexType indexType) {
+        switch (indexType) {
+            case MajorIndexType.RTS:
+                return @"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/RTSI/securities/RTSSM.json?from=2023-10-16&iss.meta=off";
+            case MajorIndexType.MOEX:
+                return @"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/IMOEX.json?from=2023-10-16&iss.meta=off";
+
+            default:
+                throw new Exception("MajorIndexType does not have a suffix defined.");
+        }
     }
 }

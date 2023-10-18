@@ -13,11 +13,6 @@ public partial class App : Application {
 
     protected override void OnStartup(StartupEventArgs e) {
 
-        new MajorIndexService().GetMajorIndex(MajorIndexType.RTS).ContinueWith(task => {
-            var index = task.Result;
-        });
-
-
         Window window = new MainWindow();
         window.DataContext = new MainViewModel();
         window.Show();

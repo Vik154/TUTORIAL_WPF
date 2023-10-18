@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using Trading.FinancialModelingPrepAPI.Services;
 using Trading.WPF.State.Navigators;
 using Trading.WPF.ViewModels;
 
@@ -21,7 +22,8 @@ public class UpdateCurrentViewModelCommand : ICommand {
 
             switch (viewType) {
                 case ViewType.Home:
-                    _navigator.CurrentViewModel = new HomeViewModel();
+                    _navigator.CurrentViewModel = new HomeViewModel(MajorIndexViewModel
+                        .LoadMajorIndexViewModel(new MajorIndexService()));
                     break;
                 case ViewType.Portfolio:
                     _navigator.CurrentViewModel = new PortfolioViewModel();
