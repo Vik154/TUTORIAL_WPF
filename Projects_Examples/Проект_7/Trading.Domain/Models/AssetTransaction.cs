@@ -10,7 +10,7 @@ public class AssetTransaction : DomainObject {
     public bool IsPurchase { get; set; }
 
     /// <summary> Акция связанная с транзакцией </summary>
-    public Stock? Stock { get; set; }
+    public Asset? Asset { get; set; }
 
     /// <summary> Количество акций </summary>
     public int Shares { get; set; }
