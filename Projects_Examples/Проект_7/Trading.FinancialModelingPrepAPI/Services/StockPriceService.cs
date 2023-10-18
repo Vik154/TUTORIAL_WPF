@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Trading.Domain.Exceptions;
 using Trading.Domain.Services;
 using Trading.FinancialModelingPrepAPI.Results;
 
@@ -24,12 +25,15 @@ public class StockPriceService : IStockPriceService {
                 StockPrice = (double)jObject.SelectToken("securities.data[0][15]");
             }
             catch (Exception ex) {
-                throw new Exception($"JSON - {ex.Message}");
+                // throw new Exception($"JSON - {ex.Message}");
             }
 
             StockPriceResult stockPriceResult = new StockPriceResult {
                 Price = StockPrice
             };
+
+            if (StockPrice == 0d)
+                throw new InvalidSymbolException(symbol);
 
             return stockPriceResult.Price;
         }

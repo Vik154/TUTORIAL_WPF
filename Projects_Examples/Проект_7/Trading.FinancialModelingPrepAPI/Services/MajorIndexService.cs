@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Trading.Domain.Models;
 using Trading.Domain.Services;
 
@@ -37,7 +36,6 @@ public class MajorIndexService : IMajorIndexService {
                 Price = indexPrice,
                 Changes = new Random().Next(-5, 5) + 0.2
             };
-
 
             return majorIndex;
         }    
