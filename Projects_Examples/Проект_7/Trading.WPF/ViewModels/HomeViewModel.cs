@@ -8,9 +8,9 @@ namespace Trading.WPF.ViewModels;
 
 public class HomeViewModel : BaseViewModel {
 
-    public MajorIndexViewModel MajorIndexViewModel { get; set; }
+    public MajorIndexListingViewModel MajorIndexListingViewModel { get; set; }
 
-    public HomeViewModel(MajorIndexViewModel majorIndexViewModel) {
-        MajorIndexViewModel = majorIndexViewModel;
+    public HomeViewModel(MajorIndexListingViewModel majorIndexViewModel) {
+        MajorIndexListingViewModel = majorIndexViewModel;
     }
 }

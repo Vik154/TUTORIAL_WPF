@@ -24,7 +24,7 @@ public class MajorIndexService : IMajorIndexService {
             double indexPrice;
 
             try {
-                indexName = (string)jObject.SelectToken("history.data[0][0]");
+                indexName = (string)jObject.SelectToken("history.data[0][1]");
                 indexPrice = (double)jObject.SelectToken("history.data[0][6]");
             }
             catch (Exception ex) {

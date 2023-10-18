@@ -9,14 +9,29 @@ using Trading.Domain.Services;
 namespace Trading.WPF.ViewModels;
 
 /// <summary> Модель - представление биржевых индексов </summary>
-public class MajorIndexViewModel {
+public class MajorIndexListingViewModel : BaseViewModel {
 
     private readonly IMajorIndexService _majorIndexService;
 
-    public MajorIndex RTS {  get; set; }
-    public MajorIndex MOEX { get; set;}
+    private MajorIndex _RTS;
+    public MajorIndex RTS {
+        get => _RTS;
+        set {
+            _RTS = value;
+            OnPropertyChanged(nameof(RTS));
+        }
+    }
 
-    public MajorIndexViewModel(IMajorIndexService majorIndexService) {
+    public MajorIndex _MOEX;
+    public MajorIndex MOEX {
+        get => _MOEX; 
+        set {
+            _MOEX = value;
+            OnPropertyChanged(nameof(MOEX));
+        }
+    }
+
+    public MajorIndexListingViewModel(IMajorIndexService majorIndexService) {
         _majorIndexService = majorIndexService;
     }
 
@@ -29,8 +44,8 @@ public class MajorIndexViewModel {
         });
     }
 
-    public static MajorIndexViewModel LoadMajorIndexViewModel(IMajorIndexService majorIndexService) {
-        MajorIndexViewModel majorIndexViewModel = new MajorIndexViewModel(majorIndexService);
+    public static MajorIndexListingViewModel LoadMajorIndexViewModel(IMajorIndexService majorIndexService) {
+        MajorIndexListingViewModel majorIndexViewModel = new MajorIndexListingViewModel(majorIndexService);
         majorIndexViewModel.LoadMajorIndexes();
         return majorIndexViewModel;
     }

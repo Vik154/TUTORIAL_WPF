@@ -22,7 +22,7 @@ public class UpdateCurrentViewModelCommand : ICommand {
 
             switch (viewType) {
                 case ViewType.Home:
-                    _navigator.CurrentViewModel = new HomeViewModel(MajorIndexViewModel
+                    _navigator.CurrentViewModel = new HomeViewModel(MajorIndexListingViewModel
                         .LoadMajorIndexViewModel(new MajorIndexService()));
                     break;
                 case ViewType.Portfolio:
