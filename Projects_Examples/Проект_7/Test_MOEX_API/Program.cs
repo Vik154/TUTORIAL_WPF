@@ -17,34 +17,43 @@ internal class Program {
     public static async Task<object> GetDataFromMoex() {
 
         using (HttpClient client = new HttpClient()) {
-            HttpResponseMessage response =
-                await client.GetAsync(@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/RTSI/securities/RTSSM.json?from=2023-10-16&iss.meta=off");
+            //HttpResponseMessage response =
+            //    await client.GetAsync(@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/RTSI/securities/RTSSM.json?from=2023-10-16&iss.meta=off");
 
-            string jsonResponse = await response.Content.ReadAsStringAsync();
-
-
-            JObject jObject = JObject.Parse(jsonResponse);
-            var columns = jObject["history"]["data"][1][1];
-            var data = jObject["history"]["data"][0][0];
-
-            string name = (string)jObject.SelectToken("history.data[0][0]");
-
-            var style = jObject.GetValue("history");
+            //string jsonResponse = await response.Content.ReadAsStringAsync();
 
 
-            HttpResponseMessage httpResponseMoex =
-                await client.GetAsync(@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/IMOEX.json?from=2023-10-16&iss.meta=off");
+            //JObject jObject = JObject.Parse(jsonResponse);
+            //var columns = jObject["history"]["data"][1][1];
+            //var data = jObject["history"]["data"][0][0];
 
+            //string name = (string)jObject.SelectToken("history.data[0][0]");
+
+            //var style = jObject.GetValue("history");
+
+
+            //HttpResponseMessage httpResponseMoex =
+            //    await client.GetAsync(@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/IMOEX.json?from=2023-10-16&iss.meta=off");
+
+            //string jsonResponseMoex = await httpResponseMoex.Content.ReadAsStringAsync();
+
+            //Console.WriteLine(jsonResponseMoex);
+
+            //JObject imoex_json = JObject.Parse(jsonResponseMoex);
+
+            //string name2 = (string)jObject.SelectToken("history.data[0][0]");
+
+            /*-----------------------------------------------------------------*/
+            HttpResponseMessage httpResponseMoex = await client.GetAsync(@"https://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities/SBER.json?iss.meta=off");
             string jsonResponseMoex = await httpResponseMoex.Content.ReadAsStringAsync();
-
+            
+            JObject jObject = JObject.Parse(jsonResponseMoex);
             Console.WriteLine(jsonResponseMoex);
 
-            JObject imoex_json = JObject.Parse(jsonResponseMoex);
+            string name2 = (string)jObject.SelectToken("securities.data[0][15]");
 
-            string name2 = (string)jObject.SelectToken("history.data[0][0]");
-
-
-            return Tuple.Create(name, style, data);
+            // return Tuple.Create(name, style, data);
+            return Tuple.Create("1", "2", "3");
 
             //RTS? rts = JsonConvert.DeserializeObject<RTS>(jsonResponse);
             //// var majorIndex = JsonConvert.DeserializeObject(jsonResponse);
@@ -92,4 +101,36 @@ public class RTS {
                 ["SNDX", "IMOEX", "2023-10-17", "Индекс МосБиржи", "Индекс МосБиржи", 3247.15, 3239.37, 3252.55, 3228.11, 72231692204.35, 0, 0, 2, 5669395635284.174, "RUB", 1745961295.972100, "3", null]
         ]
 }}
+ */
+
+
+/*
+ 
+ Result:
+{
+"securities": {
+        "columns": ["SECID", "BOARDID", "SHORTNAME", "PREVPRICE", "LOTSIZE", "FACEVALUE", "STATUS", "BOARDNAME", "DECIMALS", "SECNAME", "REMARKS", "MARKETCODE", "INSTRID", "SECTORID", "MINSTEP", "PREVWAPRICE", "FACEUNIT", "PREVDATE", "ISSUESIZE", "ISIN", "LATNAME", "REGNUMBER", "PREVLEGALCLOSEPRICE", "CURRENCYID", "SECTYPE", "LISTLEVEL", "SETTLEDATE"],
+        "data": [
+                ["SBER", "TQBR", "Сбербанк", 270, 10, 3, "A", "Т+: Акции и ДР - безадрес.", 2, "Сбербанк России ПАО ао", null, "FNDT", "EQIN", null, 0.01, 269.96, "SUR", "2023-10-17", 21586948000, "RU0009029540", "Sberbank", "10301481B", 270.46, "SUR", "1", 1, "2023-10-19"]
+        ]
+},
+"marketdata": {
+        "columns": ["SECID", "BOARDID", "BID", "BIDDEPTH", "OFFER", "OFFERDEPTH", "SPREAD", "BIDDEPTHT", "OFFERDEPTHT", "OPEN", "LOW", "HIGH", "LAST", "LASTCHANGE", "LASTCHANGEPRCNT", "QTY", "VALUE", "VALUE_USD", "WAPRICE", "LASTCNGTOLASTWAPRICE", "WAPTOPREVWAPRICEPRCNT", "WAPTOPREVWAPRICE", "CLOSEPRICE", "MARKETPRICETODAY", "MARKETPRICE", "LASTTOPREVPRICE", "NUMTRADES", "VOLTODAY", "VALTODAY", "VALTODAY_USD", "ETFSETTLEPRICE", "TRADINGSTATUS", "UPDATETIME", "LASTBID", "LASTOFFER", "LCLOSEPRICE", "LCURRENTPRICE", "MARKETPRICE2", "NUMBIDS", "NUMOFFERS", "CHANGE", "TIME", "HIGHBID", "LOWOFFER", "PRICEMINUSPREVWAPRICE", "OPENPERIODPRICE", "SEQNUM", "SYSTIME", "CLOSINGAUCTIONPRICE", "CLOSINGAUCTIONVOLUME", "ISSUECAPITALIZATION", "ISSUECAPITALIZATION_UPDATETIME", "ETFSETTLECURRENCY", "VALTODAY_RUR", "TRADINGSESSION"],
+        "data": [
+                ["SBER", "TQBR", 266.79, null, 266.8, null, 0.01, 517050, 903799, 270, 266.11, 271.19, 266.79, -0.01, 0, 50, 133395.00, 1370.32, 268.98, -3.17, -0.36, -0.98, null, null, 269.93, -1.19, 70659, 28693620, 7717500748, 79279237, null, "T", "16:10:42", null, null, null, 267, null, null, null, -3.21, "16:10:42", null, null, -3.17, 270, 20231018162543, "2023-10-18 16:25:43", null, null, 5771702286760, "16:24:58", null, 7717500748, "1"]
+        ]
+},
+"dataversion": {
+        "columns": ["data_version", "seqnum"],
+        "data": [
+                [7925, 20231018162540]
+        ]
+},
+"marketdata_yields": {
+        "columns": ["boardid", "secid"],
+        "data": [
+
+        ]
+}}
+ 
  */
