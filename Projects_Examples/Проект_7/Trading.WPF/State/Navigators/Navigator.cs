@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Trading.WPF.Commands;
 using Trading.WPF.Models;
 using Trading.WPF.ViewModels;
+using Trading.WPF.ViewModels.Factories;
 
 namespace Trading.WPF.State.Navigators;
 
@@ -19,6 +20,11 @@ public class Navigator : ObservableObject, INavigator {
         }
     }
 
-    public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
+    public ICommand UpdateCurrentViewModelCommand {  get; set; }
+
+    public Navigator(ISimpleTraderViewModelAbstractFactory viewModelAbstractFactory)
+    {
+        UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this, viewModelAbstractFactory);
+    }
 
 }
