@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Trading.Domain.Models;
 using Trading.Domain.Services;
+using Trading.EntityFramework.Services.Common;
 
 namespace Trading.EntityFramework.Services;
 
@@ -13,33 +14,37 @@ public class GenericDataService<T> : IDataService<T> where T : DomainObject {
 
     /// <summary>Контекст данных</summary>
     private readonly SimpleTraderDbContextFactory _contextFactory;
+    private readonly NonQueryDataService<T> _nonQueryDataService;
 
     public GenericDataService(SimpleTraderDbContextFactory contextFactory) {
         _contextFactory = contextFactory;
+        _nonQueryDataService = new NonQueryDataService<T>(contextFactory);
     }
 
     public async Task<T> Create(T entity) {
-        using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
+        return await _nonQueryDataService.Create(entity);
+        //using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
             
-            EntityEntry<T> createdEntity = await db.Set<T>().AddAsync(entity);
-            await db.SaveChangesAsync();
+        //    EntityEntry<T> createdEntity = await db.Set<T>().AddAsync(entity);
+        //    await db.SaveChangesAsync();
 
-            return createdEntity.Entity;
-        }
+        //    return createdEntity.Entity;
+        //}
     }
 
     public async Task<bool> Delete(int id) {
-        using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
+        return await _nonQueryDataService.Delete(id);
+        //using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
             
-            T? findEntity = await db.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
+        //    T? findEntity = await db.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
             
-            if (findEntity != null)
-                db.Set<T>().Remove(findEntity);
+        //    if (findEntity != null)
+        //        db.Set<T>().Remove(findEntity);
             
-            await db.SaveChangesAsync();
+        //    await db.SaveChangesAsync();
 
-            return true;
-        }
+        //    return true;
+        //}
     }
 
     public async Task<T> Get(int id) {
@@ -57,13 +62,14 @@ public class GenericDataService<T> : IDataService<T> where T : DomainObject {
     }
 
     public async Task<T> Update(int id, T entity) {
-        using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
+        return await _nonQueryDataService.Update(id, entity);
+        //using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
 
-            entity.Id = id;
-            db.Set<T>().Update(entity);
-            await db.SaveChangesAsync();
+        //    entity.Id = id;
+        //    db.Set<T>().Update(entity);
+        //    await db.SaveChangesAsync();
 
-            return entity;
-        }
+        //    return entity;
+        //}
     }
 }
