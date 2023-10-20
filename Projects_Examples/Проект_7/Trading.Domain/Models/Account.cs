@@ -9,5 +9,5 @@ public class Account : DomainObject {
     public double Balance { get; set; }
 
     /// <summary> Операции с активами </summary>
-    public IEnumerable<AssetTransaction> AssetTransactions { get; set; }
+    public ICollection<AssetTransaction> AssetTransactions { get; set; }
 }
