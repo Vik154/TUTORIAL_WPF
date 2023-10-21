@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Trading.WPF.Models;
+﻿using System.ComponentModel;
 
 namespace Trading.WPF.ViewModels;
 
-public class BaseViewModel : ObservableObject
-{
+/// <summary> Вместо фабрик </summary>
+public delegate TViewModel CreateViewModel<TViewModel>() where TViewModel : BaseViewModel;
+
+public class BaseViewModel : INotifyPropertyChanged {
+    public virtual void Dispose() { }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected void OnPropertyChanged(string propertyName) {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 }
