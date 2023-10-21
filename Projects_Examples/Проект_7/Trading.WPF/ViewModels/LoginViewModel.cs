@@ -38,7 +38,7 @@ public class LoginViewModel : BaseViewModel {
 
     public LoginViewModel(IAuthenticator authenticator) {
 
-       // LoginCommand = new LoginCommand(this, authenticator);
+       LoginCommand = new LoginCommand(this, authenticator);
     }
 
 }

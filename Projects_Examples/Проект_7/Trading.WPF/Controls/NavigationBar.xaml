@@ -44,7 +44,7 @@
             <RadioButton 
                 Grid.Column="0" 
                 Content="Home"
-                IsChecked="{Binding CurrentViewModel, Mode=OneWay,
+                IsChecked="{Binding Navigator.CurrentViewModel, Mode=OneWay,
                                     Converter={StaticResource EqualValueToParameterConverter},
                                     ConverterParameter={x:Type vm:HomeViewModel}}"
                 Command="{Binding UpdateCurrentViewModelCommand}"
@@ -52,7 +52,7 @@
             <RadioButton 
                 Grid.Column="1"
                 Content="Portfolio"
-                IsChecked="{Binding CurrentViewModel, Mode=OneWay,
+                IsChecked="{Binding Navigator.CurrentViewModel, Mode=OneWay,
                                     Converter={StaticResource EqualValueToParameterConverter},
                                     ConverterParameter={x:Type vm:PortfolioViewModel}}"
                 Command="{Binding UpdateCurrentViewModelCommand}"
@@ -60,7 +60,7 @@
             <RadioButton 
                 Grid.Column="2"
                 Content="Buy"
-                IsChecked="{Binding CurrentViewModel, Mode=OneWay,
+                IsChecked="{Binding Navigator.CurrentViewModel, Mode=OneWay,
                                     Converter={StaticResource EqualValueToParameterConverter},
                                     ConverterParameter={x:Type vm:BuyViewModel}}"
                 Command="{Binding UpdateCurrentViewModelCommand}"

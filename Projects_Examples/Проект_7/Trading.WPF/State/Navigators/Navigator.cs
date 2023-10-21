@@ -15,16 +15,20 @@ public class Navigator : ObservableObject, INavigator {
     public BaseViewModel CurrentViewModel {
         get => _currentViewModel;
         set {
+            _currentViewModel?.Dispose();
+
             _currentViewModel = value;
-            OnPropertyChanged(nameof(CurrentViewModel));
+            StateChanged?.Invoke();
         }
     }
 
-    public ICommand UpdateCurrentViewModelCommand {  get; set; }
+    public event Action StateChanged;
 
-    public Navigator(IRootSimpleTraderViewModelFactory viewModelAbstractFactory)
-    {
-        UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this, viewModelAbstractFactory);
-    }
+    // public ICommand UpdateCurrentViewModelCommand {  get; set; }
+
+    //public Navigator(IRootSimpleTraderViewModelFactory viewModelAbstractFactory)
+    //{
+    //    UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this, viewModelAbstractFactory);
+    //}
 
 }

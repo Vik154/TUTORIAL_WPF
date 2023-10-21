@@ -1,5 +1,4 @@
-﻿using System.Windows.Input;
-using Trading.WPF.ViewModels;
+﻿using Trading.WPF.ViewModels;
 
 namespace Trading.WPF.State.Navigators;
 
@@ -10,8 +9,10 @@ public interface INavigator {
     BaseViewModel CurrentViewModel { get; set; }
 
     /// <summary> Указатель на базовый интерфейс навигационной команды </summary>
-    ICommand UpdateCurrentViewModelCommand { get; }
+    // ICommand UpdateCurrentViewModelCommand { get; }
+    
+    event Action StateChanged;
 }
 
 /// <summary> Перечисление представлений </summary>
-public enum ViewType { Login, Home, Portfolio, Buy }
+public enum ViewType { Login, Home, Portfolio, Buy, Sell }
