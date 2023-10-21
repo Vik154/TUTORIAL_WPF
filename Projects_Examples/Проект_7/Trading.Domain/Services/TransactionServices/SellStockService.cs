@@ -1,4 +1,5 @@
-﻿using Trading.Domain.Models;
+﻿using Trading.Domain.Exceptions;
+using Trading.Domain.Models;
 
 namespace Trading.Domain.Services.TransactionServices;
 
