@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using Trading.Domain.Exceptions;
 using Trading.WPF.State.Authenticators;
+using Trading.WPF.State.Navigators;
 using Trading.WPF.ViewModels;
 
 namespace Trading.WPF.Commands;

@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using Trading.WPF.Commands;
 using Trading.WPF.State.Authenticators;
+using Trading.WPF.State.Navigators;
 
 namespace Trading.WPF.ViewModels;
 
@@ -32,13 +33,25 @@ public class LoginViewModel : BaseViewModel {
 
     public bool CanLogin => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password);
 
+    public MessageViewModel ErrorMessageViewModel { get; }
 
- 
-    public ICommand LoginCommand { get; }
-
-    public LoginViewModel(IAuthenticator authenticator) {
-
-       LoginCommand = new LoginCommand(this, authenticator);
+    public string ErrorMessage {
+        set => ErrorMessageViewModel.Message = value;
     }
 
+    public ICommand LoginCommand { get; }
+    public ICommand ViewRegisterCommand { get; }
+
+    public LoginViewModel(IAuthenticator authenticator, IRenavigator loginRenavigator, IRenavigator registerRenavigator) {
+        ErrorMessageViewModel = new MessageViewModel();
+
+        LoginCommand = new LoginCommand(this, authenticator, loginRenavigator);
+        ViewRegisterCommand = new RenavigateCommand(registerRenavigator);
+    }
+
+    public override void Dispose() {
+        ErrorMessageViewModel.Dispose();
+
+        base.Dispose();
+    }
 }
