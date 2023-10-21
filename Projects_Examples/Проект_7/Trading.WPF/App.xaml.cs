@@ -1,9 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
 using System.Data;
 using System.Windows;
 using Trading.Domain.Models;
 using Trading.Domain.Services;
+using Trading.Domain.Services.AuthenticationServices;
 using Trading.Domain.Services.TransactionServices;
 using Trading.EntityFramework;
 using Trading.EntityFramework.Services;
@@ -20,7 +22,10 @@ public partial class App : Application {
     protected override async void OnStartup(StartupEventArgs e) {
 
         IServiceProvider serviceProvider = CreateServiceProvider();
-        IBuyStockService buyStockService = serviceProvider.GetRequiredService<IBuyStockService>();
+        IAuthenticationService authentication = serviceProvider.GetRequiredService<IAuthenticationService>();
+        authentication.Login("Singleton", "test123");
+        
+        //IBuyStockService buyStockService = serviceProvider.GetRequiredService<IBuyStockService>();
 
         //IDataService<Account> dataService = new AccountDataService(
         //    new EntityFramework.SimpleTraderDbContextFactory());
@@ -49,9 +54,13 @@ public partial class App : Application {
 
         services.AddSingleton<SimpleTraderDbContextFactory>();
         services.AddSingleton<IDataService<Account>, AccountDataService>();
+        services.AddSingleton<IAccountService, AccountDataService>();
+        services.AddSingleton<IAuthenticationService, AuthenticationService>();
         services.AddSingleton<IStockPriceService, StockPriceService>();
         services.AddSingleton<IBuyStockService, BuyStockService>();
         services.AddSingleton<IMajorIndexService, MajorIndexService>();
+
+        services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
         services.AddSingleton<IRootSimpleTraderViewModelFactory, RootSimpleTraderViewModelFactory>();
         services.AddSingleton<ISimpleTraderViewModelFactory<HomeViewModel>, HomeViewModelFactory>();

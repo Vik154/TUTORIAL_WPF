@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trading.EntityFramework;
 
@@ -11,9 +12,11 @@ using Trading.EntityFramework;
 namespace Trading.EntityFramework.Migrations
 {
     [DbContext(typeof(SimpleTraderDbContext))]
-    partial class SimpleTraderDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231021125707_password_hash")]
+    partial class password_hash
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

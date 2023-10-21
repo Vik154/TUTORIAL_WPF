@@ -7,7 +7,7 @@ namespace Trading.EntityFramework.Services;
 
 
 /// <summary> Поиск учетных записей </summary>
-public class AccountDataService : IDataService<Account> {
+public class AccountDataService : IAccountService {
 
     private readonly SimpleTraderDbContextFactory _contextFactory;
     private readonly NonQueryDataService<Account> _nonQueryDataService;
@@ -32,6 +32,7 @@ public class AccountDataService : IDataService<Account> {
     public async Task<Account> Get(int id) {
         using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
             Account findEntity = await db.Accounts
+                .Include(a => a.AccountHolder)
                 .Include(a => a.AssetTransactions)
                 .FirstOrDefaultAsync((e) => e.Id == id);
             return findEntity;
@@ -40,8 +41,31 @@ public class AccountDataService : IDataService<Account> {
 
     public async Task<IEnumerable<Account>> GetAll() {
         using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
-            IEnumerable<Account> entities = await db.Accounts.Include(a => a.AssetTransactions).ToListAsync();
+            IEnumerable<Account> entities = await db.Accounts
+                .Include(a => a.AccountHolder)
+                .Include(a => a.AssetTransactions)
+                .ToListAsync();
             return entities;
+        }
+    }
+
+    public async Task<Account> GetByUsername(string username) {
+        using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
+
+            return await db.Accounts
+                .Include(a => a.AccountHolder)
+                .Include(a => a.AssetTransactions)
+                .FirstOrDefaultAsync(a => a.AccountHolder.Username == username);
+        }
+    }
+
+    public async Task<Account> GetByEmail(string email) {
+        using (SimpleTraderDbContext db = _contextFactory.CreateDbContext()) {
+
+            return await db.Accounts
+                .Include (a => a.AccountHolder)
+                .Include(a => a.AssetTransactions)
+                .FirstOrDefaultAsync(a => a.AccountHolder.Email == email);
         }
     }
 }

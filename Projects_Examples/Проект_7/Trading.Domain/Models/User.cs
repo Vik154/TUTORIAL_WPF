@@ -10,7 +10,7 @@ public class User : DomainObject {
     public string? Username {  get; set; }
 
     /// <summary> Пароль </summary>
-    public string? Password { get; set; }
+    public string? PasswordHash { get; set; }
 
     /// <summary> Дата подключения </summary>
     public DateTime DateJoined { get; set; }
