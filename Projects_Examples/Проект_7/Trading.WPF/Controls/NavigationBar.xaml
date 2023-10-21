@@ -44,7 +44,7 @@
             <RadioButton 
                 Grid.Column="0" 
                 Content="Home"
-                IsChecked="{Binding Navigator.CurrentViewModel, Mode=OneWay,
+                IsChecked="{Binding CurrentViewModel, Mode=OneWay,
                                     Converter={StaticResource EqualValueToParameterConverter},
                                     ConverterParameter={x:Type vm:HomeViewModel}}"
                 Command="{Binding UpdateCurrentViewModelCommand}"
@@ -52,7 +52,7 @@
             <RadioButton 
                 Grid.Column="1"
                 Content="Portfolio"
-                IsChecked="{Binding Navigator.CurrentViewModel, Mode=OneWay,
+                IsChecked="{Binding CurrentViewModel, Mode=OneWay,
                                     Converter={StaticResource EqualValueToParameterConverter},
                                     ConverterParameter={x:Type vm:PortfolioViewModel}}"
                 Command="{Binding UpdateCurrentViewModelCommand}"
@@ -60,12 +60,21 @@
             <RadioButton 
                 Grid.Column="2"
                 Content="Buy"
-                IsChecked="{Binding Navigator.CurrentViewModel, Mode=OneWay,
+                IsChecked="{Binding CurrentViewModel, Mode=OneWay,
                                     Converter={StaticResource EqualValueToParameterConverter},
                                     ConverterParameter={x:Type vm:BuyViewModel}}"
                 Command="{Binding UpdateCurrentViewModelCommand}"
                 CommandParameter="{x:Static nav:ViewType.Buy}"/>
-            <RadioButton Grid.Column="3" Content="Sell"/>
+            
+            <RadioButton Grid.Column="3"
+                    Command="{Binding UpdateCurrentViewModelCommand}"
+                    CommandParameter="{x:Static nav:ViewType.Sell}"
+                    Content="Sell"
+                    IsChecked="{Binding CurrentViewModel, 
+                                Mode=OneWay, 
+                                Converter={StaticResource EqualValueToParameterConverter}, 
+                                ConverterParameter={x:Type vm:SellViewModel}}" />
+
 
         </Grid>
 
