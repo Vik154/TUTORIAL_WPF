@@ -1,7 +1,5 @@
 ﻿using System.Windows.Input;
-using Trading.FinancialModelingPrepAPI.Services;
 using Trading.WPF.State.Navigators;
-using Trading.WPF.ViewModels;
 using Trading.WPF.ViewModels.Factories;
 
 namespace Trading.WPF.Commands;
