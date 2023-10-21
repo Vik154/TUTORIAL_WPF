@@ -13,7 +13,7 @@
     </UserControl.Resources>
     <UserControl.Background>
         <ImageBrush
-            ImageSource="/Resources/login-background.jpg"
+            ImageSource="/Resources/backgr.jpg"
             Opacity="0.5"
             Stretch="UniformToFill" />
     </UserControl.Background>

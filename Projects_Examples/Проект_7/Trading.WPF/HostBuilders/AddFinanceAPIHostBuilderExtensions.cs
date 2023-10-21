@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Trading.FinancialModelingPrepAPI;
+using Trading.FinancialModelingPrepAPI.Models;
 
 
 namespace Trading.WPF.HostBuilders;

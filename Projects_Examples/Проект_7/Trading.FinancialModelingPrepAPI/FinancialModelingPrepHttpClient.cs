@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Trading.FinancialModelingPrepAPI.Models;
 using Trading.FinancialModelingPrepAPI.Results;
 
 namespace Trading.FinancialModelingPrepAPI;
@@ -6,8 +7,11 @@ namespace Trading.FinancialModelingPrepAPI;
 public class FinancialModelingPrepHttpClient {
     
     private readonly HttpClient _client;
-    public FinancialModelingPrepHttpClient(HttpClient client) => _client = client;
-
+    private readonly string _apiKey;
+    public FinancialModelingPrepHttpClient(HttpClient client, FinancialModelingPrepAPIKey key) {
+        _client = client;
+        _apiKey = key.Key;
+    }
 
     public async Task<StockPriceResult> GetStockAsync(string symbol) {
 
