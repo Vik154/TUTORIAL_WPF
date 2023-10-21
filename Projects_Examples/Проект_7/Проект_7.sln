@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trading.WPF", "Trading.WPF\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trading.FinancialModelingPrepAPI", "Trading.FinancialModelingPrepAPI\Trading.FinancialModelingPrepAPI.csproj", "{8C06D017-2168-4882-943F-646DFCAE8D36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_MOEX_API", "Test_MOEX_API\Test_MOEX_API.csproj", "{F5E6E11E-BA87-424E-A232-CA2896E58B1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_MOEX_API", "Test_MOEX_API\Test_MOEX_API.csproj", "{F5E6E11E-BA87-424E-A232-CA2896E58B1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trading.Domain.Tests", "Trading.Domain.Tests\Trading.Domain.Tests.csproj", "{53634FA3-8706-4463-8813-F66DB98C10A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F5E6E11E-BA87-424E-A232-CA2896E58B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5E6E11E-BA87-424E-A232-CA2896E58B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5E6E11E-BA87-424E-A232-CA2896E58B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53634FA3-8706-4463-8813-F66DB98C10A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53634FA3-8706-4463-8813-F66DB98C10A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53634FA3-8706-4463-8813-F66DB98C10A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53634FA3-8706-4463-8813-F66DB98C10A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -22,6 +22,10 @@ public class AuthenticationService : IAuthenticationService {
     public async Task<Account> Login(string username, string password) {
         Account storedAccount = await _accountService.GetByUsername(username);
 
+        if (storedAccount == null) {
+            throw new UserNotFoundException(username);
+        }
+
         PasswordVerificationResult passwordResult = _passwordHasher
             .VerifyHashedPassword(storedAccount.AccountHolder.PasswordHash, password);
 
@@ -35,7 +39,7 @@ public class AuthenticationService : IAuthenticationService {
 
         RegistrationResult result = RegistrationResult.Success;
 
-        if (password == confirmPassword) {
+        if (password != confirmPassword) {
             result = RegistrationResult.PasswordsDoNotMatch;
         }
 
@@ -69,9 +73,5 @@ public class AuthenticationService : IAuthenticationService {
         }
 
         return result;
-    }
-
-    Task<RegistrationResult> IAuthenticationService.Register(string email, string username, string password, string confirmPassword) {
-        throw new NotImplementedException();
     }
 }
