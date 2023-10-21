@@ -22,7 +22,7 @@ public class Navigator : ObservableObject, INavigator {
 
     public ICommand UpdateCurrentViewModelCommand {  get; set; }
 
-    public Navigator(ISimpleTraderViewModelAbstractFactory viewModelAbstractFactory)
+    public Navigator(IRootSimpleTraderViewModelFactory viewModelAbstractFactory)
     {
         UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this, viewModelAbstractFactory);
     }

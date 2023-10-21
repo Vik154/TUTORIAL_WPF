@@ -53,13 +53,14 @@ public partial class App : Application {
         services.AddSingleton<IBuyStockService, BuyStockService>();
         services.AddSingleton<IMajorIndexService, MajorIndexService>();
 
-        services.AddSingleton<ISimpleTraderViewModelAbstractFactory, SimpleTraderViewModelAbstarctFactory>();
+        services.AddSingleton<IRootSimpleTraderViewModelFactory, RootSimpleTraderViewModelFactory>();
         services.AddSingleton<ISimpleTraderViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
         services.AddSingleton<ISimpleTraderViewModelFactory<PortfolioViewModel>, PortfolioViewModelFactory>();
         services.AddSingleton<ISimpleTraderViewModelFactory<MajorIndexListingViewModel>, MajorIndexListingViewModelFactory>();
 
         services.AddScoped<INavigator, Navigator>();
         services.AddScoped<MainViewModel>();
+        services.AddScoped<BuyViewModel>();
 
         services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
