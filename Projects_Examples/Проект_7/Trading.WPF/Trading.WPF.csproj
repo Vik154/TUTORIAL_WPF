@@ -9,9 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\backgr.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Trading.Domain\Trading.Domain.csproj" />
     <ProjectReference Include="..\Trading.EntityFramework\Trading.EntityFramework.csproj" />
     <ProjectReference Include="..\Trading.FinancialModelingPrepAPI\Trading.FinancialModelingPrepAPI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\backgr.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

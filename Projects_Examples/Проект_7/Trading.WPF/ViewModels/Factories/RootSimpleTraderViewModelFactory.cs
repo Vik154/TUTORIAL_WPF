@@ -11,20 +11,25 @@ public class RootSimpleTraderViewModelFactory : IRootSimpleTraderViewModelFactor
 
     private readonly ISimpleTraderViewModelFactory<HomeViewModel> _homeViewModelFactory;
     private readonly ISimpleTraderViewModelFactory<PortfolioViewModel> _portfolioViewModelFactory;
+    private readonly ISimpleTraderViewModelFactory<LoginViewModel> _loginViewModelFactory;
     private readonly BuyViewModel _buyViewModel;
 
-    public RootSimpleTraderViewModelFactory(ISimpleTraderViewModelFactory<HomeViewModel> homeViewModelFactory, 
+    public RootSimpleTraderViewModelFactory(ISimpleTraderViewModelFactory<HomeViewModel> homeViewModelFactory,
         ISimpleTraderViewModelFactory<PortfolioViewModel> portfolioViewModelFactory,
-        BuyViewModel buyViewModel)
+        BuyViewModel buyViewModel,
+        ISimpleTraderViewModelFactory<LoginViewModel> loginViewModelFactory)
     {
         _homeViewModelFactory = homeViewModelFactory;
         _portfolioViewModelFactory = portfolioViewModelFactory;
         _buyViewModel = buyViewModel;
+        _loginViewModelFactory = loginViewModelFactory;
     }
 
     public BaseViewModel CreateViewModel(ViewType viewType) {
      
         switch (viewType) {
+            case ViewType.Login:
+                return _loginViewModelFactory.CreateViewModel();
             case ViewType.Home:
                 return _homeViewModelFactory.CreateViewModel();
             case ViewType.Portfolio:

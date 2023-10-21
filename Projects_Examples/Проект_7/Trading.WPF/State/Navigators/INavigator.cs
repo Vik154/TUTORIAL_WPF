@@ -14,4 +14,4 @@ public interface INavigator {
 }
 
 /// <summary> Перечисление представлений </summary>
-public enum ViewType { Home, Portfolio, Buy }
+public enum ViewType { Login, Home, Portfolio, Buy }

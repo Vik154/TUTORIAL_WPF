@@ -10,6 +10,7 @@ using Trading.Domain.Services.TransactionServices;
 using Trading.EntityFramework;
 using Trading.EntityFramework.Services;
 using Trading.FinancialModelingPrepAPI.Services;
+using Trading.WPF.State.Authenticators;
 using Trading.WPF.State.Navigators;
 using Trading.WPF.ViewModels;
 using Trading.WPF.ViewModels.Factories;
@@ -66,8 +67,10 @@ public partial class App : Application {
         services.AddSingleton<ISimpleTraderViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
         services.AddSingleton<ISimpleTraderViewModelFactory<PortfolioViewModel>, PortfolioViewModelFactory>();
         services.AddSingleton<ISimpleTraderViewModelFactory<MajorIndexListingViewModel>, MajorIndexListingViewModelFactory>();
+        services.AddSingleton<ISimpleTraderViewModelFactory<LoginViewModel>, LoginViewModelFactory>();
 
         services.AddScoped<INavigator, Navigator>();
+        services.AddScoped<IAuthenticator, Authenticator>();
         services.AddScoped<MainViewModel>();
         services.AddScoped<BuyViewModel>();
 
