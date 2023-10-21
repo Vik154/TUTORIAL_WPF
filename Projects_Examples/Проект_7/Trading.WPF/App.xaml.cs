@@ -1,81 +1,109 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
-using System.Data;
 using System.Windows;
-using Trading.Domain.Models;
-using Trading.Domain.Services;
-using Trading.Domain.Services.AuthenticationServices;
-using Trading.Domain.Services.TransactionServices;
 using Trading.EntityFramework;
-using Trading.EntityFramework.Services;
-using Trading.FinancialModelingPrepAPI.Services;
-using Trading.WPF.State.Authenticators;
-using Trading.WPF.State.Navigators;
-using Trading.WPF.ViewModels;
-using Trading.WPF.ViewModels.Factories;
 
-namespace Trading.WPF; 
-
+namespace Trading.WPF;
 
 public partial class App : Application {
+    private readonly IHost _host;
 
-    protected override async void OnStartup(StartupEventArgs e) {
+    public App() {
+        _host = CreateHostBuilder().Build();
+    }
 
-        IServiceProvider serviceProvider = CreateServiceProvider();
-        IAuthenticationService authentication = serviceProvider.GetRequiredService<IAuthenticationService>();
-        authentication.Login("Singleton", "test123");
-        
-        //IBuyStockService buyStockService = serviceProvider.GetRequiredService<IBuyStockService>();
+    public static IHostBuilder CreateHostBuilder(string[] args = null) {
+        return Host.CreateDefaultBuilder(args)
+            .AddConfiguration()
+            .AddFinanceAPI()
+            .AddDbContext()
+            .AddServices()
+            .AddStores()
+            .AddViewModels()
+            .AddViews();
+    }
 
-        //IDataService<Account> dataService = new AccountDataService(
-        //    new EntityFramework.SimpleTraderDbContextFactory());
-        //IStockPriceService stockPriceService = new StockPriceService();
+    protected override void OnStartup(StartupEventArgs e) {
+        _host.Start();
 
-        //IBuyStockService buyStockService = new BuyStockService(stockPriceService, dataService);
+        SimpleTraderDbContextFactory contextFactory = _host.Services.GetRequiredService<SimpleTraderDbContextFactory>();
+        using (SimpleTraderDbContext context = contextFactory.CreateDbContext()) {
+            context.Database.Migrate();
+        }
 
-        //Account buyer = await dataService.Get(1);
-
-        //await buyStockService.BuyStock(buyer, "AFLT", 5);
-
-        Window window = serviceProvider.GetRequiredService<MainWindow>();
+        Window window = _host.Services.GetRequiredService<MainWindow>();
         window.Show();
-
-        // StockPriceService stock = new StockPriceService();
-
-        // var res = stock.GetPrice("SBER");
-        // var res2 = stock.GetPrice("VTBR");
-        // var res3 = stock.GetPrice("OLOL");
 
         base.OnStartup(e);
     }
 
-    private IServiceProvider CreateServiceProvider() {
-        IServiceCollection services = new ServiceCollection();
+    protected override async void OnExit(ExitEventArgs e) {
+        await _host.StopAsync();
+        _host.Dispose();
 
-        services.AddSingleton<SimpleTraderDbContextFactory>();
-        services.AddSingleton<IDataService<Account>, AccountDataService>();
-        services.AddSingleton<IAccountService, AccountDataService>();
-        services.AddSingleton<IAuthenticationService, AuthenticationService>();
-        services.AddSingleton<IStockPriceService, StockPriceService>();
-        services.AddSingleton<IBuyStockService, BuyStockService>();
-        services.AddSingleton<IMajorIndexService, MajorIndexService>();
-
-        services.AddSingleton<IPasswordHasher, PasswordHasher>();
-
-        services.AddSingleton<ISimpleTraderViewModelFactory, SimpleTraderViewModelFactory>();
-        services.AddSingleton<ISimpleTraderViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
-        services.AddSingleton<ISimpleTraderViewModelFactory<PortfolioViewModel>, PortfolioViewModelFactory>();
-        services.AddSingleton<ISimpleTraderViewModelFactory<MajorIndexListingViewModel>, MajorIndexListingViewModelFactory>();
-        services.AddSingleton<ISimpleTraderViewModelFactory<LoginViewModel>, LoginViewModelFactory>();
-
-        services.AddScoped<INavigator, Navigator>();
-        services.AddScoped<IAuthenticator, Authenticator>();
-        services.AddScoped<MainViewModel>();
-        services.AddScoped<BuyViewModel>();
-
-        services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
-
-        return services.BuildServiceProvider();
+        base.OnExit(e);
     }
 }
+
+
+//public partial class App : Application {
+
+//    protected override async void OnStartup(StartupEventArgs e) {
+
+//        IServiceProvider serviceProvider = CreateServiceProvider();
+//        IAuthenticationService authentication = serviceProvider.GetRequiredService<IAuthenticationService>();
+//        authentication.Login("Singleton", "test123");
+
+//        //IBuyStockService buyStockService = serviceProvider.GetRequiredService<IBuyStockService>();
+
+//        //IDataService<Account> dataService = new AccountDataService(
+//        //    new EntityFramework.SimpleTraderDbContextFactory());
+//        //IStockPriceService stockPriceService = new StockPriceService();
+
+//        //IBuyStockService buyStockService = new BuyStockService(stockPriceService, dataService);
+
+//        //Account buyer = await dataService.Get(1);
+
+//        //await buyStockService.BuyStock(buyer, "AFLT", 5);
+
+//        Window window = serviceProvider.GetRequiredService<MainWindow>();
+//        window.Show();
+
+//        // StockPriceService stock = new StockPriceService();
+
+//        // var res = stock.GetPrice("SBER");
+//        // var res2 = stock.GetPrice("VTBR");
+//        // var res3 = stock.GetPrice("OLOL");
+
+//        base.OnStartup(e);
+//    }
+
+//    private IServiceProvider CreateServiceProvider() {
+//        IServiceCollection services = new ServiceCollection();
+
+//        services.AddSingleton<SimpleTraderDbContextFactory>();
+//        services.AddSingleton<IDataService<Account>, AccountDataService>();
+//        services.AddSingleton<IAccountService, AccountDataService>();
+//        services.AddSingleton<IAuthenticationService, AuthenticationService>();
+//        services.AddSingleton<IStockPriceService, StockPriceService>();
+//        services.AddSingleton<IBuyStockService, BuyStockService>();
+//        services.AddSingleton<IMajorIndexService, MajorIndexService>();
+
+//        services.AddSingleton<IPasswordHasher, PasswordHasher>();
+
+//        services.AddSingleton<ISimpleTraderViewModelFactory, SimpleTraderViewModelFactory>();
+//        services.AddSingleton<ISimpleTraderViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
+//        services.AddSingleton<ISimpleTraderViewModelFactory<PortfolioViewModel>, PortfolioViewModelFactory>();
+//        services.AddSingleton<ISimpleTraderViewModelFactory<MajorIndexListingViewModel>, MajorIndexListingViewModelFactory>();
+//        services.AddSingleton<ISimpleTraderViewModelFactory<LoginViewModel>, LoginViewModelFactory>();
+
+//        services.AddScoped<INavigator, Navigator>();
+//        services.AddScoped<IAuthenticator, Authenticator>();
+//        services.AddScoped<MainViewModel>();
+//        services.AddScoped<BuyViewModel>();
+
+//        services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
+
+//        return services.BuildServiceProvider();
+//    }
+//}

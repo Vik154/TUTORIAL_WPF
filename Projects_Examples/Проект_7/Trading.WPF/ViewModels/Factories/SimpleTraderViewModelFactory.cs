@@ -13,7 +13,8 @@ public class SimpleTraderViewModelFactory : ISimpleTraderViewModelFactory {
         CreateViewModel<PortfolioViewModel> createPortfolioViewModel,
         CreateViewModel<LoginViewModel> createLoginViewModel,
         CreateViewModel<BuyViewModel> createBuyViewModel,
-        CreateViewModel<SellViewModel> createSellViewModel) {
+        CreateViewModel<SellViewModel> createSellViewModel) 
+    {
         _createHomeViewModel = createHomeViewModel;
         _createPortfolioViewModel = createPortfolioViewModel;
         _createLoginViewModel = createLoginViewModel;
