@@ -2,6 +2,7 @@
 
 namespace Trading.WPF.ViewModels.Factories;
 
-public interface ISimpleTraderViewModelFactory<T> where T : BaseViewModel {
-    T CreateViewModel();
+public interface ISimpleTraderViewModelFactory {
+    BaseViewModel CreateViewModel(ViewType viewType);
+
 }
