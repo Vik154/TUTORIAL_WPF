@@ -27,6 +27,7 @@ public class SearchSymbolCommand : ICommand {
     public async void Execute(object? parameter) {
         try {
             double stockPrice = await _stockPriceService.GetPrice(_buyViewModel.Symbol);
+            _buyViewModel.SearchResultSymbol = _buyViewModel.Symbol.ToUpper();
             _buyViewModel.StockPrice = stockPrice;
         }
         catch (Exception ex) {

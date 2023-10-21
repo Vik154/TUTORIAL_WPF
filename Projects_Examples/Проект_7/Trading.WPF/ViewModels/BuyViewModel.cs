@@ -23,7 +23,8 @@ public class BuyViewModel : BaseViewModel {
         get => _stockPrice;
         set { 
             _stockPrice =  value; 
-            OnPropertyChanged(nameof(StockPrice)); 
+            OnPropertyChanged(nameof(StockPrice));
+            OnPropertyChanged(nameof(TotalPrice));
         }
     }
 
@@ -39,6 +40,15 @@ public class BuyViewModel : BaseViewModel {
 
     public double TotalPrice {
         get => SharesToBuy * StockPrice;
+    }
+
+    private string _searchResultSymbol = string.Empty;
+    public string SearchResultSymbol {
+        get => _searchResultSymbol;
+        set { 
+            _searchResultSymbol = value;
+            OnPropertyChanged(nameof(SearchResultSymbol));
+        }
     }
 
     public ICommand SearchSymbolCommand { get; set; }
