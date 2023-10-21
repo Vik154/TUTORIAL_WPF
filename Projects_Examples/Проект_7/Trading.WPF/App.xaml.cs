@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 using Trading.EntityFramework;
+using Trading.WPF.HostBuilders;
 
 namespace Trading.WPF;
 

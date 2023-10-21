@@ -1,5 +1,6 @@
 ﻿using Trading.Domain.Models;
 using Trading.Domain.Services.AuthenticationServices;
+using Trading.WPF.State.Accounts;
 
 namespace Trading.WPF.State.Authenticators;
 

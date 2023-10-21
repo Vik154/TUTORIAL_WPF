@@ -1,14 +1,9 @@
-﻿using System.ComponentModel;
-using System.Windows.Input;
-using Trading.WPF.Commands;
-using Trading.WPF.Models;
-using Trading.WPF.ViewModels;
-using Trading.WPF.ViewModels.Factories;
+﻿using Trading.WPF.ViewModels;
 
 namespace Trading.WPF.State.Navigators;
 
 /// <summary>Реализация логики навигации между представлениями</summary>
-public class Navigator : ObservableObject, INavigator {
+public class Navigator : INavigator {
 
     private BaseViewModel _currentViewModel;
 
