@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Trading.WPF.ViewModels;
+﻿namespace Trading.WPF.ViewModels;
 
 public class HomeViewModel : BaseViewModel {
+    public AssetSummaryViewModel AssetSummaryViewModel { get; }
+    public MajorIndexListingViewModel MajorIndexListingViewModel { get; }
 
-    public MajorIndexListingViewModel MajorIndexListingViewModel { get; set; }
+    public HomeViewModel(AssetSummaryViewModel assetSummaryViewModel, MajorIndexListingViewModel majorIndexListingViewModel) {
+        AssetSummaryViewModel = assetSummaryViewModel;
+        MajorIndexListingViewModel = majorIndexListingViewModel;
+    }
 
-    public HomeViewModel(MajorIndexListingViewModel majorIndexViewModel) {
-        MajorIndexListingViewModel = majorIndexViewModel;
+    public override void Dispose() {
+        AssetSummaryViewModel.Dispose();
+        MajorIndexListingViewModel.Dispose();
+
+        base.Dispose();
     }
 }

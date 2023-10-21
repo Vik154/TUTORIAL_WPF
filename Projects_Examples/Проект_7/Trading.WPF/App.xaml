@@ -33,7 +33,7 @@
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:SellViewModel}">
-                <v:SellView/>
+                <v:SellView SelectedAssetChangedCommand="{Binding SearchSymbolCommand}" />
             </DataTemplate>
 
         </ResourceDictionary>
