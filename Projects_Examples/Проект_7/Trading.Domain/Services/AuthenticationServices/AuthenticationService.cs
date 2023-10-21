@@ -66,7 +66,8 @@ public class AuthenticationService : IAuthenticationService {
             };
 
             Account account = new Account {
-                AccountHolder = user
+                AccountHolder = user,
+                Balance = 10000d
             };
 
             await _accountService.Create(account);
