@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace VendingMachine {
+namespace ContactBook {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
