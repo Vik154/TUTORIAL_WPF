@@ -13,7 +13,6 @@
     <Folder Include="Converters\" />
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
-    <Folder Include="Utilty\" />
   </ItemGroup>
 
   <ItemGroup>
