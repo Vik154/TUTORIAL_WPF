@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ContactBook"
+             xmlns:vm="clr-namespace:ContactBook.ViewModels"
+             xmlns:v="clr-namespace:ContactBook.Views"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <!-- MaterialDesignThemes -->
@@ -13,7 +15,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
             
-            <!--Кнопки-->
+            <!--Шаблоны данных для взаимосвязи View с ViewModel и для отображения данных-->
+            <DataTemplate DataType="{x:Type vm:BookViewModel}">
+                <v:BookView/>
+            </DataTemplate>
             
         </ResourceDictionary>
     </Application.Resources>

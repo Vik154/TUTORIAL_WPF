@@ -74,7 +74,7 @@
         </Grid>
 
         <Grid DockPanel.Dock="Bottom">
-            
+            <ContentControl Content="{Binding CurrentView}" />
         </Grid>
         
     </DockPanel>
