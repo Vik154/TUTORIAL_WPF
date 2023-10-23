@@ -87,7 +87,7 @@
      _Приложение по торговле акциями в контексте WPF / MVVM / EF_
    * *[Проект №8](Projects_Examples/Проект_8/) - По серии уроков "WPF Contact Book" https://www.youtube.com/@ToskersCorner/playlists* --> <br>
      _Простая записная книга в контексте WPF / MVVM_
-   * *[Проект №9](Projects_Examples/Проект_9/) - "WPF - MVVM Based Modern Dashboard" https://www.youtube.com/@CSharpDesignPro/playlists* --> <br>
+   * *[Проект №9](Projects_Examples/Проект_9/) - "WPF - Based Modern Dashboard" https://www.youtube.com/@CSharpDesignPro/playlists* --> <br>
      _Простой проводник в контексте WPF / MVVM с уклоном на UI_
    
 </details>
