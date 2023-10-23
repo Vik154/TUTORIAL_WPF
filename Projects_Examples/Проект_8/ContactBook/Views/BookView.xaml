@@ -35,11 +35,11 @@
 
         <Grid Grid.Column="1">
             <ScrollViewer>
-                <!--<ContentControl>
+                <ContentControl>
                     <ContentControl.Content>
                         <v:DetailsView DataContext="{Binding ContactsViewModel}"/>
                     </ContentControl.Content>
-                </ContentControl>-->
+                </ContentControl>
             </ScrollViewer>
         </Grid>
     </Grid>
