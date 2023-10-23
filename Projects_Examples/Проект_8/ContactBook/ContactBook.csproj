@@ -9,7 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\checkedStar.png" />
     <None Remove="Resources\defcontact.png" />
+    <None Remove="Resources\hoverStar.png" />
+    <None Remove="Resources\uncheckedStar.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\checkedStar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\defcontact.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\hoverStar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\uncheckedStar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
