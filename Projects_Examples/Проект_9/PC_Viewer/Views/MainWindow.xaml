@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Viewer.Views"
+        xmlns:vm="clr-namespace:PC_Viewer.ViewModels"
         
         Title="MainWindow" 
         Height="580" 
@@ -14,8 +15,94 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
+
+    <Window.DataContext>
+        <vm:NavigationViewModel/>
+    </Window.DataContext>
     
     <Grid>
+        <Border Background="#ECF0F1" CornerRadius="10"/>
+
+        <!--Header-->
+        <Border Background="#5C5C5C"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                CornerRadius="10,0,100,0"
+                Height="80"
+                Width="850">
+
+            <TextBlock Text="WPF Проводник" Style="{StaticResource HeaderStyle}"/>
+        </Border>
+
+        <!--Footer-->
+        <Border Background="#5C5C5C"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                CornerRadius="100,0,10,0"
+                Height="80"
+                Width="850">
+
+            <TextBlock Text="I N T E R F A C E" Style="{StaticResource FooterStyle}"/>
+        </Border>
+
+        <Border Background="#303030"
+                BorderBrush="#FFFFFF"
+                BorderThickness="0,5,0,5"
+                Height="480"
+                Margin="0,10,0,0"
+                CornerRadius="25"/> 
         
+        <!--Контент-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="660"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="370"/>
+                <RowDefinition Height="0"/>
+            </Grid.RowDefinitions>
+
+            <!--Menu Search Box-->
+            <Grid Grid.Row="2" Grid.Column="1">
+
+                <TextBox x:Name="SearchBox"
+                         Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource SearchBoxStyle}"/>
+
+                <TextBlock Text="Search" Style="{StaticResource SearchTextStyle}"/>
+            </Grid>
+
+            <!--Menu-->
+            <Grid Grid.Row="3" Grid.Column="1" Margin="0,10,0,0">
+
+                <ItemsControl ItemsSource="{Binding SourceCollection}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <RadioButton 
+                                    Content="{Binding MenuName}"
+                                    Tag="{Binding MenuImage}" 
+                                    CommandParameter="{Binding MenuName}"
+                                    Command="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                                                      AncestorType={x:Type ItemsControl}}, 
+                                                      Path=DataContext.MenuCommand}"
+                                    Style="{StaticResource MenuButtonStyle}"                                                                                                                
+                                    GroupName="MenuGroup"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </Grid>
+        </Grid>
+
     </Grid>
 </Window>

@@ -160,8 +160,8 @@
         </Setter>
     </Style>
 
-    <ImageBrush x:Key="def_img" ImageSource="Assets/close_icon.png" Stretch="None"/>
-    <ImageBrush x:Key="mo_img" ImageSource="Assets/close_mo_icon.png" Stretch="None" />
+    <ImageBrush x:Key="def_img" ImageSource="../Assets/close_icon.png" Stretch="None"/>
+    <ImageBrush x:Key="mo_img" ImageSource="../Assets/close_mo_icon.png" Stretch="None" />
 
 
     <Style x:Key="CloseBtn_Style"
