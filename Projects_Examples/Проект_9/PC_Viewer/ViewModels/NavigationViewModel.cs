@@ -1,12 +1,7 @@
 ﻿using PC_Viewer.Core;
 using PC_Viewer.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 
 namespace PC_Viewer.ViewModels;
@@ -50,14 +45,14 @@ public class NavigationViewModel : BaseViewModel {
     public NavigationViewModel() {
 
         ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems> {
-                new MenuItems { MenuName = "Home", MenuImage = @"../Assets/Home_Icon.png" },
-                new MenuItems { MenuName = "Desktop", MenuImage = @"../Assets/Desktop_Icon.png" },
-                new MenuItems { MenuName = "Documents", MenuImage = @"../Assets/Document_Icon.png" },
-                new MenuItems { MenuName = "Downloads", MenuImage = @"../Assets/Download_Icon.png" },
-                new MenuItems { MenuName = "Pictures", MenuImage = @"../Assets/Images_Icon.png" },
-                new MenuItems { MenuName = "Music", MenuImage = @"../Assets/Music_Icon.png" },
-                new MenuItems { MenuName = "Movies", MenuImage = @"../Assets/Movies_Icon.png" },
-                new MenuItems { MenuName = "Trash", MenuImage = @"../Assets/Trash_Icon.png" }
+                new MenuItems { MenuName = "Главная", MenuImage = @"../Assets/Home_Icon.png" },
+                new MenuItems { MenuName = "Рабочий стол", MenuImage = @"../Assets/Desktop_Icon.png" },
+                new MenuItems { MenuName = "Документы", MenuImage = @"../Assets/Document_Icon.png" },
+                new MenuItems { MenuName = "Загрузки", MenuImage = @"../Assets/Download_Icon.png" },
+                new MenuItems { MenuName = "Изображения", MenuImage = @"../Assets/Images_Icon.png" },
+                new MenuItems { MenuName = "Музыка", MenuImage = @"../Assets/Music_Icon.png" },
+                new MenuItems { MenuName = "Видео", MenuImage = @"../Assets/Movies_Icon.png" },
+                new MenuItems { MenuName = "Корзина", MenuImage = @"../Assets/Trash_Icon.png" }
             };
 
         _menuItemsCollection = new CollectionViewSource { Source = menuItems };
