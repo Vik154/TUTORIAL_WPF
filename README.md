@@ -8,6 +8,7 @@
    + :speech_balloon: https://www.youtube.com/@Shmachilin
    + ___---------------En Tutorials:---------------___
    + :speech_balloon: https://www.youtube.com/@SingletonSean
+   + :speech_balloon: https://www.youtube.com/@CSharpDesignPro
 3. :notebook: Книги:
    + :blue_book: Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
    + :blue_book: Адам Натан "WPF 4. Подробное руководство." (*Книга понятная только её автору*)
@@ -86,6 +87,8 @@
      _Приложение по торговле акциями в контексте WPF / MVVM / EF_
    * *[Проект №8](Projects_Examples/Проект_8/) - По серии уроков "WPF Contact Book" https://www.youtube.com/@ToskersCorner/playlists* --> <br>
      _Простая записная книга в контексте WPF / MVVM_
+   * *[Проект №9](Projects_Examples/Проект_9/) - "WPF - MVVM Based Modern Dashboard" https://www.youtube.com/@CSharpDesignPro/playlists* --> <br>
+     _Простой проводник в контексте WPF / MVVM с уклоном на UI_
    
 </details>
 
