@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ContactBook.Utility;
 
 namespace ContactBook.ViewModels;
 
-internal class MainViewModel {
+public class MainViewModel : ObservableObject {
+
+    private string _titleWindow = "Книга контактов";
+    public string TitleWindow {
+        get => _titleWindow;
+        set => OnPropertyChanged(ref  _titleWindow, value);
+    }
+
 }

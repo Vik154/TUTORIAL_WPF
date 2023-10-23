@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ContactBook.Views"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mi="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
+        xmlns:vm="clr-namespace:ContactBook.ViewModels"
         
         Title="{Binding TitleWindow}" 
         Height="450" 
@@ -17,6 +18,10 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
     
     <DockPanel>
         <Grid DockPanel.Dock="Top">
