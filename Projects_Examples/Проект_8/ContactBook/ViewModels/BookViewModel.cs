@@ -45,7 +45,7 @@ public class BookViewModel : ObservableObject {
 
     #region КОНСТРУКТОРЫ
     public BookViewModel(IContactDataService dataService) {
-        ContactsViewModel = new ContactsViewModel();
+        ContactsViewModel = new ContactsViewModel(dataService);
         _contactDataService = dataService;
 
         LoadContactsCommand = new RelayCommand(LoadContacts);

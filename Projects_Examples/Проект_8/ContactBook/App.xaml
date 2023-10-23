@@ -18,16 +18,8 @@
 
             <!--Изображение контакта по умолчанию-->
             <BitmapImage x:Key="DefaultContactImage" UriSource="/Resources/defcontact.png"/>
-
-            <!--Шаблоны данных для взаимосвязи View с ViewModel и для отображения данных-->
-            <DataTemplate DataType="{x:Type vm:BookViewModel}">
-                <v:BookView/>
-            </DataTemplate>
             
-            <DataTemplate DataType="{x:Type vm:ContactsViewModel}">
-                <v:ContactItemView/>
-            </DataTemplate>
-
+            <!--Кастомный чек-бокс-->
             <Style x:Key="EditBox" TargetType="{x:Type TextBoxBase}">
                 <Setter Property="SnapsToDevicePixels" Value="True"/>
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -90,6 +82,14 @@
                 </Setter>
             </Style>
 
+            <!--Шаблоны данных для взаимосвязи View с ViewModel и для отображения данных-->
+            <DataTemplate DataType="{x:Type vm:BookViewModel}">
+                <v:BookView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ContactsViewModel}">
+                <v:ContactItemView/>
+            </DataTemplate>
 
         </ResourceDictionary>
     </Application.Resources>

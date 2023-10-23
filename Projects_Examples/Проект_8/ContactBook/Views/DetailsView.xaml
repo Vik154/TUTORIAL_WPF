@@ -34,7 +34,9 @@
                         <TextBox Text="{Binding SelectedContact.Name, FallbackValue=NULL, Mode=TwoWay}"/>
                     </StackPanel>
 
-                    <CheckBox Content="IsFavorite"></CheckBox>
+                    <CheckBox Style="{StaticResource favoriteCheckbox}"
+                              IsChecked="{Binding SelectedContact.IsFavorite}"
+                              Command="{Binding UpdateCommand}"/>
                 </StackPanel>
 
                 <Grid Height="160" Width="130">
