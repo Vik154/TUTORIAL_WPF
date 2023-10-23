@@ -84,6 +84,8 @@
      _Бронирование номеров отеля EF / WPF / MVVM_
    * *[Проект №7](Projects_Examples/Проект_7/) - По серии уроков "Full Stack WPF MVVM" https://www.youtube.com/@SingletonSean/playlists* --> <br>
      _Приложение по торговле акциями в контексте WPF / MVVM / EF_
+   * *[Проект №8](Projects_Examples/Проект_8/) - По серии уроков "WPF Contact Book" https://www.youtube.com/@ToskersCorner/playlists* --> <br>
+     _Простая записная книга в контексте WPF / MVVM_
    
 </details>
 
