@@ -9,13 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\defcontact.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Material.Icons.WPF" Version="2.0.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\defcontact.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

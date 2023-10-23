@@ -1,9 +1,18 @@
-﻿using ContactBook.Utility;
+﻿using ContactBook.Services;
+using ContactBook.Utility;
 using System.Windows.Input;
 
 namespace ContactBook.ViewModels;
 
 public class BookViewModel : ObservableObject {
+
+    #region ПОЛЯ И СЛУЖБЫ
+
+    /// <summary> Сервис хранения контактов </summary>
+    private IContactDataService _contactDataService;
+
+
+    #endregion
 
     #region СВОЙСТВА
     /// <summary> Заголовок главного окна </summary>
@@ -19,7 +28,7 @@ public class BookViewModel : ObservableObject {
     private ContactsViewModel? _contactsViewModel;
 
     /// <summary> Модель - представление списка контактов </summary>
-    private ContactsViewModel? ContactsViewModel {
+    public ContactsViewModel? ContactsViewModel {
         get => _contactsViewModel;
         set => OnPropertyChanged(ref _contactsViewModel, value);
     }
@@ -35,8 +44,9 @@ public class BookViewModel : ObservableObject {
     #endregion
 
     #region КОНСТРУКТОРЫ
-    public BookViewModel() {
+    public BookViewModel(IContactDataService dataService) {
         ContactsViewModel = new ContactsViewModel();
+        _contactDataService = dataService;
 
         LoadContactsCommand = new RelayCommand(LoadContacts);
         LoadFavoritesContactsCommand = new RelayCommand(LoadFavorites);
@@ -48,12 +58,13 @@ public class BookViewModel : ObservableObject {
 
     /// <summary> Загрузка списка контактов </summary>
     private void LoadContacts() {
-
+        _contactsViewModel?.LoadContacts(_contactDataService.GetContacts());
     }
 
     /// <summary> Загрузка списка избранных контактов </summary>
     public void LoadFavorites() {
-
+        var favorites = _contactDataService.GetContacts().Where(c => c.IsFavorite);
+        _contactsViewModel?.LoadContacts(favorites);
     }
     #endregion
 }

@@ -1,4 +1,5 @@
-﻿using ContactBook.Utility;
+﻿using ContactBook.Services;
+using ContactBook.Utility;
 
 namespace ContactBook.ViewModels;
 
@@ -40,8 +41,11 @@ public class MainViewModel : ObservableObject {
     #endregion
 
     public MainViewModel() {
-        BookViewModel = new BookViewModel();
-        CurrentView = BookViewModel;
+        var dataService = new MockDataService();
+
+        BookViewModel = new BookViewModel(dataService);
+        //CurrentView = BookViewModel;
+        CurrentView = new ContactsViewModel();
     }
 
 }

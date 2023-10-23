@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:ContactBook"
              xmlns:vm="clr-namespace:ContactBook.ViewModels"
              xmlns:v="clr-namespace:ContactBook.Views"
+             xmlns:mi="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <!-- MaterialDesignThemes -->
@@ -14,12 +15,19 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
+
             <!--Шаблоны данных для взаимосвязи View с ViewModel и для отображения данных-->
             <DataTemplate DataType="{x:Type vm:BookViewModel}">
                 <v:BookView/>
             </DataTemplate>
             
+            <DataTemplate DataType="{x:Type vm:ContactsViewModel}">
+                <v:ContactItemView/>
+            </DataTemplate>
+
+            <!--Изображение контакта по умолчанию-->
+            <BitmapImage x:Key="DefaultContactImage" UriSource="/Resources/defcontact.png"/>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
