@@ -1,7 +1,6 @@
 ﻿using ContactBook.Models;
 using ContactBook.Services;
 using ContactBook.Utility;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -51,21 +50,22 @@ public class ContactsViewModel : ObservableObject {
     #endregion
 
     private IContactDataService _dataService;
-    // private IDialogService _dialogService;
+    private IDialogService _dialogService;
 
-    public ContactsViewModel(IContactDataService dataService /*IDialogService dialogService*/) {
+    public ContactsViewModel(IContactDataService dataService, IDialogService dialogService) {
         _dataService = dataService;
-        // _dialogService = dialogService;
+        _dialogService = dialogService;
 
         EditCommand = new RelayCommand(Edit, CanEdit);
         SaveCommand = new RelayCommand(Save, IsEdit);
         UpdateCommand = new RelayCommand(Update);
-        // BrowseImageCommand = new RelayCommand(BrowseImage, IsEdit);
+        BrowseImageCommand = new RelayCommand(BrowseImage, IsEdit);
         AddCommand = new RelayCommand(Add);
         DeleteCommand = new RelayCommand(Delete, CanDelete);
     }
 
     #region МЕТОДЫ
+
     /// <summary> Загрузка списка контактов </summary>
     public void LoadContacts(IEnumerable<Contact> contacts) {
         Contacts = new ObservableCollection<Contact>(contacts);
@@ -93,10 +93,10 @@ public class ContactsViewModel : ObservableObject {
         SelectedContact = newContact;
     }
 
-    //private void BrowseImage() {
-    //    var filePath = _dialogService.OpenFile("Image files|*.bmp;*.jpg;*.jpeg;*.png|All files");
-    //    SelectedContact.ImagePath = filePath;
-    //}
+    private void BrowseImage() {
+        var filePath = _dialogService.OpenFile("Image files|*.bmp;*.jpg;*.jpeg;*.png|All files");
+        SelectedContact.ImagePath = filePath;
+    }
 
     private void Update() {
         _dataService.Save(Contacts);

@@ -51,21 +51,21 @@
                 Cursor="Hand">
 
                 <!--Добавление-->
-                <Button Margin="3,0,0,0">
+                <Button Margin="3,0,0,0" Cursor="Hand" Command="{Binding BookViewModel.ContactsViewModel.AddCommand}">
                     <Button.Content>
                         <mi:MaterialIcon Kind="AddCall" Height="30" Width="30"/>
                     </Button.Content>
                 </Button>
 
                 <!--Редактирование-->
-                <Button Margin="3,0,0,0" Cursor="Hand">
+                <Button Margin="3,0,0,0" Cursor="Hand" Command="{Binding BookViewModel.ContactsViewModel.EditCommand}">
                     <Button.Content>
                         <mi:MaterialIcon Kind="Edit"  Height="30" Width="30" />
                     </Button.Content>
                 </Button>
 
                 <!--Удаление-->
-                <Button Margin="3,0,3,0">
+                <Button Margin="3,0,3,0" Cursor="Hand" Command="{Binding BookViewModel.ContactsViewModel.DeleteCommand}">
                     <Button.Content>
                         <mi:MaterialIcon Kind="Delete" Height="30" Width="30" />
                     </Button.Content>

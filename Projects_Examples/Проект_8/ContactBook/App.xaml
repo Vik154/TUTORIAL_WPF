@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:ContactBook.ViewModels"
              xmlns:v="clr-namespace:ContactBook.Views"
              xmlns:mi="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
+             xmlns:convert="clr-namespace:ContactBook.Converters"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <!-- MaterialDesignThemes -->
@@ -15,6 +16,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            <!--Bool конверторы-->
+            <convert:BoolToVisibilityConverter x:Key="IsEditConverter"/>
+            <convert:NullToVisibilityConverter x:Key="SelectedContactConverter"/>
 
             <!--Изображение контакта по умолчанию-->
             <BitmapImage x:Key="DefaultContactImage" UriSource="/Resources/defcontact.png"/>
