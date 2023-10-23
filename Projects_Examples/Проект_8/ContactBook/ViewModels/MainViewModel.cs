@@ -44,8 +44,7 @@ public class MainViewModel : ObservableObject {
         var dataService = new MockDataService();
 
         BookViewModel = new BookViewModel(dataService);
-        //CurrentView = BookViewModel;
-        CurrentView = new ContactsViewModel();
+        CurrentView = BookViewModel;
     }
 
 }

@@ -37,13 +37,13 @@
             <Button Grid.Column="0" 
                     Margin="3,0,3,0"
                     Content="Избранное"
-                    >
-                
-            </Button>
+                    Command="{Binding BookViewModel.LoadFavoritesContactsCommand}"
+                    />
+            <Button Grid.Column="1" 
+                    Content="Контакты"
+                    Command="{Binding BookViewModel.LoadContactsCommand}"
+                    />
 
-            <Button Grid.Column="1" Content="Контакты">
-            </Button>
-            
             <StackPanel 
                 Grid.Column="3" 
                 Orientation="Horizontal"

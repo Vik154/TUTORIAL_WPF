@@ -10,6 +10,18 @@ public class MockDataService : IContactDataService {
     public MockDataService() {
         _contacts = new List<Contact>() {
             new Contact {
+                Name         = "Timmy Timpson",
+                PhoneNumbers = new string[] { "555-222-3113", "555-888-4123" },
+                Emails       = new string[] { "Timmi@personal.com", "Timmi@business.com" },
+                Locations    = new string[] { "123 Fake Street", "456 Fake Ave" }
+            },
+            new Contact {
+                Name         = "Bobby Bobson",
+                PhoneNumbers = new string[] { "555-121-2123", "555-828-1323" },
+                Emails       = new string[] { "Bobby@personal.com", "Bobby@business.com" },
+                Locations    = new string[] { "342 Fake Street", "123 Fake Ave" }
+            },
+            new Contact {
                 Name         = "John Doe",
                 PhoneNumbers = new string[] { "555-111-1111", "555-222-2222"},
                 Emails       = new string[] { "Johndoe@personal.com", "Johndoe@business.com" },
@@ -20,13 +32,7 @@ public class MockDataService : IContactDataService {
                 PhoneNumbers = new string[] { "555-333-3333", "555-444-4444" },
                 Emails       = new string[] { "Janedoe@personal.com", "Janedoe@business.com" },
                 Locations    = new string[] { "111 Fake Street", "333 Fake Ave" }
-            },
-            new Contact {
-                Name         = "Timmy Timpson",
-                PhoneNumbers = new string[] { "555-222-3113", "555-888-4123" },
-                Emails       = new string[] { "Timmi@personal.com", "Timmi@business.com" },
-                Locations    = new string[] { "123 Fake Street", "456 Fake Ave" }
-            },
+            }
         };
     }
 
