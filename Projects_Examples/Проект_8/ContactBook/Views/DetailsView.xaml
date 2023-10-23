@@ -10,7 +10,7 @@
              d:DesignWidth="800"
              Background="AliceBlue">
 
-    <Grid>
+    <Grid Visibility="{Binding SelectedContact, Converter={StaticResource SelectedContactConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -28,10 +28,15 @@
             <StackPanel Grid.Column="0" HorizontalAlignment="Left" Margin="5">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel HorizontalAlignment="Center">
-                        <Label Content="{Binding SelectedContact.Name,FallbackValue=NULL}"
-                               HorizontalAlignment="Center"
-                               FontSize="24"/>
-                        <TextBox Text="{Binding SelectedContact.Name, FallbackValue=NULL, Mode=TwoWay}"/>
+                        <TextBox 
+                            Text="{Binding SelectedContact.Name, FallbackValue=NULL, Mode=TwoWay}"
+                            Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
+                        
+                        <Label
+                            Content="{Binding SelectedContact.Name,FallbackValue=NULL}"
+                            Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"
+                            HorizontalAlignment="Center"
+                            FontSize="24"/>
                     </StackPanel>
 
                     <CheckBox Style="{StaticResource favoriteCheckbox}"
@@ -51,6 +56,8 @@
                                      TargetNullValue={StaticResource DefaultContactImage}}"/>
 
                         <Button 
+                            Command="{Binding BrowseImageCommand}"
+                            Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"
                             Grid.Column="2"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Right"
@@ -71,7 +78,10 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Orientation="Horizontal">
-                <Button Height="40" Margin="5" Background="#FF14735F" Cursor="Hand">
+                <Button 
+                    Command="{Binding SaveCommand}"
+                    Height="40" Margin="5" 
+                    Background="#FF14735F" Cursor="Hand">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                             <mi:MaterialIcon Kind="ContentSave"/>
@@ -100,12 +110,20 @@
                 <StackPanel>
                     <Label FontWeight="Bold" FontSize="12" Padding="1" Foreground="#FF778CA3" Content="Домашний"/>
                     <Label FontWeight="DemiBold" FontSize="14" Padding="1" Foreground="#FF131313"
-                           Content="{Binding SelectedContact.PhoneNumbers[0], FallbackValue=NULL}"/>
+                           Content="{Binding SelectedContact.PhoneNumbers[0], FallbackValue=NULL}"
+                           Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"/>
+                    <TextBox 
+                        Style="{StaticResource EditBox}" Text="{Binding SelectedContact.PhoneNumbers[0], FallbackValue=N/A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
 
                     <Label FontWeight="Bold" FontSize="12" Padding="1" Foreground="#FF778CA3" Content="Рабочий"/>
                     <Label FontWeight="DemiBold" FontSize="14" Padding="1" Foreground="#FF131313"
-                           Content="{Binding SelectedContact.PhoneNumbers[1], FallbackValue=NULL}"/>
-                    
+                           Content="{Binding SelectedContact.PhoneNumbers[1], FallbackValue=NULL}"
+                           Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"/>
+                    <TextBox 
+                        Style="{StaticResource EditBox}"  Text="{Binding SelectedContact.PhoneNumbers[1], FallbackValue=N/A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
+
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -127,11 +145,19 @@
                 <StackPanel>
                     <Label FontWeight="Bold" FontSize="12" Padding="1" Foreground="#FF778CA3" Content="Личный"/>
                     <Label FontWeight="DemiBold" FontSize="14" Padding="1" Foreground="#FF131313"
-                          Content="{Binding SelectedContact.Emails[0], FallbackValue=NULL}"/>
+                           Content="{Binding SelectedContact.Emails[0], FallbackValue=NULL}"
+                           Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"/>
+                    <TextBox 
+                        Style="{StaticResource EditBox}"  Text="{Binding SelectedContact.Emails[0], FallbackValue=N/A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
 
                     <Label FontWeight="Bold" FontSize="12" Padding="1" Foreground="#FF778CA3" Content="Рабочий"/>
                     <Label FontWeight="DemiBold" FontSize="14" Padding="1" Foreground="#FF131313"
-                          Content="{Binding SelectedContact.Emails[1], FallbackValue=NULL}"/>
+                           Content="{Binding SelectedContact.Emails[1], FallbackValue=NULL}"
+                           Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"/>
+                    <TextBox 
+                        Style="{StaticResource EditBox}"  Text="{Binding SelectedContact.Emails[1], FallbackValue=N/A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
 
                 </StackPanel>
             </StackPanel>
@@ -154,11 +180,19 @@
                 <StackPanel>
                     <Label FontWeight="Bold" FontSize="12" Padding="1" Foreground="#FF778CA3" Content="Личный"/>
                     <Label FontWeight="DemiBold" FontSize="14" Padding="1" Foreground="#FF131313"
-                          Content="{Binding SelectedContact.Locations[0], FallbackValue=NULL}"/>
+                           Content="{Binding SelectedContact.Locations[0], FallbackValue=NULL}"
+                           Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"/>
+                    <TextBox 
+                        Style="{StaticResource EditBox}"  Text="{Binding SelectedContact.Locations[0], FallbackValue=N/A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
 
                     <Label FontWeight="Bold" FontSize="12" Padding="1" Foreground="#FF778CA3" Content="Рабочий"/>
                     <Label FontWeight="DemiBold" FontSize="14" Padding="1" Foreground="#FF131313"
-                          Content="{Binding SelectedContact.Locations[1], FallbackValue=NULL}"/>
+                           Content="{Binding SelectedContact.Locations[1], FallbackValue=NULL}"
+                           Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"/>
+                    <TextBox 
+                        Style="{StaticResource EditBox}"  Text="{Binding SelectedContact.Locations[1], FallbackValue=N/A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
 
                 </StackPanel>
             </StackPanel>
