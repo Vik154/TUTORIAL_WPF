@@ -43,7 +43,7 @@ public class MainViewModel : ObservableObject {
     public MainViewModel() {
         var dataService = new MockDataService();
 
-        BookViewModel = new BookViewModel(dataService);
+        BookViewModel = new BookViewModel(dataService, new WindowDialogService());
         CurrentView = BookViewModel;
     }
 

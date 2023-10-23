@@ -11,6 +11,8 @@ public class BookViewModel : ObservableObject {
     /// <summary> Сервис хранения контактов </summary>
     private IContactDataService _contactDataService;
 
+    /// <summary> Сервис диалоговых окон WinApi </summary>
+    private IDialogService _dialogService;
 
     #endregion
 
@@ -44,9 +46,10 @@ public class BookViewModel : ObservableObject {
     #endregion
 
     #region КОНСТРУКТОРЫ
-    public BookViewModel(IContactDataService dataService) {
-        ContactsViewModel = new ContactsViewModel(dataService);
+    public BookViewModel(IContactDataService dataService, IDialogService dialogService) {
+        ContactsViewModel = new ContactsViewModel(dataService, dialogService);
         _contactDataService = dataService;
+        _dialogService = dialogService;
 
         LoadContactsCommand = new RelayCommand(LoadContacts);
         LoadFavoritesContactsCommand = new RelayCommand(LoadFavorites);
