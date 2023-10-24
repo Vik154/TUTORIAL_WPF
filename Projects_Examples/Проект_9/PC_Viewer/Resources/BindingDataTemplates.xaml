@@ -38,4 +38,9 @@
         <v:PCView/>
     </DataTemplate>
 
+    <!--Picture Page-->
+    <DataTemplate DataType="{x:Type vm:PictureViewModel}">
+        <v:PictureView/>
+    </DataTemplate>
+
 </ResourceDictionary>
