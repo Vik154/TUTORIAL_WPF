@@ -20,6 +20,7 @@ public class NavigationViewModel : BaseViewModel {
     private readonly MusicViewModel    _musicViewModel    = new();
     private readonly PCViewModel       _pcViewModel       = new();
     private readonly PictureViewModel  _pictureViewModel  = new();
+    private readonly TrashViewModel    _trashViewModel    = new();
 
     /// <summary> Позволяет отделять исходную коллекцию от представления и манипулировать ею 
     /// без изменения фактической коллекции. Другими словами позволяет привязывать 
@@ -135,12 +136,8 @@ public class NavigationViewModel : BaseViewModel {
             case "Видео":        SelectedViewModel = _movieViewModel;       break;
             case "Музыка":       SelectedViewModel = _musicViewModel;       break;
             case "Изображения":  SelectedViewModel = _pictureViewModel;     break;
-            //case "Trash":
-            //    SelectedViewModel = new TrashViewModel();
-            //    break;
-            default:
-                SelectedViewModel = _homeViewModel;
-                break;
+            case "Корзина":      SelectedViewModel = _trashViewModel;       break;
+            default:             SelectedViewModel = _homeViewModel;        break;
         }
     }
     #endregion

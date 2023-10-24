@@ -680,7 +680,7 @@
 
 
     <Style x:Key="MovieButtonStyle"
-           TargetType="RadioButton">      
+           TargetType="RadioButton">
 
         <Setter Property="Template">
             <Setter.Value>
@@ -718,7 +718,7 @@
                                    FontSize="14"
                                    FontFamily="Fonts/Roboto-Regular.ttf #Roboto Regular"
                                    Margin="0,0,0,10" />
-                     
+
                     </Grid>
 
 
@@ -754,7 +754,7 @@
 
                             <Setter Property="BorderThickness"
                                     TargetName="border"
-                                    Value="3" />                         
+                                    Value="3" />
 
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -762,10 +762,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-
-
-
-
-
 </ResourceDictionary>

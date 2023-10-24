@@ -43,4 +43,9 @@
         <v:PictureView/>
     </DataTemplate>
 
+    <!--Trash Page-->
+    <DataTemplate DataType="{x:Type vm:TrashViewModel}">
+        <v:TrashView/>
+    </DataTemplate>
+
 </ResourceDictionary>
