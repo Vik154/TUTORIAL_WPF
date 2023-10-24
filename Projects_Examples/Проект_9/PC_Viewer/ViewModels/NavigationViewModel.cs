@@ -18,6 +18,7 @@ public class NavigationViewModel : BaseViewModel {
     private readonly DownloadViewModel _downloadViewModel = new();
     private readonly MovieViewModel    _movieViewModel    = new();
     private readonly MusicViewModel    _musicViewModel    = new();
+    private readonly PCViewModel       _pcViewModel       = new();
 
     /// <summary> Позволяет отделять исходную коллекцию от представления и манипулировать ею 
     /// без изменения фактической коллекции. Другими словами позволяет привязывать 
@@ -95,9 +96,7 @@ public class NavigationViewModel : BaseViewModel {
     #region МЕТОДЫ
 
     /// <summary> Выбрать ПК модель - представление </summary>
-    public void PCView() {
-        // SelectedViewModel = new PCViewModel();
-    }
+    public void PCView() => SelectedViewModel = _pcViewModel;
 
     /// <summary> Выбрать домашнюю модель - представление </summary>
     private void ShowHome() => SelectedViewModel = _homeViewModel;

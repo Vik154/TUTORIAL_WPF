@@ -33,4 +33,9 @@
         <v:MusicView/>
     </DataTemplate>
 
+    <!--PC Page-->
+    <DataTemplate DataType="{x:Type vm:PCViewModel}">
+        <v:PCView/>
+    </DataTemplate>
+
 </ResourceDictionary>
