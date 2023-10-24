@@ -11,6 +11,11 @@ namespace PC_Viewer.ViewModels;
 /// <summary> Навигация по моделям </summary>
 public class NavigationViewModel : BaseViewModel {
 
+    #region ПОЛЯ
+    private readonly DesktopViewModel _desktopViewModel = new();
+    private readonly HomeViewModel _homeViewModel = new();
+
+
     /// <summary> Позволяет отделять исходную коллекцию от представления и манипулировать ею 
     /// без изменения фактической коллекции. Другими словами позволяет привязывать 
     /// одну и ту же коллекцию источников к нескольким представлениям </summary>
@@ -20,7 +25,9 @@ public class NavigationViewModel : BaseViewModel {
     /// для заданного источника данных (data source).  Это значит, что создается связь между источником 
     /// данных и его представлением и любое изменение в источнике данных будет отображено в его представлении.
     public ICollectionView SourceCollection => _menuItemsCollection.View;
+    #endregion
 
+    #region СВОЙСТВА
     /// <summary> Фильтр текстового поиска </summary>
     private string filterText;
 
@@ -41,88 +48,64 @@ public class NavigationViewModel : BaseViewModel {
         get => _selectedViewModel;
         set { OnPropertyChanged(ref _selectedViewModel, value); }
     }
+    #endregion
 
-
-    /// <summary> Команда для кнопки "меню" </summary>
-    private ICommand _menucommand;
-
+    #region КОМАНДЫ
     /// <summary> Команда для кнопки "меню" </summary>
     public ICommand MenuCommand => _menucommand is null ? new RelayCommand(p => SwitchViews(p)) : _menucommand;
+    private ICommand _menucommand;
 
+    /// <summary> Команда для кнопки "текущая модель-пред. для PC" </summary>
+    public ICommand ThisPCCommand => _pccommand is null ? new RelayCommand(p => PCView()) : _pccommand;
+    private ICommand _pccommand;
 
-    // Show PC View
+    /// <summary> Команда для кнопки "вернуться назад" </summary>
+    public ICommand BackHomeCommand => _backHomeCommand is null ? new RelayCommand(p => ShowHome()) : _backHomeCommand;
+    private ICommand _backHomeCommand;
+
+    /// <summary> Команда для кнопки "закрыть" </summary>
+    public ICommand CloseAppCommand => _closeCommand is null ? new RelayCommand(p => CloseApp(p)) : _closeCommand;
+    private ICommand _closeCommand;
+
+    #endregion
+
+    #region КОНСТРУКТОРЫ
+    public NavigationViewModel() {
+
+        ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems> {
+                new MenuItems { MenuName = "Главная",      MenuImage = @"../Assets/Home_Icon.png" },
+                new MenuItems { MenuName = "Рабочий стол", MenuImage = @"../Assets/Desktop_Icon.png" },
+                new MenuItems { MenuName = "Документы",    MenuImage = @"../Assets/Document_Icon.png" },
+                new MenuItems { MenuName = "Загрузки",     MenuImage = @"../Assets/Download_Icon.png" },
+                new MenuItems { MenuName = "Изображения",  MenuImage = @"../Assets/Images_Icon.png" },
+                new MenuItems { MenuName = "Музыка",       MenuImage = @"../Assets/Music_Icon.png" },
+                new MenuItems { MenuName = "Видео",        MenuImage = @"../Assets/Movies_Icon.png" },
+                new MenuItems { MenuName = "Корзина",      MenuImage = @"../Assets/Trash_Icon.png" }
+        };
+        _menuItemsCollection = new CollectionViewSource { Source = menuItems };
+        _menuItemsCollection.Filter += MenuItems_Filter;
+        SelectedViewModel = _homeViewModel;
+    }
+
+    #endregion
+
+    #region МЕТОДЫ
+
+    /// <summary> Выбрать ПК модель - представление </summary>
     public void PCView() {
         // SelectedViewModel = new PCViewModel();
     }
 
-    // This PC button Command
-    private ICommand _pccommand;
-    public ICommand ThisPCCommand {
-        get {
-            if (_pccommand == null) {
-                _pccommand = new RelayCommand(param => PCView());
-            }
-            return _pccommand;
-        }
-    }
+    /// <summary> Выбрать домашнюю модель - представление </summary>
+    private void ShowHome() => SelectedViewModel = _homeViewModel;
 
-    // Show Home View
-    private void ShowHome() {
-        SelectedViewModel = new HomeViewModel();
-    }
-
-    // Back button Command
-    private ICommand _backHomeCommand;
-    public ICommand BackHomeCommand {
-        get {
-            if (_backHomeCommand == null) {
-                _backHomeCommand = new RelayCommand(p => ShowHome());
-            }
-            return _backHomeCommand;
-        }
-    }
-
-    // Close App
+    /// <summary> Метод закрытия окна </summary>
     public void CloseApp(object obj) {
         MainWindow? win = obj as MainWindow;
         win?.Close();
     }
 
-    // Close App Command
-    private ICommand _closeCommand;
-    public ICommand CloseAppCommand {
-        get {
-            if (_closeCommand == null) {
-                _closeCommand = new RelayCommand(p => CloseApp(p));
-            }
-            return _closeCommand;
-        }
-    }
-
-
-
-
-
-    public NavigationViewModel() {
-
-        ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems> {
-                new MenuItems { MenuName = "Главная", MenuImage = @"../Assets/Home_Icon.png" },
-                new MenuItems { MenuName = "Рабочий стол", MenuImage = @"../Assets/Desktop_Icon.png" },
-                new MenuItems { MenuName = "Документы", MenuImage = @"../Assets/Document_Icon.png" },
-                new MenuItems { MenuName = "Загрузки", MenuImage = @"../Assets/Download_Icon.png" },
-                new MenuItems { MenuName = "Изображения", MenuImage = @"../Assets/Images_Icon.png" },
-                new MenuItems { MenuName = "Музыка", MenuImage = @"../Assets/Music_Icon.png" },
-                new MenuItems { MenuName = "Видео", MenuImage = @"../Assets/Movies_Icon.png" },
-                new MenuItems { MenuName = "Корзина", MenuImage = @"../Assets/Trash_Icon.png" }
-            };
-
-        _menuItemsCollection = new CollectionViewSource { Source = menuItems };
-        _menuItemsCollection.Filter += MenuItems_Filter;
-
-        // Set Startup Page
-        SelectedViewModel = new DesktopViewModel();
-    }
-
+    /// <summary> Фильтр по имени элемента </summary>
     private void MenuItems_Filter(object sender, FilterEventArgs e) {
         if (string.IsNullOrEmpty(FilterText)) {
             e.Accepted = true;
@@ -138,14 +121,11 @@ public class NavigationViewModel : BaseViewModel {
         }
     }
 
+    /// <summary> Выбор модели - представления </summary>
     public void SwitchViews(object parameter) {
         switch (parameter) {
-            case "Home":
-                SelectedViewModel = new HomeViewModel();
-                break;
-            case "Desktop":
-                SelectedViewModel = new DesktopViewModel();
-                break;
+            case "Главная": SelectedViewModel = _homeViewModel; break;
+            case "Рабочий стол": SelectedViewModel = _desktopViewModel; break;
             //case "Documents":
             //    SelectedViewModel = new DocumentViewModel();
             //    break;
@@ -165,8 +145,9 @@ public class NavigationViewModel : BaseViewModel {
             //    SelectedViewModel = new TrashViewModel();
             //    break;
             default:
-                SelectedViewModel = new HomeViewModel();
+                SelectedViewModel = _homeViewModel;
                 break;
         }
     }
+    #endregion
 }

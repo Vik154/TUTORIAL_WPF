@@ -91,8 +91,7 @@
                                     Content="{Binding MenuName}"
                                     Tag="{Binding MenuImage}" 
                                     CommandParameter="{Binding MenuName}"
-                                    Command="{Binding RelativeSource={RelativeSource FindAncestor, 
-                                                                      AncestorType={x:Type ItemsControl}}, 
+                                    Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, 
                                                       Path=DataContext.MenuCommand}"
                                     Style="{StaticResource MenuButtonStyle}"                                                                                                                
                                     GroupName="MenuGroup"/>
