@@ -17,6 +17,7 @@ public class NavigationViewModel : BaseViewModel {
     private readonly DocumentViewModel _documentViewModel = new();
     private readonly DownloadViewModel _downloadViewModel = new();
     private readonly MovieViewModel    _movieViewModel    = new();
+    private readonly MusicViewModel    _musicViewModel    = new();
 
     /// <summary> Позволяет отделять исходную коллекцию от представления и манипулировать ею 
     /// без изменения фактической коллекции. Другими словами позволяет привязывать 
@@ -132,11 +133,9 @@ public class NavigationViewModel : BaseViewModel {
             case "Документы":    SelectedViewModel = _documentViewModel;    break;
             case "Загрузки":     SelectedViewModel = _downloadViewModel;    break;
             case "Видео":        SelectedViewModel = _movieViewModel;       break;
+            case "Музыка":       SelectedViewModel = _musicViewModel;       break;
             //case "Pictures":
             //    SelectedViewModel = new PictureViewModel();
-            //    break;
-            //case "Music":
-            //    SelectedViewModel = new MusicViewModel();
             //    break;
             //case "Trash":
             //    SelectedViewModel = new TrashViewModel();

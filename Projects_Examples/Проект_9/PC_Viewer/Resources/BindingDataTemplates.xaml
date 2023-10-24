@@ -28,4 +28,9 @@
         <v:MovieView/>
     </DataTemplate>
 
+    <!--Music Page-->
+    <DataTemplate DataType="{x:Type vm:MusicViewModel}">
+        <v:MusicView/>
+    </DataTemplate>
+
 </ResourceDictionary>
