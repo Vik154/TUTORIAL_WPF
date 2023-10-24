@@ -17,5 +17,10 @@
     <DataTemplate DataType="{x:Type vm:DocumentViewModel}">
         <v:DocumentView/>
     </DataTemplate>
-    
+
+    <!--Download Page-->
+    <DataTemplate DataType="{x:Type vm:DownloadViewModel}">
+        <v:DownloadView/>
+    </DataTemplate>
+
 </ResourceDictionary>

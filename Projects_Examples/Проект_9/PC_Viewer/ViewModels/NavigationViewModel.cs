@@ -12,9 +12,10 @@ namespace PC_Viewer.ViewModels;
 public class NavigationViewModel : BaseViewModel {
 
     #region ПОЛЯ
-    private readonly DesktopViewModel _desktopViewModel = new();
-    private readonly HomeViewModel _homeViewModel = new();
+    private readonly DesktopViewModel  _desktopViewModel  = new();
+    private readonly HomeViewModel     _homeViewModel     = new();
     private readonly DocumentViewModel _documentViewModel = new();
+    private readonly DownloadViewModel _downloadViewModel = new();
 
 
     /// <summary> Позволяет отделять исходную коллекцию от представления и манипулировать ею 
@@ -129,9 +130,7 @@ public class NavigationViewModel : BaseViewModel {
             case "Главная":      SelectedViewModel = _homeViewModel;        break;
             case "Рабочий стол": SelectedViewModel = _desktopViewModel;     break;
             case "Документы":    SelectedViewModel = _documentViewModel;    break;
-            //case "Downloads":
-            //    SelectedViewModel = new DownloadViewModel();
-            //    break;
+            case "Загрузки":     SelectedViewModel = _downloadViewModel;    break;
             //case "Pictures":
             //    SelectedViewModel = new PictureViewModel();
             //    break;
