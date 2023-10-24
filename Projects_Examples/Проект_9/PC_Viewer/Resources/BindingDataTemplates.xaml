@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:PC_Viewer.ViewModels"
+                    xmlns:v="clr-namespace:PC_Viewer.Views">
+
+    <!--Desktop Page-->
+    <DataTemplate DataType="{x:Type vm:DesktopViewModel}">
+        <v:DesktopView/>
+    </DataTemplate>
+
+    <!--Home Page-->
+    <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+        <v:HomeView/>
+    </DataTemplate>
+
+</ResourceDictionary>

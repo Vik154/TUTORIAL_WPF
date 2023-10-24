@@ -1,8 +1,10 @@
 ﻿using PC_Viewer.Core;
 using PC_Viewer.Models;
+using PC_Viewer.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace PC_Viewer.ViewModels;
 
@@ -41,6 +43,65 @@ public class NavigationViewModel : BaseViewModel {
     }
 
 
+    /// <summary> Команда для кнопки "меню" </summary>
+    private ICommand _menucommand;
+
+    /// <summary> Команда для кнопки "меню" </summary>
+    public ICommand MenuCommand => _menucommand is null ? new RelayCommand(p => SwitchViews(p)) : _menucommand;
+
+
+    // Show PC View
+    public void PCView() {
+        // SelectedViewModel = new PCViewModel();
+    }
+
+    // This PC button Command
+    private ICommand _pccommand;
+    public ICommand ThisPCCommand {
+        get {
+            if (_pccommand == null) {
+                _pccommand = new RelayCommand(param => PCView());
+            }
+            return _pccommand;
+        }
+    }
+
+    // Show Home View
+    private void ShowHome() {
+        SelectedViewModel = new HomeViewModel();
+    }
+
+    // Back button Command
+    private ICommand _backHomeCommand;
+    public ICommand BackHomeCommand {
+        get {
+            if (_backHomeCommand == null) {
+                _backHomeCommand = new RelayCommand(p => ShowHome());
+            }
+            return _backHomeCommand;
+        }
+    }
+
+    // Close App
+    public void CloseApp(object obj) {
+        MainWindow? win = obj as MainWindow;
+        win?.Close();
+    }
+
+    // Close App Command
+    private ICommand _closeCommand;
+    public ICommand CloseAppCommand {
+        get {
+            if (_closeCommand == null) {
+                _closeCommand = new RelayCommand(p => CloseApp(p));
+            }
+            return _closeCommand;
+        }
+    }
+
+
+
+
 
     public NavigationViewModel() {
 
@@ -59,7 +120,7 @@ public class NavigationViewModel : BaseViewModel {
         _menuItemsCollection.Filter += MenuItems_Filter;
 
         // Set Startup Page
-        // SelectedViewModel = new StartupViewModel();
+        SelectedViewModel = new DesktopViewModel();
     }
 
     private void MenuItems_Filter(object sender, FilterEventArgs e) {
@@ -77,35 +138,35 @@ public class NavigationViewModel : BaseViewModel {
         }
     }
 
-    //public void SwitchViews(object parameter) {
-    //    switch (parameter) {
-    //        case "Home":
-    //            SelectedViewModel = new HomeViewModel();
-    //            break;
-    //        case "Desktop":
-    //            SelectedViewModel = new DesktopViewModel();
-    //            break;
-    //        case "Documents":
-    //            SelectedViewModel = new DocumentViewModel();
-    //            break;
-    //        case "Downloads":
-    //            SelectedViewModel = new DownloadViewModel();
-    //            break;
-    //        case "Pictures":
-    //            SelectedViewModel = new PictureViewModel();
-    //            break;
-    //        case "Music":
-    //            SelectedViewModel = new MusicViewModel();
-    //            break;
-    //        case "Movies":
-    //            SelectedViewModel = new MovieViewModel();
-    //            break;
-    //        case "Trash":
-    //            SelectedViewModel = new TrashViewModel();
-    //            break;
-    //        default:
-    //            SelectedViewModel = new HomeViewModel();
-    //            break;
-    //    }
-    //}
+    public void SwitchViews(object parameter) {
+        switch (parameter) {
+            case "Home":
+                SelectedViewModel = new HomeViewModel();
+                break;
+            case "Desktop":
+                SelectedViewModel = new DesktopViewModel();
+                break;
+            //case "Documents":
+            //    SelectedViewModel = new DocumentViewModel();
+            //    break;
+            //case "Downloads":
+            //    SelectedViewModel = new DownloadViewModel();
+            //    break;
+            //case "Pictures":
+            //    SelectedViewModel = new PictureViewModel();
+            //    break;
+            //case "Music":
+            //    SelectedViewModel = new MusicViewModel();
+            //    break;
+            //case "Movies":
+            //    SelectedViewModel = new MovieViewModel();
+            //    break;
+            //case "Trash":
+            //    SelectedViewModel = new TrashViewModel();
+            //    break;
+            default:
+                SelectedViewModel = new HomeViewModel();
+                break;
+        }
+    }
 }

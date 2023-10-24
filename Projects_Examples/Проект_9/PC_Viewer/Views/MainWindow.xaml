@@ -100,9 +100,28 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+            </Grid>
+           
+            <!--Page Container-->
+            <Grid Grid.Row="2"
+                  Grid.Column="3"
+                  Grid.RowSpan="2"
+                  Background="Transparent">
+
+                <ContentControl x:Name="Pages"
+                                Content="{Binding SelectedViewModel}"/>
 
             </Grid>
         </Grid>
-
+        
+        <!--Close Button-->
+        <Button Height="50"
+                Width="50"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Command="{Binding CloseAppCommand}"
+                CommandParameter="{Binding ElementName=DashboardWindow}"
+                Margin="0,5,20,0"
+                Style="{StaticResource CloseBtn_Style}"/>
     </Grid>
 </Window>
