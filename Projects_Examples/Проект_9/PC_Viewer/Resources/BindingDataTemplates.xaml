@@ -23,4 +23,9 @@
         <v:DownloadView/>
     </DataTemplate>
 
+    <!--Movie Page-->
+    <DataTemplate DataType="{x:Type vm:MovieViewModel}">
+        <v:MovieView/>
+    </DataTemplate>
+
 </ResourceDictionary>
