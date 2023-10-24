@@ -28,8 +28,9 @@
      https://www.postman.com/
    + _Библиотека Майкрософт MVVM Toolkit (CommunityToolkit.Mvvm):_ <br>
       + Пакет: https://www.nuget.org/packages/CommunityToolkit.Mvvm/
-      + Документация GIT: https://github.com/MicrosoftDocs/CommunityToolkit/blob/main/docs/mvvm/index.md
-      + Документация MSDN: https://learn.microsoft.com/ru-ru/dotnet/communitytoolkit/mvvm/
+      + Док GIT: https://github.com/MicrosoftDocs/CommunityToolkit/blob/main/docs/mvvm/index.md
+      + Док GIT: https://github.com/CommunityToolkit/dotnet
+      + Док MSDN: https://learn.microsoft.com/ru-ru/dotnet/communitytoolkit/mvvm/
       + Примеры GIT: https://github.com/CommunityToolkit/MVVM-Samples/tree/master/samples
 
 ## Структура проекта:
