@@ -26,12 +26,12 @@
      https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn/related
    + _Тестирование API:_ <br>
      https://www.postman.com/
-   + _Библиотека Майкрософт MVVM Toolkit:_ <br>
+   + _Библиотека Майкрософт MVVM Toolkit (CommunityToolkit.Mvvm):_ <br>
       + Пакет: https://www.nuget.org/packages/CommunityToolkit.Mvvm/
       + Документация GIT: https://github.com/MicrosoftDocs/CommunityToolkit/blob/main/docs/mvvm/index.md
       + Документация MSDN: https://learn.microsoft.com/ru-ru/dotnet/communitytoolkit/mvvm/
       + Примеры GIT: https://github.com/CommunityToolkit/MVVM-Samples/tree/master/samples
-CommunityToolkit.Mvvm
+
 ## Структура проекта:
 <details>
    <summary><b><i>1. Основные элементы компоновки:</i></b></summary>
