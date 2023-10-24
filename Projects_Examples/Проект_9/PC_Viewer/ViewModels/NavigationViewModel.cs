@@ -14,6 +14,7 @@ public class NavigationViewModel : BaseViewModel {
     #region ПОЛЯ
     private readonly DesktopViewModel _desktopViewModel = new();
     private readonly HomeViewModel _homeViewModel = new();
+    private readonly DocumentViewModel _documentViewModel = new();
 
 
     /// <summary> Позволяет отделять исходную коллекцию от представления и манипулировать ею 
@@ -29,7 +30,7 @@ public class NavigationViewModel : BaseViewModel {
 
     #region СВОЙСТВА
     /// <summary> Фильтр текстового поиска </summary>
-    private string filterText;
+    private string filterText = "";
 
     /// <summary> Фильтр текстового поиска </summary>
     public string FilterText {
@@ -41,10 +42,10 @@ public class NavigationViewModel : BaseViewModel {
     }
 
     /// <summary> Текущая модель - представление </summary>
-    private object _selectedViewModel;
+    private object? _selectedViewModel;
 
     /// <summary> Текущая модель - представление </summary>
-    public object SelectedViewModel {
+    public object? SelectedViewModel {
         get => _selectedViewModel;
         set { OnPropertyChanged(ref _selectedViewModel, value); }
     }
@@ -53,19 +54,19 @@ public class NavigationViewModel : BaseViewModel {
     #region КОМАНДЫ
     /// <summary> Команда для кнопки "меню" </summary>
     public ICommand MenuCommand => _menucommand is null ? new RelayCommand(p => SwitchViews(p)) : _menucommand;
-    private ICommand _menucommand;
+    private ICommand? _menucommand;
 
     /// <summary> Команда для кнопки "текущая модель-пред. для PC" </summary>
     public ICommand ThisPCCommand => _pccommand is null ? new RelayCommand(p => PCView()) : _pccommand;
-    private ICommand _pccommand;
+    private ICommand? _pccommand;
 
     /// <summary> Команда для кнопки "вернуться назад" </summary>
     public ICommand BackHomeCommand => _backHomeCommand is null ? new RelayCommand(p => ShowHome()) : _backHomeCommand;
-    private ICommand _backHomeCommand;
+    private ICommand? _backHomeCommand;
 
     /// <summary> Команда для кнопки "закрыть" </summary>
     public ICommand CloseAppCommand => _closeCommand is null ? new RelayCommand(p => CloseApp(p)) : _closeCommand;
-    private ICommand _closeCommand;
+    private ICommand? _closeCommand;
 
     #endregion
 
@@ -113,6 +114,7 @@ public class NavigationViewModel : BaseViewModel {
         }
 
         MenuItems? _item = e.Item as MenuItems;
+        if (_item == null) { return; }
         if (_item.MenuName.ToUpper().Contains(FilterText.ToUpper())) {
             e.Accepted = true;
         }
@@ -124,11 +126,9 @@ public class NavigationViewModel : BaseViewModel {
     /// <summary> Выбор модели - представления </summary>
     public void SwitchViews(object parameter) {
         switch (parameter) {
-            case "Главная": SelectedViewModel = _homeViewModel; break;
-            case "Рабочий стол": SelectedViewModel = _desktopViewModel; break;
-            //case "Documents":
-            //    SelectedViewModel = new DocumentViewModel();
-            //    break;
+            case "Главная":      SelectedViewModel = _homeViewModel;        break;
+            case "Рабочий стол": SelectedViewModel = _desktopViewModel;     break;
+            case "Документы":    SelectedViewModel = _documentViewModel;    break;
             //case "Downloads":
             //    SelectedViewModel = new DownloadViewModel();
             //    break;

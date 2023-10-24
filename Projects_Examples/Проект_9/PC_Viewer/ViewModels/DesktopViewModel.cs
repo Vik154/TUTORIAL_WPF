@@ -49,6 +49,7 @@ public class DesktopViewModel : BaseViewModel {
         }
 
         DesktopItems? _item = e.Item as DesktopItems;
+        if (_item == null) { return; }
         if (_item.DesktopName.ToUpper().Contains(FilterText.ToUpper())) {
             e.Accepted = true;
         }

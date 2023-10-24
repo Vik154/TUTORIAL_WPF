@@ -13,4 +13,9 @@
         <v:HomeView/>
     </DataTemplate>
 
+    <!--Document Page-->
+    <DataTemplate DataType="{x:Type vm:DocumentViewModel}">
+        <v:DocumentView/>
+    </DataTemplate>
+    
 </ResourceDictionary>
