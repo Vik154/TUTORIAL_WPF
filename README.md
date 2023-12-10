@@ -1,22 +1,22 @@
 # Туториал по WPF
 ## Основные источники информации:
-1. :earth_asia: WEB:
+1. 🌏 WEB:
    + ___---------------Ru Tutorials:---------------___
-   + :speech_balloon: https://metanit.com/sharp/wpf/
-   + :speech_balloon: https://professorweb.ru/my/WPF/base_WPF/level1/info_WPF.php
-   + :speech_balloon: https://intuit.ru/studies/courses?page=1
-   + :speech_balloon: https://www.youtube.com/@Shmachilin
+   + 💬 https://metanit.com/sharp/wpf/
+   + 💬 https://professorweb.ru/my/WPF/base_WPF/level1/info_WPF.php
+   + 💬 https://intuit.ru/studies/courses?page=1
+   + 💬 https://www.youtube.com/@Shmachilin
    + ___---------------En Tutorials:---------------___
-   + :speech_balloon: https://www.youtube.com/@SingletonSean
-   + :speech_balloon: https://www.youtube.com/@CSharpDesignPro
-3. :notebook: Книги:
-   + :blue_book: Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
-   + :blue_book: Адам Натан "WPF 4. Подробное руководство." (*Книга понятная только её автору*)
-4. :page_with_curl: Документация:
-   + :sos: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netdesktop-7.0
-   + :sos: https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netframeworkdesktop-4.8
-   + :sos: https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
-   + :sos: https://learn.microsoft.com/ru-ru/windows/apps/desktop/
+   + 💬 https://www.youtube.com/@SingletonSean
+   + 💬 https://www.youtube.com/@CSharpDesignPro
+3. 📓 Книги:
+   + 📘 Мэтью Мак-Дональд "WPF в .NET 4.5 с примерами на C# 5.0 для профессионалов." (*Полезная*)
+   + 📘 Адам Натан "WPF 4. Подробное руководство." (*Книга понятная только её автору*)
+4. 📃 Документация:
+   + 🆘 https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netdesktop-7.0
+   + 🆘 https://learn.microsoft.com/ru-ru/dotnet/desktop/wpf/?view=netframeworkdesktop-4.8
+   + 🆘 https://learn.microsoft.com/ru-ru/search/?terms=wpf&skip=10
+   + 🆘 https://learn.microsoft.com/ru-ru/windows/apps/desktop/
    + :octocat: https://github.com/microsoft/WPF-Samples/tree/main
 5. Исходники стандартных библиотек (быстрый поиск в браузере)
    + https://source.dot.net/ онлайн браузер исходников .NET Core
@@ -86,7 +86,7 @@
    * *[Проект №4](Projects_Examples/Проект_4/) - "Курс по разработке на C# WPF" https://stepik.org/course/108281/promo* --> <br>
      _Разработка менеджера задач на WPF и ASP.NET Core (Если терпение железное)_
    * *[Проект №5](Projects_Examples/Проект_5/) - Работа с EF в контексте WPF и MVVM https://www.youtube.com/@RuslanShishmarev* --> <br>
-     _Работа с БД в контексте WPF (😷)_
+     _Работа с БД в контексте WPF_
    * *[Проект №6](Projects_Examples/Проект_6/) - По серии уроков "WPF MVVM Tutorial" https://www.youtube.com/@SingletonSean/playlists* --> <br>
      _Бронирование номеров отеля EF / WPF / MVVM_
    * *[Проект №7](Projects_Examples/Проект_7/) - По серии уроков "Full Stack WPF MVVM" https://www.youtube.com/@SingletonSean/playlists* --> <br>
@@ -97,5 +97,3 @@
      _Простой проводник в контексте WPF / MVVM с уклоном на UI_
    
 </details>
-
-
